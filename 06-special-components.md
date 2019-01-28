@@ -1,13 +1,13 @@
 ---
-title: Special elements
+title: Специальные элементы
 ---
 
-Svelte includes a handful of built-in elements with special behaviour.
+Svelte включает в себя несколько встроенных элементов с особыми возможностями.
 
 
 ### `<svelte:self>`
 
-Sometimes, a component needs to embed itself recursively — for example if you have a tree-like data structure. In Svelte, that's accomplished with the `<svelte:self>` tag:
+Бывают случаи, когда компонент должен рекурсивно встроить сам в себя - например, если вам нужно отобразить древовидную структуру данных. В Svelte это можно осуществить с помощью тега `<svelte:self>`:
 
 ```html
 <!-- { title: '<svelte:self> tags' } -->
@@ -15,7 +15,7 @@ Sometimes, a component needs to embed itself recursively — for example if you 
 	<p>{countdown}</p>
 	<svelte:self countdown="{countdown - 1}"/>
 {:else}
-	<p>liftoff!</p>
+	<p>Поехали!</p>
 {/if}
 ```
 
@@ -29,7 +29,7 @@ Sometimes, a component needs to embed itself recursively — for example if you 
 
 ### `<svelte:component>`
 
-If you don't know what kind of component to render until the app runs — in other words, it's driven by state (aka a dynamic component) — you can use `<svelte:component>`:
+Когда вы заранее не знаете, какой компонент необходимо отразить, пока приложение не запустится, вы можете использовать `<svelte: component>`. В этом случае рендеринг того или иного компонента будет задаваться через состояние данных, это называется - динамический компонент:
 
 ```html
 <!-- { title: '<svelte:component> tags' } -->
@@ -41,25 +41,25 @@ If you don't know what kind of component to render until the app runs — in ot
 </script>
 
 <input type=checkbox bind:checked={foo}> foo
-<svelte:component this="{foo ? Red : Blue}" name="thing"/>
+<svelte:component this="{foo ? Red : Blue}" name="штука"/>
 ```
 
 ```html
 <!--{ hidden: true, filename: 'Red.html' }-->
-<p style="color: red">Red {name}</p>
+<p style="color: red">Красная {name}</p>
 ```
 
 ```html
 <!--{ hidden: true, filename: 'Blue.html' }-->
-<p style="color: blue">Blue {name}</p>
+<p style="color: blue">Синяя {name}</p>
 ```
 
-The expression inside the `this="{...}"` can be any valid JavaScript expression.
+Выражение внутри тега `this="{...}"` может быть любым валидным JavaScript выражением.
 
 
 ### `<svelte:window>`
 
-The `<svelte:window>` tag gives you a convenient way to declaratively add event listeners to `window`. Event listeners are automatically removed when the component is destroyed.
+Тег `<svelte:window>` дает вам удобный способ добавлять прослушиватели событий в `window`, которые затем автоматически удаляются при уничтожении компонента.
 
 ```html
 <!-- { title: '<svelte:window> tags' } -->
@@ -79,13 +79,14 @@ The `<svelte:window>` tag gives you a convenient way to declaratively add event 
 </style>
 
 {#if key}
-	<p><kbd>{key === ' ' ? 'Space' : key}</kbd> (code {keyCode})</p>
+	<p><kbd>{key === ' ' ? 'Пробел' : key}</kbd> (код {keyCode})</p>
 {:else}
-	<p>click in this window and press any key</p>
+	<p>кликните в это окно и нажмите любую клавишу</p>
 {/if}
 ```
 
 You can also bind to certain values — so far `innerWidth`, `outerWidth`, `innerHeight`, `outerHeight`, `scrollX`, `scrollY` and `online`:
+Вы также можете привязаться к определенным значениям объекта `window`: `innerWidth`, `outerWidth`, `innerHeight`, `outerHeight`, `scrollX`, `scrollY` и `online`:
 
 ```html
 <!-- { title: '<svelte:window> bindings' } -->
@@ -110,26 +111,26 @@ You can also bind to certain values — so far `innerWidth`, `outerWidth`, `inne
 </style>
 
 <div class="background"></div>
-<p class="fixed">user has scrolled {y} pixels</p>
+<p class="fixed">пользователь прокрутил на {y} пикселей</p>
 ```
 
 
 ### `<svelte:body>`
 
-The `<svelte:body>` tag, just like `<svelte:window>`, gives you a convenient way to declaratively add event listeners to the `document.body` object. This is useful for listening to events that don't fire on `window`, such as `mouseenter` and `mouseleave`.
+Тег `<svelte:body>`, так же как `<svelte:window>`, дает вам удобный способ добавления прослушивателей событий к объекту `document.body`. Это полезно для прослушивания событий, которые не запускаются в `window`, таких как`mouseenter` и `mouseleave`.
 
 
 ### `<svelte:head>`
 
-If you're building an application with Svelte — particularly if you're using [Sapper](https://sapper.svelte.technology) — then it's likely you'll need to add some content to the `<head>` of your page, such as adding a `<title>` element.
+Когда вы создаете приложение с помощью Svelte (особенно с использованием [Sapper](https://sapper.svelte.technology)), вероятно, вам потребуется добавить некоторый контент в элемент `<head>` на вашей странице.
 
-You can do that with the `<svelte:head>` tag:
+Например, при помощи специального элемента `<svelte:head>` можно добавить элемент `<title>`:
 
 ```html
 <!-- { title: '<svelte:head> tags' } -->
 <svelte:head>
-	<title>{post.title} • My blog</title>
+	<title>{post.title} • Мой блог</title>
 </svelte:head>
 ```
 
-When [server rendering](guide#server-side-rendering), the `<head>` contents can be extracted separately to the rest of the markup.
+При [серверном рендеринге](guide#server-side-rendering), содержимое элемента `<head>` может быть извлечено отдельно от остальной части разметки.
