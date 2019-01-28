@@ -1,8 +1,8 @@
 ---
-title: Classes
+title: Классы
 ---
 
-Like any attribute, the `class` attribute can be set using regular JavaScript. Suppose we had an `active` class that we wanted to apply to an element when `isActive` is true — we could do it like this:
+Как и любой другой атрибут, `class` можно назначить с использованием обычного JavaScript выражения. Предположим, у нас есть класс `active`, который мы хотим применить к элементу, когда `isActive` имеет значение 'true':
 
 ```html
 <!-- { title: 'Dynamic classes using ternaries' } -->
@@ -16,14 +16,14 @@ Like any attribute, the `class` attribute can be set using regular JavaScript. S
 	}
 </style>
 
-<h1 class="{isActive ? 'active' : ''}">red if active</h1>
+<h1 class="{isActive ? 'active' : ''}">красный, если активировано</h1>
 
 <label>
-	<input type=checkbox bind:checked={isActive}> isActive
+	<input type=checkbox bind:checked={isActive}> активировать
 </label>
 ```
 
-That's a little verbose though, so the `class:` directive gives you a simpler way to achieve the same thing:
+Но этот пример довольно многословен, поэтому существует директива `class:`, которая предлагает наиболее простой способ сделать то же самое:
 
 ```html
 <!-- { title: 'Dynamic classes using directives' } -->
@@ -37,15 +37,15 @@ That's a little verbose though, so the `class:` directive gives you a simpler wa
 	}
 </style>
 
--<h1 class="{isActive ? 'active' : ''}">red if active</h1>
-+<h1 class:active={isActive}>red if active</h1>
+-<h1 class="{isActive ? 'active' : ''}">красный, если активировано</h1>
++<h1 class:active={isActive}>красный, если активировано</h1>
 
 <label>
-	<input type=checkbox bind:checked={isActive}> isActive
+	<input type=checkbox bind:checked={isActive}> активировать
 </label>
 ```
 
-As with any directive, you can use any JavaScript expression. If it's a variable name that matches the class name, you can use a shorthand:
+Как и в любой директиве, здесь можно использовать любое JavaScript выражение. Если имя переменной соответствует имени класса, вы можете использовать сокращение:
 
 ```html
 <!-- { title: 'Dynamic classes using directives' } -->
@@ -60,11 +60,11 @@ As with any directive, you can use any JavaScript expression. If it's a variable
 	}
 </style>
 
--<h1 class:active={isActive}>red if active</h1>
-+<h1 class:active>red if active</h1>
+-<h1 class:active={isActive}>красный, если активировано</h1>
++<h1 class:active>красный, если активировано</h1>
 
 <label>
--	<input type=checkbox bind:checked={isActive}> isActive
-+	<input type=checkbox bind:checked={active}> active
+-	<input type=checkbox bind:checked={isActive}> активировать
++	<input type=checkbox bind:checked={active}> активировать
 </label>
 ```
