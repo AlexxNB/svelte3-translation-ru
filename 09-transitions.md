@@ -1,9 +1,8 @@
 ---
-title: Transitions
+title: Переходы
 ---
 
-
-Transitions allow elements to enter and leave the DOM gracefully, rather than suddenly appearing and disappearing.
+Переходы позволяют элементам изящно отображаться и скрываться, а не просто появляться и исчезать.
 
 ```html
 <!-- { title: 'Transitions' } -->
@@ -15,11 +14,11 @@ Transitions allow elements to enter and leave the DOM gracefully, rather than su
 <input type=checkbox bind:checked={visible}> visible
 
 {#if visible}
-	<p transition:fade>fades in and out</p>
+	<p transition:fade>Плавно исчезаю и появляюсь</p>
 {/if}
 ```
 
-Transitions can have parameters — typically `delay` and `duration`, but often others, depending on the transition in question. For example, here's the `fly` transition:
+Переходы могут иметь параметры - обычно `delay(задержка)` and `duration(длительность)`, но у различных типов переходов бывают и другие. Например, для перехода `fly`:
 
 ```html
 <!-- { title: 'Transition with parameters' } -->
@@ -28,18 +27,17 @@ Transitions can have parameters — typically `delay` and `duration`, but often 
 	let visible = false;
 </script>
 
-<input type=checkbox bind:checked={visible}> visible
+<input type=checkbox bind:checked={visible}> показать
 
 {#if visible}
-	<p transition:fly="{{y: 200, duration: 1000}}">flies 200 pixels up, slowly</p>
+	<p transition:fly="{{y: 200, duration: 1000}}">медленно улетаю вверх на 200 пикселей</p>
 {/if}
 ```
 
 
-### In and out
+### Переходы появления и исчезновения
 
-An element can have separate `in` and `out` transitions:
-
+У элементов могут быть отличающиеся переходы появления `in` и исчезновения `out`:
 ```html
 <!-- { title: 'Transition in/out' } -->
 <script>
@@ -47,17 +45,17 @@ An element can have separate `in` and `out` transitions:
 	let visible = false;
 </script>
 
-<input type=checkbox bind:checked={visible}> visible
+<input type=checkbox bind:checked={visible}> показать
 
 {#if visible}
-	<p in:fly="{y: 50}" out:fade>flies up, fades out</p>
+	<p in:fly="{y: 50}" out:fade>прилетаю и растворяюсь</p>
 {/if}
 ```
 
 
-### Built-in transitions
+### Встроенные переходы
 
-Svelte comes with a handful of ready-to-use transitions:
+Svelte поставляется с несколькими готовыми переходами:
 
 ```html
 <!-- { repl: false } -->
@@ -72,17 +70,19 @@ Svelte comes with a handful of ready-to-use transitions:
 ```
 
 
-### Custom transitions
+### Пользовательские переходы
 
-You can also make your own. Transitions are simple functions that take a `node` and any provided `parameters` and return an object with the following properties:
+Вы можете создать свой собственный переход. На самом деле переходы - это простые функции, которые принимают `узел(node)` и любые предоставленные `параметры(parameters)` и возвращают объект со следующими свойствами:
 
-* `duration` — how long the transition takes in milliseconds
-* `delay` — milliseconds before the transition starts
-* `easing` — an [easing function](https://github.com/rollup/eases-jsnext)
-* `css` — a function that accepts an argument `t` between 0 and 1 and returns the styles that should be applied at that moment
-* `tick` — a function that will be called on every frame, with the same `t` argument, while the transition is in progress
+* `duration` — сколько времени занимает переход в миллисекундах
+* `delay` — миллисекунды до начала перехода
+* `easing` — [функция плавности](https://github.com/rollup/eases-jsnext)
+* `css` — функция, принимающая аргумент `t` между 0 и 1 и возвращает стили, которые должны быть применены в этот момент
+* `tick` — функция, которая будет вызываться в каждом кадре с одинаковым аргументом `t`, пока происходит переход
 
-Of these, `duration` is required, as is *either* `css` or `tick`. The rest are optional. Here's how the `fade` transition is implemented, for example:
+Из них обязательно необходимо вернуть `duration` и *хотя бы один* из `css` или `tick`. Остальные можно возвращать по желанию. 
+
+Вот, например, как реализован переход `fade`:
 
 ```html
 <!-- { title: 'Fade transition' } -->
@@ -100,11 +100,10 @@ Of these, `duration` is required, as is *either* `css` or `tick`. The rest are o
 	let visible = false;
 </script>
 
-<input type=checkbox bind:checked={visible}> visible
+<input type=checkbox bind:checked={visible}> показать
 
 {#if visible}
-	<p transition:fade>fades in and out</p>
+	<p transition:fade>Плавно появляюсь и исчезаю</p>
 {/if}
 ```
-
-> If the `css` option is used, Svelte will create a CSS animation that runs efficiently off the main thread. Therefore if you can achieve an effect using `css` rather than `tick`, you should.
+> При использовании опции `css`, Svelte создаст CSS-анимацию, которая запускается вне основного потока и работает более эффективно. Поэтому, при возможности, всегда используйте `css` вместо `tick`.
