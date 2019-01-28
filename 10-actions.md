@@ -1,18 +1,18 @@
 ---
-title: Actions
+title: Действия
 ---
 
 
-### Actions
+### Действия
 
-Actions let you decorate elements with additional functionality. Actions are functions which may return an object with lifecycle methods, `update` and `destroy`. The action will be called when its element is added to the DOM.
+Действия позволяют добавить элементам дополнительную функциональность. Они представляют собой функции, которые возвращают объект с методами жизненного цикла `update` и `destroy`, которая будет вызвана,когда соответствующий элемент будет добавлен в DOM.
 
-Use actions for things like:
+Обычно Действия используют для вещей такого рода:
 
-* tooltips
-* lazy loading images as the page is scrolled, e.g. `<img use:lazyload data-src='giant-photo.jpg'/>`
-* capturing link clicks for your client router
-* adding drag and drop
+* всплывающие подсказки
+* 'ленивая' загрузка изображений при скролле, например: `<img use:lazyload data-src='giant-photo.jpg'/>`
+* перхват кликов по ссылкам для вашего клиентского роутера
+* добавление перетаскивания элементов
 
 ```html
 <!-- { title: 'Actions' } -->
@@ -79,7 +79,7 @@ Use actions for things like:
 				const { language } = this.get();
 
 				this.set({
-					language: language === 'english' ? 'latin' : 'english'
+					language: language === 'russian' ? 'latin' : 'russian'
 				});
 			}
 		}
@@ -90,10 +90,10 @@ Use actions for things like:
 ```json
 /* { hidden: true } */
 {
-	language: "english",
+	language: "russian",
 	translations: {
-		english: {
-			tooltip: "Switch Languages",
+		russian: {
+			tooltip: "Переключить язык",
 		},
 		latin: {
 			tooltip: "Itchsway Anguageslay",
