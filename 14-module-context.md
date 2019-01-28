@@ -1,8 +1,8 @@
 ---
-title: Module context
+title: Контекст модуля
 ---
 
-So far, our `<script>` tags have been running in the context of a component *instance*. In other words, if you have two components like this...
+До сих пор наши теги `<script>` выполнялись в контексте *экземпляра* компонента. Т.е. предположим, у нас есть два экземпляра компонента `Counter`...
 
 ```html
 <!-- { title: 'Counter' } -->
@@ -22,30 +22,29 @@ So far, our `<script>` tags have been running in the context of a component *ins
 
 <button on:click="{() => count += 1}">+1</button>
 ```
+...каждый `Counter` имеет свою собственную переменную `count`. Код запускается по одному разу для каждого из экземпляров компонента.
 
-...each counter has its own `count` variable. The code runs once per instance.
-
-Occasionally, you want code to run once *per module* instead. For that, we use `context="module"`:
+Иногда, вместо этого, нужно, чтобы код запускался один раз для всего *модуля компонента*. В этом нам поможет атрибут `context="module"`:
 
 ```html
 <!-- { title: 'Module context' } -->
 <script context="module">
-	console.log(`this will run once`);
+	console.log(`это запустится единожды`);
 	const answer = 42;
 </script>
 
 <script>
-	console.log(`this will run once per instance`);
-	console.log(`we can 'see' module-level variables like ${answer}`);
+	console.log(`это запускается по разу для каждого экземпляра`);
+	console.log(`тут нам 'видны' переменные модуля, например ${answer}`);
 </script>
 ```
 
-> Don't worry about manually hoisting functions from instance context to module context to avoid creating multiple copies of them — Svelte will do that for you
+> Не стоит заниматься перемещением всех своих функций из контекста экземпляра в контекст модуля, чтобы предотвартить их дублирование в каждом экземпляре, ведь Svelte уже делает это за вас.
 
 
-### Module exports
+### Экспорты из модулей
 
-Any named exports from a `context="module"` script become part of the module's static exports. For example, to define a `preload` function for use with [Sapper](https://sapper.svelte.technology):
+Любой именованный экспорт из `<script context="module">` становится частью статического экспорта модуля. Например, чтобы определить функцию `preload` для использования с [Sapper](https://sapper.svelte.technology) можно сделать так:
 
 ```html
 <!-- { title: 'Module exports', repl: false } -->
@@ -64,4 +63,4 @@ Any named exports from a `context="module"` script become part of the module's s
 import BlogPost, { preload } from './BlogPost.html';
 ```
 
-You can only have named exports — no `export default` — because the component *is* the default export.
+Вы можете создавать только именованные экспорты. Использовать `export default` не получится, потому что сам компонент *уже является* экспортом по-умолчанию.
