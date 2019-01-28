@@ -1,41 +1,41 @@
 ---
-title: Bindings
+title: Привязки
 ---
 
 
-### Bindings
+### Привязки
 
-As we've seen, data can be passed down to elements and components with attributes and [props](guide#props). Occasionally, you need to get data back *up*; for that we use bindings.
+Как мы уже узнали, данные могут передаваться элементам и компонентам при помощи атрибутов и [свойств](guide#props). Но порой, нам нужно получить данные *обратно*. Для этого мы будем использовать привязки.
 
 
-#### Component bindings
+#### Привязки компонентов
 
-Component bindings keep values in sync between a parent and a child:
+Привязки компонентов синхронизируют значения между родителем и дочерним компонентом:
 
 ```html
 <!-- { repl: false } -->
 <Widget bind:childValue=parentValue/>
 ```
 
-Whenever `childValue` changes in the child component, `parentValue` will be updated in the parent component and vice versa.
+Когда `childValue` изменится в дочернем компоненте, `parentValue` будет обновлен в родительском. И наоборот.
 
-If the names are the same, you can shorten the declaration:
+Если имена значений одинаковые, можно сократить запись:
 
 ```html
 <!-- { repl: false } -->
 <Widget bind:value/>
 ```
 
-> Use component bindings judiciously. They can save you a lot of boilerplate, but will make it harder to reason about data flow within your application if you overuse them.
+> Используйте привязки компонентов разумно. Они могут сэкономить вам много лишнего, но при этом затруднят понимание потоков данных в вашем приложении.
 
 
-#### Element bindings
+#### Привязки элементов
 
-Element bindings make it easy to respond to user interactions:
+Привязки элементов позволяют легко реагировать на взаимодействиие с пользователем:
 
 ```html
 <!-- { title: 'Element bindings' } -->
-<h1>Hello {name}!</h1>
+<h1>Привет {name}!</h1>
 <input bind:value={name}>
 ```
 
@@ -46,39 +46,39 @@ Element bindings make it easy to respond to user interactions:
 }
 ```
 
-Some bindings are *one-way*, meaning that the values are read-only. Most are *two-way* — changing the data programmatically will update the DOM. The following bindings are available:
+Некоторые привязки *односторонние*, т.е. значения доступны только для чтения. Но большинство из них *двусторонние* -изменение данных из программным приведет к обновлению DOM. Доступны следующие привязки:
 
-| Name                                                            | Applies to                                   | Kind                 |
+| Имя                                                            | Применяется к                                   | Тип                 |
 |-----------------------------------------------------------------|----------------------------------------------|----------------------|
-| `value`                                                         | `<input>` `<textarea>` `<select>`            | <span>Two-way</span> |
-| `checked` `indeterminate`                                       | `<input type=checkbox>`                      | <span>Two-way</span> |
-| `group` (see note)                                              | `<input type=checkbox>` `<input type=radio>` | <span>Two-way</span> |
-| `currentTime` `paused` `played` `volume`                        | `<audio>` `<video>`                          | <span>Two-way</span> |
-| `buffered` `duration` `seekable`                                | `<audio>` `<video>`                          | <span>One-way</span> |
-| `offsetWidth` `offsetHeight` `clientWidth` `clientHeight`       | All block-level elements                     | <span>One-way</span> |
-| `scrollX` `scrollY`                                             | `<svelte:window>`                            | <span>Two-way</span> |
-| `online` `innerWidth` `innerHeight` `outerWidth` `outerHeight`  | `<svelte:window>`                            | <span>One-way</span> |
+| `value`                                                         | `<input>` `<textarea>` `<select>`            | <span>Двусторонняя</span> |
+| `checked` `indeterminate`                                       | `<input type=checkbox>`                      | <span>Двусторонняя</span> |
+| `group` (см.примечание)                                              | `<input type=checkbox>` `<input type=radio>` | <span>Двусторонняя</span> |
+| `currentTime` `paused` `played` `volume`                        | `<audio>` `<video>`                          | <span>Двусторонняя</span> |
+| `buffered` `duration` `seekable`                                | `<audio>` `<video>`                          | <span>Односторонняя</span> |
+| `offsetWidth` `offsetHeight` `clientWidth` `clientHeight`       | Все элементы типа block                | <span>Односторонняя</span> |
+| `scrollX` `scrollY`                                             | `<svelte:window>`                            | <span>Двусторонняя</span> |
+| `online` `innerWidth` `innerHeight` `outerWidth` `outerHeight`  | `<svelte:window>`                            | <span>Односторонняя</span> |
 
-> 'group' bindings allow you to capture the current value of a [set of radio inputs](repl?demo=binding-input-radio), or all the selected values of a [set of checkbox inputs](repl?demo=binding-input-checkbox-group).
+> Привязка 'group' позволяет узнать текущее значение [группы радиокнопок](repl?demo=binding-input-radio) или все выбранные значения в [наборе чекбоксов](repl?demo=binding-input-checkbox-group).
 
-Here is a complete example of using two way bindings with a form:
+Вот полный пример использования двухсторонних привязок с формой:
 
 ```html
 <!-- { title: 'Form bindings' } -->
 <form on:submit="handleSubmit(event)">
 	<input bind:value=name type=text>
-	<button type=submit>Say hello</button>
+	<button type=submit>Скажи привет</button>
 </form>
 
 <script>
 	export default {
 		methods: {
 			handleSubmit(event) {
-				// prevent the page from reloading
+				// предотвращаем перезагрузку страницы
 				event.preventDefault();
 
 				const { name } = this.get();
-				alert(`Hello ${name}!`);
+				alert(`Привет ${name}!`);
 			}
 		}
 	};
@@ -92,12 +92,12 @@ Here is a complete example of using two way bindings with a form:
 }
 ```
 
-> 'two way' bindings allow you to update a value in a nested property as seen in [this checkbox input example](repl?demo=binding-input-checkbox).
+> 'двусторонние' привязки позволяют вам обновлять значение во вложенном свойстве, как показано в [этом примере с чекбоксом](repl?demo=binding-input-checkbox)..
 
 
 ### bind:this
 
-There's a special binding that exists on all elements and components — `this`. It allows you to store a reference to a DOM node or component instance so that you can interact with it programmatically:
+Для всех элементов и компонентов существует специальная привязка - `this`. Она позволяет передать ссылку на текущий узел DOM или экземпляр компонента, чтобы вы смогли взаимодействовать с ним в программе:
 
 ```html
 <!-- { title: 'Refs' } -->
@@ -113,8 +113,8 @@ There's a special binding that exists on all elements and components — `this`.
 		const ctx = canvas.getContext('2d');
 		const renderer = createRenderer(canvas, ctx);
 
-		// stop updating the canvas when
-		// the component is destroyed
+		// перестать прерисовывать canvas когда
+		// компонент будет убран
 		return renderer.stop;
 	});
 </script>
