@@ -1,16 +1,16 @@
 ---
-title: Events
+title: События
 ---
 
-In most applications, you'll need to respond to the user's actions. In Svelte, this is done with the `on:[event]` directive.
+В большинстве приложений вам нужно будет реагировать на действия пользователя. В Svelte это делается с помощью директивы `on:[event]`.
 
-### Element events
+### События элемента
 
-When used on an element, `on:click={handler}` is equivalent to calling `element.addEventListener('click', handler)`. When the element is removed, Svelte calls `removeEventListener` automatically.
+Использование на элементе директивы `on:click={handler}` эквивалентно вызову `element.addEventListener('click', handler)`. Когда элемент удаляется, Svelte автоматически вызывает `removeEventListener`.
 
 ```html
 <!-- { title: 'Inline event handlers' } -->
-<p>Count: {count}</p>
+<p>Счетчик: {count}</p>
 <button on:click="{() => count += 1}">+1</button>
 ```
 
@@ -21,7 +21,7 @@ When used on an element, `on:click={handler}` is equivalent to calling `element.
 }
 ```
 
-For more complicated behaviours, you'll probably want to declare an event handler in your `<script>` block:
+Для более сложных действий вы, вероятно, захотите объявить обработчик события в блоке `<script>`:
 
 ```html
 <!-- { title: 'Event handlers' } -->
@@ -37,8 +37,8 @@ For more complicated behaviours, you'll probably want to declare an event handle
 	}
 </script>
 
-<p>Count: {count}</p>
-<button on:click={incrementOrDecrement}>update</button>
+<p>Счетчик: {count}</p>
+<button on:click={incrementOrDecrement}>обновить</button>
 ```
 
 ```json
@@ -49,16 +49,16 @@ For more complicated behaviours, you'll probably want to declare an event handle
 ```
 
 
-### Event handler modifiers
+### Модификаторы обработчиков событий
 
-While you can invoke methods like `event.stopPropagation` directly...
+Вы всегда можете вызвать методы вроде `event.stopPropagation` напрямую...
 
 ```html
 <!-- { repl: false } -->
 <div on:click="{e => e.stopPropagation()}">...</div>
 ```
 
-...it gets annoying if you want to combine that with some other behaviour:
+... но это становится неудобным, когда нужно совместить их с какими-то другими действиями:
 
 ```html
 <!-- { repl: false } -->
@@ -74,18 +74,17 @@ While you can invoke methods like `event.stopPropagation` directly...
 
 <div on:click={toggleFoo}>...</div>
 ```
-
-For that reason, Svelte lets you use *event modifiers*:
+Для таких случаев в Svelte можно использовать *модификаторы событий*:
 
 - [`preventDefault`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 - [`stopPropagation`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
-- [`passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
-- [`once`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — removes the listener after the first invocation
+- [`passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — улучшает производительность прокрутки при тач-событиях или при скролле колесиком мышки (Svelte добавит этот модификатор автоматически там, где это безопасно)
+- [`once`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — удаляет слушателя после первого вызова
 - [`capture`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameter)
 
-> `passive` and `once` are not implemented in `legacy` mode
+> `passive` и `once` не имплементированы в режиме `legacy`
 
-The example above can be achieved with modifiers — no need for a separate event handler:
+Для примера выше можно использовать сразу несколько модификаторов и при этом отпадет необходимость использовать отдельный обработчик событий:
 
 ```html
 <!-- { repl: false } -->
@@ -93,16 +92,16 @@ The example above can be achieved with modifiers — no need for a separate even
 ```
 
 
-### Component events
+### События компонентов
 
-Events are an excellent way for [nested components](guide#nested-components) to communicate with their parents. Let's revisit our earlier example, but turn it into a `<CategoryChooser>` component:
+События являются лучшим способом для общения [вложенных компонентов](guide#nested-components) со своими родителями. Давайте вернемся к нашему более раннему примеру и превратим его в компонент `<CategoryChooser>`:
 
 ```html
 <!-- { filename: 'CategoryChooser.html', repl: false } -->
-<p>Select a category:</p>
+<p>Выбрать категорию:</p>
 
 {#each categories as category}
-	<button on:click="fire('select', { category })">select {category}</button>
+	<button on:click="fire('select', { category })">Выбрать {category}</button>
 {/each}
 
 <script>
@@ -110,9 +109,9 @@ Events are an excellent way for [nested components](guide#nested-components) to 
 		data() {
 			return {
 				categories: [
-					'animal',
-					'vegetable',
-					'mineral'
+					'звери',
+					'овощи',
+					'камни'
 				]
 			}
 		}
@@ -120,7 +119,7 @@ Events are an excellent way for [nested components](guide#nested-components) to 
 </script>
 ```
 
-When the user clicks a button, the component will fire a `select` event, where the `event` object has a `category` property. Any component that nests `<CategoryChooser>` can listen for events like so:
+Когда пользователь нажимает одну из кнопок, компонент запускает событие `select`, где объект `event` имеет свойство `category` с соответствующим значением. Любой родительский компонент, который содержит в себе компонент `<CategoryChooser>`, может прослушивать его события следующим образом:
 
 ```html
 <!--{ title: 'Component events' }-->
@@ -136,7 +135,7 @@ When the user clicks a button, the component will fire a `select` event, where t
 
 		methods: {
 			playTwentyQuestions(category) {
-				alert(`ok! you chose ${category}`);
+				alert(`Отлично! Вы выбрали ${category}`);
 			}
 		}
 	};
@@ -145,10 +144,10 @@ When the user clicks a button, the component will fire a `select` event, where t
 
 ```html
 <!--{ filename: 'CategoryChooser.html', hidden: true }-->
-<p>Select a category:</p>
+<p>Выбрать категорию:</p>
 
 {#each categories as category}
-	<button on:click="fire('select', { category })">select {category}</button>
+	<button on:click="fire('select', { category })">Выбрать {category}</button>
 {/each}
 
 <script>
@@ -156,25 +155,24 @@ When the user clicks a button, the component will fire a `select` event, where t
 		data() {
 			return {
 				categories: [
-					'animal',
-					'vegetable',
-					'mineral'
+					'звери',
+					'овощи',
+					'камни'
 				]
 			}
 		}
 	};
 </script>
 ```
+Точно так же, как в обработчике события элемента `this` ссылается на сам элемент, в обработчике события компонента `this` ссылается на компонент, инициирующий данное событие.
 
-Just as `this` in an element's event handler refers to the element itself, in a component event handler `this` refers to the component firing the event.
-
-There is also a shorthand for listening for and re-firing an event unchanged.
+Можно использовать сокращеную запись для прослушивания события в компоненте и перезапуска в нем этого же события без изменений.
 
 ```html
 <!-- { repl: false } -->
-<!-- these are equivalent -->
+<!-- эти строки эквивалентны -->
 <Widget on:foo="fire('foo', event)"/>
 <Widget on:foo/>
 ```
 
-Since component events do not propagate as DOM events do, this can be used to pass events through intermediate components. This shorthand technique also applies to element events (`on:click` is equivalent to `on:click="fire('click', event)"`).
+Поскольку события компонентов не могут распространяться по вложенным компонентам так же, как события в DOM, то такой способ можно использовать для передачи событий через промежуточные компоненты к родительским. Такая же сокращенная запись применяется и к событиям обычных элементов (`on:click` эквивалентно `on:click="fire('click', event)"`).
