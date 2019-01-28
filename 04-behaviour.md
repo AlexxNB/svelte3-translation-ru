@@ -1,0 +1,128 @@
+---
+title: Поведение
+---
+Кроме ограничения области видимости стилей и шаблонов, компоненты также изолируют и свое *поведение*. Для этого нужно добавить в него элемент `<script>`:
+
+```html
+<!-- { title: 'Behaviours' } -->
+<script>
+	// поведение  описываем тут
+</script>
+
+<div>
+	<!-- шаблон создаем здесь -->
+</div>
+```
+
+
+### Внутреннее состояние
+
+Довольно часто нам требуется, чтобы в компоненте присутствовало, какое-то внутреннее состояние данных, которое бы не было доступно окружающему миру.
+
+
+```html
+<!-- { title: 'Internal state' } -->
+<script>
+	let count = 0;
+</script>
+
+<p>Счетчик: {count}</p>
+<button on:click="{() => count += 1}">+1</button>
+```
+
+
+### Внешние свойства
+
+On the other hand, for the component to form part of a system, it needs to expose certain values so that they can be set from outside. These are called *props*, and we use the `export` keyword to differentiate them from internal state:
+
+С другой стороны, чтобы компонент оставался частью целостной системы, он должен предоставлять возможность изменять определенные значения извне. Они называются *свойства*, и мы используем ключевое слово `export`, чтобы отличать их от даныых внутреннего состояния:
+
+```html
+<!-- { title: 'External properties' } -->
+<script>
+	export let count = 0;
+</script>
+
+<p>Счетчик: {count}</p>
+<button on:click="{() => count += 1}">+1</button>
+```
+
+> По сути, мы экспортируем некое *соглашение* по взаимодействию с внешним миром. В JavaScript ключевое слово `export` обычно означает кое-что другое, поэтому вас может удивить его подобное использование. Но вы быстро привыкните.
+
+Присвоение `= 0` устанавливает значение по-умолчанию для свойства `count`, в случае, если при использовании компонента оно не будет указано.
+
+```js
+const counter = new Counter({
+	target: document.body,
+	props: {
+		count: 99
+	}
+});
+
+counter.count; // 99
+counter.count += 1; // 100
+```
+
+Props declared with `const` or `function` are *read-only* — they cannot be set from outside. This allows you to, for example, attach custom methods to your component:
+Свойства, объявленные с помощью `const` или `function`, предназначены *только для чтения* - их нельзя передать извне. Например, так можно, добавить внешние методы в ваши компоненты:
+
+```js
+component.doSomethingFun();
+```
+
+
+### Хуки жизненного цикла
+
+There are four 'hooks' provided by Svelte for adding control logic — `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`. Import them directly from `svelte`:
+
+В Svelte имеется четыре 'хука' для отработки в момент различных шагов жизненного цикла компонента. добавления логики управления: `onMount`, `beforeUpdate`, `afterUpdate` и `onDestroy`. Просто импортируйте их в компонент прямо из `svelte`:
+
+```html
+<!-- { title: 'Lifecycle hooks' } -->
+<script>
+	import { onMount, beforeUpdate, afterUpdate, onDestroy } from 'svelte';
+
+	beforeUpdate(() => {
+		// эта функция вызывается каждый раз перед тем, 
+		// когда необходимо обновить компонент и 
+		// отразить новые данные
+		console.log(`beforeUpdate`);
+	});
+
+	afterUpdate(() => {
+		// вызывается всякий раз *после* обновления и
+		// отражения новых данных в компоненте. 
+		// если для каких-то действий требуется актуальную 
+		// структуру DOM(вроде измерения размера элемента), 
+		// выполните их здесь.
+		console.log(`afterUpdate`);
+	});
+
+	onMount(() => {
+		// этот хук срабатывает единожды, после того как
+		// функция `afterUpdate` запустится в первый раз,
+		// т.е. при самой первой отрисовке компнонента
+		console.log(`onMount`);
+
+		return () => {
+			// эта часть сработает, когда 
+			// компонент будет убран
+			console.log(`onMount cleanup`);
+		};
+	});
+
+	onDestroy(() => {
+		// эта функция сработает, когда 
+		// компонент будет убран
+		console.log(`onDestroy`);
+	});
+
+	let count = 0;
+</script>
+
+<button on:click="{() => count += 1}">
+	Вызывано обновлений: ({count})
+</button>
+```
+
+Хуки жизненного цикла *не вызываются* в режиме рендеринга на стороне сервера (SSR), за исключением `onDestroy`. Подробнее о SSR мы поговорим немного позже.
