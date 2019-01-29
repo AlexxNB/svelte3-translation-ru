@@ -1,36 +1,37 @@
 ---
-title: Server-side rendering
+title: Рендеринг на стороне сервера (SSR)
 ---
 
-So far, we've discussed creating Svelte components *on the client*, which is to say the browser. But you can also render Svelte components in Node.js. This can result in better perceived performance as it means the application starts rendering while the page is still downloading, before any JavaScript executes. It also has SEO advantages in some cases, and can be beneficial for people running older browsers that can't or won't run your JavaScript for whatever reason.
+
+До сих пор мы обсуждали создание компонентов Svelte *на стороне клиента*, то есть в браузере. Но вы также можете рендерить компоненты Svelte в Node.js. Это уменьшит 'время до появления контента', т.е. приложение начнет отображаться в браузере немного раньше, пока страница все еще загружается и JavaScript скрипты еще не начали свою работу. Кроме того, без серверного рендеринга практически не сделать качественной SEO оптимизации. Наконец, он может быть полезен для людей, использующих старые браузеры, которые по какой-либо причине не могут или не хотят использовать ваш JavaScript.
 
 
-### Using the compiler
+### Использование компилятора
 
-If you're using the Svelte compiler, whether directly or via an integration like [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) or [svelte-loader](https://github.com/sveltejs/svelte-loader), you can tell it to generate a server-side component by passing the `generate: 'ssr'` option:
+При использовании компилятора Svelte либо напрямую, либо через плагин сборщика вроде [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) или [svelte-loader](https://github.com/sveltejs/svelte-loader), вы можете указать ему создавать серверные компоненты, передав ему опцию `generate: 'ssr'` option:
 
 ```js
 const { js } = svelte.compile(source, {
-	generate: 'ssr' // as opposed to 'dom', the default
+	generate: 'ssr' // в отличие от "dom", по умолчанию
 });
 ```
 
 
-### Registering Svelte
+### Регистрация Svelte
 
-Alternatively, an easy way to use the server-side renderer is to *register* it:
+В качестве альтернативы, простой способ использования рендерера на стороне сервера - это *зарегистрировать* его:
 
 ```js
 require('svelte/register.js');
 ```
 
-Now you can `require` your components:
+После этого вы сможете подключать ваши компоненты при помощи команды `require`:
 
 ```js
 const Thing = require('./components/Thing.html');
 ```
 
-If you prefer to use a different file extension, you can pass options like so:
+Если вы предпочитаете использовать другое расширение файла, используйте следующий параметр:
 
 ```js
 require('svelte/register.js')({
@@ -39,9 +40,9 @@ require('svelte/register.js')({
 ```
 
 
-### Server-side API
+### Серверное API
 
-Components have a different API in Node.js – rather than being a constructor that you use with the `new` keyword, a component is an object with a `render(data, options)` method:
+Компоненты имеют несколько другой API в Node.js - вместо того, чтобы быть конструктором, который можно было бы вызвать с ключевым словом `new`, компонент представляет собой объект с методом `render(data, options)`:
 
 ```js
 require('svelte/register.js');
@@ -51,27 +52,27 @@ const props = { answer: 42 };
 const { html, css, head } = Thing.render(props);
 ```
 
-[Lifecycle hooks](guide#lifecycle-hooks) will *not* run, with the exception of `onDestroy`, because the component is never 'mounted'.
+[Хуки жизненого цикла](guide#lifecycle-hooks) (кроме onDestroy ) никогда *не будут* вызываны, потому что компонент никогда не 'монтируется'.
 
-> The SSR compiler will generate a CommonJS module for each of your components – meaning that `import` and `export` statements are converted into their `require` and `module.exports` equivalents. If your components have non-component dependencies, they must also work as CommonJS modules in Node. If you're using ES2015 modules, we recommend the [`esm`](https://github.com/standard-things/esm) module for automatically converting them to CommonJS.
+> Компилятор SSR создаст из ваших компонентов CommonJS модули, при этом операторы `import` и `export` преобразуются в их эквиваленты `require` и `module.exports`. Если ваши компоненты имеют внекомпонентные зависимости, то они также *должны* работать как модули CommonJS в Node. Если вы используете модули ES2015, мы рекомендуем модуль [`esm`](https://github.com/standard-things/esm) для их автоматической конвертации в тип CommonJS.
 
 
 
-#### Rendering styles
+#### Отрисовка стилей
 
-You can also extract any [scoped styles](guide#scoped-styles) that are used by the component or its children:
+Вы можете извлечь любые [изолированые стили](guide#scoped-styles), которые используются компонентом или его дочерними элементами:
 
 ```js
 const { css } = Thing.render(data);
 ```
 
-You could put the resulting `css` in a separate stylesheet, or include them in the page inside a `<style>` tag. If you do this, you will probably want to prevent the client-side compiler from including the CSS again. For the CLI, use the `--no-css` flag. In build tool integrations like `rollup-plugin-svelte`, pass the `css: false` option.
+Полученный `css` можно поместить в отдельный файл таблицы стилей или включить их прямо на странице внутри тега `<style>`. В любом из этих случаев, нужно убедиться, что компилятор для клиентской стороны повторно не включит эти же стили. Для этого в CLI нужно добавить флаг `--no-css`. А при использовании систем сборки с плагином, таким как  `rollup-plugin-svelte`, передайте ему опцию `css: false`.
 
 
 
-#### Rendering `<head>` contents
+#### Отрисовка элемента `<head>`
 
-If your component, any of its children, use the `<svelte:head>` [component](guide#-head-tags), you can extract the contents:
+Если ваш компонент, или любой из его дочерних компонентов, используют [специальный элемент](guide#-head-tags) `<svelte:head>`, то вы можете получить его содержимое:
 
 ```js
 const { head } = Thing.render(data);
