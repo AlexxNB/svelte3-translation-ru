@@ -1,11 +1,11 @@
 ---
-title: Advanced
+title: Дополнения
 ---
 
 
-### Keyed each blocks
+### each блоки с ключом
 
-Associating a *key* with a block allows Svelte to be smarter about how it adds and removes items to and from a list. To do so, add an `(expression)` that uniquely identifies each member of the list:
+Связывание *ключа* с блоком позволяет Svelte добавлять и удалять элементы из списка более умным способом. Добавьте `(выражение)`, которое однозначно идентифицирует каждокаждый элемент списка:
 
 ```html
 <!-- { repl: false } -->
@@ -14,21 +14,21 @@ Associating a *key* with a block allows Svelte to be smarter about how it adds a
 {/each}
 ```
 
-It's easier to show the effect of this than to describe it. Open the following example in the REPL:
+Как обычно, проще показать, чем рассказать. Откройте следующий пример в REPL:
 
 ```html
 <!-- { title: 'Keyed each blocks' } -->
-<button on:click="update()">update</button>
+<button on:click="update()">обновить</button>
 
 <section>
-	<h2>Keyed</h2>
+	<h2>С ключом</h2>
 	{#each people as person (person.name)}
 		<div transition:slide>{person.name}</div>
 	{/each}
 </section>
 
 <section>
-	<h2>Non-keyed</h2>
+	<h2>Без ключа</h2>
 	{#each people as person}
 		<div transition:slide>{person.name}</div>
 	{/each}
@@ -73,16 +73,16 @@ It's easier to show the effect of this than to describe it. Open the following e
 ```
 
 
-### Hydration
+### Гидратация клиентской части
 
-If you're using [server-side rendering](guide#server-side-rendering), it's likely that you'll need to create a client-side version of your app *on top of* the server-rendered version. A naive way to do that would involve removing all the existing DOM and rendering the client-side app in its place:
+При использовании [отрисовки на стороне сервера](guide#server-side-rendering) вам, вероятно, нужно будет создать динамическую версию вашего приложения на стороне клиента *поверх* версии загруженной клиентом с сервера. Самый очевидный способ сделать это - удалить все элементы из DOM и отрендерить в него заново уже клиентское приложение:
 
 ```js
 import App from './App.html';
 
 const target = document.querySelector('#element-with-server-rendered-html');
 
-// avoid doing this!
+// не надо так делать!
 target.innerHTML = '';
 new App({
 	target
@@ -90,6 +90,7 @@ new App({
 ```
 
 Ideally, we want to reuse the existing DOM instead. This process is called *hydration*. First, we need to tell the compiler to include the code necessary for hydration to work by passing the `hydratable: true` option:
+Но, конечно, лучше для этого использовать уже существующие елементы DOM. Процесс переноса существующего статического DOM в клиентское приложение и называется *гидратацией*. Для включения данной возможности, для начала, нужно указать компилятору создать код, необходимый для работы гидратации, передав опцию `hydratable: true`:
 
 ```js
 const { js } = svelte.compile(source, {
@@ -97,9 +98,9 @@ const { js } = svelte.compile(source, {
 });
 ```
 
-(Most likely, you'll be passing this option to [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) or [svelte-loader](https://github.com/sveltejs/svelte-loader).)
+(Точно так же, сожно предать эту опцию и в плагины [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) или [svelte-loader](https://github.com/sveltejs/svelte-loader).)
 
-Then, when we instantiate the client-side component, we tell it to use the existing DOM with `hydrate: true`:
+Затем, при создании экземпляра компонента на клиентской стороне, мы говорим ему использовать существующий DOM опцией `hydrate: true`:
 
 ```js
 import App from './App.html';
@@ -112,16 +113,17 @@ new App({
 });
 ```
 
-> It doesn't matter if the client-side app doesn't perfectly match the server-rendered HTML — Svelte will repair the DOM as it goes.
+> Если приложение на стороне клиента не будет полностью соответствовать отрисованому на сервере HTML - Svelte позаботится об этом и восстановит DOM в процессе своей работы.
 
 
-### Immutable
+### Неизменяемые объекты
 
-Because arrays and objects are *mutable*, Svelte must err on the side of caution when deciding whether or not to update things that refer to them.
+Поскольку массивы и объекты являются *изменяемыми*, Svelte должен быть осторожен при принятии решения, обновлять или нет вещи, которые к ним относятся.
 
-But if all your data is [immutable](https://en.wikipedia.org/wiki/Immutable_object), you can use the `{ immutable: true }` compiler option to use strict object comparison (using `===`) everywhere in your app. If you have one component that uses immutable data you can set it to use the strict comparison for just that component.
+Но если все ваши данные [неизменяемые](https://en.wikipedia.org/wiki/Immutable_object), вы можете использовать опцию компилятора `{immutable: true}`, чтобы иметь возможность использовать строгое сравнение объектов (используя `===` ). Если даже у вас есть только один компонент, который использует неизменяемые данные, вы можете настроить Svelte на использование строгого сравнения только для этого компонента.
 
 In the example below, `searchResults` would normally be recalculated whenever `items` *might* have changed, but with `immutable: true` it will only update when `items` has *definitely* changed. This can improve the performance of your app.
+В приведенном ниже примере `searchResults` обычно пересчитывается всякий раз, когда `items` *мог* измениться, но с `immutable: true` он будет обновляться только тогда, когда `items` *совершенно точно* изменился. Безусловно, это может улучшить производительность вашего приложения.
 
 ```html
 <!-- { repl: false } -->
@@ -147,4 +149,4 @@ In the example below, `searchResults` would normally be recalculated whenever `i
 </script>
 ```
 
-[Here's a live example](repl?demo=immutable) showing the effect of `immutable: true`.
+Посмотрите [пример](repl?demo=immutable), показывающий работу опции `immutable: true`.
