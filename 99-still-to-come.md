@@ -2,4 +2,4 @@
 title: TODO...
 ---
 
-This documentation is still a work-in-progress, like Svelte itself. If there are particular things that are missing or could be improved, then [please raise an issue on GitHub](https://github.com/sveltejs/svelte.technology)!
+Эта документация все еще находится в стадии разработки, как и сам Svelte. Если вы нашли определенные вещи, которые отсутствуют или могут быть улучшены, напишите в [Issues на GitHub](https://github.com/sveltejs/svelte.technology)!

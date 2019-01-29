@@ -1,8 +1,8 @@
 ---
-title: Miscellaneous
+title: Разное
 ---
 
 
 ### `<noscript>`
 
-If you use `<noscript>` tags in a component, Svelte will only render them in SSR mode. The DOM compiler will strip them out, since you can't create the component without JavaScript, and `<noscript>` has no effect if JavaScript is available.
+Если вы используете теги `<noscript>` в компоненте, Svelte будет отображать их только в режиме SSR. А клиентский DOM-компилятор удалит их, так как вы не сможете создать компонент без JavaScript на клиенте, а `<noscript>` не имеет никакого эффекта, если JavaScript выключен.

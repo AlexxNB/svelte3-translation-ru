@@ -1,27 +1,28 @@
 ---
-title: API reference
+title: Описание API
 ---
 
 ## TODO MAKE THIS CURRENT, INCLUDE svelte, svelte/store, ETC ETC
 
-As we saw above, you create a component instance with the `new` keyword:
+Как мы видели ранее, экземпляр компонента создается при помощи ключевого слова `new`:
+
 
 ```js
 /* { filename: 'main.js' } */
 import App from './App.html';
 
 const component = new App({
-	// `target` is the only required option. This is the
-	// DOM element your component will be appended to
+	// `target` - единственный обязательный параметр. Это
+    // DOM-элемент, к которому будет присоединен ваш компонент
 	target: document.querySelector('main'),
 
-	// `anchor` is optional.
-	// The component is inserted immediately before this
-	// DOM element, which must be a child of `target`
+	// `anchor` не обязателен.
+	// Компонент вставляется непосредственно перед этим
+	// элементом DOM, который должен быть потомком `target`
 	anchor: document.querySelector('main #child'),
 
-	// `props` is optional. A component can also have
-	// default props – we'll learn about that later.
+	// `props` не обязателен. Компонент также может иметь 
+	// свойства по умолчанию - мы узнаем об этом позже.
 	props: {
 		questions: [
 			'life',
@@ -33,19 +34,19 @@ const component = new App({
 });
 ```
 
-Normally, you'd interact with a component by getting and setting *props*:
+Обычно вы взаимодействуете с компонентом, получая и устанавливая *свойства*:
 
 ```js
 console.log(component.answer); // 42
 component.answer = 420;
 ```
 
-Every Svelte component instance has three built-in methods:
+Каждый экземпляр компонента Svelte имеет три встроенных метода:
 
 
-### component.$set(props)
+### component.$set(state)
 
-This updates the component's state with the new values provided and causes the DOM to update. `state` must be a plain old JavaScript object (POJO). Any properties *not* included in `state` will remain as they were.
+Это обновляет состояние компонента новыми значениями свойств и вызывает обновление DOM. `state` должен быть простым старым объектом JavaScript (POJO). Любые свойства, *не* включенные в `state`, останутся такими, какими они были.
 
 ```js
 component.set({
@@ -61,50 +62,50 @@ component.set({
 
 ### component.get()
 
-Returns the component's current state:
+Возвращает текущее состояние компонента:
 
 ```js
 const { questions, answer } = component.get();
 console.log(answer); // 'ask your mother'
 ```
 
-This will also retrieve the value of [computed properties](guide#computed-properties).
+Этоn метод также передает значения [вычисляемых свойств](guide#computed-properties).
 
-> Previous versions of Svelte allowed you to specify a key to retrieve a specific value — this was removed in version 2.
+> Предыдущие версии Svelte позволяли вам указать имя свойства для получения определенного значения, но это было удалено в версии 2.
 
 ### component.on(eventName, callback)
 
-Allows you to respond to *events*:
+Позволяет вам реагировать на *события*:
 
 ```js
 const listener = component.on('thingHappened', event => {
 	console.log(`A thing happened: ${event.thing}`);
 });
 
-// some time later...
+// ниже по коду...
 listener.cancel();
 ```
 
-Each component has three built-in events, corresponding to their [lifecycle hooks](guide#lifecycle-hooks):
+Каждый компонент имеет три встроенных события, соответствующих их [хукам жизненого цикла](guide#lifecycle-hooks):
 
 ```js
 component.on('state', ({ changed, current, previous }) => {
-	console.log('state changed', current);
+	console.log('состояние изменилось', current);
 });
 
 component.on('update', ({ changed, current, previous }) => {
-	console.log('DOM updated after state change', current);
+	console.log('DOM обновился после изменения состояния', current);
 });
 
 component.on('destroy', () => {
-	console.log('this component is being destroyed');
+	console.log('этот компонент удаляется');
 });
 ```
 
 
 ### component.fire(eventName, event)
 
-The companion to `component.on(...)`:
+Компаньон для `component.on(...)`:
 
 ```js
 component.fire('thingHappened', {
@@ -113,15 +114,16 @@ component.fire('thingHappened', {
 ```
 
 At first glance `component.on(...)` and `component.fire(...)` aren't particularly useful, but it'll become more so when we learn about [nested components](guide#nested-components) and [component events](guide#component-events).
+На первый взгляд `component.on(...)` и `component.fire(...)` не приносят особенной пользы, но из польза станет очевидной, когда мы узнаем о [вложенных компонентах](guide#nested-components) и [событиях](guide#component-events).
 
 
 ### component.destroy()
 
-Removes the component from the DOM and removes any event listeners that were created. This will also fire a `destroy` event:
+Удаляет компонент из DOM и удаляет все созданные обработчики событий. Также вызывает событие `destroy`:
 
 ```js
 component.on('destroy', () => {
-	alert('goodbye!'); // please don't do this
+	alert('goodbye!'); // так делать некрасиво
 });
 
 component.destroy();
@@ -130,11 +132,11 @@ component.destroy();
 
 ### component.options
 
-The options used to instantiate the component are available in `component.options`.
+Параметры, используемые для создания экземпляра компонента, доступны в `component.options`.
 
 ```html
 <!-- { title: 'component.options' } -->
-Check the console.
+Посмотри в консоль.
 
 <script>
 	export default {
@@ -145,11 +147,11 @@ Check the console.
 </script>
 ```
 
-This gives you access to standard options like `target` and `data`, but can also be used to access any other custom options you may choose to implement for your component.
+Это свойство предоставляет доступ к стандартным параметрам, таким как `target` и `data`, но также может использоваться для доступа к любым другим пользовательским параметрам, которые вы можете задать при создании экземпляра компонента.
 
 
 ### component.root
 
-In [nested components](guide#nested-components), each component has a `root` property pointing to the top-level root component – that is, the one instantiated with `new MyComponent({...})`.
+Во [вложенных компонентах](guide#nested-components) каждый bp компонентов имеет свойство `root`. Это ссылка на экземпляр компонента самого верхнего уровня, то есть тот экземпляр, который был создан при помощи конструктора с помощью `new MyComponent({...})`. Обычно таковым является экземпляр компонента `<App>`.
 
-> Earlier versions of Svelte had a `component.observe(...)` method. This was removed in version 2, in favour of the `onstate` [lifecycle hook](guide#lifecycle-hooks), but is still available via [svelte-extras](https://github.com/sveltejs/svelte-extras).
+> В более ранних версиях Svelte был метод `component.observe (...)`. Он был удален в версии 2 в пользу [хука жизненого цикла](guide#lifecycle-hooks) `onstate`, но он все еще доступен в библиотеке [svelte-extras](https://github.com/sveltejs/svelte-extras).
