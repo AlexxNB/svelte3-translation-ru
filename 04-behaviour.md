@@ -63,7 +63,6 @@ counter.count; // 99
 counter.count += 1; // 100
 ```
 
-Props declared with `const` or `function` are *read-only* — they cannot be set from outside. This allows you to, for example, attach custom methods to your component:
 Свойства, объявленные с помощью `const` или `function`, предназначены *только для чтения* - их нельзя передать извне. Например, так можно, добавить внешние методы в ваши компоненты:
 
 ```js
@@ -72,8 +71,6 @@ component.doSomethingFun();
 
 
 ### Хуки жизненного цикла
-
-There are four 'hooks' provided by Svelte for adding control logic — `onMount`, `beforeUpdate`, `afterUpdate` and `onDestroy`. Import them directly from `svelte`:
 
 В Svelte имеется четыре 'хука' для отработки в момент различных шагов жизненного цикла компонента. добавления логики управления: `onMount`, `beforeUpdate`, `afterUpdate` и `onDestroy`. Просто импортируйте их в компонент прямо из `svelte`:
 

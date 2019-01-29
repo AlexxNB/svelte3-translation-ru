@@ -1,49 +1,49 @@
 ---
-title: State management
+title: Управление состоянием
 ---
 
-Svelte components have built-in state management via the `get` and `set` methods. But as your application grows beyond a certain size, you may find that passing data between components becomes laborious.
+Компоненты Svelte имеют встроенное управление состоянием с помощью методов `get` и `set`. Но по мере того, как ваше приложение становится все более сложным, оказывается, что передача данных между компонентами становится не простой задачей.
 
-For example, you might have an `<Options>` component inside a `<Sidebar>` component that allows the user to control the behaviour of a `<MainView>` component. You could use bindings or events to 'send' information up from `<Options>` through `<Sidebar>` to a common ancestor — say `<App>` — which would then have the responsibility of sending it back down to `<MainView>`. But that's cumbersome, especially if you decide you want to break `<MainView>` up into a set of smaller components.
+Например, пусть у нас есть компонент `<Options>` внутри компонента `<Sidebar>`, который позволяет пользователю контролировать поведение компонента `<MainView>`. Мы, конечно, можем использовать привязки или события, чтобы 'отправить' информацию из `<Options>` через `<Sidebar>` к общему предку `<App>` - который, затем, должен будет отправить её обратно в `<MainView>`. Но это очень громоздко и неочевидно, особенно если `<MainView>` при этом сам состоит из каких-то более мелких компонентов.
 
-Instead, a popular solution to this problem is to use a *global store* of data that cuts across your component hierarchy. React has [Redux](https://redux.js.org/) and [MobX](https://mobx.js.org/index.html) (though these libraries can be used anywhere, including with Svelte), and Vue has [Vuex](https://vuex.vuejs.org/en/).
+Вместо этого, для подобной ситуации разработчиками придумано *глобальное хранилище* данных, которое доступно во всей иерархии компонентов приложения. У Vue есть свой [Vuex](https://vuex.vuejs.org/en/), в React - [Redux](https://redux.js.org/) и [MobX](https://mobx.js.org/index.html) (впрочем, эти библиотеки универсальны и могут быть использованы даже в Svelte).
 
-Svelte has `Store`. `Store` can be used in any JavaScript app, but it's particularly well-suited to Svelte apps.
+Ну а у Svelte есть `Store`. При этом `Store` также можно использовать в любом приложении JavaScript, но, конечно, для приложений Svelte он подходит лучше всего.
 
 
-### The basics
+### Основы
 
-Import `Store` from `svelte/store.js` (remember to include the curly braces, as it's a *named import*), then create a new store with some (optional) data:
+Импортируйте `Store` из `svelte/store.js` (не забудьте про фигурные скобки, так как это *именованный импорт*), затем создайте новое хранилище с некоторыми начальными данными (или без них):
 
 ```js
 import { Store } from 'svelte/store.js';
 
 const store = new Store({
-	name: 'world'
+	name: 'мир'
 });
 ```
 
-Each instance of `Store` has `get`, `set`, `on` and `fire` methods that behave identically to their counterparts on a Svelte component:
+Каждый экземпляр `Store` имеет методы `get`, `set`, `on` и `fire`, которые ведут себя идентично своим аналогам в компоненте Svelte:
 
 ```js
-const { name } = store.get(); // 'world'
+const { name } = store.get(); // 'мир'
 
 store.on('state', ({ current, changed, previous }) => {
-	console.log(`hello ${current.name}`);
+	console.log(`привет ${current.name}`);
 });
 
-store.set({ name: 'everybody' }); // 'hello everybody'
+store.set({ name: 'всем' }); // 'привет всем'
 ```
 
 
 
-### Creating components with stores
+### Создание компонентов с хранилищем
 
-Let's adapt our [very first example](guide#understanding-svelte-components):
+Давайте переработаем наш самый [первый пример](guide#understanding-svelte-components):
 
 ```html
 <!-- { repl: false } -->
-<h1>Hello {$name}!</h1>
+<h1>Привет {$name}!</h1>
 <Greeting/>
 
 <script>
@@ -57,7 +57,7 @@ Let's adapt our [very first example](guide#understanding-svelte-components):
 
 ```html
 <!--{ filename: 'Greeting.html' }-->
-<p>It's nice to see you, {$name}</p>
+<p>Как поживаете, {$name}?</p>
 ```
 
 ```js
@@ -66,7 +66,7 @@ import App from './App.html';
 import { Store } from 'svelte/store.js';
 
 const store = new Store({
-	name: 'world'
+	name: 'мир'
 });
 
 const app = new App({
@@ -74,25 +74,25 @@ const app = new App({
 	store
 });
 
-window.store = store; // useful for debugging!
+window.store = store; // может пригодиться при отладке!
 ```
 
-There are three important things to notice:
+Следует отметить три важных момента:
 
-* We're passing `store` to `new App(...)` instead of `data`
-* The template refers to `$name` instead of `name`. The `$` prefix tells Svelte that `name` is a *store property*
-* Because `<Greeting>` is a child of `<App>`, it also has access to the store. Without it, `<App>` would have to pass the `name` property down as a component property (`<Greeting name={name}/>`)
+* Мы передаем `store` в конструктор `new App(...)` вместо начальных данных `data`
+* В шаблоне мы используем `$name` вместо `name`. Префикс `$` означает, что `name` является *свойством хранилища*
+* Так как `<Greeting>` - это дочерний элемент для `<App>`, то это означает, что у него тоже есть доступ к хранилищу. В протиивном случае, компоненту `<App>` пришлось бы передавать свойство `name` дальше через механизм свойств компонентов (`<Greeting name={name}/>`)
 
-Components that depend on store properties will re-render whenever they change.
+Компоненты, которые зависят от свойств хранилища, будут перерисовываться всякий раз, когда они изменятся.
 
 
-### Declarative stores
+### Декларативные хранилища
 
-As an alternative to adding the `store` option when instantiating, the component itself can declare a dependency on a store:
+В качестве альтернативы добавлению опции `store` при создании экземпляра компонента, сам компонент может объявить зависимость от хранилища внутри себя:
 
 ```html
 <!-- { title: 'Declarative stores' } -->
-<h1>Hello {$name}!</h1>
+<h1>Привет {$name}!</h1>
 <Greeting/>
 
 <script>
@@ -108,7 +108,7 @@ As an alternative to adding the `store` option when instantiating, the component
 
 ```html
 <!--{ filename: 'Greeting.html' }-->
-<p>It's nice to see you, {$name}</p>
+<p>Как поживаете, {$name}?</p>
 ```
 
 ```js
@@ -117,12 +117,12 @@ import { Store } from 'svelte/store.js';
 export default new Store({ name: 'world' });
 ```
 
-Note that the `store` option is a function that *returns* a store, rather than the store itself — this provides greater flexibility.
+Обратите внимание, что опция `store` - это функция, которая *возвращает* хранилище, а не само хранилище - это обеспечивает большую гибкость.
 
 
-### Computed store properties
+### Вычисляемые свойства хранилища
 
-Just like components, stores can have computed properties:
+Как и в компонентах, в хранилище могут быть вычисляемые свойства:
 
 ```js
 store = new Store({
@@ -152,14 +152,14 @@ store.compute(
 store.get().mass; // 6000
 ```
 
-The first argument is the name of the computed property. The second is an array of *dependencies* — these can be data properties or other computed properties. The third argument is a function that recomputes the value whenever the dependencies change.
+Первый аргумент - это имя вычисляемого свойства. Вторым является массив *зависимостей*, за которыми следует следить - это могут быть обычные свойства данных или другие вычисляемые свойства. Третий аргумент - это функция, которая пересчитывает значение при каждом изменении зависимостей.
 
-A component that was connected to this store could reference `{$volume}` and `{$mass}`, just like any other store property.
+Компонент, подключенный к этому хранилищу, может ссылаться на `{$volume}` и `{$mass}`, как и на любое другое свойство хранилища.
 
 
-### Accessing the store inside components
+### Доступ к хранилищу внутри компонента
 
-Each component gets a reference to `this.store`. This allows you to attach behaviours in `oncreate`...
+Каждый компонент получает ссылку на `this.store`. Это позволяет, например, прикрепить прослушку события в хуке `oncreate` ...
 
 ```html
 <!-- { repl: false } -->
@@ -170,29 +170,29 @@ Each component gets a reference to `this.store`. This allows you to attach behav
 				// ...
 			});
 	
-			// listeners are not automatically removed — cancel
-			// them to prevent memory leaks
+			// слушатели событий не удаляются автоматически -
+			// сделайте это вручную
 			this.on('destroy', listener.cancel);
 		}
 	};
 </script>
 ```
 
-...or call store methods in your event handlers, using the same `$` prefix as data properties:
+... или вызывать методы хранилища в обработчиках событий, используя тот же префикс `$`, что и для свойств:
 
 ```html
 <!-- { repl: false } -->
 <button on:click="$set({ muted: true })">
-	Mute audio
+	Убрать звук
 </button>
 ```
 
 
-### Custom store methods
+### Пользовательские методы хранилища
 
-`Store` doesn't have a concept of *actions* or *commits*, like Redux and Vuex. Instead, state is always updated with `store.set(...)`.
+В `Store` нет понятия *действий* или *фиксаций*, как Redux и Vuex. Вместо этого состояние всегда обновляется с помощью `store.set(...)`.
 
-You can implement custom logic by subclassing `Store`:
+Но вы можете создать и свои методы в хранилище путем созданиея подкласса `Store`:
 
 ```js
 class TodoStore extends Store {
@@ -228,17 +228,17 @@ const store = new TodoStore({
 	todos: []
 });
 
-store.addTodo('Finish writing this documentation');
+store.addTodo('Закончить писать это рукводство');
 ```
 
-Methods can update the store asynchronously:
+Методы могут обновлять хранилище асинхронно:
 
 ```js
 class NasdaqTracker extends Store {
 	async fetchStockPrices(ticker) {
 		const token = this.token = {};
 		const prices = await fetch(`/api/prices/${ticker}`).then(r => r.json());
-		if (token !== this.token) return; // invalidated by subsequent request
+		if (token !== this.token) return; // токен "протух"
 
 		this.set({ prices });
 	}
@@ -248,31 +248,30 @@ const store = new NasdaqTracker();
 store.fetchStockPrices('AMZN');
 ```
 
-You can call these methods in your components, just like the built-in methods:
+Вы можете вызывать эти методы в ваших компонентах, также как и обычные методы:
 
 
 ```html
 <!-- { repl: false } -->
 <input
-	placeholder="Enter a stock ticker"
+	placeholder="Введите биржевый индекс"
 	on:change="$fetchStockPrices(this.value)"
 >
 ```
 
-### Store bindings
+### Привязки в хранилище
 
-You can bind to store values just like you bind to component values — just add the `$` prefix:
+Вы можете сделать привязки к свойствам хранилища так же, как обычным свойствам компонентов - просто добавьте префикс `$`:
 
 ```html
 <!-- { repl: false } -->
-<!-- global audio volume control -->
+<!-- глобальное управление громкостью -->
 <input bind:value=$volume type=range min=0 max=1 step=0.01>
 ```
 
+### Использование свойств хранилища в вычисляемых свойствах
 
-### Using store properties in computed properties
-
-Just as in templates, you can access store properties in component computed properties by prefixing them with `$`:
+Как и в шаблонах, вы можете получить доступ к свойствам хранилища в вычисляемых свойствах компонента, поставив перед ними префикс `$`:
 
 ```html
 <!-- { repl: false } -->
@@ -285,8 +284,8 @@ Just as in templates, you can access store properties in component computed prop
 <script>
 	export default {
 		computed: {
-			// `todo` is a component property, `$filter` is
-			// a store property
+			// `todo` свойство компонента, `$filter` - это
+			// свойство хранилища
 			isVisible: ({ todo, $filter }) => {
 				if ($filter === 'all') return true;
 				if ($filter === 'done') return todo.done;
@@ -298,7 +297,7 @@ Just as in templates, you can access store properties in component computed prop
 ```
 
 
-### Built-in optimisations
+### Встроенные оптимизации
 
-The Svelte compiler knows which store properties your components are interested in (because of the `$` prefix), and writes code that only listens for changes to those properties. Because of that, you needn't worry about having many properties on your store, even ones that update frequently — components that don't use them will be unaffected.
+Компилятор Svelte знает, какие свойства хранилища интересуют ваши компоненты (благодаря префиксу `$`), и пишет код, который прослушивает только изменения этих свойств. ПОэтому вам не нужно беспокоиться о наличии множества свойств в вашем хранилище, даже часто обновляемых. Соответственно, компоненты, которые не используют свойства хранилища, не будут содержать в себе никакой логики для работы с ними.
 
