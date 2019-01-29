@@ -113,7 +113,7 @@ title: Привязки
 		const ctx = canvas.getContext('2d');
 		const renderer = createRenderer(canvas, ctx);
 
-		// перестать прерисовывать canvas когда
+		// перестать пeрерисовывать canvas когда
 		// компонент будет убран
 		return renderer.stop;
 	});

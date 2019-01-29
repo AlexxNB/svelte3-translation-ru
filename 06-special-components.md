@@ -85,7 +85,6 @@ Svelte включает в себя несколько встроенных эл
 {/if}
 ```
 
-You can also bind to certain values — so far `innerWidth`, `outerWidth`, `innerHeight`, `outerHeight`, `scrollX`, `scrollY` and `online`:
 Вы также можете привязаться к определенным значениям объекта `window`: `innerWidth`, `outerWidth`, `innerHeight`, `outerHeight`, `scrollX`, `scrollY` и `online`:
 
 ```html

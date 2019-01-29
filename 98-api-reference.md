@@ -113,13 +113,12 @@ component.fire('thingHappened', {
 });
 ```
 
-At first glance `component.on(...)` and `component.fire(...)` aren't particularly useful, but it'll become more so when we learn about [nested components](guide#nested-components) and [component events](guide#component-events).
-На первый взгляд `component.on(...)` и `component.fire(...)` не приносят особенной пользы, но из польза станет очевидной, когда мы узнаем о [вложенных компонентах](guide#nested-components) и [событиях](guide#component-events).
+На первый взгляд `component.on(...)` и `component.fire(...)` не приносят особой пользы, но их польза станет очевидной, когда мы узнаем о [вложенных компонентах](guide#nested-components) и [событиях](guide#component-events).
 
 
 ### component.destroy()
 
-Удаляет компонент из DOM и удаляет все созданные обработчики событий. Также вызывает событие `destroy`:
+Удаляет компонент из DOM и удаляет все созданные слушатели событий. Также вызывает событие `destroy`:
 
 ```js
 component.on('destroy', () => {

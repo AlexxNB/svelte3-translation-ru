@@ -23,7 +23,7 @@ title: Поведение
 ```html
 <!-- { title: 'Internal state' } -->
 <script>
-	let count = 0;
+	let count = 0; // свойство компонента
 </script>
 
 <p>Счетчик: {count}</p>
@@ -33,14 +33,12 @@ title: Поведение
 
 ### Внешние свойства
 
-On the other hand, for the component to form part of a system, it needs to expose certain values so that they can be set from outside. These are called *props*, and we use the `export` keyword to differentiate them from internal state:
-
 С другой стороны, чтобы компонент оставался частью целостной системы, он должен предоставлять возможность изменять определенные значения извне. Они называются *свойства*, и мы используем ключевое слово `export`, чтобы отличать их от даныых внутреннего состояния:
 
 ```html
 <!-- { title: 'External properties' } -->
 <script>
-	export let count = 0;
+	export let count = 0; // свойство компонента, доступное извне
 </script>
 
 <p>Счетчик: {count}</p>

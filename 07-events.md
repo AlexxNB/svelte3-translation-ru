@@ -79,7 +79,7 @@ title: События
 - [`preventDefault`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 - [`stopPropagation`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
 - [`passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — улучшает производительность прокрутки при тач-событиях или при скролле колесиком мышки (Svelte добавит этот модификатор автоматически там, где это безопасно)
-- [`once`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — удаляет слушателя после первого вызова
+- [`once`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — удаляет слушателя события после первого вызова
 - [`capture`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameter)
 
 > `passive` и `once` не имплементированы в режиме `legacy`
