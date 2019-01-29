@@ -1,19 +1,19 @@
 ---
-title: Custom elements
+title: Пользовательские элементы
 ---
 
-[Custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) are an emerging web standard for creating DOM elements that encapsulate styles and behaviours, much like Svelte components. They are part of the [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) family of specifications.
+[Пользовательские элементы](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements)(или custom elements) являются новым веб-стандартом для создания элементов DOM, которые изолируют стили и поведение, во многом схожи с компонентами Svelte. Они также являются частью семейства спецификаций [веб-компонентов](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
 
-> Most browsers need [polyfills](https://www.webcomponents.org/polyfills) for custom elements. See [caniuse](https://caniuse.com/#feat=custom-elementsv1) for more details
+> Большинству браузеров требуются [полифилы](https://www.webcomponents.org/polyfills) для поддержки пользовательских элементов. Подробнее можно узнать на сайте [caniuse.com](https://caniuse.com/#feat=custom-elementsv1).
 
-Svelte components can be used as custom elements by doing the following:
+Компоненты Svelte можно использовать в качестве пользовательских элементов, выполнив следующие действия:
 
-1. Declaring a `tag` name. The value must contain a hyphen (`hello-world` in the example below)
-2. Specifying `customElement: true` in the compiler configuration
+1. Объявление тега имени `tag`. Его значение должно содержать дефис (`hello-world` в примере ниже)
+2. Установить опцию `customElement: true` в конфигурации компилятора
 
 ```html
 <!-- { filename: 'HelloWorld.html', repl: false } -->
-<h1>Hello {name}!</h1>
+<h1>Привет {name}!</h1>
 
 <script>
 	export default {
@@ -21,8 +21,7 @@ Svelte components can be used as custom elements by doing the following:
 	};
 </script>
 ```
-
-Importing this file will now register a globally-available `<hello-world>` custom element that accepts a `name` property:
+При импорте этого файла теперь будет зарегистрирован глобально доступный пользовательский элемент `<hello-world>`, который принимает свойство `name`:
 
 ```js
 import './HelloWorld.html';
@@ -32,38 +31,38 @@ const el = document.querySelector('hello-world');
 el.name = 'everybody';
 ```
 
-See [svelte-custom-elements.surge.sh](http://svelte-custom-elements.surge.sh/) ([source here](https://github.com/sveltejs/template-custom-element)) for a larger example.
+Перейдите на [svelte-custom-elements.surge.sh](http://svelte-custom-elements.surge.sh/) ([исходник тут](https://github.com/sveltejs/template-custom-element)) для более подробных примеров.
 
-The compiled custom elements are still full-fledged Svelte components and can be used as such:
+Скомпилированные пользовательские элементы по-прежнему являются полноценными компонентами Svelte и с ними можно работать как обычно:
 
 ```js
 el.get().name === el.name; // true
 el.set({ name: 'folks' }); // equivalent to el.name = 'folks'
 ```
 
-One crucial difference is that styles are *fully encapsulated* — whereas Svelte will prevent component styles from leaking *out*, custom elements use [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Shadow_DOM) which also prevents styles from leaking *in*.
+Одним из важных отличий является метод полного *изолирования стилей* - с одной стороны Svelte предотвращает утечку *стилей компонентов* наружу, с другой - пользовательские элементы используют [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Shadow_DOM), который  защищает стили *внутри* компонента.
 
-### Using `<slot>`
+### Использование `<slot>`
 
-Custom elements can use [slots](guide#composing-with-slot) to place child elements, just like regular Svelte components.
+Как и обычные компоненты Svelte, пользовательские элементы могут использовать [slots](guide#composing-with-slot) для размещения дочерних элементов.
 
-### Firing events
+### Вызов событий
 
-You can dispatch events inside custom elements to pass data out:
+Вы можете отправлять события внутри пользовательских элементов для передачи данных:
 
 ```js
-// inside a component method
+// внутри метода компонента
 const event = new CustomEvent('message', {
 	detail: 'Hello parent!',
 	bubbles: true,
 	cancelable: true,
-	composed: true // makes the event jump shadow DOM boundary
+	composed: true // позволяет событию преодолеть границу shadow DOM
 });
 
 this.dispatchEvent(event);
 ```
 
-Other parts of the application can listen for these events with `addEventListener`:
+Другие части приложения могут прослушивать эти события при помощи `addEventListener`:
 
 ```js
 const el = document.querySelector('hello-world');
@@ -72,11 +71,11 @@ el.addEventListener('message', event => {
 });
 ```
 
-> Note the `composed: true` attribute of the custom event. It enables the custom DOM event to cross the shadow DOM boundary and enter into main DOM tree.
+> Обратите внимание на свойство `composed: true` у пользовательского события. Это позволяет пользовательскому событию DOM пересекать границу shadow DOM и войти в главное дерево DOM.
 
-### Observing properties
+### Видимость свойств
 
-Svelte will determine, from the template and `computed` values, which properties the custom element has — for example, `name` in our `<hello-world>` example. You can specify this list of properties manually, for example to restrict which properties are 'visible' to the rest of your app:
+Svelte самостоятельно определяет какие свойства имеет пользовательский объект, исходя из значений шаблона и вычисляемых свойств. Например, `name` в нашем примере `<hello-world>`. Но вы можете указать этот список свойств вручную, для того, чтобы явно указать, какие свойства являются 'видимыми' для остальной части вашего приложения:
 
 ```js
 export default {
@@ -85,11 +84,11 @@ export default {
 };
 ```
 
-### Compiler options
+### Настройка компилятора
 
-Earlier, we saw the use of `customElement: true` to instruct the Svelte compiler to generate a custom element using the `tag` and (optional) `props` declared inside the component file.
+Ранее мы уже использовали `customElement: true` для указания компилятору Svelte, что необъодимо создать пользовательский элемент с использованием `tag` и (необязательно) `props`, объявленных внутри файла компонента.
 
-Alternatively, you can pass `tag` and `props` direct to the compiler:
+Но `tag` и `props` можно передать прямо в компилятор:
 
 ```js
 const { js } = svelte.compile(source, {
@@ -100,10 +99,10 @@ const { js } = svelte.compile(source, {
 });
 ```
 
-These options will override the component's own settings, if any.
+Эти параметры будут переопределять аналогичные настройки внутри компонента, если таковые имеются.
 
-### Transpiling
+### Транспиляция
 
-* Custom elements use ES2015 classes (`MyThing extends HTMLElement`). Make sure you don't transpile the custom element code to ES5, and use a ES2015-aware minifier such as [uglify-es](https://www.npmjs.com/package/uglify-es).
+* Пользовательские элементы используют классы ES2015 (`MyThing extends HTMLElement`). Убедитесь, что вы не транспилируете код пользовательского элемента в ES5 и используете минимизатор с поддержкой ES2015, например [uglify-es](https://www.npmjs.com/package/uglify-es).
 
-* If you do need ES5 support, make sure to use `Reflect.construct` aware transpiler plugin such as [babel-plugin-transform-builtin-classes](https://github.com/WebReflection/babel-plugin-transform-builtin-classes) and a polyfill like [custom-elements-es5-adapterjs](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs).
+* Если вам необходима поддержка ES5, обязательно используйте плагин транспилера с поддержкой `Reflect.construct`, такой как [babel-plugin-transform-builtin-classes](https://github.com/WebReflection/babel-plugin-transform-builtin-classes), а также полифил, вроде [custom-elements-es5-adapterjs](https://github.com/webcomponents/webcomponentsjs#custom-elements-es5-adapterjs).
