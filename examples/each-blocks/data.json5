@@ -1,0 +1,16 @@
+{
+  "cats": [
+    {
+      "name": "Котик на клавиатурке",
+      "video": "https://www.youtube.com/watch?v=J---aiyznGQ"
+    },
+    {
+      "name": "Мару",
+      "video": "https://www.youtube.com/watch?v=z_AbfPXTKms"
+    },
+    {
+      "name": "Генри, кот с экзистенциальным кризисом",
+      "video": "https://www.youtube.com/watch?v=OUtn3pvWmpg"
+    }
+  ]
+}
