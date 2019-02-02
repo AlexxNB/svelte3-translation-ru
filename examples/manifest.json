@@ -1,132 +1,132 @@
 [
 	{
-		"name": "Basics",
+		"name": "Основы",
 		"examples": [
 			{
 				"slug": "hello-world",
-				"title": "Hello World!"
+				"title": "Привет мир!"
 			},
 			{
 				"slug": "if-blocks",
-				"title": "If blocks"
+				"title": "Блоки If"
 			},
 			{
 				"slug": "each-blocks",
-				"title": "Each blocks"
+				"title": "Блоки Each"
 			},
 			{
 				"slug": "scoped-styles",
-				"title": "Scoped styles"
+				"title": "Изолированые стили"
 			}
 		]
 	},
 	{
-		"name": "Two-way bindings",
+		"name": "Двустронняя привязка",
 		"examples": [
 			{
 				"slug": "binding-input-text",
-				"title": "Text input"
+				"title": "Текстовый ввод"
 			},
 			{
 				"slug": "binding-input-numeric",
-				"title": "Numeric input"
+				"title": "Числовой ввод"
 			},
 			{
 				"slug": "binding-textarea",
-				"title": "Textarea"
+				"title": "Ввод в Textarea"
 			},
 			{
 				"slug": "binding-input-checkbox",
-				"title": "Checkbox input"
+				"title": "Чекбоксы"
 			},
 			{
 				"slug": "binding-input-checkbox-group",
-				"title": "Checkbox input (grouped)"
+				"title": "Чекбоксы (сгруппированые)"
 			},
 			{
 				"slug": "binding-input-radio",
-				"title": "Radio input"
+				"title": "Радиокнопки"
 			},
 			{
 				"slug": "binding-media-elements",
-				"title": "Media elements"
+				"title": "Медиа элементы"
 			}
 		]
 	},
 	{
-		"name": "Nested components",
+		"name": "Вложенные компоненты",
 		"examples": [
 			{
 				"slug": "nested-components",
-				"title": "Nested components"
+				"title": "Вложенные компоненты"
 			},
 			{
 				"slug": "modal-with-slot",
-				"title": "Modal with <slot>"
+				"title": "Всплывающее окно со <slot>"
 			},
 			{
 				"slug": "self-references",
-				"title": "Self-references"
+				"title": "Вложение самого в себя"
 			}
 		]
 	},
 	{
-		"name": "SVG and dataviz",
+		"name": "SVG и визуализация данных",
 		"examples": [
 			{
 				"slug": "svg-clock",
-				"title": "SVG Clock"
+				"title": "SVG Часы"
 			},
 			{
 				"slug": "line-chart",
-				"title": "Line/area chart"
+				"title": "Линейны график"
 			},
 			{
 				"slug": "bar-chart",
-				"title": "Bar chart"
+				"title": "Столбчатая диаграмма"
 			},
 			{
 				"slug": "scatterplot",
-				"title": "Scatterplot"
+				"title": "Распределение точек"
 			}
 		]
 	},
 	{
-		"name": "Transitions",
+		"name": "Переходы",
 		"examples": [
 			{
 				"slug": "transitions-fade",
-				"title": "Simple fade"
+				"title": "Простое расстворение"
 			},
 			{
 				"slug": "transitions-fly",
-				"title": "Parameterised"
+				"title": "С параметрами"
 			},
 			{
 				"slug": "transitions-in-out",
-				"title": "In and out"
+				"title": "Появление и исчезновение"
 			},
 			{
 				"slug": "transitions-custom",
-				"title": "Custom CSS"
+				"title": "Пользовательский CSS"
 			}
 		]
 	},
 	{
-		"name": "Motion",
+		"name": "Движение",
 		"examples": [
 			{
 				"slug": "motion-spring",
-				"title": "Spring physics"
+				"title": "Физика пружины"
 			}
 		]
 	},
 	{
-		"name": "Async data",
+		"name": "Асинхронные данные",
 		"examples": [
 			{
 				"slug": "await-block",
-				"title": "Await block"
+				"title": "Блок Await"
 			}
 		]
 	},
@@ -135,19 +135,19 @@
 		"examples": [
 			{
 				"slug": "7guis-counter",
-				"title": "Counter"
+				"title": "Счетчик"
 			},
 			{
 				"slug": "7guis-temperature",
-				"title": "Temperature converter"
+				"title": "Перевод температуры"
 			},
 			{
 				"slug": "7guis-flight-booker",
-				"title": "Flight booker"
+				"title": "Бронирование билетов"
 			},
 			{
 				"slug": "7guis-timer",
-				"title": "Timer"
+				"title": "Таймер"
 			},
 			{
 				"slug": "7guis-crud",
@@ -155,7 +155,7 @@
 			},
 			{
 				"slug": "7guis-circles",
-				"title": "Circles"
+				"title": "Кружки"
 			}
 		]
 	},
@@ -164,12 +164,12 @@
 		"examples": [
 			{
 				"slug": "parallax",
-				"title": "Parallax"
+				"title": "Параллакс"
 			}
 		]
 	},
 	{
-		"name": "Miscellaneous",
+		"name": "Разное",
 		"examples": [
 			{
 				"slug": "hacker-news",
@@ -177,7 +177,7 @@
 			},
 			{
 				"slug": "immutable",
-				"title": "Immutable data"
+				"title": "Неизменяемые данные"
 			}
 		]
 	}
