@@ -30,7 +30,7 @@ express() // или Polka, или подобный фреймворк
 	.listen(process.env.PORT);
 ```
 
-В этом примере мы используем некую воображаемую функцию `authenticationMiddleware`, которая создает объект `request.user` на основе файлов cookie пользователя. (В реальной жизни это, обычно, немного сложнее - см. [Express-session](https://github.com/expressjs/session) или [Passport](http://www.passportjs.org/), если вы зотите почитать больше о сессиях и аутентификации.)
+В этом примере мы используем некую воображаемую функцию `authenticationMiddleware`, которая создает объект `request.user` на основе файлов cookie пользователя. (В реальной жизни это, обычно, немного сложнее - см. [Express-session](https://github.com/expressjs/session) или [Passport](http://www.passportjs.org/), если вы хотите почитать больше о сессиях и аутентификации.)
 
 Поскольку мы указали опцию `store`, Sapper будет создавать новый экземпляр объекта `Store` для каждого нового запроса `request`. Данные в нашем хранилище будут использоваться для визуализации HTML-кода, который вернет Sapper.
 

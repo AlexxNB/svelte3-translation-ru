@@ -32,8 +32,7 @@ app.use(helmet({
 app.use(sapper.middleware());
 ```
 
-Использование `res.locals.nonce` таким образом подсмотрено в
-[документации Helmet по CSP](https://helmetjs.github.io/docs/csp/#generating-nonces).
+Использование `res.locals.nonce` подобным образом предусмотрено [документацией Helmet по CSP](https://helmetjs.github.io/docs/csp/#generating-nonces).
 
 [Express]: https://expressjs.com/
 [Helmet]: https://helmetjs.github.io/
