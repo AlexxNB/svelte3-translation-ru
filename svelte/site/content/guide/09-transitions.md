@@ -48,7 +48,7 @@ title: Переходы
 <input type=checkbox bind:checked={visible}> показать
 
 {#if visible}
-	<p in:fly="{y: 50}" out:fade>прилетаю и растворяюсь</p>
+	<p in:fly="{{y: 50}}" out:fade>прилетаю и растворяюсь</p>
 {/if}
 ```
 
