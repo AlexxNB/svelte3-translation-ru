@@ -2,7 +2,7 @@
 - RFC PR: https://github.com/sveltejs/rfcs/pull/4
 - Svelte Issue: https://github.com/sveltejs/svelte/issues/1826
 
-# Реактивные присвоения
+# Реактивные присваивания
 
 ## Резюме
 
