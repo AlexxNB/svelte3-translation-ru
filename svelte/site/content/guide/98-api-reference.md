@@ -12,7 +12,7 @@ title: Описание API
 import App from './App.html';
 
 const component = new App({
-	// `target` - единственный обязательный параметр. Это
+	// `target` — единственный обязательный параметр. Это
     // DOM-элемент, к которому будет присоединён ваш компонент
 	target: document.querySelector('main'),
 
@@ -22,7 +22,7 @@ const component = new App({
 	anchor: document.querySelector('main #child'),
 
 	// `props` не обязателен. Компонент также может иметь 
-	// свойства по умолчанию - мы узнаем об этом позже.
+	// свойства по умолчанию — мы узнаем об этом позже.
 	props: {
 		questions: [
 			'life',

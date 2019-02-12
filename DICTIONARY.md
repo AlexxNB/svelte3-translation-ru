@@ -21,11 +21,11 @@
 
 *computed* — вычисляемый
 
-*сustom element* - пользовательский элемент
+*сustom element* — пользовательский элемент
 
-*сustom method* - пользовательский метод
+*сustom method* — пользовательский метод
 
-*сustom transition* - пользовательский переход
+*сustom transition* — пользовательский переход
 
 ## d
 *derived store* — производное хранилище

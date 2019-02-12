@@ -9,7 +9,7 @@ translator: Alexey Schebelev
 translatorURL: https://github.com/AlexxNB
 ---
 
-Svelte - это [фреймворк нового типа](/blog/frameworks-without-the-framework). Не нужно помещать на страницу тег `<script src='svelte.js'>` или импортировать его в ваше приложение с помощью `import` или `require`! Svelte - это компилятор, превращающий ваши файлы компонентов в прекрасно оптимизированный ванильный JavaScript.
+Svelte — это [фреймворк нового типа](/blog/frameworks-without-the-framework). Не нужно помещать на страницу тег `<script src='svelte.js'>` или импортировать его в ваше приложение с помощью `import` или `require`! Svelte — это компилятор, превращающий ваши файлы компонентов в прекрасно оптимизированный ванильный JavaScript.
 
 Из-за этого, начало работы с ним может сначала немного запутать. Как же таки сделать приложение на Svelte?
 
@@ -17,7 +17,7 @@ Svelte - это [фреймворк нового типа](/blog/frameworks-with
 ## 1. С использованием REPL
 
 The [Svelte REPL](https://svelte.technology/repl) is the easiest way to begin. You can choose from a list of examples to get you started, and tweak them until they do what you want.
-[Svelte REPL](https://svelte.technology/repl) - самый простой способ начать. Вы можете выбрать из списка один из стартовых примеров, и пытаться изменить его, пока он не начнёт делать то, что вы хотите.
+[Svelte REPL](https://svelte.technology/repl) — самый простой способ начать. Вы можете выбрать из списка один из стартовых примеров, и пытаться изменить его, пока он не начнёт делать то, что вы хотите.
 
 <aside><p>У вас должна быть установлена <a href="https://nodejs.org/">Node.js</a>  и иметься первоначальные навыки работы с коммандной строкой</p></aside>
 
