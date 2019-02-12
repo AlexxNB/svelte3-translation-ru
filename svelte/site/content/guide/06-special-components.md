@@ -13,7 +13,7 @@ Svelte включает в себя несколько встроенных эл
 <!-- { title: '<svelte:self> tags' } -->
 {#if countdown > 0}
 	<p>{countdown}</p>
-	<svelte:self countdown="{countdown — 1}"/>
+	<svelte:self countdown="{countdown - 1}"/>
 {:else}
 	<p>Поехали!</p>
 {/if}
