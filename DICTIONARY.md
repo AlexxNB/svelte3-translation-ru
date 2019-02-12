@@ -8,13 +8,16 @@
 *accessor* — аксессор
 
 ## b
-*bandler* — сборщик
 
 *behaviours* — поведение
 
 *binding* — привязка
 
 *building*  — сборка 
+
+*bundle* — бандл
+
+*bundler* — сборщик
 
 ## c
 *component* — компонент
