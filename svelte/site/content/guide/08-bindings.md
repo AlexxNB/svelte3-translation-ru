@@ -17,7 +17,7 @@ title: Привязки
 <Widget bind:childValue=parentValue/>
 ```
 
-Когда `childValue` изменится в дочернем компоненте, `parentValue` будет обновлен в родительском. И наоборот.
+Когда `childValue` изменится в дочернем компоненте, `parentValue` будет обновлён в родительском. И наоборот.
 
 Если имена значений одинаковые, можно сократить запись:
 
@@ -46,16 +46,16 @@ title: Привязки
 }
 ```
 
-Некоторые привязки *односторонние*, т.е. значения доступны только для чтения. Но большинство из них *двусторонние* -изменение данных из программным приведет к обновлению DOM. Доступны следующие привязки:
+Некоторые привязки *односторонние*, т.е. значения доступны только для чтения. Но большинство из них *двусторонние* -изменение данных из программным приведёт к обновлению DOM. Доступны следующие привязки:
 
 | Имя                                                            | Применяется к                                   | Тип                 |
 |-----------------------------------------------------------------|----------------------------------------------|----------------------|
 | `value`                                                         | `<input>` `<textarea>` `<select>`            | <span>Двусторонняя</span> |
 | `checked` `indeterminate`                                       | `<input type=checkbox>`                      | <span>Двусторонняя</span> |
-| `group` (см.примечание)                                              | `<input type=checkbox>` `<input type=radio>` | <span>Двусторонняя</span> |
+| `group` (см.примечание)                                         | `<input type=checkbox>` `<input type=radio>` | <span>Двусторонняя</span> |
 | `currentTime` `paused` `played` `volume`                        | `<audio>` `<video>`                          | <span>Двусторонняя</span> |
 | `buffered` `duration` `seekable`                                | `<audio>` `<video>`                          | <span>Односторонняя</span> |
-| `offsetWidth` `offsetHeight` `clientWidth` `clientHeight`       | Все элементы типа block                | <span>Односторонняя</span> |
+| `offsetWidth` `offsetHeight` `clientWidth` `clientHeight`       | Все элементы типа block                      | <span>Односторонняя</span> |
 | `scrollX` `scrollY`                                             | `<svelte:window>`                            | <span>Двусторонняя</span> |
 | `online` `innerWidth` `innerHeight` `outerWidth` `outerHeight`  | `<svelte:window>`                            | <span>Односторонняя</span> |
 

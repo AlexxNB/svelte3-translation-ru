@@ -10,7 +10,7 @@ title: События
 
 ```html
 <!-- { title: 'Inline event handlers' } -->
-<p>Счетчик: {count}</p>
+<p>Счётчик: {count}</p>
 <button on:click="{() => count += 1}">+1</button>
 ```
 
@@ -37,7 +37,7 @@ title: События
 	}
 </script>
 
-<p>Счетчик: {count}</p>
+<p>Счётчик: {count}</p>
 <button on:click={incrementOrDecrement}>обновить</button>
 ```
 
@@ -78,13 +78,13 @@ title: События
 
 - [`preventDefault`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 - [`stopPropagation`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
-- [`passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — улучшает производительность прокрутки при тач-событиях или при скролле колесиком мышки (Svelte добавит этот модификатор автоматически там, где это безопасно)
+- [`passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — улучшает производительность прокрутки при тач-событиях или при скролле колёсиком мышки (Svelte добавит этот модификатор автоматически там, где это безопасно)
 - [`once`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters) — удаляет слушателя события после первого вызова
 - [`capture`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameter)
 
 > `passive` и `once` не имплементированы в режиме `legacy`
 
-Для примера выше можно использовать сразу несколько модификаторов и при этом отпадет необходимость использовать отдельный обработчик событий:
+Для примера выше можно использовать сразу несколько модификаторов и при этом отпадёт необходимость использовать отдельный обработчик событий:
 
 ```html
 <!-- { repl: false } -->
@@ -94,7 +94,7 @@ title: События
 
 ### События компонентов
 
-События являются лучшим способом для общения [вложенных компонентов](guide#nested-components) со своими родителями. Давайте вернемся к нашему более раннему примеру и превратим его в компонент `<CategoryChooser>`:
+События являются лучшим способом для общения [вложенных компонентов](guide#nested-components) со своими родителями. Давайте вернёмся к нашему более раннему примеру и превратим его в компонент `<CategoryChooser>`:
 
 ```html
 <!-- { filename: 'CategoryChooser.html', repl: false } -->
@@ -175,4 +175,4 @@ title: События
 <Widget on:foo/>
 ```
 
-Поскольку события компонентов не могут распространяться по вложенным компонентам так же, как события в DOM, то такой способ можно использовать для передачи событий через промежуточные компоненты к родительским. Такая же сокращенная запись применяется и к событиям обычных элементов (`on:click` эквивалентно `on:click="fire('click', event)"`).
+Поскольку события компонентов не могут распространяться по вложенным компонентам так же, как события в DOM, то такой способ можно использовать для передачи событий через промежуточные компоненты к родительским. Такая же сокращённая запись применяется и к событиям обычных элементов (`on:click` эквивалентно `on:click="fire('click', event)"`).
