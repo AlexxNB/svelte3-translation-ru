@@ -17,7 +17,7 @@ Svelte - это [фреймворк нового типа](/blog/frameworks-with
 ## 1. С использованием REPL
 
 The [Svelte REPL](https://svelte.technology/repl) is the easiest way to begin. You can choose from a list of examples to get you started, and tweak them until they do what you want.
-[Svelte REPL](https://svelte.technology/repl) - самый простой способ начать. Вы можете выбрать из списка один из стартовых примеров, и пытаться изменить его, пока он не начнет делать то, что вы хотите.
+[Svelte REPL](https://svelte.technology/repl) - самый простой способ начать. Вы можете выбрать из списка один из стартовых примеров, и пытаться изменить его, пока он не начнёт делать то, что вы хотите.
 
 <aside><p>У вас должна быть установлена <a href="https://nodejs.org/">Node.js</a>  и иметься первоначальные навыки работы с коммандной строкой</p></aside>
 
@@ -59,12 +59,12 @@ npm install
 npm run dev
 ```
 
-Когда вы немного поизучаете основы и поймете как всё работает, можете форкнуть [sveltejs/template](https://github.com/sveltejs/template) и начать делать так:
+Когда вы немного поизучаете основы и поймёте как всё работает, можете форкнуть [sveltejs/template](https://github.com/sveltejs/template) и начать делать так:
 
 ```bash
 degit your-name/template my-new-project
 ```
 
-Вот, в принципе, и всё! Выполните `npm run build`, чтобы собрать готовую к продакшену версию своего приложения, и прочтите [README](https://github.com/sveltejs/template/blob/master/README.md) шаблона проекта, чтобы узнать, как легко развернуть свое приложение в Интернете с помощью [Now](https://zeit.co/now) или [Surge](http://surge.sh/).
+Вот, в принципе, и всё! Выполните `npm run build`, чтобы собрать готовую к продакшену версию своего приложения, и прочтите [README](https://github.com/sveltejs/template/blob/master/README.md) шаблона проекта, чтобы узнать, как легко развернуть своё приложение в Интернете с помощью [Now](https://zeit.co/now) или [Surge](http://surge.sh/).
 
 Вы не обязаны использовать Rollup — у нас есть интеграции с [webpack](https://github.com/sveltejs/svelte-loader), [Browserify](https://github.com/tehshrike/sveltify) и прочими. Вы можете использовать [Svelte CLI](https://github.com/sveltejs/svelte-cli) или [API](https://github.com/sveltejs/svelte#api) напрямую. Если вы сделали шаблон проекта с помощью одного из этих инструментов, раскажите об этомм в [чате Svelte Discord](https://discord.gg/yy75DKs) или в Twitter [@sveltejs](https://twitter.com/sveltejs)!
