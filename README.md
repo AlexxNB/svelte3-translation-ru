@@ -3,11 +3,12 @@
 > На данный момент еще не известно в каком виде будет реализовываться внедрение локализации на официальных ресурсах, поэтому, в последствии возможны изменения в структуре и подходах данного репозитория 
 
 ## Что переводим
-* [Документацию](https://v3.svelte.technology/guide) Svelte V3
-* [Документацию](https://sapper.svelte.technology/guide) по Sapper
-* [Примеры](https://v3.svelte.technology/repl)
-* [Блог](https://v3.svelte.technology/blog)
-* Контент сайтов [svelte.technology](https://v3.svelte.technology) и [sapper.svelte.technology](https://sapper.svelte.technology)
+* [Документацию](https://v3.svelte.technology/guide) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/guide))
+* [Документацию](https://sapper.svelte.technology/guide) по Sapper ([GitHub](https://github.com/sveltejs/sapper.svelte.technology/tree/master/content/guide))
+* [Примеры](https://v3.svelte.technology/repl) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/examples))
+* [Блог](https://v3.svelte.technology/blog) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/blog))
+* Контент сайта [svelte.technology](https://v3.svelte.technology) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/src))
+* Контент сайта [sapper.svelte.technology](https://sapper.svelte.technology) ([GitHub](https://github.com/sveltejs/sapper.svelte.technology/tree/master/src))
 
 ## Как внести свой вклад в перевод
 * [Перевести](https://github.com/AlexxNB/svelte3-translation-ru/issues/6) еще не переведенную часть какого-либо ресурса, указанного выше.
