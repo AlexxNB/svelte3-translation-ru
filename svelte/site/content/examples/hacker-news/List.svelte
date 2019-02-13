@@ -1,6 +1,6 @@
 <script>
 	import { beforeUpdate } from "svelte";
-	import Summary from "./Summary.html";
+	import Summary from "./Summary.svelte";
 
 	const PAGE_SIZE = 20;
 

@@ -1,5 +1,5 @@
 <script>
-	import Comment from "./Comment.html";
+	import Comment from "./Comment.svelte";
 
 	export let item;
 

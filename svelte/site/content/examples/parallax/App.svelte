@@ -2,11 +2,11 @@
 	let sy;
 </script>
 
-<!-- this binds `sy` to the current value of `window.scrollY` -->
+<!-- тут `sy` привязывается к текущему значению `window.scrollY` -->
 <svelte:window bind:scrollY={sy}/>
 
-<!-- try changing the values that `sy` is multiplied by -
-     values closer to 0 appear further away -->
+<!-- попробуйте менять множитель для `sy` -
+     чем ближе к 0, тем дальше будет казаться картинка -->
 <div class="parallax-container">
 	<img style="transform: translate(0,{-sy * 0.2}px)" src="https://www.firewatchgame.com/images/parallax/parallax0.png">
 	<img style="transform: translate(0,{-sy * 0.3}px)" src="https://www.firewatchgame.com/images/parallax/parallax1.png">
