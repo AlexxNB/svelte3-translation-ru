@@ -1,6 +1,7 @@
 ---
-title: Svelte on The Changelog
-description: Listen to the interview here
+title: Svelte в подкасте The Changelog
+description: Можно слушать прямо тут
+pubdate: 2019-01-31
 translatedate: 2019-01-31
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris
@@ -11,9 +12,9 @@ translatorURL: https://github.com/AlexxNB
 Ранее в этом месяце я имел честь появиться в [The Changelog](https://changelog.com/podcast),  подкасте о разработке программного обеспечения. У нас был забавный(для меня) и всеохватывающий разговор:
 
 * жизнь пргаммиста в отделе новостей
-* большой тренд компилер-как-фреймворк
+* новый тренд "компилер-как-фреймворк"
 * масштабируемость
-* [Великое раздделение](https://css-tricks.com/the-great-divide/)
+* [Великое разделение](https://css-tricks.com/the-great-divide/)
 
 ...и, самое важное, Svelte 3.
 
