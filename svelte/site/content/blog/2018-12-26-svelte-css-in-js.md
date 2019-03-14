@@ -1,6 +1,6 @@
 ---
-title: Using CSS-in-JS with Svelte
-description: You don't need to, but you can
+title: Использование CSS-in-JS в Svelte
+description: Вам это не нужно, но вы можете
 pubdate: 2018-12-26
 translatedate: 2019-01-30
 author: Rich Harris

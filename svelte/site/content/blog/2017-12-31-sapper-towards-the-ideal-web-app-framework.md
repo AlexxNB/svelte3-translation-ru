@@ -1,6 +1,6 @@
 ---
-title: Sapper: Towards the ideal web app framework
-description: Taking the next-plus-one step
+title: Sapper: На пути к идеальному фреймворку Web-приложений
+description: Делаем шаг в будушее, а затем еще один
 pubdate: 2017-12-31
 translatedate: 2019-02-02
 author: Rich Harris

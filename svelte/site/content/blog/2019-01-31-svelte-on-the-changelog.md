@@ -1,6 +1,6 @@
 ---
 title: Svelte в подкасте The Changelog
-description: Можно слушать прямо тут
+description: Можно послушать прямо в блоге
 pubdate: 2019-01-31
 translatedate: 2019-01-31
 author: Rich Harris

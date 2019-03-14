@@ -1,6 +1,6 @@
 ---
 title: Дзен CSS
-description: Я бы сказал, что это будущее, но мы уже сделали это.
+description: Мне кажется, что за этим будущее, но мы уже сделали это.
 pubdate: 2017-09-06
 translatedate: 2019-02-02
 author: Rich Harris

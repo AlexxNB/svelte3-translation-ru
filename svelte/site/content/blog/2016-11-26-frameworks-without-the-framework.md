@@ -1,6 +1,6 @@
 ---
-title: Frameworks without the framework: why didn't we think of this sooner?
-description: You can't write serious applications in vanilla JavaScript without hitting a complexity wall. But a compiler can do it for you.
+title: Фреймворки без фреймоврка: почему мы не подумали об этом раньше?
+description: Вы не можете писать серьезные приложения на ванильном JavaScript. Но компилятор может сделать это за вас.
 pubdate: 2016-11-26
 translatedate: 2019-02-02
 author: Rich Harris
