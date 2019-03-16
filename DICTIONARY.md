@@ -38,6 +38,10 @@
 ## e
 *event* — событие
 
+*event dispatcher* — диспетчер событий
+
+*event forwarding* — проброс события
+
 *event handler* — обработчик события
 
 *event listener* — прослушиватель события
@@ -50,6 +54,8 @@
 
 ## i
 *immutable* — неизменяемый
+
+*inline handler* — встроенный обработчик
 
 ## l
 *layout* — макет
