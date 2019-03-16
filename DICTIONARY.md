@@ -71,6 +71,8 @@
 
 *preprocess* — препроцесс 
 
+*promise* — промис
+
 *property*,*prop* — свойство
 
 *proxy* — прокси
