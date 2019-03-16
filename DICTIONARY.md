@@ -76,6 +76,12 @@
 *proxy* — прокси
 
 ## r
+*reactive assignment* — реактивные присваивание
+
+*reactive declaration* — реактивные объявление
+
+*reactive statement* — реактивное выражение
+
 *route*,*routing* — маршрут, маршрутизация
 
 ## s
