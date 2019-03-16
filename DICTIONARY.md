@@ -93,6 +93,8 @@
 
 *special element* — специальный элемент
 
+*spread properties* — развертка свойств
+
 *state*,*internal state* — состояние, внутреннее состояние
 
 *state management* — управление состоянием
