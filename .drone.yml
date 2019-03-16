@@ -24,5 +24,6 @@ steps:
       from_secret: ssh_port
     script:
       - docker container stop Svelte-Site
+      - docker rm Svelte-Site
       - docker pull registry.alexxnb.ru/svelte-site:latest
       - docker run -d --name Svelte-Site --restart always -p 3000:3000 registry.alexxnb.ru/svelte-site:latest
