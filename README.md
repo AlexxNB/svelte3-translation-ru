@@ -3,12 +3,15 @@
 > На данный момент еще не известно в каком виде будет реализовываться внедрение локализации на официальных ресурсах, поэтому, в последствии возможны изменения в структуре и подходах данного репозитория 
 
 ## Что переводим
-* [Документацию](https://v3.svelte.technology/guide) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/guide))
+* [Учебник](https://v3.svelte.technology/tutorial) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/tutorial))
+* [Документацию](https://v3.svelte.technology/docs) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/api-reference/site/content/docs))
 * [Документацию](https://sapper.svelte.technology/guide) по Sapper ([GitHub](https://github.com/sveltejs/sapper.svelte.technology/tree/master/content/guide))
 * [Примеры](https://v3.svelte.technology/repl) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/examples))
 * [Блог](https://v3.svelte.technology/blog) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/blog))
 * Контент сайта [svelte.technology](https://v3.svelte.technology) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/src))
 * Контент сайта [sapper.svelte.technology](https://sapper.svelte.technology) ([GitHub](https://github.com/sveltejs/sapper.svelte.technology/tree/master/src))
+* Контент сайта [svelte-native.technology](https://svelte-native.technology) ([GitHub](https://github.com/halfnelson/svelte-native/tree/master/docs_src/content))
+
 
 ## Как внести свой вклад в перевод
 * [Перевести](https://github.com/AlexxNB/svelte3-translation-ru/issues/6) еще не переведенную часть какого-либо ресурса, указанного выше.
@@ -39,6 +42,14 @@
 Чтобы избежать кальки, можно брать смысл предложения, а потом перефразировать так, как объясняли бы старшему коллеге. Если предложение звучит нелепо вслух, то его надо переписать.
 
 Небольшие вольности в переводе допускаются, но только если они помогают передать смысл. Перевод не должен быть ни слишком официальным, ни фамильярным. Истина где-то посередине.
+
+## Где смотреть перевод
+На данный момент запущены следующие копии официальных сайтов:
+- [svelte.alexxnb.ru](https://svelte.alexxnb.ru)
+
+>На этих сайтах можно просматривать переводы естественных условиях. Сайты собираются и деплоятся автоматически при коммитах в данный репозиторий.
+
+[![Build Status](https://drone.alexxnb.ru/api/badges/AlexxNB/svelte3-translation-ru/status.svg)](https://drone.alexxnb.ru/AlexxNB/svelte3-translation-ru)
 
 ## Запуск локальной версии сайта
 
