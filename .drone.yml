@@ -11,7 +11,9 @@ steps:
   - mkdir svelte
   - degit sveltejs/svelte svelte
   - mv svelte/site web
-  - cp -r ../svelte/site/* web/
-  - cd web
+  - cp -r ../svelte/site/* site/
+  - cd site
   - npm install -D locate-character
   - npm ci && npm run update
+  - cd ..
+  - rm -r svelte
