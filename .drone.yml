@@ -10,7 +10,7 @@ steps:
   - mkdir playground && cd playground
   - mkdir svelte
   - degit sveltejs/svelte svelte
-  - mv svelte/site web
+  - mv svelte/site site
   - cp -r ../svelte/site/* site/
   - cd site
   - npm install -D locate-character
