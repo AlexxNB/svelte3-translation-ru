@@ -9,5 +9,5 @@
 	<MapMarker lat={29.7230} lon={-95.4189} label="Салон депиляции Svelte"/>
 	<MapMarker lat={28.3378} lon={-81.3966} label="Диетические консультации Svelte"/>
 	<MapMarker lat={40.6483} lon={-74.0237} label="ООО Svelte+"/>
-	<MapMarker lat={40.6986} lon={-74.4100} label="Диедицинский центр Svelte"/>
+	<MapMarker lat={40.6986} lon={-74.4100} label="Медицинский центр Svelte"/>
 </Map>
