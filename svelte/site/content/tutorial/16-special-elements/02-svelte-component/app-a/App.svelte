@@ -1,0 +1,27 @@
+<script>
+	import RedThing from './RedThing.svelte';
+	import GreenThing from './GreenThing.svelte';
+	import BlueThing from './BlueThing.svelte';
+
+	const options = [
+		{ color: 'красный',   component: RedThing   },
+		{ color: 'зелёный', component: GreenThing },
+		{ color: 'синий',  component: BlueThing  },
+	];
+
+	let selected = options[0];
+</script>
+
+<select bind:value={selected}>
+	{#each options as option}
+		<option value={option}>{option.color}</option>
+	{/each}
+</select>
+
+{#if selected.color === 'красный'}
+	<RedThing/>
+{:else if selected.color === 'зелёный'}
+	<GreenThing/>
+{:else if selected.color === 'синий'}
+	<BlueThing/>
+{/if}
