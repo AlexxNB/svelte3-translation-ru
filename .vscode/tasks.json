@@ -6,7 +6,7 @@
         {
             "label": "Fetch Svelte website",
             "type": "shell",
-            "command": "rm -rf __svelte && git clone git@github.com:sveltejs/svelte.git __svelte && cd __svelte/site && npm install -D locate-character && npm ci && npm run update && rsync -av ${workspaceRoot}/svelte/site/ ${workspaceRoot}/__svelte/site/",
+            "command": "rm -rf __svelte && git clone git@github.com:sveltejs/svelte.git __svelte && cd __svelte/site && npm install -D locate-character && npm ci && npm run update && rsync -av ${workspaceRoot}/repositories/sveltejs/svelte/site/ ${workspaceRoot}/__svelte/site/",
             "problemMatcher": []
         },
         {
@@ -18,7 +18,7 @@
         {
             "label": "Update website content",
             "type": "shell",
-            "command": "rsync -av ${workspaceRoot}/svelte/site/ ${workspaceRoot}/__svelte/site/",
+            "command": "rsync -av ${workspaceRoot}/repositories/sveltejs/svelte/site/ ${workspaceRoot}/__svelte/site/",
             "problemMatcher": [],
             "group": {
                 "kind": "build",

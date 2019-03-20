@@ -6,7 +6,7 @@ RUN apk add git \
  && degit sveltejs/svelte svelte \
  && degit AlexxNB/svelte3-translation-ru translation \
  && mv svelte/site /web \
- && cp -r translation/svelte/site/* /web \
+ && cp -r translation/repositories/sveltejs/svelte/site/* /web \
  && cd /web \
  && npm install -D locate-character \
  && npm ci \
