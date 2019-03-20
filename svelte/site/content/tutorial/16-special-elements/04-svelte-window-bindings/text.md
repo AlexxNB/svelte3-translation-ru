@@ -8,7 +8,7 @@ title: Привязки к <svelte:window>
 <svelte:window bind:scrollY={y}/>
 ```
 
-Полныый список свойств, к которым можно првязаться:
+Полный список свойств, к которым можно привязаться:
 
 * `innerWidth`
 * `innerHeight`

@@ -18,7 +18,7 @@ function increment() {
 
 Нажатие кнопки `+` теперь будет *обновлять* `count`. Сделайте аналогичную реализацию для кнопки `-` на вкладке `Decrementer.svelte`.
 
-На последок, в `Resetter.svelte`, реализуйте `reset`:
+Наконец, в `Resetter.svelte`, реализуйте `reset`:
 
 ```js
 function reset() {

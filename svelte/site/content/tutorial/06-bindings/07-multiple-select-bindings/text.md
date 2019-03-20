@@ -2,9 +2,7 @@
 title: Списки с множественным выбором
 ---
 
-Список может иметь атрибут `multiple`, в этом случае он будет возвращать выюранные значения в виде массива.
-
-Returning to our [earlier ice cream example](tutorial/group-inputs), we can replace the checkboxes with a `<select multiple>`:
+Список может иметь атрибут `multiple`, в этом случае он будет возвращать выбранные значения в виде массива.
 
 Вернемся к нашему [примеру с мороженым](tutorial/group-inputs), тут мы можем заменить чекбоксы на элемент `<select multiple>`:
 
