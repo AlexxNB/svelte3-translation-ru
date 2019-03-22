@@ -14,7 +14,7 @@ RUN apk add git \
 
 
 FROM node:lts-alpine as svelte-site
-COPY --from=buildsvelte-site /web /site
+COPY --from=build-svelte-site /web /site
 
 WORKDIR /site
 EXPOSE 3000
