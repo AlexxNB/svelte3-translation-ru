@@ -1,4 +1,4 @@
-FROM node:alpine as build
+FROM node:lts-alpine as build-svelte-site
 
 RUN apk add git \
  && npm install -g degit \
@@ -13,8 +13,8 @@ RUN apk add git \
  && npm run update
 
 
-FROM node:alpine as svelte-site
-COPY --from=build /web /site
+FROM node:lts-alpine as svelte-site
+COPY --from=buildsvelte-site /web /site
 
 WORKDIR /site
 EXPOSE 3000
