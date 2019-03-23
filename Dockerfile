@@ -1,22 +1,22 @@
+#### BUILDING svelte-site
 FROM node:lts-alpine as build-svelte-site
 
-RUN apk add git \
- && npm install -g degit \
- && mkdir svelte && mkdir translation \
- && degit sveltejs/svelte svelte \
- && degit AlexxNB/svelte3-translation-ru translation \
- && mv svelte/site /web \
- && cp -r translation/repositories/sveltejs/svelte/site/* /web \
+COPY repositories/sveltejs/svelte/site /translation
+
+RUN apk add subversion \
+ && svn export -q https://github.com/sveltejs/svelte/trunk/site /web
+ && cp -r /translation/* /web \
  && cd /web \
  && npm install -D locate-character \
  && npm ci \
  && npm run update
 
 
+#### PACKING svelte-site
 FROM node:lts-alpine as svelte-site
-COPY --from=build-svelte-site /web /site
+COPY --from=build-svelte-site /web /svelte-site
 
-WORKDIR /site
+WORKDIR /svelte-site
 EXPOSE 3000
 
 ENTRYPOINT ["npm", "run", "dev"]
