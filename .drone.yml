@@ -5,7 +5,7 @@ steps:
 - name: build-svelte-site  
   image: plugins/docker
   settings:
-    target: svelte-site
+    dockerfile: svelte-site.dockerfile
     username: 
       from_secret: registry_user
     password:
@@ -16,7 +16,7 @@ steps:
 - name: build-svelte-native-site  
   image: plugins/docker
   settings:
-    target: svelte-native-site
+    dockerfile: svelte-native-site.dockerfile
     username: 
       from_secret: registry_user
     password:
