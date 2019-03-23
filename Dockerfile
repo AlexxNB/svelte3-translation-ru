@@ -4,7 +4,7 @@ FROM node:lts-alpine as build-svelte-site
 COPY repositories/sveltejs/svelte/site /translation
 
 RUN apk add subversion \
- && svn export -q https://github.com/sveltejs/svelte/trunk/site /web
+ && svn export -q https://github.com/sveltejs/svelte/trunk/site /web \
  && cp -r /translation/* /web \
  && cd /web \
  && npm install -D locate-character \
