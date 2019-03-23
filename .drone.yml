@@ -2,9 +2,10 @@ kind: pipeline
 name: svelte-website
 
 steps:
-- name: docker  
+- name: build-svelte-site  
   image: plugins/docker
   settings:
+    target: svelte-site
     username: 
       from_secret: registry_user
     password:
@@ -12,7 +13,18 @@ steps:
     repo: registry.alexxnb.ru/svelte-site
     registry: registry.alexxnb.ru
     tags: latest
-- name: ssh
+- name: build-svelte-native-site  
+  image: plugins/docker
+  settings:
+    target: svelte-native-site
+    username: 
+      from_secret: registry_user
+    password:
+      from_secret: registry_password
+    repo: registry.alexxnb.ru/svelte-native-site
+    registry: registry.alexxnb.ru
+    tags: latest
+- name: deploy
   image: appleboy/drone-ssh
   settings:
     host: miniserver.alexxnb.ru
@@ -27,3 +39,7 @@ steps:
       - docker rm Svelte-Site
       - docker pull registry.alexxnb.ru/svelte-site:latest
       - docker run -d --name Svelte-Site --restart always -p 3000:3000 registry.alexxnb.ru/svelte-site:latest
+      - docker container stop Svelte-Native-Site
+      - docker rm Svelte-Native-Site
+      - docker pull registry.alexxnb.ru/svelte-native-site:latest
+      - docker run -d --name Svelte-Native-Site --restart always -p 3001:3000 registry.alexxnb.ru/svelte-native-site:latest
