@@ -1,0 +1,54 @@
+{
+  "name": "svelte3-translation-ru",
+  "version": "1.0.0",
+  "description": "Svelte Resources Translation",
+  "main": "index.js",
+  "watch": {
+    "sync-svelte": {
+      "patterns": [
+        "repositories/sveltejs"
+      ],
+      "extensions": "md,json",
+      "quiet": false,
+      "runOnChangeOnly": true
+    },
+    "sync-svelte-native": {
+      "patterns": [
+        "repositories/halfnelson"
+      ],
+      "extensions": "md,json",
+      "quiet": false,
+      "runOnChangeOnly": true
+    }
+  },
+  "scripts": {
+    "download-svelte": "rm -rf __svelte && git clone --depth=1 git@github.com:sveltejs/svelte.git __svelte",
+    "download-svelte-native": "rm -rf __svelte-native && git clone --depth=1 https://github.com/halfnelson/svelte-native.git __svelte-native",
+    "build-svelte": "cd __svelte/site && npm install -D locate-character && npm ci && npm run update",
+    "build-svelte-native": "cd __svelte-native/docs_src && npm install",
+    "serve-svelte": "cd __svelte/site && npm run dev",
+    "serve-svelte-native": "cd __svelte-native/docs_src && npm run dev",
+    "sync-svelte": "rsync -av ./repositories/sveltejs/svelte/site/ ./__svelte/site/",
+    "sync-svelte-native": "rsync -av ./repositories/halfnelson/svelte-native/docs_src/  ./__svelte-native/docs_src/",
+    "watch-svelte": "npm-watch sync-svelte &",
+    "watch-svelte-native": "npm-watch sync-svelte-native &",
+    "update-svelte": "npm run download-svelte && npm run build-svelte && npm run sync-svelte",
+    "update-svelte-native": "npm run download-svelte-native && npm run build-svelte-native && npm run sync-svelte-native",
+    "update": "npm run update-svelte && npm run update-svelte-native",
+    "dev-svelte": "npm run watch-svelte && npm run serve-svelte",
+    "dev-svelte-native": "npm run watch-svelte-native && npm run serve-svelte-native"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexxNB/svelte3-translation-ru.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexxNB/svelte3-translation-ru/issues"
+  },
+  "homepage": "https://github.com/AlexxNB/svelte3-translation-ru#readme",
+  "devDependencies": {
+    "npm-watch": "^0.6.0"
+  }
+}
