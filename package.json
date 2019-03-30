@@ -32,7 +32,7 @@
     "sync-svelte-native": "rsync -av ./repositories/halfnelson/svelte-native/docs_src/  ./__svelte-native/docs_src/",
     "watch-svelte": "npm-watch sync-svelte &",
     "watch-svelte-native": "npm-watch sync-svelte-native &",
-    "update-svelte": "npm run download-svelte && npm run builddocs_src-svelte && npm run sync-svelte",
+    "update-svelte": "npm run download-svelte && npm run build-svelte && npm run sync-svelte",
     "update-svelte-native": "npm run download-svelte-native && npm run build-svelte-native && npm run sync-svelte-native",
     "update": "npm run update-svelte && npm run update-svelte-native",
     "dev-svelte": "npm run watch-svelte && npm run serve-svelte",
