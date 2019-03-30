@@ -8,7 +8,7 @@
       "patterns": [
         "repositories/sveltejs"
       ],
-      "extensions": "md,json",
+      "extensions": "md,json,js",
       "quiet": false,
       "runOnChangeOnly": true
     },
@@ -16,7 +16,7 @@
       "patterns": [
         "repositories/halfnelson"
       ],
-      "extensions": "md,json",
+      "extensions": "md,json,js",
       "quiet": false,
       "runOnChangeOnly": true
     }
