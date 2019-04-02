@@ -13,6 +13,17 @@ steps:
     repo: registry.alexxnb.ru/svelte-site
     registry: registry.alexxnb.ru
     tags: latest
+- name: build-sapper-site  
+  image: plugins/docker
+  settings:
+    dockerfile: sapper-site.dockerfile
+    username: 
+      from_secret: registry_user
+    password:
+      from_secret: registry_password
+    repo: registry.alexxnb.ru/sapper-site
+    registry: registry.alexxnb.ru
+    tags: latest
 - name: build-svelte-native-site  
   image: plugins/docker
   settings:
@@ -39,6 +50,10 @@ steps:
       - docker rm Svelte-Site
       - docker pull registry.alexxnb.ru/svelte-site:latest
       - docker run -d --name Svelte-Site --restart always -p 3000:3000 registry.alexxnb.ru/svelte-site:latest
+      - docker container stop Sapper-Site
+      - docker rm Sapper-Site
+      - docker pull registry.alexxnb.ru/sapper-site:latest
+      - docker run -d --name Sapper-Site --restart always -p 3002:3000 registry.alexxnb.ru/sapper-site:latest
       - docker container stop Svelte-Native-Site
       - docker rm Svelte-Native-Site
       - docker pull registry.alexxnb.ru/svelte-native-site:latest

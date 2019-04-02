@@ -6,7 +6,15 @@
   "watch": {
     "sync-svelte": {
       "patterns": [
-        "repositories/sveltejs"
+        "repositories/sveltejs/svelte"
+      ],
+      "extensions": "md,json,js",
+      "quiet": false,
+      "runOnChangeOnly": true
+    },
+    "sync-sapper": {
+      "patterns": [
+        "repositories/sveltejs/sapper.svelte.technology"
       ],
       "extensions": "md,json,js",
       "quiet": false,
@@ -23,19 +31,26 @@
   },
   "scripts": {
     "download-svelte": "rm -rf __svelte && git clone --depth=1 --single-branch git@github.com:sveltejs/svelte.git __svelte",
+    "download-sapper": "rm -rf __svelte && git clone --depth=1 --single-branch https://github.com/sveltejs/sapper.svelte.technology __sapper",
     "download-svelte-native": "rm -rf __svelte-native && git clone --depth=1 --single-branch https://github.com/halfnelson/svelte-native.git __svelte-native",
     "build-svelte": "cd __svelte/site && npm install -D locate-character && npm ci && npm run update",
+    "build-sapper": "cd __sapper && npm install",
     "build-svelte-native": "cd __svelte-native/docs_src && npm install",
     "serve-svelte": "cd __svelte/site && npm run dev",
+    "serve-sapper": "cd __sapper && npm run dev",
     "serve-svelte-native": "cd __svelte-native/docs_src && npm run dev",
     "sync-svelte": "rsync -av ./repositories/sveltejs/svelte/site/ ./__svelte/site/",
+    "sync-sapper": "rsync -av ./repositories/sveltejs/sapper.svelte.technology/ ./__sapper",
     "sync-svelte-native": "rsync -av ./repositories/halfnelson/svelte-native/docs_src/  ./__svelte-native/docs_src/",
     "watch-svelte": "npm-watch sync-svelte &",
+    "watch-sapper": "npm-watch sync-sapper &",
     "watch-svelte-native": "npm-watch sync-svelte-native &",
     "update-svelte": "npm run download-svelte && npm run build-svelte && npm run sync-svelte",
+    "update-sapper": "npm run download-sapper && npm run build-sapper && npm run sync-sapper",
     "update-svelte-native": "npm run download-svelte-native && npm run build-svelte-native && npm run sync-svelte-native",
-    "update": "npm run update-svelte && npm run update-svelte-native",
+    "update": "npm run update-svelte && npm run update sapper && npm run update-svelte-native",
     "dev-svelte": "npm run watch-svelte && npm run serve-svelte",
+    "dev-sapper": "npm run watch-sapper && npm run serve-sapper",
     "dev-svelte-native": "npm run watch-svelte-native && npm run serve-svelte-native"
   },
   "repository": {
