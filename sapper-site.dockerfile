@@ -5,7 +5,7 @@ COPY repositories/sveltejs/sapper.svelte.technology /translation
 
 RUN apk add subversion \
  && apk add git \
- && svn export -q  svn export -q https://github.com/sveltejs/sapper.svelte.technology/trunk /web \
+ && svn export -q https://github.com/sveltejs/sapper.svelte.technology/trunk /web \
  && cp -r /translation/* /web \
  && cd /web \
  && npm install
