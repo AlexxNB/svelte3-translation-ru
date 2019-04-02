@@ -51,7 +51,7 @@ title: Синтаксис шаблонов
 
 ---
 
-Или они *сами* могут быть выражениями JavaScript.
+Или они *целиком* могут быть выражениями JavaScript.
 
 ```html
 <button disabled={!clickable}>...</button>
@@ -136,7 +136,7 @@ title: Синтаксис шаблонов
 
 ---
 
-Дополнительные условия могут быть добавлены с помощью `{:else if выражение}`, а блок алтернативной разметки помещены после `{:else}`.
+Дополнительные условия могут быть добавлены с помощью `{:else if выражение}`, а блок альтернативной разметки помещен после `{:else}`.
 
 ```html
 {#if porridge.temperature > 35}
@@ -181,8 +181,6 @@ title: Синтаксис шаблонов
 
 ---
 
-If a *key* expression is provided — which must uniquely identify each list item — Svelte will use it to diff the list when data changes, rather than adding or removing items at the end.
-
 Если указать параметр *ключ*, который однозначно идентифицирует каждый элемент списка, то при изменении данных Svelte будет использовать его для изменения списка в нужном месте, а не просто удалять и добавлять элементы в конце массива.
 
 ```html
@@ -193,7 +191,6 @@ If a *key* expression is provided — which must uniquely identify each list ite
 
 ---
 
-You can freely use destructuring patterns in each blocks.
 При желании можно использовать деструктуризацию в блоках `each`:
 
 ```html
