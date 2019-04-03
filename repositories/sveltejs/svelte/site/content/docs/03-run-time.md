@@ -148,7 +148,7 @@ title: Run time
 
 ### svelte/store
 
-Модуль `svelte/store` предоставляет функции для создания [хранилищ](http://localhost:3000/tutorial/writable-stores).
+Модуль `svelte/store` предоставляет функции для создания [хранилищ](tutorial/writable-stores).
 
 ---
 
