@@ -3,8 +3,6 @@
 
 	let canvas;
 
-	const r = Math.random();
-
 	onMount(() => {
 		const ctx = canvas.getContext('2d');
 		let frame;
