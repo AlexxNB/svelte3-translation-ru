@@ -7,10 +7,10 @@ title: Создание приложения
 Во-первых, понадобится интегрировать Svelte в инструменты сборки. Популярные варианты:
 
 * [Rollup](https://rollupjs.org) / [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte)
-* [webpack](https://webpack.js.org/) / [svelte-loader](https://github.com/sveltejs/svelte-loader)
+* [Webpack](https://webpack.js.org/) / [svelte-loader](https://github.com/sveltejs/svelte-loader)
 * [Parcel](https://parceljs.org/) / [parcel-plugin-svelte](https://github.com/DeMoorJasper/parcel-plugin-svelte)
 
-Не беспокойтесь, если вы  новичок в веб-разработке и ранее не пользовались подобными инструментами. Мы подготовили простое пошаговое руководство [Svelte для зеленых разработчиков](blog/svelte-for-new-developers), которое проведет вас через этот процесс.
+Не беспокойтесь, если вы  новичок в веб-разработке и ранее не пользовались подобными инструментами. Мы подготовили простое пошаговое руководство [Svelte для зелёных разработчиков](blog/svelte-for-new-developers), которое проведет вас через этот процесс.
 
 Кроме того, потребуется настроить ваш редактор кода, чтобы он подсвечивал синтаксис `.svelte` файлов. Узнать как это сделать можно просто [прочитав это руководство](blog/setting-up-your-editor).
 
@@ -27,7 +27,5 @@ const app = new App({
 	}
 });
 ```
-
-You can then interact with `app` using the  if you need to.
 
 При необходимости можно взаимодействовать с `app`, используя [API компонента](docs/component-api).

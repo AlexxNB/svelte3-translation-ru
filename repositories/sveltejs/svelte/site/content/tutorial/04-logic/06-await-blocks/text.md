@@ -3,7 +3,7 @@ title: Блок Await
 ---
 
 
-Большинство веб-приложений работают с асинхронными данными. Svelte позволяет использовать опреатор await, который в JavaScript *ожидает* ответ от [промисов](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Ispolzovanie_promisov), непосредственно в разметке:
+Большинство веб-приложений работают с асинхронными данными. Svelte позволяет прямо в разметке использовать оператор `await`, который в JavaScript *ожидает* ответ от [промисов](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Ispolzovanie_promisov):
 
 ```html
 {#await promise}
