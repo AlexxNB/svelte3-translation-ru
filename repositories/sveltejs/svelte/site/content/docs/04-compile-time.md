@@ -11,7 +11,7 @@ title: Compile time
 Тем не менее, полезно знать, как пользоваться компилятором, так как эти плагины обычно предоставляют возможность настройки его параметров.
 
 
-### svelte.compile
+### `compile`
 
 ```js
 result: {
@@ -21,17 +21,17 @@ result: {
 	warnings,
 	vars,
 	stats
-} = svelte.compile(source: string, options?: {...})
+} = compile(source: string, options?: {...})
 ```
 
 ---
 
-Тут происходит вся магия. Метод `svelte.compile` берет исходный код вашего компонента и превращает его в JavaScript модуль, который экспортирует класс.
+Тут происходит вся магия. Метод `compile` берет исходный код вашего компонента и превращает его в JavaScript модуль, который экспортирует класс.
 
 ```js
-const svelte = require('svelte/compiler');
+const {compile} = require('svelte/compiler');
 
-const result = svelte.compile(source, {
+const result = compile(source, {
 	// параметры
 });
 ```
@@ -91,7 +91,7 @@ const {
 	warnings,
 	vars,
 	stats
-} = svelte.compile(source);
+} = compile(source);
 ```
 
 * `js` и `css` — объекты со следующими свойствами:
@@ -146,19 +146,19 @@ compiled: {
 	stats: {
 		timings: { [label]: number }
 	}
-} = svelte.compile(source: string, options?: {...})
+} = compile(source: string, options?: {...})
 ```
 
 -->
 
 
-### svelte.preprocess
+### `preprocess`
 
 ```js
 result: {
 	code: string,
 	dependencies: Array<string>
-} = svelte.preprocess(
+} = preprocess(
 	source: string,
 	preprocessors: Array<{
 		markup?: (input: { source: string, filename: string }) => Promise<{
@@ -193,9 +193,9 @@ result: {
 > Функции препроцессоров также могут дополнительно возвращать объект `map` вместе с `code` и `dependencies`, где` map` — это карта исходников для отладки преобразованного кода. В текущих версиях Svelte этот объект игнорируется, но в будущих версиях Svelte сможет обрабатывать карты исходников от препроцессоров.
 
 ```js
-const svelte = require('svelte/compiler');
+const {preprocess} = require('svelte/compiler');
 
-const { code } = svelte.preprocess(source, {
+const { code } = preprocess(source, {
 	markup: ({ content, filename }) => {
 		return {
 			code: content.replace(/foo/g, 'bar')
@@ -213,11 +213,11 @@ const { code } = svelte.preprocess(source, {
 Если возвращается массив зависимостей `dependencies`, он будет также включен в результирующий объект. Он используется такими пакетами, как [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) для отслеживания изменений  дополнительных файлов, в случае, если, например в теге `<style>` есть `@import`.
 
 ```js
-const svelte = require('svelte/compiler');
+const {preprocess} = require('svelte/compiler');
 const sass = require('node-sass');
 const { dirname } = require('path');
 
-const { code, dependencies } = svelte.preprocess(source, {
+const { code, dependencies } = preprocess(source, {
 	style: async ({ content, attributes, filename }) => {
 		// обрабатываем только <style lang="sass">
 		if (attributes.lang !== 'sass') return;
@@ -248,9 +248,9 @@ const { code, dependencies } = svelte.preprocess(source, {
 Несколько препроцессоров могут быть использованы вместе. Выход первого становится входом для второго и так далее. Сначала запускаются функции `markup`, затем `script` и `style`.
 
 ```js
-const svelte = require('svelte/compiler');
+const {preprocess} = require('svelte/compiler');
 
-const { code } = svelte.preprocess(source, [
+const { code } = preprocess(source, [
 	{
 		markup: () => {
 			console.log('это запустится первым');
@@ -279,13 +279,13 @@ const { code } = svelte.preprocess(source, [
 ```
 
 
-### svelte.VERSION
+### `VERSION`
 
 ---
 
 Текущая версия Svelte, которая указана в файле package.json.
 
 ```js
-const svelte = require('svelte/compiler');
-console.log(`используется Svelte версии ${svelte.VERSION}`);
+ const {VERSION} = require('svelte/compiler');
+console.log(`используется Svelte версии ${VERSION}`);
 ```

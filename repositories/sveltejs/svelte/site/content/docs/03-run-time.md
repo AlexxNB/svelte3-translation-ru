@@ -3,9 +3,11 @@ title: Run time
 ---
 
 
-### svelte
+### `svelte`
 
 Пакет `svelte` предоставляет [функции жизненного цикла](tutorial/onmount) и [API контекста](tutorial/context-api).
+
+#### `onMount`
 
 * `onMount(callback: () => void)`
 * `onMount(callback: () => () => void)`
@@ -44,7 +46,9 @@ title: Run time
 </script>
 ```
 
-* `beforeUpdate(callback: () => void)`
+#### `beforeUpdate`
+
+`beforeUpdate(callback: () => void)`
 
 ---
 
@@ -62,7 +66,9 @@ title: Run time
 </script>
 ```
 
-* `afterUpdate(callback: () => void)`
+#### `afterUpdate`
+
+`afterUpdate(callback: () => void)`
 
 ---
 
@@ -78,7 +84,9 @@ title: Run time
 </script>
 ```
 
-* `onDestroy(callback: () => void)`
+#### `onDestroy`
+
+`onDestroy(callback: () => void)`
 
 ---
 
@@ -96,7 +104,9 @@ title: Run time
 </script>
 ```
 
-* `promise: Promise = tick()`
+#### `tick`
+
+`promise: Promise = tick()`
 
 ---
 
@@ -107,14 +117,16 @@ title: Run time
 	import { beforeUpdate, tick } from 'svelte';
 
 	beforeUpdate(async () => {
-		console.log('комопнент сейчас будет обновляться');
+		console.log('компонент сейчас будет обновляться');
 		await tick();
 		console.log('компонент обновился');
 	});
 </script>
 ```
 
-* `setContext(key: any, context: any)`
+#### `setContext`
+
+`setContext(key: any, context: any)`
 
 ---
 
@@ -130,7 +142,9 @@ title: Run time
 </script>
 ```
 
-* `context: any = getContext(key: any)`
+#### `getContext`
+
+`context: any = getContext(key: any)`
 
 ---
 
@@ -144,9 +158,12 @@ title: Run time
 </script>
 ```
 
+#### `createEventDispatcher`
+
+TODO
 
 
-### svelte/store
+### `svelte/store`
 
 Модуль `svelte/store` предоставляет функции для создания [хранилищ](tutorial/writable-stores).
 
@@ -181,6 +198,8 @@ unsubscribe();
 	Клик:ов {$count}
 </button>
 ```
+
+#### `writable`
 
 * `store = writable(value: any)`
 * `store = writable(value: any, (set: (value: any) => void) => () => void)`
@@ -224,7 +243,9 @@ const unsubscribe = count.subscribe(value => {
 unsubscribe(); // выводит 'подписчиков не осталось'
 ```
 
-* `store = readable(value: any, (set: (value: any) => void) => () => void)`
+#### `readable`
+
+`store = readable(value: any, (set: (value: any) => void) => () => void)`
 
 ---
 
@@ -243,6 +264,7 @@ const time = readable(new Date(), set => {
 	return () => clearInterval(interval);
 });
 ```
+#### `derived`
 
 * `store = derived(a, callback: (a: any) => any)`
 * `store = derived(a, callback: (a: any, set: (value: any) => void) => void)`
@@ -287,7 +309,9 @@ const delayed = derived([a, b], ([$a, $b], set) => {
 });
 ```
 
-* `value: any = get(store)`
+#### `get`
+
+`value: any = get(store)`
 
 ---
 
@@ -302,13 +326,13 @@ const value = get(store);
 ```
 
 
-### svelte/motion
+### `svelte/motion`
 
 Модуль `svelte/motion` экспортирует две функции, `tweened` и `spring`, для создания записываемых хранилищ, чьи значения, при изменении функциями `set` и `update`, меняются постепенно в течение какого-то количества времени, а не моментально.
 
-#### tweened
+#### `tweened`
 
-* `store = tweened(value: any, options)`
+`store = tweened(value: any, options)`
 
 Хранилище, которое обновляет свои значения в течение фиксированного периода времени. Доступны следующие опции:
 
@@ -378,9 +402,9 @@ const value = get(store);
 <h1 style="color: {$color}">{$color}</h1>
 ```
 
-#### spring
+#### `spring`
 
-* `store = spring(value: any, options)`
+`store = spring(value: any, options)`
 
 Хранилище `spring` постепенно меняет свое значение на основе параметров `stiffness`(жёсткость) и `damping`(затухание), получаются колебания по типу движения пружины. В отличие от хранилищ типа `tweened`, где значение меняется строго определенное количество времени, хранилища типа `spring` изменяют значение в течение продолжительности, которая задается их текущей скоростью, что позволяет более естественно выглядеть во многих ситуациях. Доступны следующие опции:
 
@@ -390,7 +414,7 @@ const value = get(store);
 
 ---
 
-Как и в случае с `tweened` хранилищами, `set` и `update` возвращают промис, который выполняется, когда колебания прекратятся. Свойства `store.stiffness` и` store.damping` могут быть изменены, даже во время колебаний и применяются немедленно.
+Как и в случае с [`tweened`](#tweened) хранилищами, `set` и `update` возвращают промис, который выполняется, когда колебания прекратятся. Свойства `store.stiffness` и` store.damping` могут быть изменены, даже во время колебаний и применяются немедленно.
 
 [Посмотрите полноценный пример.](tutorial/spring)
 
@@ -405,14 +429,14 @@ const value = get(store);
 </script>
 ```
 
-### svelte/transition
+### `svelte/transition`
 
 TODO
 
 * fade, fly, slide, scale, draw
 * crossfade...
 
-### svelte/animation
+### `svelte/animation`
 
 TODO
 
@@ -420,18 +444,22 @@ TODO
 
 TODO
 
-### svelte/easing
+### `svelte/easing`
 
 * TODO could have nice little interactive widgets showing the different functions, maybe
 
-### svelte/register
+### `svelte/register`
 
 TODO
 
 
 ### Client-side component API
 
-* `const component = new Component(options)`
+#### Creating a component
+
+```js
+const component = new Component(options)
+```
 
 ---
 
@@ -465,7 +493,7 @@ const app = new App({
 
 ---
 
-Параметр `hydrate` инструктирует Svelte обновить существующий DOM (обычно полученный в ходе рендеринга на стороне сервера), а не создавать новые элементы. Это будет работать только в том случае, если компонент был скомпилирован с параметром `hydratable: true`.
+Параметр `hydrate` инструктирует Svelte обновить существующий DOM (обычно полученный в ходе рендеринга на стороне сервера), а не создавать новые элементы. Это будет работать только в том случае, если компонент был скомпилирован с параметром [`hydratable: true`](docs#compile).
 
 В то время как дочерние элементы `target` обычно нормально остаются одни,` hydrate: true` приведет к удалению всех детей. По этой причине опция `anchor` не может использоваться вместе с` hydrate: true`.
 
@@ -480,7 +508,11 @@ const app = new App({
 });
 ```
 
-* `component.$set(props)`
+#### `$set`
+
+```js
+component.$set(props)
+```
 
 ---
 
@@ -489,10 +521,14 @@ const app = new App({
 Вызов этого метода запланирует обновление в следующей микрозадаче - DOM *не* обновляется синхронно.
 
 ```js
-app.$set({ answer: 42 });
+component.$set({ answer: 42 });
 ```
 
-* `component.$on(event, callback)`
+#### `$on`
+
+```js
+component.$on(event, callback)
+```
 
 ---
 
@@ -504,13 +540,22 @@ app.$on('selected', event => {
 });
 ```
 
+#### `$destroy`
 
-* `component.$destroy()`
+```js
+component.$destroy()
+```
 
 Удаляет компонент из DOM и запускает все имеющиеся обработчики функции `onDestroy`.
 
-* `component.prop`
-* `component.prop = value`
+#### Component props
+
+```js
+component.prop
+```
+```js
+component.prop = value
+```
 
 ---
 
@@ -531,7 +576,9 @@ app.count += 1;
 
 ### Server-side component API
 
-* `const result = Component.render(...)`
+```js
+const result = Component.render(...)
+```
 
 ---
 

@@ -331,7 +331,7 @@ title: Синтаксис шаблонов
 
 ---
 
-Компоненты могут отправлять события, используя диспетчер событий [createEventDispatcher](#docs/createEventDispatcher) или пробрасывая события DOM. Обработка событий компонента выглядит так же, как обработка событий DOM.
+Компоненты могут отправлять события, используя диспетчер событий [createEventDispatcher](docs#createEventDispatcher) или пробрасывая события DOM. Обработка событий компонента выглядит так же, как обработка событий DOM.
 
 ```html
 <SomeComponent on:whatever={handler}/>
@@ -341,8 +341,9 @@ title: Синтаксис шаблонов
 
 ### Element bindings
 
-* `bind:свойство={значение}`
-* `bind:group={значение}`
+* `bind:свойство={переменная}`
+* `bind:group={переменная}`
+* `bind:this={DOM-элемент}`
 
 ---
 
@@ -376,6 +377,8 @@ title: Синтаксис шаблонов
 <input type="range" bind:value={num}>
 ```
 
+#### Binding related elements
+
 ---
 
 Элементы `input`, которые работают вместе, могут использовать привязку `bind:group`.
@@ -397,6 +400,8 @@ title: Синтаксис шаблонов
 <input type="checkbox" bind:group={fillings} value="Cheese">
 <input type="checkbox" bind:group={fillings} value="Guac (extra)">
 ```
+
+#### Binding `<select>` value
 
 ---
 
@@ -437,6 +442,9 @@ title: Синтаксис шаблонов
 </select>
 ```
 
+
+#### Media elements bindings
+
 ---
 
 Медиа-элементы (`<audio>` и `<video>`) имеют свой собственный набор привязок — четыре *только для чтения* ...
@@ -465,16 +473,27 @@ title: Синтаксис шаблонов
 ></video>
 ```
 
+#### Block-level elements bindings
+
 ---
 
+У блочных элементов есть 4 привязки, доступных только для чтения. Они рассчитываются с использованием метода, аналогичного [этому](http://www.backalleycoder.com/2013/03/18/cross-browser-event-based-element-resize-detection/):
 
-Блочные элементы привязки `clientWidth`, `clientHeight`, `offsetWidth` и `offsetHeight`, доступные только для чтения. Они рассчитываются с использованием метода, аналогичного [этому](http://www.backalleycoder.com/2013/03/18/cross-browser-event-based-element-resize-detection/).
+* `clientWidth`
+* `clientHeight`
+* `offsetWidth`
+* `offsetHeight`
 
 ```html
-<div bind:offsetWidth={width} bind:offsetHeight={height}>
+<div
+	bind:offsetWidth={width}
+	bind:offsetHeight={height}
+>
 	<Chart {width} {height}/>
 </div>
 ```
+
+#### Binding a DOM node
 
 ---
 
@@ -498,7 +517,8 @@ title: Синтаксис шаблонов
 
 ### Component bindings
 
-* `bind:свойство={значение}`
+* `bind:свойство={переменная}`
+* `bind:this={экземпляр_компонента}`
 
 ---
 
@@ -658,6 +678,8 @@ transition = (node: HTMLElement, params: any) => {
 {/if}
 ```
 
+#### Transition parameters
+
 ---
 
 Как и действия, переходы могут иметь параметры.
@@ -671,6 +693,8 @@ transition = (node: HTMLElement, params: any) => {
 	</div>
 {/if}
 ```
+
+#### Custom transition functions
 
 ---
 
@@ -744,6 +768,8 @@ transition = (node: HTMLElement, params: any) => {
 ```
 
 Если переход возвращает функцию вместо объекта перехода, то она будет вызвана в следующей микрозадаче. Это позволяет координировать несколько переходов, что дает возможность запускать [перекрестные переходы](tutorial/deferred-transitions).
+
+#### Transitions events
 
 ---
 
@@ -831,7 +857,7 @@ TODO i can't remember how any of this works
 
 <!-- Widget.svelte -->
 <div>
-	<slot name"header">Заголовок не предоставлен</slot>
+	<slot name="header">Заголовок не предоставлен</slot>
 	<p>Любое содержимое между заголовком и футером</p>
 	</slot name="footer"></slot>
 </div>
@@ -995,7 +1021,7 @@ TODO i can't remember how any of this works
 
 ---
 
-Элемент `<svelte:options>` позволяет установить определенные параметры для компилятора для каждого отдельного компонента. Параметры, которые можно установить:
+Элемент `<svelte:options>` позволяет установить определенные параметры для компилятора для каждого отдельного компонента. Подробнее о параметрах компилятора можно узнать в разделе про функцию [compile](docs#compile). Параметры, которые можно установить:
 
 * `immutable={true}` — установите если вы нигде не используете изменяемые данные, тогда компилятор сможет выполнять более простые проверки равенства объектов для определения их изменения
 * `immutable={false}` — по-умолчанию. Svelte будет проверять изменение объектов обычным способом
