@@ -409,7 +409,7 @@ const value = get(store);
 
 TODO
 
-* fade, fly, slide, draw
+* fade, fly, slide, scale, draw
 * crossfade...
 
 ### svelte/animation
