@@ -443,7 +443,7 @@ title: Синтаксис шаблонов
 ```
 
 
-#### Media elements bindings
+#### Media element bindings
 
 ---
 
@@ -473,7 +473,7 @@ title: Синтаксис шаблонов
 ></video>
 ```
 
-#### Block-level elements bindings
+#### Block-level element bindings
 
 ---
 
@@ -769,7 +769,7 @@ transition = (node: HTMLElement, params: any) => {
 
 Если переход возвращает функцию вместо объекта перехода, то она будет вызвана в следующей микрозадаче. Это позволяет координировать несколько переходов, что дает возможность запускать [перекрестные переходы](tutorial/deferred-transitions).
 
-#### Transitions events
+#### Transition events
 
 ---
 
