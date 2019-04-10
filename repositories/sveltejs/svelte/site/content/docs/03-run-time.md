@@ -244,21 +244,21 @@ const time = readable(new Date(), set => {
 });
 ```
 
-* `store = derive(a, callback: (a: any) => any)`
-* `store = derive(a, callback: (a: any, set: (value: any) => void) => void)`
-* `store = derive([a, ...b], callback: ([a: any, ...b: any[]]) => any)`
-* `store = derive([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void)`
+* `store = derived(a, callback: (a: any) => any)`
+* `store = derived(a, callback: (a: any, set: (value: any) => void) => void)`
+* `store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)`
+* `store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void)`
 
 ---
 
 Создаёт производное хранилище, на основе одного или нескольких других хранилищ. Всякий раз, когда меняются значения отслеживаемых хранилищ, выполняется callback-функция.
 
-В самом простом случае в `derive` передаётся одно хранилище, а из callback-функции возвращается производное значение.
+В самом простом случае в `derived` передаётся одно хранилище, а из callback-функции возвращается производное значение.
 
 ```js
-import { derive } from 'svelte/store';
+import { derived } from 'svelte/store';
 
-const doubled = derive(a, $a => $a * 2);
+const doubled = derived(a, $a => $a * 2);
 ```
 
 ---
@@ -266,9 +266,9 @@ const doubled = derive(a, $a => $a * 2);
 Callback-функция может устанавливать значение асинхронно, принимая второй аргумент `set` и вызывая его при необходимости.
 
 ```js
-import { derive } from 'svelte/store';
+import { derived } from 'svelte/store';
 
-const delayed = derive(a, ($a, set) => {
+const delayed = derived(a, ($a, set) => {
 	setTimeout(() => set($a), 1000);
 });
 ```
@@ -278,11 +278,11 @@ const delayed = derive(a, ($a, set) => {
 В обоих случаях в качестве первого аргумента может быть передан массив хранилищ.
 
 ```js
-import { derive } from 'svelte/store';
+import { derived } from 'svelte/store';
 
-const summed = derive([a, b], ([$a, $b]) => $a + $b);
+const summed = derived([a, b], ([$a, $b]) => $a + $b);
 
-const delayed = derive([a, b], ([$a, $b], set) => {
+const delayed = derived([a, b], ([$a, $b], set) => {
 	setTimeout(() => set($a + $b), 1000);
 });
 ```
