@@ -292,13 +292,13 @@ const time = readable(new Date(), set => {
 store = derived(a, callback: (a: any) => any)
 ```
 ```js
-store = derived(a, callback: (a: any, set: (value: any) => void) => void)
+store = derived(a, callback: (a: any, set: (value: any) => void) => void, initial_value: any)
 ```
 ```js
 store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)
 ```
 ```js
-store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void)
+store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void, initial_value: any)
 ```
 
 ---
@@ -317,17 +317,19 @@ const doubled = derived(a, $a => $a * 2);
 
 Callback-функция может устанавливать значение асинхронно, принимая второй аргумент `set` и вызывая его при необходимости.
 
+В этом случае,  также можно передать третий аргумент в `derived`, которое будет начальным значением производного хранилища до первого вызова метода `set`.
+
 ```js
 import { derived } from 'svelte/store';
 
 const delayed = derived(a, ($a, set) => {
 	setTimeout(() => set($a), 1000);
-});
+}, 'секундочку...');
 ```
 
 ---
 
-В обоих случаях в качестве первого аргумента может быть передан массив хранилищ.
+В качестве первого аргумента может быть передан массив хранилищ.
 
 ```js
 import { derived } from 'svelte/store';
