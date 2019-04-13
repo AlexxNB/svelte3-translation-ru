@@ -88,7 +88,9 @@ title: Синтаксис шаблонов
 
 ### Text expressions
 
-* `{expression}`
+```sv
+{expression}
+```
 
 ---
 
@@ -102,7 +104,9 @@ title: Синтаксис шаблонов
 
 ### HTML expressions
 
-* `{@html expression}`
+```sv
+{@html expression}
+```
 
 ---
 
@@ -120,9 +124,15 @@ title: Синтаксис шаблонов
 
 ### If blocks
 
-* `{#if выражение}...{/if}`
-* `{#if выражение}...{:else if выражение}...{/if}`
-* `{#if выражение}...{:else}...{/if}`
+```sv
+{#if expression}...{/if}
+```
+```sv
+{#if expression}...{:else if expression}...{/if}
+```
+```sv
+{#if expression}...{:else}...{/if}
+```
 
 ---
 
@@ -151,10 +161,18 @@ title: Синтаксис шаблонов
 
 ### Each blocks
 
-* `{#each выражение as значение}...{/each}`
-* `{#each выражение as значение, индекс}...{/each}`
-* `{#each выражение as значение, индекс (ключ)}...{/each}`
-* `{#each выражение as значение}...{:else}...{/each}`
+```sv
+{#each expression as name}...{/each}
+```
+```sv
+{#each expression as name, index}...{/each}
+```
+```sv
+{#each expression as name, index (key)}...{/each}
+```
+```sv
+{#each expression as name}...{:else}...{/each}
+```
 
 ---
 
@@ -214,9 +232,15 @@ title: Синтаксис шаблонов
 
 ### Await blocks
 
-* `{#await выражение}...{:then значение}...{:catch значение}...{/await}`
-* `{#await выражение}...{:then значение}...{/await}`
-* `{#await выражение then значение}...{/await}`
+```sv
+{#await expression}...{:then name}...{:catch name}...{/await}
+```
+```sv
+{#await expression}...{:then name}...{/await}
+```
+```sv
+{#await expression then name}...{/await}
+```
 
 ---
 
@@ -261,8 +285,12 @@ title: Синтаксис шаблонов
 
 ### DOM events
 
-* `on:событие={обработчик}`
-* `on:событие|модификаторы={обработчик}`
+```sv
+on:eventname={handler}
+```
+```sv
+on:eventname|modifiers={handler}
+```
 
 ---
 
@@ -327,7 +355,9 @@ title: Синтаксис шаблонов
 
 ### Component events
 
-* `on:событие={обработчик}`
+```sv
+on:eventname={handler}
+```
 
 ---
 
@@ -341,9 +371,15 @@ title: Синтаксис шаблонов
 
 ### Element bindings
 
-* `bind:свойство={переменная}`
-* `bind:group={переменная}`
-* `bind:this={DOM-элемент}`
+```sv
+bind:property={variable}
+```
+```sv
+bind:group={variable}
+```
+```sv
+bind:this={dom_node}
+```
 
 ---
 
@@ -545,8 +581,12 @@ title: Синтаксис шаблонов
 
 ### Classes
 
-* `class:имя={значение}`
-* `class:имя`
+```sv
+class:name={value}
+```
+```sv
+class:name
+```
 
 ---
 
@@ -564,8 +604,12 @@ title: Синтаксис шаблонов
 
 ### Actions
 
-* `use:действие`
-* `use:действие={параметры}`
+```sv
+use:action
+```
+```sv
+use:action={parameters}
+```
 
 ```js
 action = (node: HTMLElement, parameters: any) => {
@@ -627,18 +671,42 @@ action = (node: HTMLElement, parameters: any) => {
 
 ### Transitions
 
-* `transition:имя`
-* `transition:имя={параметры}`
-* `transition:имя|local`
-* `transition:имя|local={параметры}`
-* `in:имя`
-* `in:имя={параметры}`
-* `in:имя|local`
-* `in:имя|local={параметры}`
-* `out:имя`
-* `out:имя={параметры}`
-* `out:имя|local`
-* `out:имя|local={параметры}`
+```sv
+transition:name
+```
+```sv
+transition:name={params}
+```
+```sv
+transition:name|local
+```
+```sv
+transition:name|local={params}
+```
+```sv
+in:name
+```
+```sv
+in:name={params}
+```
+```sv
+in:name|local
+```
+```sv
+in:name|local={params}
+```
+```sv
+out:name
+```
+```sv
+out:name={params}
+```
+```sv
+out:name|local
+```
+```sv
+out:name|local={params}
+```
 
 ```js
 transition = (node: HTMLElement, params: any) => {
@@ -820,9 +888,15 @@ TODO i can't remember how any of this works
 
 ### Slots
 
-* `<slot><!-- необязательное содержимое по умолчанию --></slot>`
-* `<slot name="x"><!-- необязательное содержимое по умолчанию --></slot>`
-* `<slot prop={значение}></slot>`
+```sv
+<slot><!-- optional fallback --></slot>
+```
+```sv
+<slot name="x"><!-- optional fallback --></slot>
+```
+```sv
+<slot prop={value}></slot>
+```
 
 ---
 
@@ -933,7 +1007,9 @@ TODO i can't remember how any of this works
 
 ### &lt;svelte:component&gt;
 
-* `<svelte:component this={выражение}>`
+```sv
+<svelte:component this={expression}>
+```
 
 ---
 
@@ -948,8 +1024,12 @@ TODO i can't remember how any of this works
 
 ### &lt;svelte:window&gt;
 
-* `<svelte:window on:событие={обработчик}/>`
-* `<svelte:window bind:свойство={значение}/>`
+```sv
+<svelte:window on:event={handler}/>
+```
+```sv
+<svelte:window bind:prop={value}/>
+```
 
 ---
 
@@ -986,7 +1066,9 @@ TODO i can't remember how any of this works
 
 ### &lt;svelte:body&gt;
 
-* `<svelte:body on:событие={обработчик}/>`
+```sv
+<svelte:body on:event={handler}/>
+```
 
 ---
 
@@ -1002,7 +1084,9 @@ TODO i can't remember how any of this works
 
 ### &lt;svelte:head&gt;
 
-* `<svelte:head>`
+```sv
+<svelte:head>
+```
 
 ---
 
@@ -1017,7 +1101,9 @@ TODO i can't remember how any of this works
 
 ### &lt;svelte:options&gt;
 
-* `<svelte:options параметр={значение}>`
+```sv
+<svelte:options option={value}>
+```
 
 ---
 

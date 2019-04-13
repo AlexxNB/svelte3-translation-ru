@@ -9,8 +9,12 @@ title: Run time
 
 #### `onMount`
 
-* `onMount(callback: () => void)`
-* `onMount(callback: () => () => void)`
+```js
+onMount(callback: () => void)
+```
+```js
+onMount(callback: () => () => void)
+```
 
 ---
 
@@ -48,7 +52,9 @@ title: Run time
 
 #### `beforeUpdate`
 
-`beforeUpdate(callback: () => void)`
+```js
+beforeUpdate(callback: () => void)
+```
 
 ---
 
@@ -68,7 +74,9 @@ title: Run time
 
 #### `afterUpdate`
 
-`afterUpdate(callback: () => void)`
+```js
+afterUpdate(callback: () => void)
+```
 
 ---
 
@@ -86,7 +94,9 @@ title: Run time
 
 #### `onDestroy`
 
-`onDestroy(callback: () => void)`
+```js
+onDestroy(callback: () => void)
+```
 
 ---
 
@@ -106,7 +116,9 @@ title: Run time
 
 #### `tick`
 
-`promise: Promise = tick()`
+```js
+promise: Promise = tick()
+```
 
 ---
 
@@ -126,7 +138,9 @@ title: Run time
 
 #### `setContext`
 
-`setContext(key: any, context: any)`
+```js
+setContext(key: any, context: any)
+```
 
 ---
 
@@ -144,7 +158,9 @@ title: Run time
 
 #### `getContext`
 
-`context: any = getContext(key: any)`
+```js
+context: any = getContext(key: any)
+```
 
 ---
 
@@ -201,8 +217,12 @@ unsubscribe();
 
 #### `writable`
 
-* `store = writable(value: any)`
-* `store = writable(value: any, (set: (value: any) => void) => () => void)`
+```js
+store = writable(value: any)
+```
+```js
+store = writable(value: any, (set: (value: any) => void) => () => void)
+```
 
 ---
 
@@ -245,7 +265,9 @@ unsubscribe(); // выводит 'подписчиков не осталось'
 
 #### `readable`
 
-`store = readable(value: any, (set: (value: any) => void) => () => void)`
+```js
+store = readable(value: any, (set: (value: any) => void) => () => void)
+```
 
 ---
 
@@ -266,10 +288,18 @@ const time = readable(new Date(), set => {
 ```
 #### `derived`
 
-* `store = derived(a, callback: (a: any) => any)`
-* `store = derived(a, callback: (a: any, set: (value: any) => void) => void)`
-* `store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)`
-* `store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void)`
+```js
+store = derived(a, callback: (a: any) => any)
+```
+```js
+store = derived(a, callback: (a: any, set: (value: any) => void) => void)
+```
+```js
+store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)
+```
+```js
+store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void)
+```
 
 ---
 
@@ -311,7 +341,9 @@ const delayed = derived([a, b], ([$a, $b], set) => {
 
 #### `get`
 
-`value: any = get(store)`
+```js
+value: any = get(store)
+```
 
 ---
 
@@ -332,7 +364,9 @@ const value = get(store);
 
 #### `tweened`
 
-`store = tweened(value: any, options)`
+```js
+store = tweened(value: any, options)
+```
 
 Хранилище, которое обновляет свои значения в течение фиксированного периода времени. Доступны следующие опции:
 
@@ -404,7 +438,9 @@ const value = get(store);
 
 #### `spring`
 
-`store = spring(value: any, options)`
+```js
+store = spring(value: any, options)
+```
 
 Хранилище `spring` постепенно меняет свое значение на основе параметров `stiffness`(жёсткость) и `damping`(затухание), получаются колебания по типу движения пружины. В отличие от хранилищ типа `tweened`, где значение меняется строго определенное количество времени, хранилища типа `spring` изменяют значение в течение продолжительности, которая задается их текущей скоростью, что позволяет более естественно выглядеть во многих ситуациях. Доступны следующие опции:
 
