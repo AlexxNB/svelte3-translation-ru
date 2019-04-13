@@ -89,7 +89,7 @@ title: Синтаксис шаблонов
 ### Text expressions
 
 ```sv
-{expression}
+{выражение}
 ```
 
 ---
@@ -105,7 +105,7 @@ title: Синтаксис шаблонов
 ### HTML expressions
 
 ```sv
-{@html expression}
+{@html выражение}
 ```
 
 ---
@@ -125,13 +125,13 @@ title: Синтаксис шаблонов
 ### If blocks
 
 ```sv
-{#if expression}...{/if}
+{#if выражение}...{/if}
 ```
 ```sv
-{#if expression}...{:else if expression}...{/if}
+{#if выражение}...{:else if выражение}...{/if}
 ```
 ```sv
-{#if expression}...{:else}...{/if}
+{#if выражение}...{:else}...{/if}
 ```
 
 ---
@@ -162,16 +162,16 @@ title: Синтаксис шаблонов
 ### Each blocks
 
 ```sv
-{#each expression as name}...{/each}
+{#each выражение as имя}...{/each}
 ```
 ```sv
-{#each expression as name, index}...{/each}
+{#each выражение as имя, индекс}...{/each}
 ```
 ```sv
-{#each expression as name, index (key)}...{/each}
+{#each выражение as имя, индекс (ключ)}...{/each}
 ```
 ```sv
-{#each expression as name}...{:else}...{/each}
+{#each выражение as имя}...{:else}...{/each}
 ```
 
 ---
@@ -233,13 +233,13 @@ title: Синтаксис шаблонов
 ### Await blocks
 
 ```sv
-{#await expression}...{:then name}...{:catch name}...{/await}
+{#await выражение}...{:then имя}...{:catch имя}...{/await}
 ```
 ```sv
-{#await expression}...{:then name}...{/await}
+{#await выражение}...{:then имя}...{/await}
 ```
 ```sv
-{#await expression then name}...{/await}
+{#await выражение then имя}...{/await}
 ```
 
 ---
@@ -286,10 +286,10 @@ title: Синтаксис шаблонов
 ### DOM events
 
 ```sv
-on:eventname={handler}
+on:событие={обработчик}
 ```
 ```sv
-on:eventname|modifiers={handler}
+on:событие|модификаторы={обработчик}
 ```
 
 ---
@@ -356,7 +356,7 @@ on:eventname|modifiers={handler}
 ### Component events
 
 ```sv
-on:eventname={handler}
+on:событие={обработчик}
 ```
 
 ---
@@ -372,13 +372,13 @@ on:eventname={handler}
 ### Element bindings
 
 ```sv
-bind:property={variable}
+bind:свойство={переменная}
 ```
 ```sv
-bind:group={variable}
+bind:group={переменная}
 ```
 ```sv
-bind:this={dom_node}
+bind:this={DOM-элемент}
 ```
 
 ---
@@ -582,10 +582,10 @@ bind:this={dom_node}
 ### Classes
 
 ```sv
-class:name={value}
+class:имя={значение}
 ```
 ```sv
-class:name
+class:имя
 ```
 
 ---
@@ -605,10 +605,10 @@ class:name
 ### Actions
 
 ```sv
-use:action
+use:действие
 ```
 ```sv
-use:action={parameters}
+use:действие={параметры}
 ```
 
 ```js
@@ -672,40 +672,40 @@ action = (node: HTMLElement, parameters: any) => {
 ### Transitions
 
 ```sv
-transition:name
+transition:имя
 ```
 ```sv
-transition:name={params}
+transition:имя={параметры}
 ```
 ```sv
-transition:name|local
+transition:имя|local
 ```
 ```sv
-transition:name|local={params}
+transition:имя|local={параметры}
 ```
 ```sv
-in:name
+in:имя
 ```
 ```sv
-in:name={params}
+in:имя={параметры}
 ```
 ```sv
-in:name|local
+in:имя|local
 ```
 ```sv
-in:name|local={params}
+in:имя|local={параметры}
 ```
 ```sv
-out:name
+out:имя
 ```
 ```sv
-out:name={params}
+out:имя={параметры}
 ```
 ```sv
-out:name|local
+out:имя|local
 ```
 ```sv
-out:name|local={params}
+out:имя|local={параметры}
 ```
 
 ```js
@@ -889,13 +889,13 @@ TODO i can't remember how any of this works
 ### Slots
 
 ```sv
-<slot><!-- optional fallback --></slot>
+<slot><!-- содержимое по умолчанию --></slot>
 ```
 ```sv
-<slot name="x"><!-- optional fallback --></slot>
+<slot name="x"><!-- содержимое по умолчанию --></slot>
 ```
 ```sv
-<slot prop={value}></slot>
+<slot свойство={значениие}></slot>
 ```
 
 ---
@@ -1008,7 +1008,7 @@ TODO i can't remember how any of this works
 ### &lt;svelte:component&gt;
 
 ```sv
-<svelte:component this={expression}>
+<svelte:component this={выражение}>
 ```
 
 ---
@@ -1025,10 +1025,10 @@ TODO i can't remember how any of this works
 ### &lt;svelte:window&gt;
 
 ```sv
-<svelte:window on:event={handler}/>
+<svelte:window on:событие={обработчик}/>
 ```
 ```sv
-<svelte:window bind:prop={value}/>
+<svelte:window bind:свойство={значение}/>
 ```
 
 ---
@@ -1067,7 +1067,7 @@ TODO i can't remember how any of this works
 ### &lt;svelte:body&gt;
 
 ```sv
-<svelte:body on:event={handler}/>
+<svelte:body on:событие={обработчик}/>
 ```
 
 ---
@@ -1102,7 +1102,7 @@ TODO i can't remember how any of this works
 ### &lt;svelte:options&gt;
 
 ```sv
-<svelte:options option={value}>
+<svelte:options параметр={значение}>
 ```
 
 ---
