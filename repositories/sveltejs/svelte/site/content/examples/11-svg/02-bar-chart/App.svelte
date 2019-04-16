@@ -34,6 +34,10 @@
 </script>
 
 <style>
+	h2 {
+		text-align: center;
+	}
+
 	.chart {
 		width: 100%;
 		max-width: 500px;
@@ -77,9 +81,10 @@
 	}
 </style>
 
-<div class="chart">
-	<h2>Уровень рождаемости в США</h2>
-	<svg bind:clientWidth={width} bind:clientHeight={height}>
+<h2>Рождаемость в США по годам</h2>
+
+<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
+	<svg>
 		<!-- ось y -->
 		<g class="axis y-axis" transform="translate(0,{padding.top})">
 			{#each yTicks as tick}

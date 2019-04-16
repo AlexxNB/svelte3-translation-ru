@@ -8,7 +8,7 @@
       "patterns": [
         "repositories/sveltejs/svelte"
       ],
-      "extensions": "md,json,js",
+      "extensions": "md,json,js,svelte",
       "quiet": false,
       "runOnChangeOnly": true
     },

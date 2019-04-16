@@ -18,6 +18,18 @@
 	Удалить первый элемент
 </button>
 
-{#each things as thing (thing.id)}
-	<Thing value={thing.value}/>
-{/each}
+<div style="display: grid; grid-template-columns: 1fr 1fr; grip-gap: 1em">
+	<div>
+		<h2>С ключом</h2>
+		{#each things as thing (thing.id)}
+			<Thing value={thing.value}/>
+		{/each}
+	</div>
+
+	<div>
+		<h2>Без ключа</h2>
+		{#each things as thing}
+			<Thing value={thing.value}/>
+		{/each}
+	</div>
+</div>
