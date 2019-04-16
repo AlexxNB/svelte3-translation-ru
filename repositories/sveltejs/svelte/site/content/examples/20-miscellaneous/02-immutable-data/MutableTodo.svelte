@@ -3,11 +3,24 @@
 	import flash from './flash.js';
 
 	export let todo;
-	let span;
+	export let toggle;
 
-	flash(() => span);
+	let div;
+
+	afterUpdate(() => {
+		flash(div);
+	});
 </script>
 
-<!-- текст будет мигать красным когда
+<style>
+	div {
+		cursor: pointer;
+		line-height: 1.5;
+	}
+</style>
+
+<!-- текст будет мигать красным, когда
      изменится объект `todo` -->
-<span bind:this={span}>{todo.text}</span>
+<div bind:this={div} on:click>
+	{todo.done ? '👍': ''} {todo.text}
+</div>

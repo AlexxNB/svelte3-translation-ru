@@ -1,5 +1,3 @@
-<svelte:options immutable/>
-
 <script>
 	import { afterUpdate } from 'svelte';
 	import flash from './flash.js';

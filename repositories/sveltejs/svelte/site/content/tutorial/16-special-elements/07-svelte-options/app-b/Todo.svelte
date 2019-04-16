@@ -1,4 +1,4 @@
-<svelte:options immutable/>
+<svelte:options immutable={true}/>
 
 <script>
 	import { afterUpdate } from 'svelte';

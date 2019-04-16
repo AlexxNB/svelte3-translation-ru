@@ -8,4 +8,4 @@ export default function flash(element) {
 		element.style.color = '';
 		element.style.backgroundColor = '';
 	});
-}
+} 

@@ -29,16 +29,10 @@
 
 <h2>Неизменяемые</h2>
 {#each todos as todo}
-	<label on:click="{() => toggle(todo.id)}">
-		<span>{todo.done ? "😎": "🙁"}</span>
-		<ImmutableTodo {todo}/>
-	</label>
+	<ImmutableTodo {todo} on:click="{() => toggle(todo.id)}"/>
 {/each}
 
 <h2>Изменяемые</h2>
 {#each todos as todo}
-	<label on:click="{() => toggle(todo.id)}">
-		<span>{todo.done ? "😎": "🙁"}</span>
-		<MutableTodo {todo}/>
-	</label>
+	<MutableTodo {todo} on:click="{() => toggle(todo.id)}"/>
 {/each}
