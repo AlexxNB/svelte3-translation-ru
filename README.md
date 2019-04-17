@@ -57,28 +57,23 @@
 
 В репозиторий добавлены npm скрипты, которые позволяют забрать с GitHub текущие версию всех необходимых сайтов, применить все изменения из нашего репозитория переводов и запустить копию сайта на своем компьютере, чтобы сразу видеть перевод в естественных условиях.
 
->У вас должен быть установлен `rsync` и скорее всего всё будет работать только под Linux (и, вероятно, MacOS).
-
 ```bash
 git clone git@github.com:AlexxNB/svelte3-translation-ru.git svelte-translation
 cd svelte-translation
 npm install
 
-# Скачиваем последние версии сайтов и применяем к ним переводы
-# Это займет несколько минут времени
-npm run update
+# 1. Скачиваем последнюю версию нужного сайта и применяем к нему перевод
+npm run update-svelte 
+#...или...
+npm run update-sapper 
+#...или...
+npm run update-svelte-native 
 
-#Запуск сайта Svelte
+# 2. Запускаем сайт на локальной машине
 npm run dev-svelte
-
 #...или...
-
-#Запуск сайта Sapper
 npm run dev-sapper
-
 #...или...
-
-#Запуск сайта Svelte-Native
 npm run dev-svelte-native
 ```
 
