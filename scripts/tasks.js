@@ -1,6 +1,11 @@
 const sh = require('shelljs');
+const path = require('path');
 const nodewatch = require('node-watch');
 const {check_dependency} = require('./helpers');
+
+const root = path.resolve(path.dirname(__dirname));
+
+
 
 const download = (target) => {
     check_dependency('git');
@@ -34,6 +39,25 @@ const update = (target) => {
     install(target)
 }
 
+const build = (target) => {
+    const dir = '__'+target.name+target.path;
+    
+    sh.cd(dir);
+    sh.exec(target.build);
+}
+
+const start = (target) => {
+    const dir = '__'+target.name+target.path;
+    
+    sh.cd(dir);
+    if(target.static){
+        sh.exec('npx serve -l 3000 __sapper__/export');
+    }else{
+        sh.exec('node __sapper__/build');
+    }
+    
+}
+
 const watch = (target) => {
     const path = `repositories/${target.repo}${target.path}`;
     
@@ -54,12 +78,13 @@ const dev = (target) => {
     });
 }
 
-
 module.exports = {
     download,
     install,
     translate,
     update,
     watch,
-    dev
+    dev,
+    build,
+    start
 }

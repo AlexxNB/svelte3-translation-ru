@@ -15,7 +15,13 @@
     "update-svelte-native": "node scripts/do update svelte-native",
     "dev-svelte": "node scripts/do dev svelte",
     "dev-sapper": "node scripts/do dev sapper",
-    "dev-svelte-native": "node scripts/do dev svelte-native"
+    "dev-svelte-native": "node scripts/do dev svelte-native",
+    "build-svelte": "node scripts/do build svelte",
+    "build-sapper": "node scripts/do build sapper",
+    "build-svelte-native": "node scripts/do build svelte-native",
+    "start-svelte": "node scripts/do start svelte",
+    "start-sapper": "node scripts/do start sapper",
+    "start-svelte-native": "node scripts/do start svelte-native"
   },
   "repository": {
     "type": "git",
