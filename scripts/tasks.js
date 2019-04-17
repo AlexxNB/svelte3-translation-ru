@@ -3,7 +3,7 @@ const nodewatch = require('node-watch');
 const {check_dependency} = require('./helpers');
 
 const download = (target) => {
-    check_dependency(git);
+    check_dependency('git');
 
     const dir = '__'+target.name;
     const repo = target.repo;
