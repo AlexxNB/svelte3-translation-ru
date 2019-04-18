@@ -1,11 +1,11 @@
 kind: pipeline
-name: svelte-website
+name: svelte-websites
 
 steps:
 - name: build-svelte-site  
   image: plugins/docker
   settings:
-    dockerfile: svelte-site.dockerfile
+    dockerfile: deploy/svelte-site.dockerfile
     username: 
       from_secret: registry_user
     password:
@@ -16,7 +16,7 @@ steps:
 - name: build-sapper-site  
   image: plugins/docker
   settings:
-    dockerfile: sapper-site.dockerfile
+    dockerfile: deploy/sapper-site.dockerfile
     username: 
       from_secret: registry_user
     password:
@@ -27,7 +27,7 @@ steps:
 - name: build-svelte-native-site  
   image: plugins/docker
   settings:
-    dockerfile: svelte-native-site.dockerfile
+    dockerfile: deploy/svelte-native-site.dockerfile
     username: 
       from_secret: registry_user
     password:
@@ -35,10 +35,25 @@ steps:
     repo: registry.alexxnb.ru/svelte-native-site
     registry: registry.alexxnb.ru
     tags: latest
+- name: upload docker-compose.yml
+  image: appleboy/drone-scp
+  settings:
+    host:
+      from_secret: ssh_host
+    username:
+      from_secret: ssh_user
+    password:
+      from_secret: ssh_password
+    port:
+      from_secret: ssh_port
+    target: /tmp/svelte-translate
+    source: 
+      - ./deploy/docker-compose.yml
 - name: deploy
   image: appleboy/drone-ssh
   settings:
-    host: miniserver.alexxnb.ru
+    host: 
+      from_secret: ssh_host
     username:
       from_secret: ssh_user
     password:
@@ -46,15 +61,7 @@ steps:
     port:
       from_secret: ssh_port
     script:
-      - docker container stop Svelte-Site
-      - docker rm Svelte-Site
-      - docker pull registry.alexxnb.ru/svelte-site:latest
-      - docker run -d --name Svelte-Site --restart always -p 3000:3000 registry.alexxnb.ru/svelte-site:latest
-      - docker container stop Sapper-Site
-      - docker rm Sapper-Site
-      - docker pull registry.alexxnb.ru/sapper-site:latest
-      - docker run -d --name Sapper-Site --restart always -p 3002:3000 registry.alexxnb.ru/sapper-site:latest
-      - docker container stop Svelte-Native-Site
-      - docker rm Svelte-Native-Site
-      - docker pull registry.alexxnb.ru/svelte-native-site:latest
-      - docker run -d --name Svelte-Native-Site --restart always -p 3001:3000 registry.alexxnb.ru/svelte-native-site:latest
+      - cd /tmp/svelte-translate
+      - docker-compose pull
+      - docker-compose up --detach --force-recreate
+      - rm -rf /tmp/svelte-translate

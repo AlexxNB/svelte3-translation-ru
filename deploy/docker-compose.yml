@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  svelte: 
+    image: registry.alexxnb.ru/svelte-site
+    container_name: Svelte-site
+    restart: always
+    ports:
+      - 127.0.0.1:3001:3000
+  svelte: 
+    image: registry.alexxnb.ru/sapper-site
+    container_name: Sapper-site
+    restart: always
+    ports:
+      - 127.0.0.1:3002:3000
+  svelte: 
+    image: registry.alexxnb.ru/svelte-native-site
+    container_name: Svelte-Native-site
+    restart: always
+    ports:
+      - 127.0.0.1:3003:3000
