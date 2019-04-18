@@ -1,5 +1,5 @@
 ---
-title: Run time
+title: Рантайм
 ---
 
 
@@ -491,9 +491,9 @@ TODO
 TODO
 
 
-### Client-side component API
+### API компонента на клиенте
 
-#### Creating a component
+#### Создание компонента
 
 ```js
 const component = new Component(options)
@@ -586,7 +586,7 @@ component.$destroy()
 
 Удаляет компонент из DOM и запускает все имеющиеся обработчики функции `onDestroy`.
 
-#### Component props
+#### Свойства компонента
 
 ```js
 component.prop
@@ -607,12 +607,12 @@ app.count += 1;
 ```
 
 
-### Custom element API
+### API пользовательского элемента
 
 * TODO
 
 
-### Server-side component API
+### API компонента на сервере
 
 ```js
 const result = Component.render(...)

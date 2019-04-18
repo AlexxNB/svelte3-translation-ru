@@ -3,7 +3,7 @@ title: Синтаксис шаблонов
 ---
 
 
-### Tags
+### Теги
 
 ---
 
@@ -20,7 +20,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### Attributes
+### Атрибуты
 
 ---
 
@@ -86,7 +86,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### Text expressions
+### Текстовые выражения
 
 ```sv
 {выражение}
@@ -102,7 +102,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### HTML expressions
+### HTML выражения
 
 ```sv
 {@html выражение}
@@ -122,7 +122,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### If blocks
+### Блоки If
 
 ```sv
 {#if выражение}...{/if}
@@ -159,7 +159,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### Each blocks
+### Блоки Each
 
 ```sv
 {#each выражение as имя}...{/each}
@@ -230,7 +230,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### Await blocks
+### Блоки Await
 
 ```sv
 {#await выражение}...{:then имя}...{:catch имя}...{/await}
@@ -283,7 +283,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### DOM events
+### События DOM
 
 ```sv
 on:событие={обработчик}
@@ -353,7 +353,7 @@ on:событие|модификаторы={обработчик}
 ```
 
 
-### Component events
+### События компонента
 
 ```sv
 on:событие={обработчик}
@@ -369,7 +369,7 @@ on:событие={обработчик}
 
 
 
-### Element bindings
+### Привязки к элементам
 
 ```sv
 bind:свойство={переменная}
@@ -413,7 +413,7 @@ bind:this={DOM-элемент}
 <input type="range" bind:value={num}>
 ```
 
-#### Binding related elements
+#### Привязка к группе элементов
 
 ---
 
@@ -437,7 +437,7 @@ bind:this={DOM-элемент}
 <input type="checkbox" bind:group={fillings} value="Guac (extra)">
 ```
 
-#### Binding `<select>` value
+#### Привязка к значению `<select>`
 
 ---
 
@@ -479,7 +479,7 @@ bind:this={DOM-элемент}
 ```
 
 
-#### Media element bindings
+#### Привязка к медиа-элементам
 
 ---
 
@@ -509,7 +509,7 @@ bind:this={DOM-элемент}
 ></video>
 ```
 
-#### Block-level element bindings
+#### Привязка к блочным элементам
 
 ---
 
@@ -529,7 +529,7 @@ bind:this={DOM-элемент}
 </div>
 ```
 
-#### Binding a DOM node
+#### Привязка к элементу DOM
 
 ---
 
@@ -551,7 +551,7 @@ bind:this={DOM-элемент}
 ```
 
 
-### Component bindings
+### Привязки компонентов
 
 * `bind:свойство={переменная}`
 * `bind:this={экземпляр_компонента}`
@@ -579,7 +579,7 @@ bind:this={DOM-элемент}
 ```
 
 
-### Classes
+### Классы
 
 ```sv
 class:имя={значение}
@@ -602,7 +602,7 @@ class:имя
 ```
 
 
-### Actions
+### Действия
 
 ```sv
 use:действие
@@ -669,7 +669,7 @@ action = (node: HTMLElement, parameters: any) => {
 ```
 
 
-### Transitions
+### Переходы
 
 ```sv
 transition:имя
@@ -746,7 +746,7 @@ transition = (node: HTMLElement, params: any) => {
 {/if}
 ```
 
-#### Transition parameters
+#### Параметры перехода
 
 ---
 
@@ -762,7 +762,7 @@ transition = (node: HTMLElement, params: any) => {
 {/if}
 ```
 
-#### Custom transition functions
+#### Пользовательские переходы
 
 ---
 
@@ -837,7 +837,7 @@ transition = (node: HTMLElement, params: any) => {
 
 Если переход возвращает функцию вместо объекта перехода, то она будет вызвана в следующей микрозадаче. Это позволяет координировать несколько переходов, что дает возможность запускать [перекрестные переходы](tutorial/deferred-transitions).
 
-#### Transition events
+#### События переходов
 
 ---
 
@@ -881,12 +881,12 @@ transition = (node: HTMLElement, params: any) => {
 ```
 
 
-### Animations
+### Анимации
 
 TODO i can't remember how any of this works
 
 
-### Slots
+### Слоты
 
 ```sv
 <slot><!-- содержимое по умолчанию --></slot>
