@@ -28,7 +28,7 @@ steps:
       from_secret: ssh_password
     port:
       from_secret: ssh_port
-    command_timeout: 120
+    command_timeout: 300s
     script:
       - cd /tmp/svelte-translate/deploy
       - docker-compose pull
