@@ -96,7 +96,7 @@ const start = (target) => {
 }
 
 const watch = (target) => {
-    const path = `repositories/${target.repo}${target.path}`;
+    const path = `repositories/${target.repo}`;
     
     console.log(`\x1b[33m[Watch] Watch files started in ${path}\x1b[0m`);
     nodewatch(path, { recursive: true }, function(evt, name) {
