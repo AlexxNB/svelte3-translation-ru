@@ -42,7 +42,7 @@ const translate_replace = (target) => {
     
     if(!fs.existsSync(transfile)) return false;
 
-    const data = fs.readFileSync(transfile);
+    const data = fs.readFileSync(transfile,'utf8');
 
     if (!data) return false;
 
@@ -58,7 +58,7 @@ const translate_replace = (target) => {
             sh.cp(file,u_file);
         }
 
-        const content = fs.readFileSync(u_file);
+        const content = fs.readFileSync(u_file,'utf8');
         if (!content) return true;
 
         const translated = item.strings.reduce(function(content, str) {
