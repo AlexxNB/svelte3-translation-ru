@@ -2,39 +2,7 @@ kind: pipeline
 name: svelte-websites
 
 steps:
-- name: build-svelte-site  
-  image: plugins/docker
-  settings:
-    dockerfile: deploy/svelte-site.dockerfile
-    username: 
-      from_secret: registry_user
-    password:
-      from_secret: registry_password
-    repo: registry.alexxnb.ru/svelte-site
-    registry: registry.alexxnb.ru
-    tags: latest
-- name: build-sapper-site  
-  image: plugins/docker
-  settings:
-    dockerfile: deploy/sapper-site.dockerfile
-    username: 
-      from_secret: registry_user
-    password:
-      from_secret: registry_password
-    repo: registry.alexxnb.ru/sapper-site
-    registry: registry.alexxnb.ru
-    tags: latest
-- name: build-svelte-native-site  
-  image: plugins/docker
-  settings:
-    dockerfile: deploy/svelte-native-site.dockerfile
-    username: 
-      from_secret: registry_user
-    password:
-      from_secret: registry_password
-    repo: registry.alexxnb.ru/svelte-native-site
-    registry: registry.alexxnb.ru
-    tags: latest
+
 - name: upload docker-compose.yml
   image: appleboy/drone-scp
   settings:
@@ -61,7 +29,7 @@ steps:
     port:
       from_secret: ssh_port
     script:
-      - cd /tmp/svelte-translate
+      - cd /tmp/svelte-translate/deploy
       - docker-compose pull
       - docker-compose up --detach --force-recreate
       - rm -rf /tmp/svelte-translate
