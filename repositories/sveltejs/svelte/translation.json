@@ -134,6 +134,10 @@
         "file": "src/components/TopNav.svelte",
         "strings": [
             {
+                "o": "@media",
+                "t": "ul li a {white-space:nowrap}  ul.open li a {font-size:.7em; white-space:nowrap; text-align:left} ul.open {padding: 0 .5em 1em .5em;} @media"
+            },
+            {
                 "o": "Homepage",
                 "t": "Домашняя страница"
             },
