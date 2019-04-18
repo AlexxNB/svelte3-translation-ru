@@ -1,0 +1,19 @@
+{"files": [
+    {
+        "file": "src/routes/index.html",
+        "strings": [
+            {
+                "o": "Rajdhani, -apple-system, BlinkMacSystemFont",
+                "t": "Roboto"
+            },
+            {
+                "o": "Military-grade progressive web apps, powered by Svelte",
+                "t": "Web-приложения высшего класса при поддержке Svelte"
+            },
+            {
+                "o": "Beautiful development experience, inspired by Next.js",
+                "t": "Красивый опыт разработки, вдохновлённый Next.js"
+            }
+        ]
+    }
+]}

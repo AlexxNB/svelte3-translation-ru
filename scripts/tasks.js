@@ -1,5 +1,6 @@
 const sh = require('shelljs');
 const path = require('path');
+const fs = require('fs');
 const nodewatch = require('node-watch');
 const {check_dependency} = require('./helpers');
 
@@ -24,7 +25,7 @@ const install = (target) => {
     sh.exec(target.install);
 }
 
-const translate = (target) => {
+const translate_copy = (target) => {
     const dir = '__'+target.name;
     const repo = target.repo;
     const path = target.path;
@@ -33,9 +34,44 @@ const translate = (target) => {
     sh.cp('-r',`repositories/${repo}${path}/*`,`${dir}${path}`);
 }
 
+
+const translate_replace = (target) => {
+    const dir = `__${target.name}${target.path}`;
+    const u_dir = `__${target.name}/__unchanged`;
+    const transfile = `repositories/${target.repo}/translation.json`;
+    
+    fs.readFile(transfile, 'utf8', function (err, data) {
+        if (err) return false;
+        let list = JSON.parse(data);
+        
+        list.files.forEach(item => {
+            const file = `${dir}/${item.file}`;
+            const u_file = `${u_dir}/${item.file}`;
+            const u_path = path.resolve(path.dirname(u_file));
+
+            if(!fs.existsSync(u_file)) {
+                sh.mkdir('-p',u_path);
+                sh.cp(file,u_file);
+            }
+
+            fs.readFile(u_file, 'utf8', function (err, content) {
+                if (err) return true;
+                let translated = item.strings.reduce(function(content, str) {
+                    return content.replace(new RegExp(str.o, 'g'),str.t);
+                }, content);
+                fs.writeFile(file, translated, 'utf8', (err) =>{
+                    if (err) console.log(`Error write in: ${file}`);
+                });
+            });
+        });
+
+    });
+}
+
 const update = (target) => {
     download(target);
-    translate(target);
+    translate_copy(target);
+    translate_replace(target);
     install(target)
 }
 
@@ -64,7 +100,11 @@ const watch = (target) => {
     console.log(`\x1b[33m[Watch] Watch files started in ${path}\x1b[0m`);
     nodewatch(path, { recursive: true }, function(evt, name) {
         console.log('\x1b[33m[Watch] Changed '+name.replace(path,''),'\x1b[0m');
-        translate(target);
+        if(name.endsWith('/translation.json')){
+            translate_replace(target);
+        }else{
+            translate_copy(target);
+        }
     });
 }
 
@@ -81,7 +121,6 @@ const dev = (target) => {
 module.exports = {
     download,
     install,
-    translate,
     update,
     watch,
     dev,
