@@ -40,31 +40,32 @@ const translate_replace = (target) => {
     const u_dir = `__${target.name}/__unchanged`;
     const transfile = `repositories/${target.repo}/translation.json`;
     
-    fs.readFile(transfile, 'utf8', function (err, data) {
-        if (err) return false;
-        let list = JSON.parse(data);
-        
-        list.files.forEach(item => {
-            const file = `${dir}/${item.file}`;
-            const u_file = `${u_dir}/${item.file}`;
-            const u_path = path.resolve(path.dirname(u_file));
+    if(!fs.existsSync(transfile)) return false;
 
-            if(!fs.existsSync(u_file)) {
-                sh.mkdir('-p',u_path);
-                sh.cp(file,u_file);
-            }
+    const data = fs.readFileSync(transfile);
 
-            fs.readFile(u_file, 'utf8', function (err, content) {
-                if (err) return true;
-                let translated = item.strings.reduce(function(content, str) {
-                    return content.replace(new RegExp(str.o, 'g'),str.t);
-                }, content);
-                fs.writeFile(file, translated, 'utf8', (err) =>{
-                    if (err) console.log(`Error write in: ${file}`);
-                });
-            });
-        });
+    if (!data) return false;
 
+    const list = JSON.parse(data);
+    
+    list.files.forEach(item => {
+        const file = `${dir}/${item.file}`;
+        const u_file = `${u_dir}/${item.file}`;
+        const u_path = path.resolve(path.dirname(u_file));
+
+        if(!fs.existsSync(u_file)) {
+            sh.mkdir('-p',u_path);
+            sh.cp(file,u_file);
+        }
+
+        const content = fs.readFileSync(u_file);
+        if (!content) return true;
+
+        const translated = item.strings.reduce(function(content, str) {
+            return content.replace(new RegExp(str.o, 'g'),str.t);
+        }, content);
+
+        fs.writeFileSync(file, translated);
     });
 }
 

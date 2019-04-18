@@ -8,11 +8,35 @@
             },
             {
                 "o": "Military-grade progressive web apps, powered by Svelte",
-                "t": "Web-приложения высшего класса при поддержке Svelte"
+                "t": "Web-приложения высшего класса на базе Svelte"
             },
             {
                 "o": "Beautiful development experience, inspired by Next.js",
                 "t": "Красивый опыт разработки, вдохновлённый Next.js"
+            },
+            {
+                "o": "Declarative routing, hot-module replacement, scoped styles",
+                "t": "Декларативные маршруты, горячая замена модулей, изолированые стили"
+            },
+            {
+                "o": "Ridiculous performance",
+                "t": "Невероятная производительность"
+            },
+            {
+                "o": "Svelte compiles your components down to tiny, blazing fast JavaScript modules",
+                "t": "Svelte компилирует компоненты в сверхбыстрые крошечные модули JavaScript"
+            },
+            {
+                "o": "Modern best practices baked in",
+                "t": "Современные тренды из коробки"
+            },
+            {
+                "o": "Code-splitting, server-side rendering, offline support",
+                "t": "Разделение кода, отрисовка на сервере, поддержка работы в offline"
+            },
+            {
+                "o": "Learn Sapper",
+                "t": "Узнать больше"
             }
         ]
     }
