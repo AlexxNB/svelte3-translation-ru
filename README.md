@@ -44,12 +44,12 @@
 Небольшие вольности в переводе допускаются, но только если они помогают передать смысл. Перевод не должен быть ни слишком официальным, ни фамильярным. Истина где-то посередине.
 
 ## Где смотреть перевод
-На данный момент запущены следующие копии официальных сайтов:
-- [svelte.alexxnb.ru](https://svelte.alexxnb.ru)
-- [sapper.alexxnb.ru](https://sapper.alexxnb.ru)
+На данный момент запущены следующие сайты:
+- [ru.svelte.dev](https://ru.svelte.dev)
+- [ru.sapper.svelte.dev](https://ru.sapper.svelte.dev)
 - [svelte-native.alexxnb.ru](https://svelte-native.alexxnb.ru)
 
->На этих сайтах можно просматривать переводы естественных условиях. Сайты собираются и деплоятся автоматически при коммитах в данный репозиторий.
+> Сайты собираются и деплоятся автоматически при коммитах в данный репозиторий.
 
 [![Build Status](https://drone.alexxnb.ru/api/badges/AlexxNB/svelte3-translation-ru/status.svg)](https://drone.alexxnb.ru/AlexxNB/svelte3-translation-ru)
 
@@ -60,16 +60,18 @@
 ```bash
 git clone git@github.com:AlexxNB/svelte3-translation-ru.git svelte-translation
 cd svelte-translation
+
+# 1. Устанавливаем все зависимости
 npm install
 
-# 1. Скачиваем последнюю версию нужного сайта и применяем к нему перевод
+# 2. Скачиваем последнюю версию нужного сайта и применяем к нему перевод
 npm run update-svelte 
 #...или...
 npm run update-sapper 
 #...или...
 npm run update-svelte-native 
 
-# 2. Запускаем сайт на локальной машине
+# 3. Запускаем сайт на локальной машине
 npm run dev-svelte
 #...или...
 npm run dev-sapper
