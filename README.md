@@ -2,20 +2,30 @@
 
 > На данный момент еще не известно в каком виде будет реализовываться внедрение локализации на официальных ресурсах, поэтому, в последствии возможны изменения в структуре и подходах данного репозитория 
 
+## Результат нашей работы
+На данный момент запущены следующие официальные русскоязычные сайты:
+- [ru.svelte.dev](https://ru.svelte.dev)
+- [ru.sapper.svelte.dev](https://ru.sapper.svelte.dev)
+- [ru.svelte-native.technology](https://ru.svelte-native.technology)
+
+> Сайты собираются и деплоятся автоматически при коммитах в данный репозиторий.
+
+[![Build Status](https://drone.alexxnb.ru/api/badges/AlexxNB/svelte3-translation-ru/status.svg)](https://drone.alexxnb.ru/AlexxNB/svelte3-translation-ru)
+
 ## Что переводим
-* [Учебник](https://v3.svelte.technology/tutorial) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/tutorial))
-* [Документацию](https://v3.svelte.technology/docs) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/api-reference/site/content/docs))
+* [Учебник](https://svelte.dev/tutorial) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/tutorial))
+* [Документацию](https://svelte.dev/docs) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/api-reference/site/content/docs))
 * [Документацию](https://sapper.svelte.technology/guide) по Sapper ([GitHub](https://github.com/sveltejs/sapper.svelte.technology/tree/master/content/guide))
-* [Примеры](https://v3.svelte.technology/repl) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/examples))
-* [Блог](https://v3.svelte.technology/blog) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/blog))
-* Контент сайта [svelte.technology](https://v3.svelte.technology) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/src))
+* [Примеры](https://svelte.dev/repl) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/examples))
+* [Блог](https://svelte.dev/blog) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/blog))
+* Контент сайта [svelte.technology](https://svelte.dev) ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/src))
 * Контент сайта [sapper.svelte.technology](https://sapper.svelte.technology) ([GitHub](https://github.com/sveltejs/sapper.svelte.technology/tree/master/src))
 * Контент сайта [svelte-native.technology](https://svelte-native.technology) ([GitHub](https://github.com/halfnelson/svelte-native/tree/master/docs_src/content))
 
 
 ## Как внести свой вклад в перевод
 * [Перевести](https://github.com/AlexxNB/svelte3-translation-ru/issues/6) еще не переведенную часть какого-либо ресурса, указанного выше.
-* Улучшить существующий перевод: исправить орфографическую, пунктуационную или семантическую ошибку, перфразировать неудачно скомпонованое предложение, устранить несоответствия перевода рекомендациям и т.п. Это нужно делать через систему Pull Request в данном репозитории.
+* Улучшить существующий перевод: исправить орфографическую, пунктуационную или семантическую ошибку, перефразировать неудачно скомпонованное предложение, устранить несоответствия перевода рекомендациям и т.п. Это нужно делать через систему Pull Request в данном репозитории.
 
 ## Рекомендации по переводу
 
@@ -30,9 +40,9 @@
   * Наш [словарь терминов](DICTIONARY.md) Svelte
   *  [Словарь «Веб-стандартов»](https://github.com/web-standards-ru/dictionary)
   * Аналоги в переводах документации других известных UI-фреймворках(Vue, React, Angular)
-  * Попытаться найти рускоязычную документацию, доклады или статьи с использованием нужной лексики
+  * Попытаться найти русскоязычную документацию, доклады или статьи с использованием нужной лексики
   * Придумать перевод самому 
-* Избегать черезмерных англицизмов, при условии, что есть общеупотребительные русские аналоги. `Пропсы`, `билд` и подобное не годятся. Но, например, `бандл` не имеет лучшего русского аналога.
+* Избегать чрезмерных англицизмов, при условии, что есть общеупотребительные русские аналоги. `Пропсы`, `билд` и подобное не годятся. Но, например, `бандл` не имеет лучшего русского аналога.
 * Ссылки на ресурсы (MDN, Wikipedia) должны вести на русскую версию, если есть соответствующий перевод.
 * Иностранные имена переводите с указанием оригинального имени в скобках: *Рич Харрис(Rich Harris)*. При этом обязательно проверьте уже существующий перевод имени в [словаре имён «Веб-стандартов»](https://github.com/web-standards-ru/dictionary/blob/master/names.md)
 * Ссылки с названием иностранной статьи в переводе должны быть приведены на языке оригинала, после чего содержать в скобках их русскоязычный перевод.
@@ -43,19 +53,9 @@
 
 Небольшие вольности в переводе допускаются, но только если они помогают передать смысл. Перевод не должен быть ни слишком официальным, ни фамильярным. Истина где-то посередине.
 
-## Где смотреть перевод
-На данный момент запущены следующие сайты:
-- [ru.svelte.dev](https://ru.svelte.dev)
-- [ru.sapper.svelte.dev](https://ru.sapper.svelte.dev)
-- [svelte-native.alexxnb.ru](https://svelte-native.alexxnb.ru)
-
-> Сайты собираются и деплоятся автоматически при коммитах в данный репозиторий.
-
-[![Build Status](https://drone.alexxnb.ru/api/badges/AlexxNB/svelte3-translation-ru/status.svg)](https://drone.alexxnb.ru/AlexxNB/svelte3-translation-ru)
-
 ## Запуск локальной версии сайта
 
-В репозиторий добавлены npm скрипты, которые позволяют забрать с GitHub текущие версию всех необходимых сайтов, применить все изменения из нашего репозитория переводов и запустить копию сайта на своем компьютере, чтобы сразу видеть перевод в естественных условиях.
+В репозиторий добавлены npm скрипты, которые позволяют забрать с GitHub текущую версию необходимого сайта, применить все изменения из нашего репозитория переводов и запустить копию сайта на своем компьютере, чтобы сразу видеть перевод в естественных условиях.
 
 ```bash
 git clone git@github.com:AlexxNB/svelte3-translation-ru.git svelte-translation
