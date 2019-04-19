@@ -39,5 +39,48 @@
                 "t": "Узнать больше"
             }
         ]
+    },
+    {
+        "file": "src/components/Nav.html",
+        "strings": [
+            {
+                "o": ">Guide<",
+                "t": ">Руководство<"
+            },
+            {
+                "o": ">Chat<",
+                "t": ">Чат<"
+            },
+            {
+                "o": "https://svelte.technology",
+                "t": "https://ru.svelte.dev"
+            },
+            {
+                "o": "'Close' : 'Menu'",
+                "t": "'Закрыть' : 'Меню'"
+            }
+        ]
+    },
+    {
+        "file": "src/components/Toast.html",
+        "strings": [
+            {
+                "o": "Site has been updated — tap to reload",
+                "t": "Сайт только что был обновлен — кликните сюда для перезагрузки"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/guide/index.html",
+        "strings": [
+            {
+                "o": "edit this section",
+                "t": "редактировать раздел"
+            },
+            {
+                "o": "sveltejs/sapper.svelte.technology/edit/master/content/guide/",
+                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/sveltejs/sapper.svelte.technology/content/guide/"
+            }
+        ]
     }
 ]}
