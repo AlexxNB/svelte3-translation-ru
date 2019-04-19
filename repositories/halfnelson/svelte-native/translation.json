@@ -1,0 +1,144 @@
+{"files": [
+    {
+        "file": "src/routes/index.svelte",
+        "strings": [
+            {
+                "o": "--h2",
+                "t": "--h3"
+            },
+            {
+                "o": "The Svelte Mobile Development Experience",
+                "t": "Опыт разработки Svelte в мобильных приложениях"
+            },
+            {
+                "o": "Write less code",
+                "t": "Меньше кода"
+            },
+            {
+                "o": ">learn more<",
+                "t": ">узнать больше<"
+            },
+            {
+                "o": "Build boilerplate-free mobile applications using languages you already know — HTML, CSS and JavaScript",
+                "t": "Создавайте мобильные приложения без излишнего кода на языках, которые вы уже знаете — HTML, CSS и JavaScript"
+            },
+            {
+                "o": "Build boilerplate-free components using languages you already know — HTML, CSS and JavaScript",
+                "t": "Создавайте компоненты без излишних конструкций на языках, которые вы уже знаете — HTML, CSS и JavaScript"
+            },
+            {
+                "o": "No virtual DOM",
+                "t": "Без виртуального DOM"
+            },
+            {
+                "o": "Svelte compiles your code to tiny, framework-less vanilla JS — your app starts fast and stays fast",
+                "t": "Svelte компилирует ваш код в оптимальный ванильный JS — приложения запускаются быстро и остаются быстрыми"
+            },
+            {
+                "o": "Truly reactive",
+                "t": "Честная реактивность"
+            },
+            {
+                "o": "No more complex state management libraries — Svelte brings reactivity to JavaScript itself",
+                "t": "Больше никаких сложных библиотек управления состоянием — Svelte делает реактивным сам JavaScript"
+            },
+            {
+                "o": "Svelte Native is a new approach [\\s\\.\\w\\W]+ build your app",
+                "t": "Svelte Native - это новый подход в создании мобильных приложений при помощи NativeScript. Когда прочие JS-Native фреймворки, такие как React-Native и Nativescript-Vue, выполняют основную часть своей работы уже <em>на мобильном устройстве</em>, Svelte Native переносит эту работу <em>на этап компиляции</em>, который происходит при сборке приложения."
+            },
+            {
+                "o": "Instead of using techniques [\\s\\.\\w\\W]+ your app changes",
+                "t": "Вместо использования таких тяжелых приёмов, как сравнение состояний виртуального DOM, Svelte пишет код, который точечно обновляет нативные UI элементы при изменении состояния вашего приложения."
+            },
+            {
+                "o": "See the",
+                "t": "Подробности ищите в статье"
+            },
+            {
+                "o": "quickstart guide",
+                "t": "Быстрый Старт"
+            },
+            {
+                "o": " for more[\\s\\.\\w\\W]+information.",
+                "t": "."
+            },
+            {
+                "o": "Learn Svelte Native",
+                "t": "Изучить Svelte Native"
+            }
+        ]
+    },
+    {
+        "file": "src/components/TopNav.svelte",
+        "strings": [
+            {
+                "o": ">Home<",
+                "t": ">Домой<"
+            },
+            {
+                "o": ">Tutorial<",
+                "t": ">Учебник<"
+            },
+            {
+                "o": ">API Docs<",
+                "t": ">Документация<"
+            },
+            {
+                "o": ">Blog<",
+                "t": ">Блог<"
+            },
+            {
+                "o": "https://v3.svelte.technology/",
+                "t": "https://ru.svelte.dev/"
+            },
+            {
+                "o": "href=\"repl\"",
+                "t": "href=\"https://svelte-native.technology/repl\""
+            }
+        ]
+    },
+    {
+        "file": "src/utils/_sections.js",
+        "strings": [
+            {
+                "o": "-Z0-",
+                "t": "-ZА-Яа-я0-"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/tutorial/index.svelte",
+        "strings": [
+            {
+                "o": "halfnelson/svelte-native/edit/master/docs_src/content/tutorial",
+                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/halfnelson/svelte-native/docs_src/content/tutorial"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/docs/index.svelte",
+        "strings": [
+            {
+                "o": "halfnelson/svelte-native/edit/master/docs_src/content/docs",
+                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/halfnelson/svelte-native/docs_src/content/docs"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/blog/index.svelte",
+        "strings": [
+            {
+                "o": "Read the article",
+                "t": "Читать статью"
+            },
+            {
+                "o": "Latest post",
+                "t": "Последний пост"
+            },
+            {
+                "o": "Older posts",
+                "t": "Более ранние посты"
+            }
+        ]
+    }
+]}
