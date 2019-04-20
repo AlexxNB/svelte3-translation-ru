@@ -17,7 +17,7 @@ function addNumber() {
 
 ```js
 function addNumber() {
-	numbers = [...numbers, numbers.length + 1;]
+	numbers = [...numbers, numbers.length + 1];
 }
 ```
 
