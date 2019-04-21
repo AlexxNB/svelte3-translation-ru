@@ -202,15 +202,6 @@
         ]
     },
     {
-        "file": "src/routes/docs/_sections.js",
-        "strings": [
-            {
-                "o": "-Z0-",
-                "t": "-Zа-яА-Я0-"
-            }
-        ]
-    },
-    {
         "file": "src/routes/examples/index.svelte",
         "strings": [
             {
