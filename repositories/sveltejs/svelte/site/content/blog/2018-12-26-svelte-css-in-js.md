@@ -1,12 +1,9 @@
 ---
 title: Использование CSS-in-JS в Svelte
 description: Вам это не нужно, но вы можете
-pubdate: 2018-12-26
-translatedate: 2019-01-30
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris
 translator: Alexey Schebelev
-translatorURL: https://github.com/AlexxNB
 ---
 
 CSS стили являются основной частью любого веб-приложения. И по определению, UI фреймворк без встроеных средств работы со стилями не будет полноценным.

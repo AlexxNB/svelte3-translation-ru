@@ -1,12 +1,9 @@
 ---
 title: Легкий способ начать использовать Svelte
 description: Это займет всего лишь 1 минуту.
-pubdate: 2017-08-07
-translatedate: 2019-02-02
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris
 translator: Alexey Schebelev
-translatorURL: https://github.com/AlexxNB
 ---
 
 Svelte — это [фреймворк нового типа](/blog/frameworks-without-the-framework). Не нужно помещать на страницу тег `<script src='svelte.js'>` или импортировать его в ваше приложение с помощью `import` или `require`! Svelte — это компилятор, превращающий ваши файлы компонентов в прекрасно оптимизированный ванильный JavaScript.

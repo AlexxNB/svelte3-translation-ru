@@ -1,12 +1,9 @@
 ---
 title: Sapper: На пути к идеальному фреймворку Web-приложений
 description: Делаем шаг в будущее, а затем еще один
-pubdate: 2017-12-31
-translatedate: 2019-02-02
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris
 translator: Alexey Schebelev
-translatorURL: https://github.com/AlexxNB
 ---
 
 > Для нетерпеливых: [руководство Sapper](https://sapper.svelte.technology) и [стартовый шаблон](https://github.com/sveltejs/sapper-template)

@@ -1,12 +1,9 @@
 ---
 title: Фреймворки без фреймворка: почему мы не подумали об этом раньше?
 description: Вы не можете писать серьезные приложения на ванильном JavaScript. Но компилятор может сделать это за вас.
-pubdate: 2016-11-26
-translatedate: 2019-02-02
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris
 translator: Alexey Schebelev
-translatorURL: https://github.com/AlexxNB
 ---
 
 > Этот новый фреймворк работает в *рантайме*? Фи. Спасибо, мне не надо.

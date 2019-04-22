@@ -1,12 +1,9 @@
 ---
 title: Svelte в подкасте The Changelog
 description: Можно послушать прямо в блоге
-pubdate: 2019-01-31
-translatedate: 2019-01-31
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris
 translator: Alexey Schebelev
-translatorURL: https://github.com/AlexxNB
 ---
 
 Ранее в этом месяце я имел честь появиться в [The Changelog](https://changelog.com/podcast),  подкасте о разработке программного обеспечения. У нас был забавный(для меня) и всеохватывающий разговор:
