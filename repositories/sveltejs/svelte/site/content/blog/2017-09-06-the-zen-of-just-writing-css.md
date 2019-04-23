@@ -29,7 +29,7 @@ translator: Alexey Schebelev
 Идея ОФК проста: вы записываете свои компоненты в HTML-файл, который (необязательно) содержит атрибуты `<style>` и `<script>`, описывающие стили и поведение компонента. Svelte, Ractive, Vue и Polymer следуют этому базовому шаблону.
 
 <aside>
-	<p><a href="https://svelte.technology/blog/frameworks-without-the-framework">Прочтите вступительную статью</a>, если вы только знакомитесь со Svelte. Или почитайте <a href="https://twitter.com/padolsey/status/899717303234908160">отзывы</a> <a href="https://twitter.com/sveltejs/status/901818357644701696">из первых</a> <a href="https://twitter.com/sveltejs/status/901818106309476352">рук</a>.</p>
+	<p><a href="blog/frameworks-without-the-framework">Прочтите вступительную статью</a>, если вы только знакомитесь со Svelte. Или почитайте <a href="https://twitter.com/padolsey/status/899717303234908160">отзывы</a> <a href="https://twitter.com/sveltejs/status/901818357644701696">из первых</a> <a href="https://twitter.com/sveltejs/status/901818106309476352">рук</a>.</p>
 </aside>
 (Очевидно, в оставшейся части статьи мы, будем использовать Svelte. Но если использование языка шаблонов заставляет вас перекреститься  (совершенно напрасно, кстати, но это тема другой статьи) — тогда просто используйте Vue, которая позволяет вам использовать JSX в ваших ОФК.)
 

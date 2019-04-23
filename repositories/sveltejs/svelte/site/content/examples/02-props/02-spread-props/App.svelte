@@ -5,7 +5,7 @@
 		name: 'svelte',
 		version: 3,
 		speed: 'невероятно',
-		website: 'https://svelte.technology'
+		website: 'https://svelte.dev'
 	};
 </script>
 
