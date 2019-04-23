@@ -175,8 +175,8 @@
         "file": "src/routes/tutorial/[slug]/index.svelte",
         "strings": [
             {
-                "o": ">Next <",
-                "t": ">Далее <"
+                "o": ">Next<",
+                "t": ">Далее<"
             },
             {
                 "o": "'Reset' : 'Show me'",
@@ -224,6 +224,35 @@
             {
                 "o": "Older posts",
                 "t": "Более ранние посты"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/_error.svelte",
+        "strings": [
+            {
+                "o": "Yikes!",
+                "t": "Бдыщь!"
+            },
+            {
+                "o": "Please try reloading the page.",
+                "t": "Попробуйте перезагрузить страницу"
+            },
+            {
+                "o": "It looks like you're offline",
+                "t": "Похоже, что нет соединения с сетью"
+            },
+            {
+                "o": "Reload the page once you've found the internet",
+                "t": "Перезагрузите страницу, когда у вас появится интернет"
+            },
+            {
+                "o": "Encountered a {status} error",
+                "t": "Обнаружена ошибка №{status}"
+            },
+            {
+                "o": "If the error persists, please drop by <a href=\"https://discord.gg/yy75DKs\">Discord chatroom</a> and let us know, or raise an issue on <a href=\"https://github.com/sveltejs/svelte\">GitHub</a>. Thanks!",
+                "t": "Если ошибка не исчезнет, сообщите об этом в <a href=\"https://t.me/sveltejs\">Telegram канал русского сообщества</a>. Спасибо!"
             }
         ]
     }
