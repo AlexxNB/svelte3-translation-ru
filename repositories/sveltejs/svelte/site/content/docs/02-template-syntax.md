@@ -933,7 +933,7 @@ TODO I can't remember how any of this works
 <div>
 	<slot name="header">Заголовок не предоставлен</slot>
 	<p>Любое содержимое между заголовком и футером</p>
-	</slot name="footer"></slot>
+	<slot name="footer"></slot>
 </div>
 ```
 
