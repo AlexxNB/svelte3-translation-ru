@@ -39,28 +39,21 @@ npm run dev
 
 При загрузке из REPL вы получаете настроенную версию репозитория [sveltejs/template](https://github.com/sveltejs/template). Но есть путь и без всякой возни с zip-файлами, используя [degit](https://github.com/Rich-Harris/degit), инструмент для создания проектов.
 
-В терминале глобально установите degit (вам нужно сделать это только один раз):
+Вы можете создать новый проект прямо из терминала:
 
 ```bash
-npm install -g degit
-```
-
-После этого вы можете мгновенно создать новый проект, например, вот так:
-
-```bash
-degit sveltejs/template my-new-project
-cd my-new-project
-
+npx degit sveltejs/template my-svelte-project
+cd my-svelte-project
 npm install
-npm run dev
+npm run dev & open http://localhost:5000
 ```
 
 Когда вы немного поизучаете основы и поймёте как всё работает, можете форкнуть [sveltejs/template](https://github.com/sveltejs/template) и начать делать так:
 
 ```bash
-degit your-name/template my-new-project
+npx degit your-name/template my-new-project
 ```
 
 Вот, в принципе, и всё! Выполните `npm run build`, чтобы собрать готовую к продакшену версию своего приложения, и прочтите [README](https://github.com/sveltejs/template/blob/master/README.md) шаблона проекта, чтобы узнать, как легко развернуть своё приложение в Интернете с помощью [Now](https://zeit.co/now) или [Surge](http://surge.sh/).
 
-Вы не обязаны использовать Rollup — у нас есть интеграции с [webpack](https://github.com/sveltejs/svelte-loader), [Browserify](https://github.com/tehshrike/sveltify) и прочими. Вы можете использовать [Svelte CLI](https://github.com/sveltejs/svelte-cli) или [API](https://github.com/sveltejs/svelte/tree/v2#api) напрямую. Если вы сделали шаблон проекта с помощью одного из этих инструментов, расскажите об этом в [чате Svelte Discord](https://discord.gg/yy75DKs) или в Twitter [@sveltejs](https://twitter.com/sveltejs)!
+Вы не обязаны использовать Rollup — у нас есть интеграции с [webpack](https://github.com/sveltejs/svelte-loader), [Browserify](https://github.com/tehshrike/sveltify) и прочими. Вы можете использовать [Svelte CLI](https://github.com/sveltejs/svelte-cli) (Обновление от 2019 г.: с выходом Svelte 3 инструмент CLI убран, теперь мы используем в нашем шаблоне [sirv-cli](https://www.npmjs.com/package/sirv-cli). Но вы можете использовать любую утилиту по своему выбору!) или [API](https://github.com/sveltejs/svelte/tree/v2#api) напрямую. Если вы сделали шаблон проекта с помощью одного из этих инструментов, расскажите об этом в [чате Svelte Discord](https://discord.gg/yy75DKs) или в Twitter [@sveltejs](https://twitter.com/sveltejs)!
