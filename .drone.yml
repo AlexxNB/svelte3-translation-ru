@@ -66,3 +66,4 @@ steps:
       - docker-compose pull
       - docker-compose up --detach --force-recreate
       - rm -rf /tmp/svelte-translate
+      - docker image prune -a -f
