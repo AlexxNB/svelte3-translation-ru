@@ -10,7 +10,7 @@ title: Совместное использование кода
 
 ```html
 <script context="module">
-	const elements = new Set();
+	let currentPlayer;
 </script>
 ```
 
@@ -18,13 +18,12 @@ title: Совместное использование кода
 
 ```js
 onMount(() => {
-	elements.add(audio);
-	return () => elements.delete(audio);
+	currentPlayer = audio;
+	return () => currentPlayer = null;
 });
 
 function stopOthers() {
-	elements.forEach(element => {
-		if (element !== audio) element.pause();
-	});
+	if (currentPlayer !== audio) currentPlayer.pause();
+	currentPlayer = audio;
 }
 ```
