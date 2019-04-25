@@ -42,7 +42,7 @@ for (let i = 0; i <= 100; i += 1) if (i % 2 === 0) console.log(`${i} — чёт�
 <div class="max">
 	<iframe
 		title="Пример простого компонента"
-		src="/repl/embed?gist=6b573f1819d12defc441098236fb9abe"
+		src="/repl/embed?example=blog-write-less-code"
 		scrolling="no"
 	></iframe>
 </div>
