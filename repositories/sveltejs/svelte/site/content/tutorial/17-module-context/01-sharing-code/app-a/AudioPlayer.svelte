@@ -1,6 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
-
 	export let src;
 	export let title;
 	export let composer;
@@ -8,10 +6,6 @@
 
 	let audio;
 	let paused = true;
-
-	onMount(() => {
-		// TODO: регистрация аудиоплеера в спсике
-	});
 
 	function stopOthers() {
 		// TODO: реализация остановки всех плееров

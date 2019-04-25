@@ -10,20 +10,15 @@ title: Совместное использование кода
 
 ```html
 <script context="module">
-	let currentPlayer;
+	let current;
 </script>
 ```
 
 Теперь компоненты могут 'разговаривать' друг с другом:
 
 ```js
-onMount(() => {
-	currentPlayer = audio;
-	return () => currentPlayer = null;
-});
-
 function stopOthers() {
-	if (currentPlayer !== audio) currentPlayer.pause();
-	currentPlayer = audio;
+	if (current && current !== audio) current.pause();
+	current = audio;
 }
 ```
