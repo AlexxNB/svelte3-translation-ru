@@ -599,6 +599,9 @@ class:имя
 
 <!-- Сокращение, при одинаковых имени и значении -->
 <div class:active>...</div>
+
+<!-- можно использовать сразу несколько переключателей классов -->
+<div class:active class:inactive={!active} class:isAdmin>...</div>
 ```
 
 
