@@ -3,7 +3,7 @@ module.exports = [
         name: "svelte",
         repo: "sveltejs/svelte",
         path: "/site",
-        install: 'npm ci && npm run update',
+        install: 'npm install && npm run update',
         build: 'npm run sapper',
         static: false
     },
