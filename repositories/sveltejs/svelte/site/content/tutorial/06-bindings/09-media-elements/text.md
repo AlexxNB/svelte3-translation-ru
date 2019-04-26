@@ -8,8 +8,8 @@ title: Элементы Audio и Video
 
 ```html
 <video
-	poster="http://svelte-assets.surge.sh/caminandes-llamigos.jpg"
-	src="http://svelte-assets.surge.sh/caminandes-llamigos.mp4"
+	poster="https://svelte-assets.surge.sh/caminandes-llamigos.jpg"
+	src="https://svelte-assets.surge.sh/caminandes-llamigos.mp4"
 	on:mousemove={handleMousemove}
 	on:mousedown={handleMousedown}
 	bind:currentTime={time}
