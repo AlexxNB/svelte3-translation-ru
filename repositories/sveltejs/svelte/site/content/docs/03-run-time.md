@@ -553,7 +553,14 @@ animate:flip={параметры}
 
 ### `svelte/register`
 
-TODO
+Чтобы отрендерить компонент Svelte на стороне сервера, используйте `require('svelte/register')`; после этого можно импортировать любой файл `.svelte` при помощи `require`.
+
+```js
+require('svelte/register');
+const App = require('./App.svelte');
+...
+App.default.render({ title: 'name' });
+```
 
 
 ### API компонента на клиенте
@@ -563,8 +570,6 @@ TODO
 ```js
 const component = new Component(options)
 ```
-
----
 
 Компонент на стороне клиента — это компонент, скомпилированный с помощью метода `generate: 'dom'`(или опция `generate` не была указана) и являющийся JavaScript классом.
 
