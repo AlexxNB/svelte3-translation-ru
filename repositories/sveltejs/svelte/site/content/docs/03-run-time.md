@@ -557,13 +557,24 @@ animate:flip={параметры}
 
 ### `svelte/register`
 
-Чтобы отрендерить компонент Svelte на стороне сервера, используйте `require('svelte/register')`; после этого можно импортировать любой файл `.svelte` при помощи `require`.
+Чтобы отрендерить компонент Svelte в Node.js без сборки, используйте `require('svelte/register')`. После этого можно импортировать любой файл `.svelte` при помощи `require`.
 
 ```js
 require('svelte/register');
-const App = require('./App.svelte');
+const App = require('./App.svelte').default;
 ...
-App.default.render({ title: 'name' });
+const { html, css, head } = App.render({ answer: 42 });
+```
+
+> Свойство `.default` необходимо, потому что происходит преобразование из нативных модулей JavaScript в модули CommonJS, используемые в Node. Учтите, что если в компоненте есть импорты JavaScript-модулей, то они не смогут загрузиться в Node, и тогда придётся использовать сборщик.
+
+Чтобы установить параметры компиляции или использовать собственное расширение файла, вызовите хук `register` как функцию:
+
+```js
+require('svelte/register')({
+  extensions: ['.customextension'], // по умолчанию ['.html', '.svelte']
+	preserveComments: true
+});
 ```
 
 
