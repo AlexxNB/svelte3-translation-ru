@@ -367,6 +367,15 @@ on:событие={обработчик}
 <SomeComponent on:whatever={handler}/>
 ```
 
+---
+
+As with DOM events, if the `on:` directive is used without a value, the component will *forward* the event, meaning that a consumer of the component can listen for it.
+
+Если директива `on:` используется без значения, то компонент будет *пробрасывать* событие выше, как и в аналогичном случае с событиями DOM. Событие станет доступно для прослушивания в родительском компоненте.
+
+```html
+<SomeComponent on:whatever/>
+```
 
 
 ### Привязки к элементам

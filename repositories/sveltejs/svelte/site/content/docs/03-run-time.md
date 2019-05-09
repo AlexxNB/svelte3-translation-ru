@@ -164,7 +164,7 @@ context: any = getContext(key: any)
 
 ---
 
-Извлекает контекст, который был объявлен с указнанным ключом в ближайшем родительском компоненте. Этот метод также должен вызываться во время инициализации компонента.
+Извлекает контекст, который был объявлен с указананным ключом в ближайшем родительском компоненте. Этот метод также должен вызываться во время инициализации компонента.
 
 ```html
 <script>
@@ -176,8 +176,38 @@ context: any = getContext(key: any)
 
 #### `createEventDispatcher`
 
-TODO
+```js
+dispatch: ((name: string, detail?: any) => void) = createEventDispatcher();
+```
 
+---
+
+Создает диспетчер событий, который можно использовать для отправки [событий компонента](docs#Sobytiya_komponenta). Диспетчер событий — это функция, которая может принимать два аргумента: `name` и` detail`.
+
+События компонента созданные при помощи метода `createEventDispatcher` создают пользовательские события [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). Эти события не [всплывают](https://developer.mozilla.org/ru/docs/Learn/JavaScript/Building_blocks/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F#%D0%92%D1%81%D0%BF%D0%BB%D1%8B%D1%82%D0%B8%D0%B5_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B5%D1%85%D0%B2%D0%B0%D1%82_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9) и не могут быть отменены методом `event.preventDefault()`. Аргумент `detail` соответствует свойству [CustomEvent.detail](https://developer.mozilla.org/ru/docs/Web/API/CustomEvent/detail) и может содержать данные любого типа.
+
+```html
+<script>
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+</script>
+
+<button on:click="{() => dispatch('notify', 'любые данные')}">Запустить событие</button>
+```
+
+---
+
+События, отправленные из дочернего компонента, можно прослушивать в их родительском компоненте. Любые данные, указанные при отправке события, будут доступны в свойстве `detail` объекта события.
+
+```html
+<script>
+	function callbackFunction(event) {
+		console.log(`Событие запущено! Данные: ${event.detail}`)
+	}
+</script>
+
+<Child on:notify="{callbackFunction}"/>
+```
 
 ### `svelte/store`
 
