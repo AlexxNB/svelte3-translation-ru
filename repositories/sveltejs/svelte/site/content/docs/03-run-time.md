@@ -504,13 +504,48 @@ TODO
 * fade, fly, slide, scale, draw
 * crossfade...
 
-### `svelte/animation`
+### `svelte/animate`
 
-TODO
+Модуль `svelte/animate` экспортирует единственную функцию, которая используется для отображения [анимации](docs#Animaczii).
 
-* TODO this doesn't even exist yet
+#### `flip`
 
-TODO
+```sv
+animate:flip={параметры}
+```
+
+Функция `flip` вычисляет начальную и конечную позиции элемента и создаёт анимацию перемещения между ними, подставляя соответствующие значения `x` и `y`. Аббревиатура `flip` расшифровывается как [First, Last, Invert, Play](https://aerotwist.com/blog/flip-your-animations/).
+
+`flip` принимает следующие параметры:
+
+* `delay` (`number`, по умолчанию 0) — миллисекунды до начала анимации
+* `duration` (`number` | `function`, по умолчанию `d => Math.sqrt(d) * 120`) — длительность анимации, см.ниже
+* `easing` (`function`, по умолчанию [`cubicOut`](docs#cubicOut)) — [функция плавности](docs#svelte_easing)
+
+
+`duration` может быть передана двумя способами:
+
+- просто число, в миллисекундах.
+- функция, `distance: number => duration: number`, которая получает расстояние в пикселях, на которое элемент должен переместится и возвращает длительность в миллисекундах. Она позволяет задавать длительность анимации для разных элементов в зависимости от расстояния перемещения для каждого из них.
+
+---
+
+Вы можете познакомиться с полноценным примером в [разделе учебника](tutorial/animate).
+
+
+```html
+<script>
+	import { flip } from 'svelte/animate';
+	import { quintOut } from 'svelte/easing';
+	let list = [1, 2, 3];
+</script>
+
+{#each list as n (n)}
+	<div animate:flip="{{delay: 250, duration: 250, easing: quintOut}}">
+		{n}
+	</div>
+{/each}
+```
 
 ### `svelte/easing`
 
