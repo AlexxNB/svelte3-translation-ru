@@ -45,15 +45,6 @@
             {
                 "o": "Join us",
                 "t": "Присоединяйся к нам"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/_components/Blurb.svelte",
-        "strings": [
-            {
-                "o": "--h2",
-                "t": "--h3"
             },
             {
                 "o": "Write less code",
@@ -131,12 +122,8 @@
         ]
     },
     {
-        "file": "src/components/TopNav.svelte",
+        "file": "src/routes/_layout.svelte",
         "strings": [
-            {
-                "o": "@media",
-                "t": "ul li a {white-space:nowrap}  ul.open li a {font-size:.7em; white-space:nowrap; text-align:left} ul.open {padding: 0 .5em 1em .5em;} @media"
-            },
             {
                 "o": "Homepage",
                 "t": "Домашняя страница"
@@ -148,10 +135,6 @@
             {
                 "o": ">Tutorial<",
                 "t": ">Учебник<"
-            },
-            {
-                "o": ">API Docs<",
-                "t": ">Документация API<"
             },
             {
                 "o": ">Examples<",
