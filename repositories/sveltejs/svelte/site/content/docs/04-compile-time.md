@@ -278,6 +278,36 @@ const { code } = svelte.preprocess(source, [
 });
 ```
 
+### `svelte.walk`
+
+```js
+walk(ast: Node, {
+	enter(node: Node, parent: Node)?: void,
+	leave(node: Node, parent: Node)?: void
+})
+```
+
+---
+
+Функция `walk` обеспечивает способ обхода абстрактных синтаксических деревьев, сгенерированных парсером, используя встроенный в компилятор собственный экземпляр [estree-walker](https://github.com/Rich-Harris/estree-walker) ,
+
+Метод `walk` принимает абстрактное синтаксическое дерево для обхода и объект с двумя необязательными методами: `enter` и `exit`. Для каждого узла дерева вызывается `enter` (если есть). Затем, если внутри `enter` не вызывается `this.skip()`, подобным образом обрабатываются дочерние узлы, затем вызывается метод `exit`.
+
+
+```js
+const svelte = require('svelte/compiler');
+svelte.walk(ast, {
+	enter(node, parent) {
+		do_something(node);
+		if (should_skip_children(node)) {
+			this.skip();
+		}
+	},
+	leave(node, parent) {
+		do_something_else(node);
+	}
+});
+```
 
 ### `svelte.VERSION`
 
