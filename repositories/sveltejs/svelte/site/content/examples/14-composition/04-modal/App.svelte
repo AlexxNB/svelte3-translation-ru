@@ -1,9 +1,12 @@
 <script>
 	import Modal from './Modal.svelte';
 
-	let showModal = true;
+	let showModal = false;
 </script>
 
+<button on:click="{() => showModal = true}">
+	показать модальное окно
+</button>
 
 {#if showModal}
 	<Modal on:close="{() => showModal = false}">
@@ -21,8 +24,4 @@
 
 		<a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C_%D0%A3%D1%88%D0%B0%D0%BA%D0%BE%D0%B2%D0%B0">Толковый словарь Ушакова</a>
 	</Modal>
-{:else}
-	<button on:click="{() => showModal = true}">
-		показать всплывающее окно
-	</button>
 {/if}
