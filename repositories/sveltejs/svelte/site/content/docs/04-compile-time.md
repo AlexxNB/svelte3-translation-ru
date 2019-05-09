@@ -152,6 +152,29 @@ compiled: {
 -->
 
 
+### `svelte.parse`
+
+```js
+ast: object = svelte.parse(
+	source: string,
+	options?: {
+		filename?: string,
+		customElement?: boolean
+	}
+)
+```
+
+---
+
+Функция `parse` выполняет разбор компонента, возвращая только его абстрактное синтаксическое дерево. В отличие от компиляции с параметром `generate: false`, при этом не будет выполняться никакой проверки или иного анализа компонента, кроме самого разбора.
+
+
+```js
+const svelte = require('svelte/compiler');
+const ast = svelte.parse(source, { filename: 'App.svelte' });
+```
+
+
 ### `svelte.preprocess`
 
 ```js
