@@ -983,7 +983,7 @@ TODO I can't remember how any of this works
 	{/each}
 </ul>
 
-</slot name="footer"></slot>
+<slot name="footer"></slot>
 ```
 
 
