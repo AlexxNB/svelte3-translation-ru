@@ -211,7 +211,7 @@ unsubscribe();
 </script>
 
 <button on:click={handleClick}>
-	Клик:ов {$count}
+	Кликов: {$count}
 </button>
 ```
 
