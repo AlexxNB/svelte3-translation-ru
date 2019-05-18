@@ -1,0 +1,110 @@
+{"files": [
+    {
+        "file": "src/routes/index.svelte",
+        "strings": [
+            {
+                "o": "The next small thing in web development",
+                "t": "Следующий тренд в web-разработке"
+            },
+            {
+                "o": "Powered by Svelte",
+                "t": "Работает на Svelte"
+            },
+            {
+                "o": "Sapper is an application framework powered by Svelte — build bigger apps with a smaller footprint",
+                "t": "Sapper — это фреймворк для создания web-приложений, основанный на Svelte. Разрабатывайте приложения любой сложности без совершенно лишнего шаблонного кода"
+            },
+            {
+                "o": "Best of both worlds",
+                "t": "Из двух миров"
+            },
+            {
+                "o": "All the SEO and progressive enhancement of a server-rendered app, with the slick navigation of an SPA",
+                "t": "Все преимущества SEO и прогрессивного улучшения при рендеринге на стороне сервера вместе с удобной навигацией SPA-приложений"
+            },
+            {
+                "o": "Build fast",
+                "t": "Быстрый результат"
+            },
+            {
+                "o": "Hit the ground running with advanced routing, server-side rendering, code-splitting, offline support and more",
+                "t": "Молниеносная разработка приложений с расширенной маршрутизацией, рендерингом на стороне сервера, разделением кода, поддержкой Offline-режима и многим другим"
+            },
+            {
+                "o": ">learn more<",
+                "t": ">узнать больше<"
+            },
+            {
+                "o": "Sapper is a framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.",
+                "t": "Sapper - это фреймворк для создания web-приложений любых размеров, предлагающий прекрасный опыт разработки и гибкую маршрутизацию на основе файловой системы."
+            },
+            {
+                "o": "Unlike single-page apps, Sapper doesn't compromise on SEO, progressive enhancement or the initial load experience — but unlike traditional server-rendered apps, navigation is instantaneous for that app-like feel.",
+                "t": "В отличие от одностраничных приложений, Sapper не жертвует SEO, прогрессивным улучшением или скоростью начальной загрузки, но в отличие от традиционных приложений, которые рендерятся на сервере, навигация по старницам происходит мгновенно как в типичном SPA-приложении."
+            },
+            {
+                "o": "Read the introductory blog post",
+                "t": "Прочтите вводную статью в блоге"
+            },
+            {
+                "o": " to learn more.",
+                "t": ", чтобы узнать больше."
+            },
+            {
+                "o": ">Learn Sapper<",
+                "t": ">Изучить Sapper<"
+            },
+            {
+                "o": "# for",
+                "t": "# для"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/_layout.svelte",
+        "strings": [
+            {
+                "o": ">Docs<",
+                "t": ">Документация<"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/docs/index.svelte",
+        "strings": [
+            {
+                "o": "sveltejs/svelte/edit/master/site/content/docs/",
+                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/sveltejs/svelte/site/content/docs/"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/_error.svelte",
+        "strings": [
+            {
+                "o": "Yikes!",
+                "t": "Бдыщь!"
+            },
+            {
+                "o": "Please try reloading the page.",
+                "t": "Попробуйте перезагрузить страницу"
+            },
+            {
+                "o": "It looks like you're offline",
+                "t": "Похоже, что нет соединения с сетью"
+            },
+            {
+                "o": "Reload the page once you've found the internet",
+                "t": "Перезагрузите страницу, когда у вас появится интернет"
+            },
+            {
+                "o": "Encountered a {status} error",
+                "t": "Обнаружена ошибка №{status}"
+            },
+            {
+                "o": "If the error persists, please drop by <a href=\"chat\">Discord chatroom</a> and let us know, or raise an issue on <a href=\"https://github.com/sveltejs/svelte\">GitHub</a>. Thanks!",
+                "t": "Если ошибка не исчезнет, сообщите об этом в <a href=\"https://t.me/sveltejs\">Telegram канал русского сообщества</a>. Спасибо!"
+            }
+        ]
+    }
+]}

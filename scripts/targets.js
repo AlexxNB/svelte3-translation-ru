@@ -13,12 +13,12 @@ module.exports = [
         path: "/docs_src",
         install: 'npm install',
         build: 'npm run build',
-        static: false
+        static: true
     },
     {
         name: "sapper",
-        repo: "sveltejs/sapper.svelte.technology",
-        path: "",
+        repo: "sveltejs/sapper",
+        path: "/site",
         install: 'npm install',
         build: 'npm run build',
         static: true
