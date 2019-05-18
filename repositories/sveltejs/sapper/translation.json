@@ -66,6 +66,10 @@
             {
                 "o": ">Docs<",
                 "t": ">Документация<"
+            },
+            {
+                "o": "\"https://svelte.dev\"",
+                "t": "\"https://ru.svelte.dev\""
             }
         ]
     },
@@ -73,8 +77,8 @@
         "file": "src/routes/docs/index.svelte",
         "strings": [
             {
-                "o": "sveltejs/svelte/edit/master/site/content/docs/",
-                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/sveltejs/svelte/site/content/docs/"
+                "o": "Docs • Sapper",
+                "t": "Документация • Sapper"
             }
         ]
     },
