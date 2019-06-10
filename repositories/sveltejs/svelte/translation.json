@@ -151,6 +151,10 @@
             {
                 "o": "https://sapper.svelte.dev",
                 "t": "https://ru.sapper.svelte.dev"
+            },
+            {
+                "o": "segment=\"repl\"",
+                "t": "external=\"https://svelte.dev/repl\""
             }
         ]
     },
