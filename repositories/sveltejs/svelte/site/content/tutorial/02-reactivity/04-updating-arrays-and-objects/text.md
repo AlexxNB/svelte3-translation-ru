@@ -13,7 +13,7 @@ function addNumber() {
 }
 ```
 
-Но есть более *грамотное* решение:
+Но есть более грамотное решение:
 
 ```js
 function addNumber() {
@@ -23,10 +23,10 @@ function addNumber() {
 
 Вы можете использовать подобный способ для замены методов `pop`, `shift`, `unshift` и `splice`.
 
-> Присваивания значений *свойствам* массивов и объектов — например, `obj.foo + = 1` или `array[i] = x` — работают так же, как и присваивания обычным переменным.
->
-> ```js
-> function addNumber() {
->		numbers[numbers.length] = numbers.length + 1;
-> }
-> ```
+Присваивания значений *свойствам* массивов и объектов — например, `obj.foo + = 1` или `array[i] = x` — работают так же, как и присваивания обычным переменным.
+
+ ```js
+ function addNumber() {
+		numbers[numbers.length] = numbers.length + 1;
+ }
+ ```
