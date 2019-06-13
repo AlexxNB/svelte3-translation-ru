@@ -45,8 +45,10 @@ npm run dev
 npx degit sveltejs/template my-svelte-project
 cd my-svelte-project
 npm install
-npm run dev & open http://localhost:5000
+npm run dev
 ```
+
+Нужные файлы загрузятся в папку `my-svelte-project`, установятся все зависимости и запустится сервер на http://localhost:5000.
 
 Когда вы немного поизучаете основы и поймёте как всё работает, можете форкнуть [sveltejs/template](https://github.com/sveltejs/template) и начать делать так:
 
