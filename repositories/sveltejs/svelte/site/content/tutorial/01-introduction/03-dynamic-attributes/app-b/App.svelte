@@ -3,4 +3,4 @@
 	let name = 'Рик Эстли';
 </script>
 
-<img {src} alt="{name} танцует">
+<img {src} alt="{name} танцует.">
