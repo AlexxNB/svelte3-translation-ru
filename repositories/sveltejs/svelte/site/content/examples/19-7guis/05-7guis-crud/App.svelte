@@ -43,10 +43,12 @@
 	}
 
 	function remove() {
-		people = [...people.slice(0, i), ...people.slice(i + 1)];
+		// Удаляем выбранную персону из исходного массива (people), не из отфильтрованного
+		const index = people.indexOf(selected);
+		people = [...people.slice(0, index), ...people.slice(index + 1)];
 
 		first = last = '';
-		i = Math.min(i, people.length - 1);
+		i = Math.min(i, filteredPeople.length - 2);
 	}
 
 	function reset_inputs(person) {
