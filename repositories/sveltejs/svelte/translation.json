@@ -155,6 +155,10 @@
             {
                 "o": "segment=\"repl\"",
                 "t": "external=\"https://svelte.dev/repl\""
+            },
+            {
+                "o": "external=\"chat\"",
+                "t": "external=\"tg://resolve?domain=sveltejs\""
             }
         ]
     },
