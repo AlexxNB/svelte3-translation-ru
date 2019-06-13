@@ -351,7 +351,23 @@ on:событие|модификаторы={обработчик}
 	Так событие клика по кнопке сможет выйти за пределы компонента
 </button>
 ```
+---
 
+Можно назначить несколько обработчиков для одного события:
+
+```html
+<script>
+	let counter = 0;
+	function increment() {
+		counter = counter + 1;
+	}
+	function track(event) {
+		trackEvent(event)
+	}
+</script>
+
+<button on:click={increment} on:click={track}>Нажми меня!</button>
+```
 
 ### События компонента
 
