@@ -322,13 +322,13 @@ const time = readable(new Date(), set => {
 store = derived(a, callback: (a: any) => any)
 ```
 ```js
-store = derived(a, callback: (a: any, set: (value: any) => void) => void, initial_value: any)
+store = derived(a, callback: (a: any, set: (value: any) => void) => void | () => void, initial_value: any)
 ```
 ```js
 store = derived([a, ...b], callback: ([a: any, ...b: any[]]) => any)
 ```
 ```js
-store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void, initial_value: any)
+store = derived([a, ...b], callback: ([a: any, ...b: any[]], set: (value: any) => void) => void | () => void, initial_value: any)
 ```
 
 ---
@@ -354,6 +354,18 @@ import { derived } from 'svelte/store';
 
 const delayed = derived(a, ($a, set) => {
 	setTimeout(() => set($a), 1000);
+}, 'секундочку...');
+```
+
+Если из callback-функции возвращается какая-либо функция, то она будет вызвана, когда callback-функция сработает снова или от хранилища отпишется последний подписчик:
+
+```js
+import { derived } from 'svelte/store';
+const tick = derived(frequency, ($frequency, set) => {
+	const interval = setInterval(() => set(Date.now()), 1000 / frequency);
+	return () => {
+		clearInterval(interval);
+	}
 }, 'секундочку...');
 ```
 
