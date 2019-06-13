@@ -44,12 +44,6 @@
 	function remove(todo) {
 		todos = todos.filter(t => t !== todo);
 	}
-
-	function handleKeydown(event) {
-		if (event.which === 13) {
-			addTodo(event.target);
-		}
-	}
 </script>
 
 <style>
@@ -115,7 +109,9 @@
 </style>
 
 <div class='board'>
-	<input class="new-todo" placeholder="что нужно сделать?" on:enter={add}>
+	<input class="new-todo" placeholder="что нужно сделать?" on:keydown="{event => event.which === 13 && add(this)}">
+
+
 
 	<div class='left'>
 		<h2>задачи</h2>
