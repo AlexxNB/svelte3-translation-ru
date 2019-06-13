@@ -515,10 +515,204 @@ store = spring(value: any, options)
 
 ### `svelte/transition`
 
-TODO
+Модуль `svelte / transition` экспортирует шесть функций:` fade`, `fly`,` slide`, `scale`,` draw` и `crossfade`. Они предназначены для использования в [`переходах`](docs#Perehody).
 
-* fade, fly, slide, scale, draw
-* crossfade...
+#### `fade`
+
+```sv
+transition:fade={параметры}
+```
+```sv
+in:fade={параметры}
+```
+```sv
+out:fade={параметры}
+```
+
+---
+
+Анимирует прозрачность элемента от 0 до установленной прозрачности для переходов `in` и от текущей прозрачности до 0 для переходов `out`.
+
+`fade` принимает следующие параметры:
+
+* `delay` (`number`, по умолчанию 0) — задержка до начала перехода в миллисекундах
+* `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
+
+Вы можете посмотреть переход `fade` в действии в соответствующем [разделе учебника](tutorial/transition).
+
+```html
+<script>
+	import { fade } from 'svelte/transition';
+</script>
+
+{#if condition}
+	<div transition:fade="{{delay: 250, duration: 300}}">
+		появляется и исчезает
+	</div>
+{/if}
+```
+
+#### `fly`
+
+```sv
+transition:fly={параметры}
+```
+```sv
+in:fly={параметры}
+```
+```sv
+out:fly={параметры}
+```
+
+---
+
+Анимирует позицию и прозрачность элемента. Переход появления `in` осуществляет анимацию перемещения элемента из текущей (по умолчанию) позиции на указанное в параметрах расстояние по `x` и `y`. Переход исчезновения `out`  анимирует перемещение элемента из указанной параметрами позиции в его естественное состояние.
+
+`fly` принимает следующие параметры:
+
+* `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
+* `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
+* `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#svelte_easing)
+* `x` (`number`, по умолчанию 0) — сдвиг по оси x, конечная позиция для `out` и начальная для `in`
+* `y` (`number`, по умолчанию 0) — сдвиг по оси y, конечная позиция для `out` и начальная для `in`
+* `opacity` (`number`, по умолчанию 0) — значение прозрачности, конечное для `out` и начальное для `in`
+
+Вы можете посмотреть переход `fadflye` в действии в соответствующем [разделе учебника](tutorial/adding-parameters-to-transitions).
+
+```html
+<script>
+	import { fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+{#if condition}
+	<div transition:fly="{{delay: 250, duration: 300, x: 100, y: 500, opacity: 0.5, easing: quintOut}}">
+		прилетает и улетает
+	</div>
+{/if}
+```
+
+#### `slide`
+
+```sv
+transition:slide={параметры}
+```
+```sv
+in:slide={параметры}
+```
+```sv
+out:slide={параметры}
+```
+
+---
+
+Сворачивает и разворачивает элемент.
+
+`slide`  принимает следующие параметры:
+
+* `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
+* `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
+* `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#svelte_easing)
+
+```html
+<script>
+	import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+{#if condition}
+	<div transition:slide="{{delay: 250, duration: 300, easing: quintOut }}">
+		разворачивается и сворачивается
+	</div>
+{/if}
+```
+
+#### `scale`
+
+```sv
+transition:scale={параметры}
+```
+```sv
+in:scale={параметры}
+```
+```sv
+out:scale={параметры}
+```
+
+---
+
+Анимирует прозрачность и размер элемента. Переход появления `in` осуществляет анимацию элемента из текущего (по умолчанию) состояния в состояние, указанное через параметры. Переход исчезновения `out`  анимирует изменение состояния элемента из заданного параметрами в естественное состояние.
+
+`scale`  принимает следующие параметры:
+
+* `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
+* `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
+* `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#svelte_easing)
+* `start` (`number`, по умолчанию 0) — размер, конечный для `out` и начальный для `in`
+* `opacity` (`number`, по умолчанию 0) — значение прозрачности, конечное для `out` и начальное для `in`
+
+```html
+<script>
+	import { scale } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+{#if condition}
+	<div transition:scale="{{duration: 500, delay: 500, opacity: 0.5, start: 0.5, easing: quintOut}}">
+		увеличивается и уменьшается
+	</div>
+{/if}
+```
+
+#### `draw`
+
+```sv
+transition:draw={параметры}
+```
+```sv
+in:draw={параметры}
+```
+```sv
+out:draw={параметры}
+```
+
+---
+
+Анимация закрашивания элемента path в SVG. Переход появления `in` начинается с невидимого элемента path, который затем постепенно закрашивается. Переход исчезновения `out` начинается с видимого элемента path, который затем постепенно стирается. `draw` работает только с элементами SVG Path.
+
+`scale` принимает следующие параметры:
+
+* `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
+* `speed` (`number`, по умолчанию undefined) - скорость анимации, см. ниже
+* `duration` (`number` | `function`, по умолчанию 800) — длительность перехода в миллисекундах
+* `easing` (`function`, по умолчанию `cubicInOut`) — [функция плавности](docs#svelte_easing)
+
+Параметр `speed` задаёт длительность перехода в зависимости от длины элемента path. Это модификатор, который применяется к длине пути: `длительность = длина/скорость`. Отрисовка линии в 1000 пикселей со скоростью 1 будет иметь длительность 1000мс, при `speed` равном `0.5` длительность увеличится вдвое, а при `2` — уменьшится в два раза.
+
+```html
+<script>
+	import { draw } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+</script>
+
+<svg viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg">
+	{#if condition}
+		<path transition:draw="{{duration: 5000, delay: 500, easing: quintOut}}"
+					d="M2 1 h1 v1 h1 v1 h-1 v1 h-1 v-1 h-1 v-1 h1 z"
+					fill="none"
+					stroke="cornflowerblue"
+					stroke-width="0.1px"
+					stroke-linejoin="round"
+		/>
+	{/if}
+</svg>
+
+```
+
+
+<!-- Crossfade is coming soon... -->
+
+
 
 ### `svelte/animate`
 
