@@ -897,7 +897,128 @@ transition = (node: HTMLElement, params: any) => {
 
 ### Анимации
 
-TODO I can't remember how any of this works
+```sv
+animate:имя
+```
+
+```sv
+animate:имя={параметры}
+```
+
+```js
+animation = (node: HTMLElement, { from: DOMRect, to: DOMRect } , params: any) => {
+	delay?: number,
+	duration?: number,
+	easing?: (t: number) => number,
+	css?: (t: number, u: number) => string,
+	tick?: (t: number, u: number) => void
+}
+```
+
+```js
+DOMRect {
+	bottom: number,
+	height: number,
+	​​left: number,
+	right: number,
+	​top: number,
+	width: number,
+	x: number,
+	y:number
+}
+```
+
+---
+
+Анимация запускается, когда изменяется порядок содержимого [блока each с ключом](docs#Bloki_Each). Анимации не запускаются при удалении элемента, а только лишь при переупорядочивании данных внутри блока each. Директиву animate можно устанавливать только для элемента, который является *непосредственным* дочерним элементом блока each с ключом.
+
+Анимация может использовать [встроенные функции анимации](docs#svelte_animate) или [пользовательские функции анимации](docs#Polzovatelskie_funkczii_animaczii).
+
+```html
+<!-- при изменении порядка элементов в списке запустится анимация-->
+{#each list as item, index (item)}
+	<li animate:flip>{item}</li>
+{/each}
+```
+
+#### Параметры анимации
+
+---
+
+Как действия и переходы, анимации также могут иметь параметры.
+
+(Двойные фигурные скобки `{{...}}` здесь не являются особым синтаксисом - это просто литерал объекта внутри тега выражения)
+
+```html
+{#each list as item, index (item)}
+	<li animate:flip="{{ delay: 500 }}">{item}</li>
+{/each}
+```
+
+#### Пользовательские функции анимации
+
+---
+
+Анимации могут использовать пользовательские функции, которые принимают в качестве аргументов ссылку на элемент `node`, объект `animation` и объект параметров. Объект `animation` содержит свойства` from` и `to`, каждое из которых является объектом [DOMRect](https://developer.mozilla.org/ru/docs/Web/API/DOMRect#Properties), описывающим геометрию элемента в начальном и конечном положениях. Свойство `from` - это DOMRect элемента в его начальной позиции, свойство `to` - это DOMRect элемента в его конечной позиции после переупорядочивания списка и обновления DOM.
+
+Если в возвращаемом из функции объекте есть метод `css`, Svelte создаст CSS-анимацию, которая будет применена к элементу `node`.
+
+Аргумент `t`, передаваемый в метод `css`, представляет собой значение от `0` до `1`, которое возвращает функция плавности `easing` для нужного момента времени. Аргумент `u` равен `1 - t`.
+
+Функция вызывается множество раз *до начала* анимации, с различными аргументами `t` и `u`.
+
+
+```html
+<script>
+	import { cubicOut } from 'svelte/easing';
+	function whizz(node, { from, to }, params) {
+		const dx = from.left - to.left;
+		const dy = from.top - to.top;
+		const d = Math.sqrt(dx * dx + dy * dy);
+		return {
+			delay: 0,
+			duration: Math.sqrt(d) * 120,
+			easing: cubicOut,
+			css: (t, u) =>
+				`transform: translate(${u * dx}px, ${u * dy}px) rotate(${t*360}deg);`
+		};
+	}
+</script>
+
+{#each list as item, index (item)}
+	<div animate:whizz>{item}</div>
+{/each}
+```
+
+---
+
+Пользовательская функция анимации также может возвращать функцию `tick`, которая вызывается *во время* анимации с теми же аргументами `t` и `u`.
+
+> Всегда старайтесь использовать`css` вместо` tick`, поскольку CSS-анимация запускается вне основного потока, предотвращая подёргивания на медленных устройствах.
+
+```html
+<script>
+	import { cubicOut } from 'svelte/easing';
+	function whizz(node, { from, to }, params) {
+		const dx = from.left - to.left;
+		const dy = from.top - to.top;
+		const d = Math.sqrt(dx * dx + dy * dy);
+		return {
+			delay: 0,
+			duration: Math.sqrt(d) * 120,
+			easing: cubicOut,
+			tick: (t, u) =>
+				Object.assign(node.style, {
+					color: t > 0.5 ? 'Pink' : 'Blue'
+				});
+		};
+	}
+</script>
+
+{#each list as item, index (item)}
+	<div animate:whizz>{item}</div>
+{/each}
+```
 
 
 ### Слоты
