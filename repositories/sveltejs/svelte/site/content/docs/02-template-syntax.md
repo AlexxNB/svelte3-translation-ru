@@ -1255,3 +1255,48 @@ DOMRect {
 ```html
 <svelte:options tag="my-custom-element"/>
 ```
+
+
+
+### @debug
+
+```sv
+{@debug переменная}
+```
+```sv
+{@debug переменная1, переменная2, ..., переменнаяN}
+```
+
+---
+
+The `{@debug ...}` tag offers an alternative to `console.log(...)`. It allows you to inspect the value of a specific variable, but additionally pauses code execution when you have devtools open.
+
+Тег `{@debug ...}` — это альтернатива для функции `console.log (...)`. Он позволяет проверить значение определенной переменной, но, при открытых *инструментах разработчика* в браузере, приостанавливает дальнейшее выполнение кода.
+
+```html
+<script>
+	let user = {
+		firstname: 'Ада',
+		lastname: 'Лавлейс'
+	};
+</script>
+
+{@debug user}
+
+<h1>Привет {user.firstname}!</h1>
+```
+
+---
+
+`{@debug ...}` также может принимать список значений, разделенных запятыми.  Однако, поддрживаются только имена переменных, проверка выражений невозможна.
+
+```sv
+# Успешно скомпилируется
+{@debug user}
+{@debug user1, user2, user3}
+# НЕ скомпилируется
+{@debug user.firstname}
+{@debug myArray[0]}
+{@debug !isReady}
+{@debug typeof user === 'object'}
+```
