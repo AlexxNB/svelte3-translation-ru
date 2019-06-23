@@ -39,8 +39,8 @@ Sapper — это фреймворк для создания невероятн�
 Самый простой способ начать создавать приложение Sapper — скопировать к себе на компьютер репеозиторий шаблона [sapper-template](https://github.com/sveltejs/sapper-template) при помощи утилиты [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit sveltejs/sapper-template#rollup my-app
-# или: npx degit sveltejs/sapper-template#webpack my-app
+npx degit "sveltejs/sapper-template#rollup" my-app
+# или: npx "degit sveltejs/sapper-template#webpack" my-app
 cd my-app
 npm install
 npm run dev
