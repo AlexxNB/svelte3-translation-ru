@@ -12,7 +12,7 @@ module.exports = [
         repo: "halfnelson/svelte-native",
         path: "/docs_src",
         install: 'npm install',
-        build: 'npm run build',
+        build: 'npm run export',
         static: true
     },
     {
