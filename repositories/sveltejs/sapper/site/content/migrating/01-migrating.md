@@ -289,7 +289,7 @@ import { routes } from './manifest/client.js';
 
 #### app/template.html
 
-* Элемент `<head>` должен содержать `%sapper.base%` (см. [Базовые URL](guide#base-urls))
+* Элемент `<head>` должен содержать `%sapper.base%` (см. [Базовые URL](docs#Bazovye_URL))
 * Удалите ссылку на сервис-воркер; теперь она включена в`%sapper.scripts%`
 
 #### Страницы
