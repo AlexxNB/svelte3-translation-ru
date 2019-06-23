@@ -1251,7 +1251,7 @@ bind:this={экземпляр_компонента}
 ### `<svelte:component>`
 
 ```sv
-<svelte:component this={выражение}>
+<svelte:component this={выражение}/>
 ```
 
 ---
@@ -1328,7 +1328,7 @@ bind:this={экземпляр_компонента}
 ### `<svelte:head>`
 
 ```sv
-<svelte:head>
+<svelte:head>...</svelte:head>
 ```
 
 ---
@@ -1345,7 +1345,7 @@ bind:this={экземпляр_компонента}
 ### `<svelte:options>`
 
 ```sv
-<svelte:options параметр={значение}>
+<svelte:options параметр={значение}/>
 ```
 
 ---
