@@ -101,28 +101,7 @@ title: Синтаксис шаблонов
 <p>{a} + {b} = {a + b}.</p>
 ```
 
-
-### HTML выражения
-
-```sv
-{@html выражение}
-```
-
----
-
-В текстовых выражениях, символы вроде `<` и `>` экранируются. В HTML выражениях — нет.
-
->Svelte не очищает HTML код перед его обработкой! Если данные приходят из ненадёжного источника, необходимо их проверить. В противном случае, вы подвергаете пользователей возможным XSS-атакам.
-
-```html
-<div class="blog-post">
-	<h1>{post.title}</h1>
-	{@html post.content}
-</div>
-```
-
-
-### Блоки If
+### {#if ...}
 
 ```sv
 {#if выражение}...{/if}
@@ -159,7 +138,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### Блоки Each
+### {#each ...}
 
 ```sv
 {#each выражение as имя}...{/each}
@@ -230,7 +209,7 @@ title: Синтаксис шаблонов
 ```
 
 
-### Блоки Await
+### {#await ...}
 
 ```sv
 {#await выражение}...{:then имя}...{:catch имя}...{/await}
@@ -283,7 +262,80 @@ title: Синтаксис шаблонов
 ```
 
 
-### События DOM
+
+### {@html ...}
+
+```sv
+{@html выражение}
+```
+
+---
+
+В текстовых выражениях, символы вроде `<` и `>` экранируются. В HTML выражениях — нет.
+
+>Svelte не очищает HTML код перед его обработкой! Если данные приходят из ненадёжного источника, необходимо их проверить. В противном случае, вы подвергаете пользователей возможным XSS-атакам.
+
+```html
+<div class="blog-post">
+	<h1>{post.title}</h1>
+	{@html post.content}
+</div>
+```
+
+
+### {@debug ...}
+
+```sv
+{@debug}
+```
+```sv
+{@debug переменная1, переменная2, ..., переменнаяN}
+```
+
+---
+
+Тег `{@debug ...}` — это альтернатива для функции `console.log (...)`. Он отображает значение указанных переменных при их изменении, и приостанавливает дальнейшее выполнение кода при открытых *инструментах разработчика* в браузере.
+
+Он принимает разделенный запятыми список имён переменных (не любых выражений).
+
+```html
+<script>
+	let user = {
+		firstname: 'Ада',
+		lastname: 'Лавлейс'
+	};
+</script>
+
+{@debug user}
+
+<h1>Привет {user.firstname}!</h1>
+```
+
+---
+
+`{@debug ...}` принимает разделенный запятыми список имён переменных (не любых выражений).
+
+```sv
+<!-- Успешно скомпилируется -->
+{@debug user}
+{@debug user1, user2, user3}
+<!-- НЕ скомпилируется -->
+{@debug user.firstname}
+{@debug myArray[0]}
+{@debug !isReady}
+{@debug typeof user === 'object'}
+```
+
+Тег `{@debug}` без каких-либо аргументов установит оператор `debugger`, который будет срабатывать при любом изменении состояния.
+
+
+
+### Директивы элементов
+
+Наряду с атрибутами у элементов могут быть и *директивы*, которые предоставляют некоторые дополнительные возможности.
+
+
+#### [on:*событие*](on_component_event)
 
 ```sv
 on:событие={обработчик}
@@ -324,6 +376,13 @@ on:событие|модификаторы={обработчик}
 
 *Модификаторы* событий DOM добавляются после символа `|`.
 
+```html
+<form on:submit|preventDefault={handleSubmit}>
+	<!-- стандартная обработка события `submit` предотвращена,
+	     поэтому страница не перезагрузится -->
+</form>
+```
+
 Доступны следующие модификаторы:
 
 * `preventDefault` — вызывает `event.preventDefault()` перед запуском обработчика. Полезно, в том числе для обработки форм на клиентской стороне.
@@ -334,13 +393,6 @@ on:событие|модификаторы={обработчик}
 
 
 Модификаторы можно соединять в цепочку, например `on:click|once|capture={...}`.
-
-```html
-<form on:submit|preventDefault={handleSubmit}>
-	<!-- стандартная обработка события `submit` предотвращена,
-	     поэтому страница не перезагрузится -->
-</form>
-```
 
 ---
 
@@ -369,41 +421,13 @@ on:событие|модификаторы={обработчик}
 <button on:click={increment} on:click={track}>Нажми меня!</button>
 ```
 
-### События компонента
-
-```sv
-on:событие={обработчик}
-```
-
----
-
-Компоненты могут отправлять события, используя диспетчер событий [createEventDispatcher](docs#createEventDispatcher) или пробрасывая события DOM. Обработка событий компонента выглядит так же, как обработка событий DOM.
-
-```html
-<SomeComponent on:whatever={handler}/>
-```
-
----
-
-As with DOM events, if the `on:` directive is used without a value, the component will *forward* the event, meaning that a consumer of the component can listen for it.
-
-Если директива `on:` используется без значения, то компонент будет *пробрасывать* событие выше, как и в аналогичном случае с событиями DOM. Событие станет доступно для прослушивания в родительском компоненте.
-
-```html
-<SomeComponent on:whatever/>
-```
 
 
-### Привязки к элементам
+
+#### [bind:*свойство*](bind_element_property)
 
 ```sv
 bind:свойство={переменная}
-```
-```sv
-bind:group={переменная}
-```
-```sv
-bind:this={DOM-элемент}
 ```
 
 ---
@@ -438,31 +462,7 @@ bind:this={DOM-элемент}
 <input type="range" bind:value={num}>
 ```
 
-#### Привязка к группе элементов
-
----
-
-Элементы `input`, которые работают вместе, могут использовать привязку `bind:group`.
-
-```html
-<script>
-	let tortilla = 'Plain';
-	let fillings = [];
-</script>
-
-<!-- сгруппированные радиокнопки являются взаимоисключающими -->
-<input type="radio" bind:group={tortilla} value="Plain">
-<input type="radio" bind:group={tortilla} value="Whole wheat">
-<input type="radio" bind:group={tortilla} value="Spinach">
-
-<!-- сгруппированные чекбоксы образуют массив своих значений -->
-<input type="checkbox" bind:group={fillings} value="Rice">
-<input type="checkbox" bind:group={fillings} value="Beans">
-<input type="checkbox" bind:group={fillings} value="Cheese">
-<input type="checkbox" bind:group={fillings} value="Guac (extra)">
-```
-
-#### Привязка к значению `<select>`
+##### Привязка к значению `<select>`
 
 ---
 
@@ -504,7 +504,7 @@ bind:this={DOM-элемент}
 ```
 
 
-#### Привязка к медиа-элементам
+##### Привязка к медиа-элементам
 
 ---
 
@@ -534,7 +534,7 @@ bind:this={DOM-элемент}
 ></video>
 ```
 
-#### Привязка к блочным элементам
+##### Привязка к блочным элементам
 
 ---
 
@@ -554,8 +554,39 @@ bind:this={DOM-элемент}
 </div>
 ```
 
-#### Привязка к элементу DOM
+#### bind:group
 
+```sv
+bind:group={переменная}
+```
+
+---
+
+Элементы `input`, которые работают вместе, могут использовать привязку `bind:group`.
+
+```html
+<script>
+	let tortilla = 'Plain';
+	let fillings = [];
+</script>
+
+<!-- сгруппированные радиокнопки являются взаимоисключающими -->
+<input type="radio" bind:group={tortilla} value="Plain">
+<input type="radio" bind:group={tortilla} value="Whole wheat">
+<input type="radio" bind:group={tortilla} value="Spinach">
+
+<!-- сгруппированные чекбоксы образуют массив своих значений -->
+<input type="checkbox" bind:group={fillings} value="Rice">
+<input type="checkbox" bind:group={fillings} value="Beans">
+<input type="checkbox" bind:group={fillings} value="Cheese">
+<input type="checkbox" bind:group={fillings} value="Guac (extra)">
+```
+
+#### [bind:this](bind_element)
+
+```sv
+bind:this={DOM-узел}
+```
 ---
 
 Для получения ссылки на сам элемент в DOM, используйте `bind:this`.
@@ -576,35 +607,7 @@ bind:this={DOM-элемент}
 ```
 
 
-### Привязки компонентов
-
-* `bind:свойство={переменная}`
-* `bind:this={экземпляр_компонента}`
-
----
-
-Аналогичным способом можно привязываться к свойствам компонентов.
-
-```html
-<Keypad bind:value={pin}/>
-```
-
----
-
-Компоненты также поддерживают привязку `bind:this`, позволяющую взаимодействовать с экземпляром компонента в коде.
-
-> Обратите внимание, что использование `{cart.empty}` вызовет ошибку, поскольку при первой отрисовке кнопки `cart` ещё имеет значение `undefined`.
-
-```html
-<ShoppingCart bind:this={cart}/>
-
-<button on:click={() => cart.empty()}>
-	Очистить корзину
-</button>
-```
-
-
-### Классы
+#### class:*имя*
 
 ```sv
 class:имя={значение}
@@ -630,7 +633,7 @@ class:имя
 ```
 
 
-### Действия
+#### use:*действие*
 
 ```sv
 use:действие
@@ -697,44 +700,21 @@ action = (node: HTMLElement, parameters: any) => {
 ```
 
 
-### Переходы
+#### transition:*fn*
 
 ```sv
-transition:имя
+transition:fn
 ```
 ```sv
-transition:имя={параметры}
+transition:fn={параметры}
 ```
 ```sv
-transition:имя|local
+transition:fn|local
 ```
 ```sv
-transition:имя|local={параметры}
+transition:fn|local={параметры}
 ```
-```sv
-in:имя
-```
-```sv
-in:имя={параметры}
-```
-```sv
-in:имя|local
-```
-```sv
-in:имя|local={параметры}
-```
-```sv
-out:имя
-```
-```sv
-out:имя={параметры}
-```
-```sv
-out:имя|local
-```
-```sv
-out:имя|local={параметры}
-```
+
 
 ```js
 transition = (node: HTMLElement, params: any) => {
@@ -748,7 +728,7 @@ transition = (node: HTMLElement, params: any) => {
 
 ---
 
-Переход инициируется добавлением или удалением элемента из DOM в результате изменения состояния приложения. Переходы не запускаются при самом первом монтировании компонента, только при последующих обновлениях.
+Переход инициируется добавлением или удалением элемента из DOM в результате изменения состояния приложения. 
 
 Элементы внутри *исчезающего* блока будут храниться в DOM до тех пор, пока не будут выполнены все запущенные переходы.
 
@@ -762,21 +742,9 @@ transition = (node: HTMLElement, params: any) => {
 {/if}
 ```
 
----
-
-Директивы `in:` и `out:` не являются *обратимыми*. При исчезновении элемента, если переход появления ещё не закончился, он будет проигрываться дальше, но уже вместе с переходом исчезновения. Если исчезновение элемента, было прервано, то переходы будут запущены заново.
-
-```html
-{#if visible}
-	<div in:fly out:fade>
-		влетает, исчезает
-	</div>
-{/if}
-```
-
 > По умолчанию переход появления не проигрывается при первой отрисовке компонента. Вы можете изменить это поведение установив параметр `intro: true` при [создании компонента](docs#API_komponenta_na_kliente).
 
-#### Параметры перехода
+##### Параметры перехода
 
 ---
 
@@ -792,7 +760,7 @@ transition = (node: HTMLElement, params: any) => {
 {/if}
 ```
 
-#### Пользовательские переходы
+##### Пользовательские переходы
 
 ---
 
@@ -867,7 +835,7 @@ transition = (node: HTMLElement, params: any) => {
 
 Если переход возвращает функцию вместо объекта перехода, то она будет вызвана в следующей микрозадаче. Это позволяет координировать несколько переходов, что дает возможность запускать [перекрёстные переходы](tutorial/deferred-transitions).
 
-#### События переходов
+##### События переходов
 
 ---
 
@@ -911,7 +879,51 @@ transition = (node: HTMLElement, params: any) => {
 ```
 
 
-### Анимации
+#### in:*fn*/out:*fn*
+
+```sv
+in:fn
+```
+```sv
+in:fn={параметры}
+```
+```sv
+in:fn|local
+```
+```sv
+in:fn|local={параметры}
+```
+
+```sv
+out:fn
+```
+```sv
+out:fn={параметры}
+```
+```sv
+out:fn|local
+```
+```sv
+out:fn|local={параметры}
+```
+
+---
+
+Аналогичны `transition:`, но применяются только когда элемент появляется (`in:`) или убирается (`out:`) из DOM.
+
+В отличие от `transition:`, переходы `in:` и `out:` не являются *обратимыми*. При исчезновении элемента, если переход появления ещё не закончился, он будет проигрываться дальше, но уже вместе с переходом исчезновения. Если исчезновение элемента, было прервано, то переходы будут запущены заново.
+
+```html
+{#if visible}
+	<div in:fly out:fade>
+		влетает, исчезает
+	</div>
+{/if}
+```
+
+
+
+#### animate:
 
 ```sv
 animate:имя
@@ -957,7 +969,7 @@ DOMRect {
 {/each}
 ```
 
-#### Параметры анимации
+##### Параметры анимации
 
 ---
 
@@ -971,7 +983,7 @@ DOMRect {
 {/each}
 ```
 
-#### Пользовательские функции анимации
+##### Пользовательские функции анимации
 
 ---
 
@@ -987,10 +999,14 @@ DOMRect {
 ```html
 <script>
 	import { cubicOut } from 'svelte/easing';
+
 	function whizz(node, { from, to }, params) {
+
 		const dx = from.left - to.left;
 		const dy = from.top - to.top;
+
 		const d = Math.sqrt(dx * dx + dy * dy);
+
 		return {
 			delay: 0,
 			duration: Math.sqrt(d) * 120,
@@ -1015,19 +1031,23 @@ DOMRect {
 ```html
 <script>
 	import { cubicOut } from 'svelte/easing';
+
 	function whizz(node, { from, to }, params) {
+
 		const dx = from.left - to.left;
 		const dy = from.top - to.top;
+
 		const d = Math.sqrt(dx * dx + dy * dy);
+
 		return {
-			delay: 0,
-			duration: Math.sqrt(d) * 120,
-			easing: cubicOut,
-			tick: (t, u) =>
-				Object.assign(node.style, {
-					color: t > 0.5 ? 'Pink' : 'Blue'
-				});
-		};
+		delay: 0,
+		duration: Math.sqrt(d) * 120,
+		easing: cubicOut,
+		tick: (t, u) =>
+			Object.assign(node.style, {
+				color: t > 0.5 ? 'Pink' : 'Blue'
+			});
+	};
 	}
 </script>
 
@@ -1036,8 +1056,68 @@ DOMRect {
 {/each}
 ```
 
+### Директивы компонентов
 
-### Слоты
+#### [on:*событие*](on_component_event)
+
+```sv
+on:событие={обработчик}
+```
+
+---
+
+Компоненты могут отправлять события, используя диспетчер событий [createEventDispatcher](docs#createEventDispatcher) или пробрасывая события DOM. Обработка событий компонента выглядит так же, как обработка событий DOM.
+
+```html
+<SomeComponent on:whatever={handler}/>
+```
+
+---
+
+Если директива `on:` используется без значения, то компонент будет *пробрасывать* событие выше, как и в аналогичном случае с событиями DOM. Событие станет доступно для прослушивания в родительском компоненте.
+
+```html
+<SomeComponent on:whatever/>
+```
+
+
+#### [bind:*свойство*](bind_component_property)
+
+```sv
+bind:свойство={переменная}
+```
+
+---
+
+К свойствам компонента можно привязаться, точно так же как к атрибутам элементов.
+
+```html
+<Keypad bind:value={pin}/>
+```
+
+#### [bind:this](bind_component)
+
+```sv
+bind:this={экземпляр_компонента}
+```
+
+---
+
+Компоненты также поддерживают привязку `bind:this`, позволяющую взаимодействовать с экземпляром компонента в коде.
+
+> Обратите внимание, что использование `{cart.empty}` вызовет ошибку, поскольку при первой отрисовке кнопки `cart` ещё имеет значение `undefined`.
+
+```html
+<ShoppingCart bind:this={cart}/>
+
+<button on:click={() => cart.empty()}>
+	Очистить корзину
+</button>
+```
+
+
+
+### `<slot>`
 
 ```sv
 <slot><!-- содержимое по умолчанию --></slot>
@@ -1069,6 +1149,8 @@ DOMRect {
 </div>
 ```
 
+#### [`<slot name="`*имя*`">`](slot_name)
+
 ---
 
 Именованные слоты позволяют указать конкретные области. Они тоже могут иметь запасное содержимое по умолчанию.
@@ -1087,6 +1169,8 @@ DOMRect {
 	<slot name="footer"></slot>
 </div>
 ```
+
+#### [`<slot let:`*имя*`={`*значение*`}>`](slot_let)
 
 ---
 
@@ -1135,7 +1219,7 @@ DOMRect {
 ```
 
 
-### &lt;svelte:self&gt;
+### `<svelte:self>`
 
 ---
 
@@ -1156,7 +1240,7 @@ DOMRect {
 {/if}
 ```
 
-### &lt;svelte:component&gt;
+### `<svelte:component>`
 
 ```sv
 <svelte:component this={выражение}>
@@ -1173,7 +1257,7 @@ DOMRect {
 ```
 
 
-### &lt;svelte:window&gt;
+### `<svelte:window>`
 
 ```sv
 <svelte:window on:событие={обработчик}/>
@@ -1215,7 +1299,7 @@ DOMRect {
 ```
 
 
-### &lt;svelte:body&gt;
+### `<svelte:body>`
 
 ```sv
 <svelte:body on:событие={обработчик}/>
@@ -1233,7 +1317,7 @@ DOMRect {
 ```
 
 
-### &lt;svelte:head&gt;
+### `<svelte:head>`
 
 ```sv
 <svelte:head>
@@ -1250,7 +1334,7 @@ DOMRect {
 ```
 
 
-### &lt;svelte:options&gt;
+### `<svelte:options>`
 
 ```sv
 <svelte:options параметр={значение}>
@@ -1271,50 +1355,3 @@ DOMRect {
 ```html
 <svelte:options tag="my-custom-element"/>
 ```
-
-
-
-### @debug
-
-```sv
-{@debug}
-```
-```sv
-{@debug переменная1, переменная2, ..., переменнаяN}
-```
-
----
-
-Тег `{@debug ...}` — это альтернатива для функции `console.log (...)`. Он отображает значение указанных переменных при их изменении, и приостанавливает дальнейшее выполнение кода при открытых *инструментах разработчика* в браузере.
-
-Он принимает разделенный запятыми список имён переменных (не любых выражений).
-
-```html
-<script>
-	let user = {
-		firstname: 'Ада',
-		lastname: 'Лавлейс'
-	};
-</script>
-
-{@debug user}
-
-<h1>Привет {user.firstname}!</h1>
-```
-
----
-
-`{@debug ...}` принимает разделенный запятыми список имён переменных (не любых выражений).
-
-```sv
-<!-- Успешно скомпилируется -->
-{@debug user}
-{@debug user1, user2, user3}
-<!-- НЕ скомпилируется -->
-{@debug user.firstname}
-{@debug myArray[0]}
-{@debug !isReady}
-{@debug typeof user === 'object'}
-```
-
-Тег `{@debug}` без каких-либо аргументов установит оператор `debugger`, который будет срабатывать при любом изменении состояния.
