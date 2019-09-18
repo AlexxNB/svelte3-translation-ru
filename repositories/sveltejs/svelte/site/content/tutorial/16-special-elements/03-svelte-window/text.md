@@ -9,3 +9,5 @@ title: <svelte:window>
 ```html
 <svelte:window on:keydown={handleKeydown}/>
 ```
+
+> Как и в случае с элементами DOM, можно добавить [модификаторы событий](tutorial/event-modifiers), например `preventDefault`.

@@ -7,8 +7,8 @@ title: This
 ```html
 <canvas
 	bind:this={canvas}
-	width={256}
-	height={256}
+	width={32}
+	height={32}
 ></canvas>
 ```
 
