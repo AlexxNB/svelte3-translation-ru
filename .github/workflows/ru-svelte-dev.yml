@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
+      - uses: actions/checkout@v1
       - name: Build & Push the Docker image
-        uses: actions/checkout@v1
         run: |
           docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }}
           docker build . --file  deploy/svelte-site.dockerfile --tag docker.pkg.github.com/AlexxNB/svelte3-translation-ru/ru-svelte-dev:latest
