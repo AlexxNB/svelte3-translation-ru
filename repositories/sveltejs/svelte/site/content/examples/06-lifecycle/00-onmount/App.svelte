@@ -23,7 +23,7 @@
 	}
 </style>
 
-<h1>Фотоалбом</h1>
+<h1>Фотоальбом</h1>
 
 <div class="photos">
 	{#each photos as photo}
