@@ -2,19 +2,19 @@ version: '3'
 
 services:
   svelte: 
-    image: docker.pkg.github.com/AlexxNB/svelte3-translation-ru/ru-svelte-dev:latest
+    image: docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest
     container_name: Svelte-site
     restart: always
     ports:
       - 127.0.0.1:3001:3000
   sapper: 
-    image: docker.pkg.github.com/AlexxNB/svelte3-translation-ru/ru-sapper-svelte-dev:latest
+    image: docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-sapper-svelte-dev:latest
     container_name: Sapper-site
     restart: always
     ports:
       - 127.0.0.1:3002:3000
   sveltenative: 
-    image: docker.pkg.github.com/AlexxNB/svelte3-translation-ru/ru-svelte-native-dev:latest
+    image: docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-native-dev:latest
     container_name: Svelte-Native-site
     restart: always
     ports:
