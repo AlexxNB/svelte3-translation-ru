@@ -23,8 +23,7 @@ title: Предзагрузка
 
 В функцию `preload` передаётся два аргумента — `page` и `session`.
 
-`page` is a `{ path, params, query }` object where `path` is the URL's pathname, `params` is derived from `path` and the route filename, and `query` is an object of values in the query string.
-`page` является объектом `{ path, params, query }`, где `path` — это часть пути URL, `params` выводится из URL и имени файла маршрута, а `query` является объектом значений из строки запроса..
+`page` является объектом `{ host, path, params, query }`, где `host` и `path`— это соответственно часть хоста и путь из URL, `params` выводится из URL и имени файла маршрута, а `query` является объектом значений из строки запроса..
 
 Для примера рассмотрим знакомую страницу `src/routes/blog/[slug].svelte`. Предположим, к ней обратились по а URL-адресу вида `/blog/some-post?foo=bar&baz`, тогда мы получим следующие данные:
 
