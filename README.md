@@ -10,7 +10,7 @@
 
 > Сайты собираются и деплоятся автоматически при коммитах в данный репозиторий.
 
-[![Build Status](https://drone.alexxnb.ru/api/badges/AlexxNB/svelte3-translation-ru/status.svg)](https://drone.alexxnb.ru/AlexxNB/svelte3-translation-ru)
+![](https://github.com/AlexxNB/svelte3-translation-ru/workflows/Deploy%20ru.svelte.dev%20site/badge.svg)
 
 ## Что переводим
 * [Учебник](https://svelte.dev/tutorial) по Svelte V3 ([GitHub](https://github.com/sveltejs/svelte/tree/master/site/content/tutorial))
