@@ -1,0 +1,44 @@
+name: Deploy ru.sapper.svelte.dev site
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ru-sapper-svelte-dev.yml'
+      - 'repositories/sveltejs/sapper/*'
+      - 'repositories/sveltejs/sapper/*/*'
+      - 'repositories/sveltejs/sapper/*/*/*'
+      - 'repositories/sveltejs/sapper/*/*/*/*'
+      - 'repositories/sveltejs/sapper/*/*/*/*/*'
+      - 'repositories/sveltejs/sapper/*/*/*/*/*/*'
+      - 'repositories/sveltejs/sapper/*/*/*/*/*/*/*'
+      - 'repositories/sveltejs/sapper/*/*/*/*/*/*/*/*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build & Push the Docker image
+        run: |
+          docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }}
+          docker build . --file  deploy/sapper-site.dockerfile --tag docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-sapper-svelte-dev:latest
+          docker push docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-sapper-svelte-dev:latest
+
+      - name: Copy docker-compose file to the server
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: deploy/docker-compose.yml
+          remote: /tmp/svelte/docker-compose.yml
+          host: ru.svelte.dev
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+
+      - name: Restarting ru.sapper.svelte.dev container
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }} && cd /tmp/svelte && docker-compose pull sapper && docker-compose up --detach --force-recreate sapper && rm -rf /tmp/svelte && docker image prune -a -f
+          host: ru.svelte.dev
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
