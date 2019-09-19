@@ -1,0 +1,44 @@
+name: Deploy ru.svelte-native.dev site
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ru-svelte-native-dev.yml'
+      - 'repositories/halfnelson/svelte-native/*'
+      - 'repositories/halfnelson/svelte-native/*/*'
+      - 'repositories/halfnelson/svelte-native/*/*/*'
+      - 'repositories/halfnelson/svelte-native/*/*/*/*'
+      - 'repositories/halfnelson/svelte-native/*/*/*/*/*'
+      - 'repositories/halfnelson/svelte-native/*/*/*/*/*/*'
+      - 'repositories/halfnelson/svelte-native/*/*/*/*/*/*/*'
+      - 'repositories/halfnelson/svelte-native/*/*/*/*/*/*/*/*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build & Push the Docker image
+        run: |
+          docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }}
+          docker build . --file  deploy/svelte-native-site.dockerfile --tag docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-native-dev:latest
+          docker push docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-native-dev:latest
+
+      - name: Copy docker-compose file to the server
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: deploy/docker-compose.yml
+          remote: /tmp/svelte/docker-compose.yml
+          host: ru.svelte.dev
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+
+      - name: Restarting ru.svelte-native.dev container
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }} && cd /tmp/svelte && docker-compose pull sveltenative && docker-compose up --detach --force-recreate sveltenative && rm -rf /tmp/svelte && docker image prune -a -f
+          host: ru.svelte.dev
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
