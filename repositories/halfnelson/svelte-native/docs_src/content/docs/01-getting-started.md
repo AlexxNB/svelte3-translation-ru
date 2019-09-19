@@ -41,7 +41,7 @@ $ degit halfnelson/svelte-native-template myapp
 
 ```bash
 $ cd myapp
-$ tns preview --bundle
+$ tns preview
 ```
 
 В терминале появится ASCII QR-код, который нужно будет отсканировать в приложении NativeScript Playground, которое вы установили ранее.
@@ -51,7 +51,7 @@ $ tns preview --bundle
 
 ### Расширенная установка
 
-Чтобы создавать приложения готовые для распространения, вам нужно будет настроить систему для локальной компиляции.
+Чтобы создавать приложения готовые к распространению, нужно настроить систему для локальной компиляции.
 
 Svelte-Native работает поверх немодифицированной платформы NativeScript. Инструкции по установке для вашей операционной системы можно найти в [Руководстве по Native Script](https://docs.nativescript.org/start/quick-setup)
 
@@ -64,13 +64,13 @@ $  tns doctor
 Когда все будет в порядке, вы можете выполнить полную компиляцию и запуск приложения следующим образом:
 
 ```bash
-$ tns run android --bundle
+$ tns run android
 ```
 
 или
 
 ```bash
-$ tns run ios --bundle
+$ tns run ios
 ```
 
 
