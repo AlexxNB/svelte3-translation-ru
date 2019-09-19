@@ -29,7 +29,7 @@ title: Первое приложение
 
 Прежде чем начать, прочитайте [Краткое руководство по началу работы](docs#quick-start) и убедитесь, что можете запустить приложение на своем мобильном устройстве или эмуляторе.
 
-Также предполагается, что вы уже знакомы с фреймворком Svelte. Изучите [отличный учебник по Svelte](https://v3.svelte.technology/tutorial), который быстро познакомит вас с основными возможностями этого фреймворка.
+Также предполагается, что вы уже знакомы с фреймворком Svelte. Изучите [отличный учебник по Svelte](https://ru.svelte.dev/tutorial/basics), который быстро познакомит вас с основными возможностями этого фреймворка.
 
 ### Основной дизайн
 
@@ -48,7 +48,7 @@ $ npm install
 <page class="page">
     <actionBar title="Мои Задачи" class="action-bar" />
     
-    <tabView height="100%" androidTabsPosition="bottom">
+    <tabView androidTabsPosition="bottom">
 
       <tabViewItem title="Активные" textWrap="true">
         <label>
@@ -89,21 +89,19 @@ $ npm install
 Замените содержимое первого `<tabViewItem>` на:
 
 ```html
-<stackLayout orientation="vertical" width="100%" height="100%">
-    <gridLayout columns="2*,*" rows="*" width="100%" height="25%">
-        <!-- Настраиваем текстовое поле и делаем, чтобы нажатие клавиши 'Ввод'
+<gridLayout columns="2*,*" rows="*, 3*">
+    <!-- Настраиваем текстовое поле и делаем, чтобы нажатие клавиши 'Ввод'
               на клавиатуре давало тот же результат, что и нажатие кнопки. -->
-        <textField col="0" row="0" bind:text="{textFieldValue}" hint="Что нужно сделать..." editable="true"
-            on:returnPress="{onButtonTap}" />
-        <button col="1" row="0" text="Добавить" on:tap="{onButtonTap}" />
-    </gridLayout>
+    <textField col="0" row="0" bind:text="{textFieldValue}" hint="Что нужно сделать..." editable="true"
+        on:returnPress="{onButtonTap}" />
+    <button col="1" row="0" text="Добавить" on:tap="{onButtonTap}" />
 
-    <listView class="list-group" items="{todos}" on:itemTap="{onItemTap}" style="height:75%">
+    <listView class="list-group" items="{todos}" on:itemTap="{onItemTap}" row="1" colSpan="2">
         <Template let:item>
             <label text="{item.name}" class="list-group-item-heading" textWrap="true" />
         </Template>
     </listView>
-</stackLayout>
+</gridLayout>
 ```
 
 Теперь, в нижней части файла добавьте тег `script`:
@@ -292,7 +290,7 @@ function onDoneTap(args) {
 Добавьте свойство `selectedTabTextColor` и `tabTextFontSize` в `<TabView>`:
 
 ```html
-  <tabView height="100%" androidTabsPosition="bottom" selectedTabTextColor="#2847D2" tabTextFontSize="15" >
+  <tabView androidTabsPosition="bottom" selectedTabTextColor="#2847D2" tabTextFontSize="15" >
 ```
 
 Добавьте атрибут `textTransform` к каждой вкладке. Его можно  использовать только на уровне `<TabViewItem>`.
@@ -323,11 +321,11 @@ function onDoneTap(args) {
 Отредактируйте оба элемента `<listView>` и добавьте атрибут `separatorColor="transparent"`:
 
 ```html
-<listView class="list-group" items="{todos}" on:itemTap="{onItemTap}" style="height:75%" separatorColor="transparent">
+<listView class="list-group" items="{todos}" on:itemTap="{onItemTap}" separatorColor="transparent">
 ```
 и 
 ```html
-<listView class="list-group" items="{dones}" on:itemTap="{onDoneTap}" separatorColor="transparent">
+<listView class="list-group" items="{dones}" on:itemTap="{onDoneTap}" row="1" colSpan="2" separatorColor="transparent">
 ```
 
 К тегу `<label>` внутри `listView` для` todos` добавьте `todo-item active` в атрибут класса:
