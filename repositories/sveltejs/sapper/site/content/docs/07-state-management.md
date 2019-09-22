@@ -26,7 +26,7 @@ title: Хранилища
 // src/server.js
 express() // или Polka, или похожий фреймворк
 	.use(
-		serve('assets'),
+		serve('static'),
 		authenticationMiddleware(),
 		sapper.middleware({
 			session: (req, res) => ({

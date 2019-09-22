@@ -13,7 +13,7 @@ express() // или Polka, или иной фреймворк
 	.use(
 		'/my-base-path', // <!-- добавьте эту строку
 		compression({ threshold: 0 }),
-		serve('assets'),
+		serve('static'),
 		sapper.middleware()
 	)
 	.listen(process.env.PORT);
