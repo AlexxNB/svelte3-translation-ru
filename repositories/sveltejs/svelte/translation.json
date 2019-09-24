@@ -117,7 +117,7 @@
         "strings": [
             {
                 "o": "your company",
-                "t": "вашу компанию"
+                "t": "ваша компания?"
             }
         ]
     },
@@ -125,12 +125,8 @@
         "file": "src/routes/_layout.svelte",
         "strings": [
             {
-                "o": "Homepage",
-                "t": "Домашняя страница"
-            },
-            {
-                "o": ">Home<",
-                "t": ">Домой<"
+                "o": "<Nav {segment}",
+                "t": "<Nav home=\"Главная\" home_title=\"Домашняя страница\" {segment}"
             },
             {
                 "o": ">Tutorial<",
@@ -187,8 +183,8 @@
         "file": "src/routes/docs/index.svelte",
         "strings": [
             {
-                "o": "sveltejs/svelte/edit/master/site/content/docs/",
-                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/sveltejs/svelte/site/content/docs/"
+                "o": "<Docs {sections}/>",
+                "t": "<Docs owner=\"AlexxNB\" project=\"svelte3-translation-ru\" path=\"/repositories/sveltejs/svelte/site/content\" edit_title=\"редактировать эту главу\" {sections}/>"
             }
         ]
     },

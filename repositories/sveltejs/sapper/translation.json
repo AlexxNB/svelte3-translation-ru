@@ -64,6 +64,10 @@
         "file": "src/routes/_layout.svelte",
         "strings": [
             {
+                "o": "<Nav {segment}",
+                "t": "<Nav home=\"Главная\" home_title=\"Домашняя страница\" {segment}"
+            },
+            {
                 "o": ">Docs<",
                 "t": ">Документация<"
             },
@@ -79,6 +83,23 @@
             {
                 "o": "Docs • Sapper",
                 "t": "Документация • Sapper"
+            },
+            {
+                "o": "<Docs {sections} project=\"sapper\"/>",
+                "t": "<Docs owner=\"AlexxNB\" project=\"svelte3-translation-ru\" path=\"/repositories/sveltejs/sapper/site/content\" edit_title=\"редактировать эту главу\" {sections}/>"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/migrating/index.svelte",
+        "strings": [
+            {
+                "o": "Migration • Sapper",
+                "t": "Руководство по миграции • Sapper"
+            },
+            {
+                "o": "<Docs {sections} project=\"sapper\"",
+                "t": "<Docs owner=\"AlexxNB\" project=\"svelte3-translation-ru\" path=\"/repositories/sveltejs/sapper/site/content\" edit_title=\"редактировать эту главу\" {sections}"
             }
         ]
     },
