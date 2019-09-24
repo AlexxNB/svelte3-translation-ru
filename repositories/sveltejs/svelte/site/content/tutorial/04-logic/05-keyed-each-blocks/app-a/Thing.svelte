@@ -3,7 +3,7 @@
 	export let current;
 
 	// ...а `initial` фиксируется при инициализации
-	const initial = value;
+	const initial = current;
 </script>
 
 <p>
