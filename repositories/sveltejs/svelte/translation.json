@@ -117,17 +117,13 @@
         "strings": [
             {
                 "o": "your company",
-                "t": "ваша компания?"
+                "t": "ваша компания"
             }
         ]
     },
     {
         "file": "src/routes/_layout.svelte",
         "strings": [
-            {
-                "o": "<Nav {segment}",
-                "t": "<Nav home=\"Главная\" home_title=\"Домашняя страница\" {segment}"
-            },
             {
                 "o": ">Tutorial<",
                 "t": ">Учебник<"
@@ -176,6 +172,10 @@
             {
                 "o": "sveltejs/svelte/tree/master/site/content/tutorial",
                 "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/sveltejs/svelte/site/content/tutorial"
+            },
+            {
+                "o": "'tutorial', 'input', 'output'",
+                "t": "'урок', 'исходник', 'результат'"
             }
         ]
     },
@@ -194,6 +194,10 @@
             {
                 "o": ">Examples<",
                 "t": ">Примеры<"
+            },
+            {
+                "o": "'index', 'input', 'output'",
+                "t": "'список', 'исходник', 'результат'"
             }
         ]
     },
@@ -249,6 +253,19 @@
             {
                 "o": "</head>",
                 "t": "\n<!-- Yandex.Metrika counter -->\n<script type=\"text/javascript\" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\"); ym(53400580, \"init\", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src=\"https://mc.yandex.ru/watch/53400580\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div></noscript>\n <!-- /Yandex.Metrika counter -->\n</head>"
+            }
+        ]
+    },
+    {
+        "file": "src/components/Repl/InputOutputToggle.svelte",
+        "strings": [
+            {
+                "o": ">input<",
+                "t": ">исходник<"
+            },
+            {
+                "o": ">output<",
+                "t": ">результат<"
             }
         ]
     }
