@@ -5,6 +5,10 @@ services:
     image: docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest
     container_name: Svelte-site
     restart: always
+    environment:
+      - GITHUB_CLIENT_ID
+      - GITHUB_CLIENT_SECRET
+      - BASEURL=https://ru.svelte.dev
     ports:
       - 127.0.0.1:3001:3000
   sapper: 
