@@ -40,7 +40,7 @@ Sapper — это фреймворк для создания невероятн�
 
 ```bash
 npx degit "sveltejs/sapper-template#rollup" my-app
-# или: npx "degit sveltejs/sapper-template#webpack" my-app
+# или: npx degit "sveltejs/sapper-template#webpack" my-app
 cd my-app
 npm install
 npm run dev
