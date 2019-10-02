@@ -44,6 +44,11 @@ jobs:
             docker-compose pull svelte && 
             export GITHUB_CLIENT_ID=${{ secrets.GITHUB_CLIENT_ID }} && 
             export GITHUB_CLIENT_SECRET=${{ secrets.GITHUB_CLIENT_SECRET }} && 
+            export PGUSER=${{ secrets.PGUSER }} && 
+            export PGPASSWORD=${{ secrets.PGPASSWORD }} && 
+            export PGHOST=${{ secrets.PGHOST }} && 
+            export PGDATABASE=${{ secrets.PGDATABASE }} && 
+            export PGPORT=${{ secrets.PGPORT }} && 
             docker-compose up --detach --force-recreate svelte && 
             rm -rf /tmp/svelte && 
             docker image prune -a -f
