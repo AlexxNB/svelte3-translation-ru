@@ -145,10 +145,6 @@
                 "t": "https://ru.sapper.svelte.dev"
             },
             {
-                "o": "segment=\"repl\"",
-                "t": "external=\"https://svelte.dev/repl\""
-            },
-            {
                 "o": "external=\"chat\"",
                 "t": "external=\"tg://resolve?domain=sveltejs\""
             }
@@ -215,6 +211,57 @@
             {
                 "o": "Older posts",
                 "t": "Более ранние посты"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/repl/[id]/index.svelte",
+        "strings": [
+            {
+                "o": "Loading...",
+                "t": "Загрузка..."
+            }
+        ]
+    },
+    {
+        "file": "src/routes/repl/[id]/_components/AppControls/index.svelte",
+        "strings": [
+            {
+                "o": "It looks like you're offline! Find the internet and try again",
+                "t": "Похоже у вас нет соединения с интернетом! Покдлючитесь к сети и попробуйте снова."
+            },
+            {
+                "o": "fullscreen editor",
+                "t": "на полный экран"
+            },
+            {
+                "o": "download zip file",
+                "t": "скачать zip-архив"
+            },
+            {
+                "o": "title=\"fork\"",
+                "t": "title=\"сделать форк\""
+            },
+            {
+                "o": "title=\"save\"",
+                "t": "title=\"сохранить\""
+            },
+            {
+                "o": "Log in to save",
+                "t": "Войти и сохранить"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/repl/[id]/_components/AppControls/UserMenu.svelte",
+        "strings": [
+            {
+                "o": "Your saved apps",
+                "t": "Сохранённые приложения"
+            },
+            {
+                "o": "Log out",
+                "t": "Выйти"
             }
         ]
     },
