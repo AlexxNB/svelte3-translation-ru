@@ -224,6 +224,31 @@
         ]
     },
     {
+        "file": "src/routes/apps/index.svelte",
+        "strings": [
+            {
+                "o": "Your apps",
+                "t": "Мои приложения"
+            },
+            {
+                "o": "<span>updated",
+                "t": "<span>изменено"
+            },
+            {
+                "o": "Next page...",
+                "t": "Следующая страница..."
+            },
+            {
+                "o": "Please <a on:click|preventDefault={login} href=\"auth/login\">log in</a> to see your saved apps.",
+                "t": "<a on:click|preventDefault={login} href=\"auth/login\">Войдите</a>, чтобы увидеть свои приложения."
+            },
+            {
+                "o": "log out",
+                "t": "Выйти"
+            }
+        ]
+    },
+    {
         "file": "src/routes/repl/[id]/_components/AppControls/index.svelte",
         "strings": [
             {
@@ -257,7 +282,7 @@
         "strings": [
             {
                 "o": "Your saved apps",
-                "t": "Сохранённые приложения"
+                "t": "Мои приложения"
             },
             {
                 "o": "Log out",
