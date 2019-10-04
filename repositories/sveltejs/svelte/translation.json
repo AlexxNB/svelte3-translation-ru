@@ -125,6 +125,10 @@
         "file": "src/routes/_layout.svelte",
         "strings": [
             {
+                "o": "<Nav {segment}",
+                "t": "<Nav home=\"Главная\" home_title=\"Домашняя страница\" {segment}"
+            },
+            {
                 "o": ">Tutorial<",
                 "t": ">Учебник<"
             },
