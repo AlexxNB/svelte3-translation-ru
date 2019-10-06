@@ -11,36 +11,32 @@
                 "t": "Опыт разработки Svelte в мобильных приложениях"
             },
             {
-                "o": "Write less code",
-                "t": "Меньше кода"
+                "o": "Powered By Svelte",
+                "t": "Поддержка Svelte"
+            },
+            {
+                "o": "Using NativeScript",
+                "t": "Использование NativeScript"
+            },
+            {
+                "o": "Fully Featured",
+                "t": "Все функции"
+            },
+            {
+                "o": "Svelte Native is an [\\s\\.\\w\\W]+ apps with Svelte components",
+                "t": "Svelte Native - это фреймворк для создания нативных приложений с поддержкой Svelte - Создавайте мобильные приложения используя компоненты Svelte"
+            },
+            {
+                "o": "Build full featured [\\s\\.\\w\\W]+ and JavaScript",
+                "t": "Создавайте полнофункциональные нативные мобильные приложения используя языки, которые вы уже знаете — HTML, CSS и JavaScript"
+            },
+            {
+                "o": "Use the full power [\\s\\.\\w\\W]+ available for mobile",
+                "t": "Используйте всю мощь Svelte, включая Переходы, Хранилища и Реактивность. В настоящее время это один из самых приятных способов разработки приложений для мобильных устройств"
             },
             {
                 "o": ">learn more<",
                 "t": ">узнать больше<"
-            },
-            {
-                "o": "Build boilerplate-free mobile applications using languages you already know — HTML, CSS and JavaScript",
-                "t": "Создавайте мобильные приложения без излишнего кода на языках, которые вы уже знаете — HTML, CSS и JavaScript"
-            },
-            {
-                "o": "Build boilerplate-free components using languages you already know — HTML, CSS and JavaScript",
-                "t": "Создавайте компоненты без излишних конструкций на языках, которые вы уже знаете — HTML, CSS и JavaScript"
-            },
-            {
-                "o": "No virtual DOM",
-                "t": "Без виртуального DOM"
-            },
-            {
-                "o": "Svelte compiles your code to tiny, framework-less vanilla JS — your app starts fast and stays fast",
-                "t": "Svelte компилирует ваш код в оптимальный ванильный JS — приложения запускаются быстро и остаются быстрыми"
-            },
-            {
-                "o": "Truly reactive",
-                "t": "Честная реактивность"
-            },
-            {
-                "o": "No more complex state management libraries — Svelte brings reactivity to JavaScript itself",
-                "t": "Больше никаких сложных библиотек управления состоянием — Svelte делает реактивным сам JavaScript"
             },
             {
                 "o": "Svelte Native is a new approach [\\s\\.\\w\\W]+ build your app",
@@ -69,7 +65,33 @@
         ]
     },
     {
-        "file": "src/components/TopNav.svelte",
+        "file": "src/routes/docs/index.svelte",
+        "strings": [
+            {
+                "o": "API Docs • Svelte Native",
+                "t": "Документация API • Svelte Native"
+            },
+            {
+                "o": "{sections}",
+                "t": "{sections} edit_title=\"редактировать эту главу\""
+            },
+            {
+                "o": "owner=\"halfnelson\"",
+                "t": "owner=\"AlexxNB\""
+            },
+            {
+                "o": "path=\"/docs_src/content\"",
+                "t": "path=\"/repositories/halfnelson/svelte-native/docs_src/content\""
+            },
+            {
+              
+                "o": "project=\"svelte-native\"",
+                "t": "project=\"svelte3-translation-ru\""
+            }
+        ]
+    },
+    {
+        "file": "src/routes/_layout.svelte",
         "strings": [
             {
                 "o": ">Home<",
@@ -88,12 +110,16 @@
                 "t": ">Блог<"
             },
             {
-                "o": "https://v3.svelte.technology/",
+                "o": "https://svelte.dev",
                 "t": "https://ru.svelte.dev/"
             },
             {
-                "o": "href=\"repl\"",
-                "t": "href=\"https://svelte-native.technology/repl\""
+                "o": "Discord Chat",
+                "t": "Русскоязычный канал Telegram"
+            },
+            {
+                "o": "external=\"chat\"",
+                "t": "external=\"tg://resolve?domain=sveltejs\""
             }
         ]
     },
@@ -110,23 +136,34 @@
         "file": "src/routes/tutorial/index.svelte",
         "strings": [
             {
-                "o": "halfnelson/svelte-native/edit/master/docs_src/content/tutorial",
-                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/halfnelson/svelte-native/docs_src/content/tutorial"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/docs/index.svelte",
-        "strings": [
+                "o": "Tutorial • Svelte Native",
+                "t": "Учебник • Svelte Native"
+            },
             {
-                "o": "halfnelson/svelte-native/edit/master/docs_src/content/docs",
-                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/halfnelson/svelte-native/docs_src/content/docs"
+                "o": "{sections}",
+                "t": "{sections} edit_title=\"редактировать эту главу\""
+            },
+            {
+                "o": "owner=\"halfnelson\"",
+                "t": "owner=\"AlexxNB\""
+            },
+            {
+                "o": "path=\"/docs_src/content\"",
+                "t": "path=\"/repositories/halfnelson/svelte-native/docs_src/content\""
+            },
+            {
+                "o": "project=\"svelte-native\"",
+                "t": "project=\"svelte3-translation-ru\""
             }
         ]
     },
     {
         "file": "src/routes/blog/index.svelte",
         "strings": [
+            {
+                "o": "Blog • Svelte Native",
+                "t": "Блог • Svelte Native"
+            },
             {
                 "o": "Read the article",
                 "t": "Читать статью"
