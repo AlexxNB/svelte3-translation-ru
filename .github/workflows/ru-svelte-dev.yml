@@ -49,6 +49,7 @@ jobs:
             export PGHOST=${{ secrets.PGHOST }} && 
             export PGDATABASE=${{ secrets.PGDATABASE }} && 
             export PGPORT=${{ secrets.PGPORT }} && 
+            export MAPBOX_ACCESS_TOKEN=${{ secrets.MAPBOX_ACCESS_TOKEN }} && 
             docker-compose up --detach --force-recreate svelte && 
             rm -rf /tmp/svelte && 
             docker image prune -a -f
