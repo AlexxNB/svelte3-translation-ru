@@ -42,6 +42,7 @@ jobs:
             docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }} && 
             cd /tmp/svelte && 
             docker-compose pull svelte && 
+            export NODE_ENV=production && 
             export GITHUB_CLIENT_ID=${{ secrets.GITHUB_CLIENT_ID }} && 
             export GITHUB_CLIENT_SECRET=${{ secrets.GITHUB_CLIENT_SECRET }} && 
             export PGUSER=${{ secrets.PGUSER }} && 
