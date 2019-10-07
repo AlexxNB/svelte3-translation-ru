@@ -57,3 +57,4 @@ jobs:
           host: ru.svelte.dev
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
+          
