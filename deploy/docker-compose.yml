@@ -6,7 +6,6 @@ services:
     container_name: Svelte-site
     restart: always
     environment:
-      - NODE_ENV
       - GITHUB_CLIENT_ID
       - GITHUB_CLIENT_SECRET
       - BASEURL=https://ru.svelte.dev
@@ -15,7 +14,6 @@ services:
       - PGHOST
       - PGDATABASE
       - PGPORT
-      - MAPBOX_ACCESS_TOKEN
     ports:
       - 127.0.0.1:3001:3000
   sapper: 

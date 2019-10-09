@@ -1,4 +1,6 @@
 FROM node:lts-alpine
+ARG MAPBOX_ACCESS_TOKEN=not_set
+ENV MAPBOX_ACCESS_TOKEN="${MAPBOX_ACCESS_TOKEN}"
 
 ADD package.json /src/
 ADD repositories /src/repositories/

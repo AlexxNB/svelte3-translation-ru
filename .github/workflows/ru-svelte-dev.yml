@@ -23,7 +23,7 @@ jobs:
       - name: Build & Push the Docker image
         run: |
           docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }}
-          docker build . --file  deploy/svelte-site.dockerfile --tag docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest
+          docker build . --file  deploy/svelte-site.dockerfile --tag docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest --build-arg MAPBOX_ACCESS_TOKEN=${{ secrets.MAPBOX_ACCESS_TOKEN }}
           docker push docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest
 
       - name: Copy docker-compose file to the server
@@ -42,7 +42,6 @@ jobs:
             docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }} && 
             cd /tmp/svelte && 
             docker-compose pull svelte && 
-            export NODE_ENV=production && 
             export GITHUB_CLIENT_ID=${{ secrets.GITHUB_CLIENT_ID }} && 
             export GITHUB_CLIENT_SECRET=${{ secrets.GITHUB_CLIENT_SECRET }} && 
             export PGUSER=${{ secrets.PGUSER }} && 
@@ -50,7 +49,6 @@ jobs:
             export PGHOST=${{ secrets.PGHOST }} && 
             export PGDATABASE=${{ secrets.PGDATABASE }} && 
             export PGPORT=${{ secrets.PGPORT }} && 
-            export MAPBOX_ACCESS_TOKEN=${{ secrets.MAPBOX_ACCESS_TOKEN }} && 
             docker-compose up --detach --force-recreate svelte && 
             rm -rf /tmp/svelte && 
             docker image prune -a -f
