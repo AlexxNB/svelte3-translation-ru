@@ -726,6 +726,7 @@ onItemTap(event) {
 
 <div class="nsref"><a title="Документация NativeScript" href="https://docs.nativescript.org/api-reference/classes/_ui_tab_view_.tabview">Описание класса</a></div>
 
+> **Внимание:** TabView следует считать устаревшим с версии NS 6.1. Используйте [`BottomNavigation`](docs#bottom-navigation) или [`Tabs`](docs#tabs)
 
 
 `<tabView>` компонент навигации, который отображает контент, сгруппированный по вкладкам, и позволяет пользователям переключаться между ними.

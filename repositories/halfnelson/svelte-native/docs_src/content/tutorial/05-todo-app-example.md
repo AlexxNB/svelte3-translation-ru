@@ -36,7 +36,7 @@ title: Первое приложение
 Давайте начнём с загрузки чистого шаблона приложения:
 
 ```bash
-$ degit halfnelson/svelte-native-template todoapp
+$ npx degit halfnelson/svelte-native-template todoapp
 $ cd todoapp
 $ npm install
 ```

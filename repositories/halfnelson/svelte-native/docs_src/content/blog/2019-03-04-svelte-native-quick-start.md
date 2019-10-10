@@ -34,7 +34,7 @@ Svelte-Native действительно является нативным, по
 Самый простой способ начать — использовать последнюю веерсию [шаблона приложения](https://github.com/halfnelson/svelte-native-template)
 
 ```bash
-$ degit halfnelson/svelte-native-template myapp
+$ npx degit halfnelson/svelte-native-template myapp
 ```
 
 Голое приложение svelte-native будет находится в папке `myapp`
