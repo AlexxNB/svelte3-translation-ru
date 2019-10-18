@@ -1,4 +1,4 @@
-FROM node:lts-alpine as build
+FROM node:12-alpine
 ARG MAPBOX_ACCESS_TOKEN=not_set
 ENV MAPBOX_ACCESS_TOKEN="${MAPBOX_ACCESS_TOKEN}"
 
@@ -11,13 +11,9 @@ WORKDIR /src
 RUN apk add git \
  && npm install \
  && npm run update-svelte \
- && npm run build-svelte 
-
-
-FROM node:lts-alpine as production
-
-COPY --from=build /src/__svelte/site/__sapper__/build .
+ && npm run build-svelte \
+ && rm -rf repositories
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "."]
+ENTRYPOINT ["npm", "run", "start-svelte"]
