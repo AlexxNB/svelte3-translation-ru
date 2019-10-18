@@ -17,4 +17,4 @@ COPY --from=build /src/__svelte-native/docs_src/__sapper__/export .
 
 EXPOSE 3000
 
-ENTRYPOINT ["npx", "serve", "-l 3000", "."]
+ENTRYPOINT ["npx", "serve", "-l", "3000", "."]
