@@ -42,17 +42,9 @@ jobs:
             docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }} && 
             cd /tmp/svelte && 
             docker-compose pull svelte && 
-            export GITHUB_CLIENT_ID=${{ secrets.GITHUB_CLIENT_ID }} && 
-            export GITHUB_CLIENT_SECRET=${{ secrets.GITHUB_CLIENT_SECRET }} && 
-            export PGUSER=${{ secrets.PGUSER }} && 
-            export PGPASSWORD=${{ secrets.PGPASSWORD }} && 
-            export PGHOST=${{ secrets.PGHOST }} && 
-            export PGDATABASE=${{ secrets.PGDATABASE }} && 
-            export PGPORT=${{ secrets.PGPORT }} && 
             docker-compose up --detach --force-recreate svelte && 
             rm -rf /tmp/svelte && 
             docker image prune -a -f
           host: ru.svelte.dev
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
-          
