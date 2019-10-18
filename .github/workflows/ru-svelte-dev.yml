@@ -23,7 +23,16 @@ jobs:
       - name: Build & Push the Docker image
         run: |
           docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }}
-          docker build . --file  deploy/svelte-site.dockerfile --tag docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest --build-arg MAPBOX_ACCESS_TOKEN=${{ secrets.MAPBOX_ACCESS_TOKEN }}
+          docker build . --file  deploy/svelte-site.dockerfile --tag docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest \
+          --build-arg GITHUB_CLIENT_ID=${{ secrets.GITHUB_CLIENT_ID }} \
+          --build-arg GITHUB_CLIENT_SECRET=${{ secrets.GITHUB_CLIENT_SECRET }} \
+          --build-arg PGUSER=${{ secrets.PGUSER }} \
+          --build-arg PGDATABASE=${{ secrets.PGDATABASE }} \
+          --build-arg PGHOST=${{ secrets.PGHOST }} \
+          --build-arg PGPORT=${{ secrets.PGPORT }} \
+          --build-arg PGPASSWORD=${{ secrets.PGPASSWORD }} \
+          --build-arg PGPORT=${{ secrets.PGPORT }} \
+          --build-arg MAPBOX_ACCESS_TOKEN=${{ secrets.MAPBOX_ACCESS_TOKEN }}
           docker push docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-svelte-dev:latest
 
       - name: Copy docker-compose file to the server
@@ -46,7 +55,7 @@ jobs:
             export GITHUB_CLIENT_SECRET=${{ secrets.GITHUB_CLIENT_SECRET }} && 
             export PGUSER=${{ secrets.PGUSER }} && 
             export PGPASSWORD=${{ secrets.PGPASSWORD }} && 
-            export PGHOST_DEL=${{ secrets.PGHOST }} && 
+            export PGHOST=${{ secrets.PGHOST }} && 
             export PGDATABASE=${{ secrets.PGDATABASE }} && 
             export PGPORT=${{ secrets.PGPORT }} && 
             docker-compose up --detach --force-recreate svelte && 
@@ -55,4 +64,3 @@ jobs:
           host: ru.svelte.dev
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
-          
