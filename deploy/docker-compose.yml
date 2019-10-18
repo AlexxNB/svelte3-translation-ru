@@ -15,7 +15,7 @@ services:
       - PGDATABASE
       - PGPORT
     ports:
-      - 127.0.0.1:3001:3000
+      - 127.0.0.1:3000:3000
   sapper: 
     image: docker.pkg.github.com/alexxnb/svelte3-translation-ru/ru-sapper-svelte-dev:latest
     container_name: Sapper-site
