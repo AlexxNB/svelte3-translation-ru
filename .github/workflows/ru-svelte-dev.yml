@@ -46,7 +46,7 @@ jobs:
             export GITHUB_CLIENT_SECRET=${{ secrets.GITHUB_CLIENT_SECRET }} && 
             export PGUSER=${{ secrets.PGUSER }} && 
             export PGPASSWORD=${{ secrets.PGPASSWORD }} && 
-            export PGHOST_DEL=${{ secrets.PGHOST }} && 
+            export PGHOST=${{ secrets.PGHOST }} && 
             export PGDATABASE=${{ secrets.PGDATABASE }} && 
             export PGPORT=${{ secrets.PGPORT }} && 
             docker-compose up --detach --force-recreate svelte && 
