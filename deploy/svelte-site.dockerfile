@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:12-alpine
 ARG MAPBOX_ACCESS_TOKEN=not_set
 ENV MAPBOX_ACCESS_TOKEN="${MAPBOX_ACCESS_TOKEN}"
 
