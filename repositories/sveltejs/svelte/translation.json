@@ -344,14 +344,5 @@
                 "t": ">результат<"
             }
         ]
-    },
-    {
-        "file": "src/server.js",
-        "strings": [
-            {
-                "o": "app.use(authenticate);",
-                "t": "app.use(authenticate());"
-            }
-        ]
     }
 ]}
