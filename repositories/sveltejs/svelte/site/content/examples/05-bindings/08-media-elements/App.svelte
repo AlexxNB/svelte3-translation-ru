@@ -14,7 +14,7 @@
 		showControlsTimeout = setTimeout(() => showControls = false, 2500);
 		showControls = true;
 
-		if (e.which !== 1) return; // кнопка мыши не нажата
+		if (!(e.buttons & 1)) return; // кнопка мыши не нажата
 		if (!duration) return; // видео еще не загрузилось
 
 		const { left, right } = this.getBoundingClientRect();

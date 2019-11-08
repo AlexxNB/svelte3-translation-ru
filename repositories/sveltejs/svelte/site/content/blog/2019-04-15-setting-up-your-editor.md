@@ -10,24 +10,38 @@ draft: true
 
 * eslint-plugin-svelte3
 * svelte-vscode
-* associating .svelte files with HTML in VSCode, Sublime, Atom, etc etc etc
+* associating .svelte files with HTML in VSCode, Sublime, etc.
+
+## Atom
+
+Чтобы файлы `.svelte` воспринимались как HTML,  в меню выберите *Правка → Настройки* и добавьте следующие две строки в  раздел `core`:
+
+```cson
+"*":
+  core:
+    …
+    customFileTypes:
+	    "text.html.basic": [
+        "svelte"
+      ]
+```
 
 ## Vim/Neovim
 
 Для проверки всех `*.svelte` файлов как HTML файлов, добавьте следующую строку в файл `init.vim`:
 
-```bash
+```
 au! BufNewFile,BufRead *.svelte set ft=html
 ```
 
-ЧТобы временно включить подсветку синтаксиса HTML для текущего буфера используйте:
+Чтобы временно включить подсветку синтаксиса HTML для текущего буфера используйте:
 
-```bash
+```
 :set ft=html
 ```
 
 Для того чтобы прописать тип для конкретного файла, используйте [modeline](https://vim.fandom.com/wiki/Modeline_magic):
 
-```bash
+```
 <!-- vim: set ft=html :-->
 ```
