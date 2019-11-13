@@ -52,6 +52,7 @@ const result = svelte.compile(source, {
 | `tag` | string | null
 | `accessors` | boolean | `false`
 | `css` | boolean | `true`
+| `loopGuardTimeout` | number | 0
 | `preserveComments` | boolean | `false`
 | `preserveWhitespace` | boolean | `false`
 | `outputFilename` | string | `null`
@@ -72,6 +73,7 @@ const result = svelte.compile(source, {
 | `customElement` | `false` | При значении `true` компилятор будет создавать конструктор пользовательского элемента, а не обычного Svelte компонента.
 | `tag` | `null` | имя тега, с которым нужно зарегистрировать пользовательский элемент. Это должна быть строка из маленьких букв и цифр с хотя бы одним дефисом, например `"my-element"`.
 | `css` | `true` | Если значение равно `true`, стили включаются в сам класс JavaScript и будут динамически применены во время выполнения. Рекомендуется установить значение `false` и использовать статически сгенерированный CSS файл, поскольку это приведет к уменьшению JavaScript бандла и повышению производительности.
+| `loopGuardTimeout` | 0 | Указывает Svelte  прервать какой-либо цикл, если он блокирует работу потока более чем на `loopGuardTimeout` миллисекунд. Полезно для предотвращения зависаний в бесконечных циклах. **Доступно только при `dev: true`**
 | `preserveComments` | `false` | При значении `true`, ваши комментарии в HTML разметке будут сохранены при рендере на стороне сервера. По умолчанию они удаляются.
 | `preserveWhitespace` | `false` | При значении `true`, пробелы внутри и между элементами остаются так остаются не тронутыми. В ином случае, Svelte удалит лишние пробелы.
 | `outputFilename` | `null` | Имя файла для карты исходников JavaScript.

@@ -27,6 +27,17 @@ function addNumber() {
 
  ```js
  function addNumber() {
-		numbers[numbers.length] = numbers.length + 1;
+	numbers[numbers.length] = numbers.length + 1;
  }
  ```
+
+Запомните простое правило: имя обновляемой переменной должно присутствовать в левой части равенства, чтобы сработала реактивность при присваивании.
+
+Например, это...
+
+```js
+const foo = obj.foo;
+foo.bar = 'baz';
+```
+
+... не обновит ссылку на `obj.foo.bar`, пока не будет добавлена строка `obj = obj`.
