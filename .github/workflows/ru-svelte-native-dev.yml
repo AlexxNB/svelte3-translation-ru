@@ -31,7 +31,7 @@ jobs:
         with:
           local: deploy/docker-compose.yml
           remote: /tmp/svelte/docker-compose.yml
-          host: ru.svelte.dev
+          host: dev.alexxnb.ru
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
 
@@ -39,7 +39,7 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }} && cd /tmp/svelte && docker-compose pull sveltenative && docker-compose up --detach --force-recreate sveltenative && rm -rf /tmp/svelte && docker image prune -a -f
-          host: ru.svelte.dev
+          host: dev.alexxnb.ru
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
           
