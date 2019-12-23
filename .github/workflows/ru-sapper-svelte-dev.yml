@@ -42,4 +42,3 @@ jobs:
           host: dev.alexxnb.ru
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
-          
