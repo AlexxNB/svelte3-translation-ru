@@ -4,9 +4,9 @@ title: Компиляция
 
 В обычных условиях, вам не нужно напрямую взаимодействовать с компилятором Svelte, достаточно просто интегрировать его в вашу систему сборки используя один из следующих плагинов-бандлеров:
 
-* [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) для пользователей [Rollup](https://rollupjs.org)
+* [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte) для пользователей [Rollup](https://rollupjs.org)
 * [svelte-loader](https://github.com/sveltejs/svelte-loader) для пользователей [webpack](https://webpack.js.org)
-* [parcel-plugin-svelte](https://github.com/DeMoorJasper/parcel-plugin-svelte) для пользователей [Parcel](https://parceljs.org/)
+* или из [поддерживаемых сообществом](https://github.com/sveltejs/integrations#bundler-plugins)
 
 Тем не менее, полезно знать, как пользоваться компилятором, так как эти плагины обычно предоставляют возможность настройки его параметров.
 

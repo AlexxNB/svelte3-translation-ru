@@ -4,11 +4,12 @@ title: Создание приложения
 
 Этот учебник разработан, чтобы познакомить вас с процессом написания компонентов. Но в какой-то момент вы захотите начать писать компоненты уже в своем любимом редакторе кода.
 
-Во-первых, понадобится интегрировать Svelte в инструменты сборки. Популярные варианты:
+Во-первых, понадобится интегрировать Svelte в инструменты сборки. Официально поддерживаются плагины для [Rollup](https://rollupjs.org) и [webpack](https://webpack.js.org/)...
 
-* [Rollup](https://rollupjs.org) / [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte)
-* [Webpack](https://webpack.js.org/) / [svelte-loader](https://github.com/sveltejs/svelte-loader)
-* [Parcel](https://parceljs.org/) / [parcel-plugin-svelte](https://github.com/DeMoorJasper/parcel-plugin-svelte)
+* [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte)
+* [svelte-loader](https://github.com/sveltejs/svelte-loader)
+
+...а так же есть несолько плагинов, [разрабатываемых сообществом](https://github.com/sveltejs/integrations#bundler-plugins).
 
 Не беспокойтесь, если вы  новичок в веб-разработке и ранее не пользовались подобными инструментами. Мы подготовили простое пошаговое руководство [Svelte для зелёных разработчиков](blog/svelte-for-new-developers), которое проведет вас через этот процесс.
 

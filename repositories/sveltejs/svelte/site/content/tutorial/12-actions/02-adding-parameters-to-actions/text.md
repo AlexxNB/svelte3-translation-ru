@@ -10,8 +10,10 @@ title: Добавление параметров
 
 ```js
 export function longpress(node, duration) {
+	// ...
+
 	const handleMousedown = () => {
-		setTimeout(() => {
+		timer = setTimeout(() => {
 			node.dispatchEvent(
 				new CustomEvent('longpress')
 			);
@@ -20,7 +22,6 @@ export function longpress(node, duration) {
 
 	// ...
 }
-```
 
 Вернитесь к файлу `App.svelte`, и передайте действию параметр `duration`:
 
@@ -32,15 +33,12 @@ export function longpress(node, duration) {
 
 Чтобы это исправить, нужно добавить метод `update` в файле `longpress.js`. Он будет вызываться всякий раз при изменении параметра.
 
-
 ```js
 return {
 	update(newDuration) {
 		duration = newDuration;
 	},
-	destroy() {
-		node.removeEventListener('mousedown', handleMousedown);
-	}
+	// ...
 };
 ```
 
