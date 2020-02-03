@@ -35,8 +35,8 @@
                 "t": "Кто использует Svelte"
             },
             {
-                "o": "Contributors",
-                "t": "Контрибуторы"
+                "o": "<h3>Contributors</h3>",
+                "t": "<h3>Контрибуторы</h3>"
             },
             {
                 "o": "Svelte is free and open source software, made possible by the work of dozens of volunteers",
@@ -109,15 +109,6 @@
             {
                 "o": "Learn Svelte",
                 "t": "Изучить Svelte"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/_components/WhosUsingSvelte.svelte",
-        "strings": [
-            {
-                "o": "your company",
-                "t": "ваша компания"
             }
         ]
     },
