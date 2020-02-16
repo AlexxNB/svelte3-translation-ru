@@ -50,7 +50,7 @@ au! BufNewFile,BufRead *.svelte set ft=html
 
 ## Visual Studio Code
 
-Чтобы файлы `*.svelte` воспринимались как HTML, добавьте следуюшие строки в файл `settings.json`:
+Чтобы файлы `*.svelte` воспринимались как HTML, добавьте следующие строки в файл `settings.json`:
 
 ```cson
   "files.associations": {
@@ -60,7 +60,7 @@ au! BufNewFile,BufRead *.svelte set ft=html
 
 ## JetBrains WebStorm
 
-Чтобы в WebStorm файлы `*.svelte` воспринимались как HTML, необходимо создать новую ассоциацию для файлового типа. Перейдите на [сайт JetBrains](https://www.jetbrains.com/help/webstorm/creating-and-registering-file-types.html), чтобы узнать как это сделать.
+Для добавления поддержки Svelte в WebStorm (или иную IDE от Jetbrains) следует установит плагин [Svelte Framework Integration](https://plugins.jetbrains.com/plugin/12375-svelte/). Подробнее об использовании плагинов вы можете узнать на [официальном сайте Jetbrains](https://www.jetbrains.com/help/webstorm/managing-plugins.html).
 
 ## Sublime Text 3
 

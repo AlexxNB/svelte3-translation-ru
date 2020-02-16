@@ -67,7 +67,7 @@ const result = svelte.compile(source, {
 | `generate` | `"dom"` | При значении `"dom"`, Svelte создаёт JavaScript класс для встраивания в DOM. При значении `"ssr"`, Svelte создаёт объект с методом `render`, подходящим для рендеринга на стороне сервера. Если указать `false`, JavaScript или CSS возвращаться не будут, только метаданные.
 | `dev` | `false` | При значении `true`, в компоненты будет встраиваться дополнительный код, который будет выполнять различные проверки и предоставлять отладочную информацию во время разработки.
 | `immutable` | `false` | Значение `true`, говорит компилятору, что вы обязуетесь не изменять структуру каких-либо объектов. Это позволяет отслеживать изменения значений более оптимальным путём.
-| `hydratable` | `false` | При значении `true`, позволяет установить параметр `hydrate: true` в среде выполнения, который позволяет компоненту обновлять уже существующий DOM, а не создавать новую структуру DOM с нуля.
+| `hydratable` | `false` | При значении `true`, позволяет установить параметр `hydrate: true` в среде выполнения, который позволяет компоненту обновлять уже существующий DOM, а не создавать новую структуру DOM с нуля. При компиляции серверного кода добавляет маркеры элементам в `<head>`, необходимые для процесса гитратации.
 | `legacy` | `false` | При значении `true` будет генерироваться код, совместимый с IE9 и IE10, которые не поддерживают некоторые вещи, например` element.dataset`.
 | `accessors` | `false` | Значение `true` заставляет генерировать для свойств компонента геттеры и сеттеры. При значении `false`, они будут создаваться только для экспортируемых значений доступных только для чтения (которые объявлены при помощи `const`, `class` или `function`). Если используется параметр `customElement: true` по умолчанию этот параметр будет равен `true`.
 | `customElement` | `false` | При значении `true` компилятор будет создавать конструктор пользовательского элемента, а не обычного Svelte компонента.
@@ -75,7 +75,7 @@ const result = svelte.compile(source, {
 | `css` | `true` | Если значение равно `true`, стили включаются в сам класс JavaScript и будут динамически применены во время выполнения. Рекомендуется установить значение `false` и использовать статически сгенерированный CSS файл, поскольку это приведет к уменьшению JavaScript бандла и повышению производительности.
 | `loopGuardTimeout` | 0 | Указывает Svelte  прервать какой-либо цикл, если он блокирует работу потока более чем на `loopGuardTimeout` миллисекунд. Полезно для предотвращения зависаний в бесконечных циклах. **Доступно только при `dev: true`**
 | `preserveComments` | `false` | При значении `true`, ваши комментарии в HTML разметке будут сохранены при рендере на стороне сервера. По умолчанию они удаляются.
-| `preserveWhitespace` | `false` | При значении `true`, пробелы внутри и между элементами остаются так остаются не тронутыми. В ином случае, Svelte удалит лишние пробелы.
+| `preserveWhitespace` | `false` | При значении `true`, пробелы внутри и между элементами остаются не тронутыми. В ином случае, Svelte удалит лишние пробелы.
 | `outputFilename` | `null` | Имя файла для карты исходников JavaScript.
 | `cssOutputFilename` | `null` | Имя файла для карты исходников CSS.
 | `sveltePath` | `"svelte"` | Расположение пакета `svelte`. Любые импорты из `svelte` или `svelte/[module]` будут соответствующим образом обработаны.
@@ -183,7 +183,7 @@ const ast = svelte.parse(source, { filename: 'App.svelte' });
 result: {
 	code: string,
 	dependencies: Array<string>
-} = svelte.preprocess(
+} = await svelte.preprocess(
 	source: string,
 	preprocessors: Array<{
 		markup?: (input: { content: string, filename: string }) => Promise<{
@@ -220,7 +220,7 @@ result: {
 ```js
 const svelte = require('svelte/compiler');
 
-const { code } = svelte.preprocess(source, {
+const { code } = await svelte.preprocess(source, {
 	markup: ({ content, filename }) => {
 		return {
 			code: content.replace(/foo/g, 'bar')
@@ -242,7 +242,7 @@ const svelte = require('svelte/compiler');
 const sass = require('node-sass');
 const { dirname } = require('path');
 
-const { code, dependencies } = svelte.preprocess(source, {
+const { code, dependencies } = await svelte.preprocess(source, {
 	style: async ({ content, attributes, filename }) => {
 		// обрабатываем только <style lang="sass">
 		if (attributes.lang !== 'sass') return;
@@ -275,7 +275,7 @@ const { code, dependencies } = svelte.preprocess(source, {
 ```js
 const svelte = require('svelte/compiler');
 
-const { code } = svelte.preprocess(source, [
+const { code } = await svelte.preprocess(source, [
 	{
 		markup: () => {
 			console.log('это запустится первым');
