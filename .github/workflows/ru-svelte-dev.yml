@@ -51,7 +51,8 @@ jobs:
             export PGPORT=${{ secrets.PGPORT }} && 
             docker-compose up --detach --force-recreate svelte && 
             docker image prune -a -f &&
-            rm -rf /tmp/svelte
+            rm -rf /tmp/svelte &&
+            exit 0
           host: dev.alexxnb.ru
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
