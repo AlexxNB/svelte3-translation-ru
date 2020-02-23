@@ -1,5 +1,5 @@
 <script>
-	export let answer = 'загадка';
+	export let answer = 'тайна';
 </script>
 
-<p>Ответ на главный вопрос жизни, вселенной и всего такого - {answer}</p>
+<p>Ответ – {answer}</p>
