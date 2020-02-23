@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.SSH_PASS }}
 
       - name: Restarting ru.sapper.svelte.dev container
-        uses: garygrossgarten/github-action-ssh@release
+        uses: garygrossgarten/github-action-ssh@v0.3.0
         with:
           command: docker login docker.pkg.github.com -u AlexxNB -p ${{ secrets.PKG_TOKEN }} && cd /tmp/svelte && docker-compose pull sapper && docker-compose up --detach --force-recreate sapper && rm -rf /tmp/svelte && docker image prune -a -f
           host: dev.alexxnb.ru
