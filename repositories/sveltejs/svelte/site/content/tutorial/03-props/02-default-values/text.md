@@ -6,7 +6,7 @@ title: Значения по умолчанию
 
 ```html
 <script>
-	export let answer = 'тайна';
+	export let answer = 'не известно';
 </script>
 ```
 
