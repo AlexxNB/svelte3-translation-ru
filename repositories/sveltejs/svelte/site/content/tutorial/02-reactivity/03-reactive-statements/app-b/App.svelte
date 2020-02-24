@@ -2,7 +2,7 @@
 	let count = 0;
 
 	$: if (count >= 10) {
-		alert(`count слишком велико!`);
+		alert(`значение count слишком велико!`);
 		count = 9;
 	}
 
