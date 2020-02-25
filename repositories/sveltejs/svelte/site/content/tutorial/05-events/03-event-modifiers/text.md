@@ -7,7 +7,7 @@ title: Модификаторы событий
 ```html
 <script>
 	function handleClick() {
-		alert('только одно оповещение!')
+		alert('только одно оповещение')
 	}
 </script>
 
