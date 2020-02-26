@@ -1,5 +1,5 @@
 ---
-title: Блок Await
+title: Блок await
 ---
 
 
