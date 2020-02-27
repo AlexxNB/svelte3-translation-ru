@@ -1,6 +1,6 @@
 <script>
 	let todos = [
-		{ done: false, text: 'прочитать учебник по Svelte' },
+		{ done: false, text: 'дочитать учебник по Svelte' },
 		{ done: false, text: 'создать приложение' },
 		{ done: false, text: 'захватить мир' }
 	];
@@ -45,5 +45,5 @@
 </button>
 
 <button on:click={clear}>
-	Убрать завершенные
+	Убрать завершённые
 </button>
