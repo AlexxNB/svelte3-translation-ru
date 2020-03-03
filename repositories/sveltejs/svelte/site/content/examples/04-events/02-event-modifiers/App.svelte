@@ -1,6 +1,6 @@
 <script>
 	function handleClick() {
-		alert('только одно предупреждение')
+		alert('только одно оповещение')
 	}
 </script>
 
