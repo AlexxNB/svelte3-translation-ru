@@ -1,6 +1,6 @@
 <script>
 	let todos = [
-		{ done: false, text: 'прочитать учебник по Svelte' },
+		{ done: false, text: 'дочитать учебник по Svelte' },
 		{ done: false, text: 'создать приложение' },
 		{ done: false, text: 'захватить мир' }
 	];
