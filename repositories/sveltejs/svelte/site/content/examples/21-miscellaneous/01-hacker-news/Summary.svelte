@@ -5,11 +5,10 @@
 
 	function comment_text() {
 		const c = item.comments_count;
-		const cases = [2, 0, 1, 1, 1, 2]; 
-		const titles = ['комментарий','комментария','комментариев'] 
-		const text =  titles[ (c%100>4 && c%100<20)? 2 : cases[(c%10<5)?c%10:5] ]; 
-		return `${c} ${text}`;
+		return `${c} ${c === 1 ? 'comment' : 'comments'}`;
 	}
+
+	$: url = item.type === "ask" ? `https://news.ycombinator.com/${item.url}` : item.url;
 </script>
 
 <style>
@@ -36,6 +35,6 @@
 
 <article>
 	<span>{i + offset + 1}</span>
-	<h2><a target="_blank" href={item.url}>{item.title}</a></h2>
+	<h2><a target="_blank" href={url}>{item.title}</a></h2>
 	<p class="meta"><a href="#/item/{item.id}">{comment_text()}</a> от {item.user} {item.time_ago}</p>
 </article>

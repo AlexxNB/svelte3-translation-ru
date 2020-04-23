@@ -56,6 +56,16 @@ title: Синтаксис шаблонов
 ```html
 <button disabled={!clickable}>...</button>
 ```
+---
+
+Булевые атрибуты присоединяются к элементу, если их значения [истинное](https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/Truthy) и убираются с него, когда значения являются [ложными](https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/Falsy).
+
+Все остальные атрибуты будут присоединены к элементу, только если их значение не является [null-образным](https://developer.mozilla.org/ru/docs/Glossary/Nullish) (`null` или `undefined`).
+
+```html
+<input required={false} placeholder="Это поле ввода не является обязательным">
+<div title={null}>У этого контейнера нет атрибута title</div>
+```
 
 ---
 
@@ -101,6 +111,16 @@ title: Синтаксис шаблонов
 ```html
 <Widget {...$$props}/>
 ```
+
+---
+
+Объект *`$$restProps`* содержит в себе только те переданные свойства, которые не были объявлены при помощи оператора `export`. Он может быть использован для передачи заранее неизвестных атрибутов какому-либо элементу внутри компонента.
+
+```html
+<input {...$$restProps}>
+```
+
+---
 
 ### Текстовые выражения
 
@@ -441,6 +461,7 @@ on:событие|модификаторы={обработчик}
 * `passive` — улучшает производительность прокрутки при тач-событиях или при прокрутке колёсиком мышки (Svelte добавит этот модификатор автоматически там, где это безопасно).
 * `capture` — вызывает событие в режиме *capture* вместо *bubbling*.
 * `once` — удаляет обработчик события после первого вызова.
+* `self` — обработчик сработает, только если в свойстве event.target находится сам элемент, на котором слушается событие
 
 
 Модификаторы можно соединять в цепочку, например `on:click|once|capture={...}`.
@@ -873,7 +894,7 @@ transition = (node: HTMLElement, params: any) => {
 	function typewriter(node, { speed = 50 }) {
 		const valid = (
 			node.childNodes.length === 1 &&
-			node.childNodes[0].nodeType === 3
+			node.childNodes[0].nodeType === Node.TEXT_NODE
 		);
 
 		if (!valid) return {};
@@ -1247,15 +1268,15 @@ bind:this={экземпляр_компонента}
 
 ```html
 <!-- App.svelte -->
-<FancyList {items} let:item={item}>
-	<div>{item.text}</div>
+<FancyList {items} let:prop={thing}>
+	<div>{thing.text}</div>
 </FancyList>
 
 <!-- FancyList.svelte -->
 <ul>
 	{#each items as item}
 		<li class="fancy">
-			<slot item={item}></slot>
+			<slot prop={item}></slot>
 		</li>
 	{/each}
 </ul>

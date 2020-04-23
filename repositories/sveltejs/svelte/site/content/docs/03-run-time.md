@@ -968,7 +968,7 @@ app.count += 1;
 Компоненты Svelte также могут быть скомпилированы в пользовательские элементы (или web-компоненты) с помощью параметра компилятора `customElement: true`. Вы должны указать имя тега для компонента, используя [элемент](docs#svelte_options) `<svelte:options>`.
 
 ```html
-<svelte:options tag="my-element">
+<svelte:options tag="my-element" />
 
 <script>
 	export let name = 'мир';
