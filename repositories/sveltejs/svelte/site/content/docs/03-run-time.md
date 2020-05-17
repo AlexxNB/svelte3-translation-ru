@@ -22,7 +22,7 @@ onMount(callback: () => () => void)
 
 `onMount` не запускается для [компонентов на стороне сервера](docs#API_компонента_на_сервере).
 
-```html
+```sv
 <script>
 	import { onMount } from 'svelte';
 
@@ -36,7 +36,7 @@ onMount(callback: () => () => void)
 
 Если `onMount` возвращает функцию, то она будет вызвана при удалении компонента из DOM.
 
-```html
+```sv
 <script>
 	import { onMount } from 'svelte';
 
@@ -62,7 +62,7 @@ beforeUpdate(callback: () => void)
 
 > Первый раз функция в `beforeUpdate` сработает непосредственно перед запуском `onMount`
 
-```html
+```sv
 <script>
 	import { beforeUpdate } from 'svelte';
 
@@ -82,7 +82,7 @@ afterUpdate(callback: () => void)
 
 Запланирует запуск своей callback-функции сразу после обновления компонента.
 
-```html
+```sv
 <script>
 	import { afterUpdate } from 'svelte';
 
@@ -104,7 +104,7 @@ onDestroy(callback: () => void)
 
 Из всех функций жизненного цикла `onMount`, `beforeUpdate`, `afterUpdate` и `onDestroy`, эта единственная, которая запускается в при рендеринге на стороне сервера.
 
-```html
+```sv
 <script>
 	import { onDestroy } from 'svelte';
 
@@ -124,7 +124,7 @@ promise: Promise = tick()
 
 Возвращает промис, который выполняется после применения всех ожидающих изменений состояния приложения либо в следующей микрозадаче, если таковые отсутствуют.
 
-```html
+```sv
 <script>
 	import { beforeUpdate, tick } from 'svelte';
 
@@ -148,7 +148,7 @@ setContext(key: any, context: any)
 
 Как и функции жизненного цикла, этот метод должен вызываться во время инициализации компонента.
 
-```html
+```sv
 <script>
 	import { setContext } from 'svelte';
 
@@ -169,7 +169,7 @@ context: any = getContext(key: any)
 
 Извлекает контекст, который был объявлен с указананным ключом в ближайшем родительском компоненте. Этот метод также должен вызываться во время инициализации компонента.
 
-```html
+```sv
 <script>
 	import { getContext } from 'svelte';
 
@@ -189,7 +189,7 @@ dispatch: ((name: string, detail?: any) => void) = createEventDispatcher();
 
 События компонента созданные при помощи метода `createEventDispatcher` создают пользовательские события [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). Эти события не [всплывают](https://developer.mozilla.org/ru/docs/Learn/JavaScript/Building_blocks/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F#%D0%92%D1%81%D0%BF%D0%BB%D1%8B%D1%82%D0%B8%D0%B5_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B5%D1%85%D0%B2%D0%B0%D1%82_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9) и не могут быть отменены методом `event.preventDefault()`. Аргумент `detail` соответствует свойству [CustomEvent.detail](https://developer.mozilla.org/ru/docs/Web/API/CustomEvent/detail) и может содержать данные любого типа.
 
-```html
+```sv
 <script>
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -202,7 +202,7 @@ dispatch: ((name: string, detail?: any) => void) = createEventDispatcher();
 
 События, отправленные из дочернего компонента, можно прослушивать в их родительском компоненте. Любые данные, указанные при отправке события, будут доступны в свойстве `detail` объекта события.
 
-```html
+```sv
 <script>
 	function callbackFunction(event) {
 		console.log(`Событие запущено! Данные: ${event.detail}`)
@@ -411,7 +411,7 @@ store = tweened(value: any, options)
 
 Из коробки Svelte умеет рассчитывать изменения между двумя числами, двумя массивами или двумя объектами (при условии, что массивы и объекты имеют одинаковую структуру, а все окончания ветвлений свойств также являются числами).
 
-```html
+```sv
 <script>
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
@@ -450,7 +450,7 @@ $: $size = big ? 100 : 10;
 
 Опция `interpolate` позволяет вам рассчитывать промежуточные значения между *любыми* произвольными значениями. Это должна быть функция `(a, b) => t => value`, где` a` - начальное значение, `b` - конечное значение,` t` - число от 0 до 1 и `value` это результат. Например, мы можем использовать пакет [d3-interpolate](https://github.com/d3/d3-interpolate) для плавного перехода между двумя цветами.
 
-```html
+```sv
 <script>
 	import { interpolateLab } from 'd3-interpolate';
 	import { tweened } from 'svelte/motion';
@@ -499,7 +499,7 @@ store = spring(value: any, options)
 
 [Посмотрите полноценный пример.](tutorial/spring)
 
-```html
+```sv
 <script>
 	import { spring } from 'svelte/motion';
 
@@ -521,7 +521,7 @@ $: $size = big ? 100 : 10;
 
 ### `svelte/transition`
 
-Модуль `svelte / transition` экспортирует шесть функций:` fade`, `fly`,` slide`, `scale`,` draw` и `crossfade`. Они предназначены для использования в [`переходах`](docs#Perehody).
+Модуль `svelte / transition` экспортирует шесть функций:` fade`, `fly`,` slide`, `scale`,` draw` и `crossfade`. Они предназначены для использования в [`переходах`](docs#transition_fn).
 
 #### `fade`
 
@@ -546,7 +546,7 @@ out:fade={параметры}
 
 Вы можете посмотреть переход `fade` в действии в соответствующем [разделе учебника](tutorial/transition).
 
-```html
+```sv
 <script>
 	import { fade } from 'svelte/transition';
 </script>
@@ -582,7 +582,7 @@ out:blur={параметры}
 * `opacity` (`number`, по умолчанию 0) — значение прозрачности, конечное для `out` и начальное для `in`
 * `amount` (`number`, по умолчанию 5) - величина размытия в пикселях
 
-```html
+```sv
 <script>
 	import { blur } from 'svelte/transition';
 </script>
@@ -621,7 +621,7 @@ out:fly={параметры}
 
 Вы можете посмотреть переход `fadflye` в действии в соответствующем [разделе учебника](tutorial/adding-parameters-to-transitions).
 
-```html
+```sv
 <script>
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
@@ -656,7 +656,7 @@ out:slide={параметры}
 * `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
 * `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#svelte_easing)
 
-```html
+```sv
 <script>
 	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
@@ -693,7 +693,7 @@ out:scale={параметры}
 * `start` (`number`, по умолчанию 0) — размер, конечный для `out` и начальный для `in`
 * `opacity` (`number`, по умолчанию 0) — значение прозрачности, конечное для `out` и начальное для `in`
 
-```html
+```sv
 <script>
 	import { scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
@@ -731,7 +731,7 @@ out:draw={параметры}
 
 Параметр `speed` задаёт длительность перехода в зависимости от длины элемента path. Это модификатор, который применяется к длине пути: `длительность = длина/скорость`. Отрисовка линии в 1000 пикселей со скоростью 1 будет иметь длительность 1000мс, при `speed` равном `0.5` длительность увеличится вдвое, а при `2` — уменьшится в два раза.
 
-```html
+```sv
 <script>
 	import { draw } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
@@ -758,7 +758,7 @@ out:draw={параметры}
 
 ### `svelte/animate`
 
-Модуль `svelte/animate` экспортирует единственную функцию, которая используется для отображения [анимации](docs#Animaczii).
+Модуль `svelte/animate` экспортирует единственную функцию, которая используется для отображения [анимации](docs#animate_fn).
 
 #### `flip`
 
@@ -785,7 +785,7 @@ animate:flip={параметры}
 Вы можете познакомиться с полноценным примером в [разделе учебника](tutorial/animate).
 
 
-```html
+```sv
 <script>
 	import { flip } from 'svelte/animate';
 	import { quintOut } from 'svelte/easing';
@@ -967,7 +967,7 @@ app.count += 1;
 
 Компоненты Svelte также могут быть скомпилированы в пользовательские элементы (или web-компоненты) с помощью параметра компилятора `customElement: true`. Вы должны указать имя тега для компонента, используя [элемент](docs#svelte_options) `<svelte:options>`.
 
-```html
+```sv
 <svelte:options tag="my-element" />
 
 <script>

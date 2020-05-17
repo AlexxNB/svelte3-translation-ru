@@ -4,7 +4,7 @@
 	let text = `Выделите часть текста и нажмите Tab`;
 
 	async function handleKeydown(event) {
-		if (event.which !== 9) return;
+		if (event.key !== 'Tab') return;
 
 		event.preventDefault();
 
