@@ -22,6 +22,7 @@ export function longpress(node, duration) {
 
 	// ...
 }
+```
 
 Вернитесь к файлу `App.svelte`, и передайте действию параметр `duration`:
 
