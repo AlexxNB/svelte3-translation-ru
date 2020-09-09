@@ -187,8 +187,6 @@ store = { subscribe: (subscription: (value: any) => void) => (() => void), set?:
 
 Для обеспечения совместимости с RxJS Observables метод `.subscribe` может возвращать объект с методом ` .unsubscribe`, вместо непосредственно функции отписки. Но если метод `.subscribe` вызывает подписку асинхронно(спецификация Observable это допускает), Svelte будет видеть значение хранилища как `undefined`, пока вызов не завершится.
 
----
-
 
 ### &lt;script context="module"&gt;
 
@@ -264,7 +262,7 @@ CSS стили внутри блока `<style>` будут изолирован
 
 Часть имени `-global-` будет удалена при компиляции, и вы сможете обратиться к анимации просто по имени `my-animation-name` в любом месте вашего кода.
 
-```sv
+```html
 <style>
 	@keyframes -global-my-animation-name {...}
 </style>
