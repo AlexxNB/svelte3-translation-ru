@@ -50,6 +50,9 @@ onMount(callback: () => () => void)
 </script>
 ```
 
+> Чтобы такое поведение работало, функция, переданная в `onMount` должна быть *синхронной*. Асинхронные `async` функции всегда возвращают `Промис`, и поэтому не могут *синхронно* возвращать функцию.
+
+
 #### `beforeUpdate`
 
 ```js
@@ -287,7 +290,9 @@ store = readable(value: any, (set: (value: any) => void) => () => void)
 ```js
 import { readable } from 'svelte/store';
 
-const time = readable(new Date(), set => {
+const time = readable(null, set => {
+	set(new Date());
+
 	const interval = setInterval(() => {
 		set(new Date());
 	}, 1000);
@@ -521,7 +526,7 @@ $: $size = big ? 100 : 10;
 
 ### `svelte/transition`
 
-Модуль `svelte / transition` экспортирует шесть функций:` fade`, `fly`,` slide`, `scale`,` draw` и `crossfade`. Они предназначены для использования в [`переходах`](docs#transition_fn).
+Модуль `svelte / transition` экспортирует семь функций:` fade`, `blur`, `fly`,` slide`, `scale`,` draw` и `crossfade`. Они предназначены для использования в [`переходах`](docs#transition_fn).
 
 #### `fade`
 
