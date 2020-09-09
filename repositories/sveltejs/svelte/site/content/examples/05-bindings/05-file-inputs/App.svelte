@@ -32,6 +32,6 @@
 {#if files}
 	<h2>Выбранные файлы:</h2>
 	{#each Array.from(files) as file}
-		<p>{file.name} ({file.size} bytes) </p>
+		<p>{file.name} ({file.size} байт(а)) </p>
 	{/each}
 {/if}
