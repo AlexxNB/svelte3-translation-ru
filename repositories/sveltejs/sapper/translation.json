@@ -131,5 +131,18 @@
                 "t": "Если ошибка не исчезнет, сообщите об этом в <a href=\"https://t.me/sveltejs\">Telegram канал русского сообщества</a>. Спасибо!"
             }
         ]
+    },
+    {
+        "file": "src/routes/faq/index.svelte",
+        "strings": [
+            {
+                "o": "Frequently Asked Questions",
+                "t": "Частозадаваемые вопросы"
+            },
+            {
+                "o": "See also the <a href=\"https://svelte.dev/faq\" rel=\"external\">Svelte FAQ</a> for questions relating to Svelte directly.",
+                "t": "Прочтите также и <a href=\"https://ru.svelte.dev/faq\" rel=\"external\">Частозадаваемые вопросы по Svelte</a>, чтобы узнать ответы на вопросы непосредственно про Svelte."
+            }
+        ]
     }
 ]}
