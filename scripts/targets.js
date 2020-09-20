@@ -4,7 +4,7 @@ module.exports = [
         repo: "sveltejs/svelte",
         path: "/site",
         install: 'npm install && npm run update',
-        build: 'npm run sapper',
+        build: 'npm run build',
         static: false
     },
     {
