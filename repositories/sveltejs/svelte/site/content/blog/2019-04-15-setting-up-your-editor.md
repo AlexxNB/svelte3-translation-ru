@@ -30,7 +30,9 @@ draft: true
 
 ## Vim/Neovim
 
-Для проверки всех `*.svelte` файлов как HTML файлов, добавьте следующую строку в файл `init.vim`:
+Лучше всего установить [расширение coc-svelte](https://github.com/coc-extensions/coc-svelte), которое использует официальный языковой сервер.
+
+Либо просто укажите редактору подсвечивать все `*.svelte` файлы HTML синтаксисом, добавив следующую строку в файл `init.vim`:
 
 ```
 au! BufNewFile,BufRead *.svelte set ft=html
