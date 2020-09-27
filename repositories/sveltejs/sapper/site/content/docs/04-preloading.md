@@ -32,7 +32,15 @@ title: Предзагрузка
 * `page.query.foo === 'bar'`
 * `page.query.baz === true`
 
-`session` генерируется на сервере путём передачи параметра `session` в `sapper.middleware` (TODO это требует дополнительной документации. Возможно будет раздел API сервера?)
+`session` генерируется на сервере путём передачи параметра `session` в `sapper.middleware` Например:
+
+```js
+sapper.middleware({
+	session: (req, res) => ({
+		user: req.user
+	})
+})
+```
 
 
 ### Возвращаемое значение
