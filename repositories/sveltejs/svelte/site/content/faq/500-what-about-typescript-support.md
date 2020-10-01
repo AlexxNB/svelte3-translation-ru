@@ -2,7 +2,7 @@
 question: Что с поддержкой TypeScript?
 ---
 
-Нужно установить [препроцессор](https://github.com/sveltejs/svelte-preprocess). Также вы можете использовать проверку типов из командной строки при помощи[svelte-check](https://www.npmjs.com/package/svelte-check).
+Нужно установить [препроцессор](https://github.com/sveltejs/svelte-preprocess). Также вы можете использовать проверку типов из командной строки при помощи [svelte-check](https://www.npmjs.com/package/svelte-check).
 
 Для объявления типа реактивной переменной в шаблоне Svelte используйте следующий синтаксис:
 ```
