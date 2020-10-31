@@ -1305,6 +1305,34 @@ bind:this={экземпляр_компонента}
 </div>
 ```
 
+#### [`$$slots`](slots_object)
+
+---
+
+`$$slots` - это объект, ключи которого являются именами слотов, переданных в компонент родительским компонентом. Если родительский компонент не передавал содержимое для слота, то имя этого слота не будет присутствовать в `$$slots`. Эту особенность можно использовать для отображения как самого слота, так и части шаблона в зависимости от того, передавал ли родительский компонент содержимое для этого слота.
+
+Note that explicitly passing in an empty named slot will add that slot's name to `$$slots`. For example, if a parent passes `<div slot="title" />` to a child component, `$$slots.title` will be truthy within the child.
+
+Обратите внимание, что передача пустого элемента в слот все равно добавляет значение в `$$slots`. Например, если родительский компонент передает `<div slot ="title"/>` в дочерний, то `$$slots.title` будет равно `true`.
+
+```sv
+<!-- App.svelte -->
+<Card>
+	<h1 slot="title">Заголовок статьи</h1>
+</Card>
+
+<!-- Card.svelte -->
+<div>
+	<slot name="title"></slot>
+	{#if $$slots.description}
+		<!-- Этот слот и элемент <hr> не будут отрисованы. -->
+		<hr>
+		<slot name="description"></slot>
+	{/if}
+</div>
+```
+
+
 #### [`<slot let:`*имя*`={`*значение*`}>`](slot_let)
 
 ---
