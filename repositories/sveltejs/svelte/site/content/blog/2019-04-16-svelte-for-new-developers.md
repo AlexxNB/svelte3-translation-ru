@@ -24,7 +24,7 @@ authorURL: https://twitter.com/Rich_Harris
 cd Development
 ```
 
-чтобы войти в нее. Тут вы можете директорию для нового проекта командой `mkdir`:
+чтобы войти в нее. Тут вы можете создать директорию для нового проекта командой `mkdir`:
 
 ```bash
 mkdir svelte-projects
