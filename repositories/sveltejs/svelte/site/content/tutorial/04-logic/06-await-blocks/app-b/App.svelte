@@ -1,5 +1,4 @@
 <script>
-	let promise = getRandomNumber();
 
 	async function getRandomNumber() {
 		const res = await fetch(`tutorial/random-number`);
@@ -11,6 +10,8 @@
 			throw new Error(text);
 		}
 	}
+
+	let promise = getRandomNumber();
 
 	function handleClick() {
 		promise = getRandomNumber();

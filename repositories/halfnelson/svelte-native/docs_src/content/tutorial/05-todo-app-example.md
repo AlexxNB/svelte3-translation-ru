@@ -21,7 +21,7 @@ title: Первое приложение
   * Стилизация активных задач
   * Стилизация завершённых задач
 
-![TodoApp](/media/todoapp/nativescript-svelte-todo2.gif)
+![TodoApp](/media/todoapp/nativescript-svelte-todo3.gif)
 
 
 ### Подготовка

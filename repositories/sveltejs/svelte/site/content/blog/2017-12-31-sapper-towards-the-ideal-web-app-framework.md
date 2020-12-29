@@ -6,7 +6,7 @@ authorURL: https://twitter.com/Rich_Harris
 translator: Alexey Schebelev
 ---
 
-> Для нетерпеливых: [руководство Sapper](https://sapper.svelte.technology) и [стартовый шаблон](https://github.com/sveltejs/sapper-template)
+> Для нетерпеливых: [руководство Sapper](https://ru.sapper.svelte.dev) и [стартовый шаблон](https://github.com/sveltejs/sapper-template)
 
 Если бы вас попросили перечислить характеристики идеального фреймворка для веб-приложений на Node.js, то у вас бы получилось что-то вроде этого:
 

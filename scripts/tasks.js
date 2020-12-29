@@ -31,7 +31,7 @@ const translate_copy = (target) => {
     const path = target.path;
 
     sh.mkdir('-p',`${dir}${path}`);
-    sh.cp('-r',`repositories/${repo}${path}/*`,`${dir}${path}`);
+    sh.cp('-r',`repositories/${repo}${path}/.`,`${dir}${path}`);
 }
 
 
