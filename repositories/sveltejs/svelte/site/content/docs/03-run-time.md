@@ -103,7 +103,7 @@ onDestroy(callback: () => void)
 
 ---
 
-Запланирует запуск своей callback-функции при удалении компонента из DOM.
+Запланирует запуск своей callback-функции непосредственно перед удалением компонента из DOM.
 
 Из всех функций жизненного цикла `onMount`, `beforeUpdate`, `afterUpdate` и `onDestroy`, эта единственная, которая запускается в при рендеринге на стороне сервера.
 
@@ -179,6 +179,27 @@ context: any = getContext(key: any)
 	const answer = getContext('answer');
 </script>
 ```
+
+#### `hasContext`
+
+```js
+hasContext: boolean = hasContext(key: any)
+```
+
+---
+
+Проверяет, был ли в родительском компоненте задан контекст с ключом `key`. Должен вызываться во время инициализации компонента.
+
+```sv
+<script>
+	import { hasContext } from 'svelte';
+
+	if (hasContext('answer')) {
+		// что-то сделать
+	}
+</script>
+```
+
 
 #### `createEventDispatcher`
 
@@ -778,7 +799,7 @@ animate:flip={параметры}
 
 * `delay` (`number`, по умолчанию 0) — миллисекунды до начала анимации
 * `duration` (`number` | `function`, по умолчанию `d => Math.sqrt(d) * 120`) — длительность анимации, см.ниже
-* `easing` (`function`, по умолчанию [`cubicOut`](docs#cubicOut)) ъ[функция плавности](docs#svelte_easing)
+* `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#svelte_easing)
 
 
 `duration` может быть передана двумя способами:

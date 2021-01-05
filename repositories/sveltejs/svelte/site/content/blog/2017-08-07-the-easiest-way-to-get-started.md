@@ -56,6 +56,6 @@ npm run dev
 npx degit your-name/template my-new-project
 ```
 
-Вот, в принципе, и всё! Выполните `npm run build`, чтобы собрать готовую к продакшену версию своего приложения, и прочтите [README](https://github.com/sveltejs/template/blob/master/README.md) шаблона проекта, чтобы узнать, как легко развернуть своё приложение в Интернете с помощью [Now](https://zeit.co/now) или [Surge](http://surge.sh/).
+Вот, в принципе, и всё! Выполните `npm run build`, чтобы собрать готовую к продакшену версию своего приложения, и прочтите [README](https://github.com/sveltejs/template/blob/master/README.md) шаблона проекта, чтобы узнать, как легко развернуть своё приложение в Интернете с помощью [Vercel](https://vercel.com) или [Surge](http://surge.sh/).
 
 Вы не обязаны использовать Rollup — у нас есть интеграции с [webpack](https://github.com/sveltejs/svelte-loader), [Browserify](https://github.com/tehshrike/sveltify) и прочими. Вы можете использовать [Svelte CLI](https://github.com/sveltejs/svelte-cli) (Обновление от 2019 г.: с выходом Svelte 3 инструмент CLI убран, теперь мы используем в нашем шаблоне [sirv-cli](https://www.npmjs.com/package/sirv-cli). Но вы можете использовать любую утилиту по своему выбору!) или [API](https://github.com/sveltejs/svelte/tree/v2#api) напрямую. Если вы сделали шаблон проекта с помощью одного из этих инструментов, расскажите об этом в [чате Svelte Discord](chat) или в Twitter [@sveltejs](https://twitter.com/sveltejs)!
