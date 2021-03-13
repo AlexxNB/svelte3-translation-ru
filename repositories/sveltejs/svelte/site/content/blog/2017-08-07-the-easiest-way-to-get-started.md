@@ -44,11 +44,16 @@ npm run dev
 ```bash
 npx degit sveltejs/template my-svelte-project
 cd my-svelte-project
+# to use TypeScript run:
+# node scripts/setupTypeScript.js
+
 npm install
 npm run dev
 ```
 
 Нужные файлы загрузятся в папку `my-svelte-project`, установятся все зависимости и запустится сервер на http://localhost:5000.
+
+Получить дополнительную информацию об использовании TypeScript можно [здесь](blog/svelte-and-typescript).
 
 Когда вы немного поизучаете основы и поймёте как всё работает, можете форкнуть [sveltejs/template](https://github.com/sveltejs/template) и начать делать так:
 

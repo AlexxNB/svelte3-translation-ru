@@ -1282,18 +1282,20 @@ bind:this={экземпляр_компонента}
 Вложенное содержимое размещается в компоненте при помощи элемента `<slot>`, который также может содержать содержимое по умолчанию, которое отображается, если в компонент не было предано никакого содержимого.
 
 ```sv
-<!-- App.svelte -->
-<Widget></Widget>
-<Widget>
-	<p>вложенный элемент, который заменит собой содержимое по умолчанию.</p>
-</Widget>
-
 <!-- Widget.svelte -->
 <div>
 	<slot>
 		это содержимое по умолчанию, которое отобразится, если не передали иного содержимого.
 	</slot>
 </div>
+
+<!-- App.svelte -->
+<Widget></Widget> <!-- этот компонент покажет содержимое по умолчанию -->
+
+<Widget>
+	<p>вложенный элемент, который заменит собой содержимое по умолчанию.</p>
+</Widget>
+
 ```
 
 #### [`<slot name="`*имя*`">`](slot_name)
@@ -1303,18 +1305,18 @@ bind:this={экземпляр_компонента}
 Именованные слоты позволяют указать конкретные области. Они тоже могут иметь запасное содержимое по умолчанию.
 
 ```sv
-<!-- App.svelte -->
-<Widget>
-	<h1 slot="header">Привет</h1>
-	<p slot="footer">Все права (c) 2019 Svelte Industries</p>
-</Widget>
-
 <!-- Widget.svelte -->
 <div>
 	<slot name="header">Заголовок не предоставлен</slot>
 	<p>Любое содержимое между заголовком и футером</p>
 	<slot name="footer"></slot>
 </div>
+
+<!-- App.svelte -->
+<Widget>
+	<h1 slot="header">Привет</h1>
+	<p slot="footer">Все права (c) 2019 Svelte Industries</p>
+</Widget>
 ```
 
 #### [`$$slots`](slots_object)
@@ -1328,20 +1330,22 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 Обратите внимание, что передача пустого элемента в слот все равно добавляет значение в `$$slots`. Например, если родительский компонент передает `<div slot ="title"/>` в дочерний, то `$$slots.title` будет равно `true`.
 
 ```sv
-<!-- App.svelte -->
-<Card>
-	<h1 slot="title">Заголовок статьи</h1>
-</Card>
-
 <!-- Card.svelte -->
 <div>
 	<slot name="title"></slot>
 	{#if $$slots.description}
-		<!-- Этот слот и элемент <hr> не будут отрисованы. -->
+		<!-- Элемент <hr> и слот будут отрисованы, только 
+		     если будет получен слот с именем "description". -->
 		<hr>
 		<slot name="description"></slot>
 	{/if}
 </div>
+
+<!-- App.svelte -->
+<Card>
+	<h1 slot="title">Заголовок статьи</h1>
+	<!-- Слота с именем "description" нет, поэтому ничего не будет отображено. -->
+</Card>
 ```
 
 
@@ -1355,11 +1359,6 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 Обычные правила сокращения работают и тут — `let:item` то же самое, что и `let:item={item}`, а `<slot {item}>` эквивалентно `<slot item={item}>`.
 
 ```sv
-<!-- App.svelte -->
-<FancyList {items} let:prop={thing}>
-	<div>{thing.text}</div>
-</FancyList>
-
 <!-- FancyList.svelte -->
 <ul>
 	{#each items as item}
@@ -1368,6 +1367,11 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 		</li>
 	{/each}
 </ul>
+
+<!-- App.svelte -->
+<FancyList {items} let:prop={thing}>
+	<div>{thing.text}</div>
+</FancyList>
 ```
 
 ---
@@ -1375,12 +1379,6 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 Именованные слоты также могут предоставлять значения. Директива `let:` указывается на элементе с атрибутом `slot`.
 
 ```sv
-<!-- App.svelte -->
-<FancyList {items}>
-	<div slot="item" let:item={item}>{item.text}</div>
-	<p slot="footer">Все права (c) 2019 Svelte Industries</p>
-</FancyList>
-
 <!-- FancyList.svelte -->
 <ul>
 	{#each items as item}
@@ -1391,6 +1389,12 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 </ul>
 
 <slot name="footer"></slot>
+
+<!-- App.svelte -->
+<FancyList {items}>
+	<div slot="item" let:item={item}>{item.text}</div>
+	<p slot="footer">Все права (c) 2019 Svelte Industries</p>
+</FancyList>
 ```
 
 
@@ -1523,7 +1527,7 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 * `immutable={false}` — по умолчанию. Svelte будет проверять изменение объектов обычным способом
 * `accessors={true}` — добавляет сеттеры и геттеры для свойств компонента
 * `accessors={false}` — по умолчанию, аксессоры не добавляются
-* `namespace="..."` — пространство имен, где компонент будет использован (обычно нужно "svg")
+* `namespace="..."` — пространство имен, где компонент будет использован (обычно требуется "svg"); используйте "foreign" чтобы имена аттрибутов стали чувствительны к регистру и не отображались ошибки специфичные для HTML
 * `tag="..."` — имя, которое используется при компиляции компонента в пользовательский элемент
 
 
