@@ -1,5 +1,5 @@
 ---
-title: В чем дело со SvelteKit??
+title: В чем дело со SvelteKit?
 description: Мы переосмысливаем, как создавать приложения Svelte. Вот что вам нужно знать...
 author: Rich Harris
 authorURL: https://twitter.com/rich_harris
