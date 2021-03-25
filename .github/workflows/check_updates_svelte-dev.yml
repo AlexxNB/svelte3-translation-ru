@@ -1,0 +1,20 @@
+name: Check sveltejs/svelte for new commits
+
+on:
+  schedule:
+    - cron:  '0 3 * * *'
+
+jobs:
+  track-commits:
+    runs-on: ubuntu-latest
+    name: Checking new commits...
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Checking new commits
+      uses: AlexxNB/track-commits-to-issue@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        owner: sveltejs
+        repo: svelte
+        dir: site/content
