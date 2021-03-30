@@ -4,7 +4,7 @@ title: <svelte:fragment>
 
 Элемент `<svelte:fragment>` позволяет размещать контент в именованных слотах не оборачивая его в дополнительный элемент DOM. Это сохраняет структуру макета вашего документа.
 
-В этом примере обратите внимание, как мы применили макет `flex` с отступом в `1em` к элементы с классом `.box`.
+В этом примере обратите внимание, как мы применили макет `flex` с отступом в `1em` к элементу с классом `.box`.
 
 ```sv
 <!-- Box.svelte -->
@@ -17,8 +17,8 @@ title: <svelte:fragment>
 </style>
 
 <div class="box">
-    <slot name="header">No header was provided</slot>
-        <p>Some content between header and footer</p>
+    <slot name="header">Заголовок не предоставлен</slot>
+        <p>Любое содержимое между заголовком и футером</p>
     <slot name="footer"></slot>
 </div>
 ```
@@ -29,7 +29,7 @@ title: <svelte:fragment>
 
 ```sv
 <svelte:fragment slot="footer">
-    <p>All rights reserved.</p>
-    <p>Copyright (c) 2019 Svelte Industries</p>
+    <p>Все права защищены.</p>
+    <p>Копирайт (c) 2019 Svelte Industries</p>
 </svelte:fragment>
 ```

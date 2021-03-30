@@ -1570,7 +1570,7 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 
  <!-- App.svelte -->
  <Widget>
- 	<h1 slot="header">Hello</h1>
+ 	<h1 slot="header">Привет</h1>
  	<svelte:fragment slot="footer">
  		<p>Все права защищены.</p>
  		<p>Копирайт (c) 2019 Svelte Industries</p>
