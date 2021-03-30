@@ -4,7 +4,7 @@
 
 <Box>
     <div slot="footer">
-        <p>All rights reserved.</p>
-        <p>Copyright (c) 2019 Svelte Industries</p>
+        <p>Все права защищены.</p>
+        <p>Копирайт (c) 2019 Svelte Industries</p>
     </div>
 </Box>
