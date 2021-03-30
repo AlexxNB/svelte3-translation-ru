@@ -1,6 +1,6 @@
 <div class="box">
-    <slot name="header">No header was provided</slot>
-    <p>Some content between header and footer</p>
+    <slot name="header">Заголовок не предоставлен</slot>
+    <p>Любое содержимое между заголовком и футером</p>
     <slot name="footer" />
 </div>
 
