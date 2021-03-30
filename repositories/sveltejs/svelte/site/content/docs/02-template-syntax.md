@@ -1307,7 +1307,7 @@ bind:this={экземпляр_компонента}
 ```sv
 <!-- Widget.svelte -->
 <div>
-	<slot name="header">Заголовок не предоставлен</slot>
+	<slot name="header">Заголовок не задан</slot>
 	<p>Любое содержимое между заголовком и футером</p>
 	<slot name="footer"></slot>
 </div>
@@ -1325,8 +1325,8 @@ bind:this={экземпляр_компонента}
  ```sv
  <!-- Widget.svelte -->
  <div>
- 	<slot name="header">No header was provided</slot>
- 	<p>Some content between header and footer</p>
+ 	<slot name="header">Заголовок не задан</slot>
+ 	<p>Любое содержимое между заголовком и футером</p>
  	<slot name="footer"></slot>
  </div>
 
@@ -1334,8 +1334,8 @@ bind:this={экземпляр_компонента}
  <Widget>
  	<HeaderComponent slot="header" />
  	<svelte:fragment slot="footer">
- 		<p>All rights reserved.</p>
- 		<p>Copyright (c) 2019 Svelte Industries</p>
+ 		<p>Все права защищены.</p>
+ 		<p>Копирайт (c) 2019 Svelte Industries</p>
  	</svelte:fragment>
  </Widget>
  ```

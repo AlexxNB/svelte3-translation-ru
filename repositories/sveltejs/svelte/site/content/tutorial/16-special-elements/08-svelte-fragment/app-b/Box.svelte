@@ -1,5 +1,5 @@
 <div class="box">
-  <slot name="header">Заголовок не предоставлен</slot>
+  <slot name="header">Заголовок не задан</slot>
   <p>Любое содержимое между заголовком и футером</p>
   <slot name="footer" />
 </div>
