@@ -1563,7 +1563,7 @@ Note that explicitly passing in an empty named slot will add that slot's name to
  ```sv
  <!-- Widget.svelte -->
  <div>
- 	<slot name="header">Заголовок не предоставлен/slot>
+ 	<slot name="header">Заголовок не предоставлен</slot>
  	<p>Любое содержимое между заголовком и футером</p>
  	<slot name="footer"></slot>
  </div>
