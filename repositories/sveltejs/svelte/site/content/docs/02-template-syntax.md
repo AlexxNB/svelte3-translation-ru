@@ -1319,6 +1319,27 @@ bind:this={экземпляр_компонента}
 </Widget>
 ```
 
+Компоненты могут быть размещены в именованном слоте с использованием синтаксиса `<Component slot="name" />`.
+Чтобы разместить контент в слоте без использования элемента-оболочки, вы можете использовать специальный элемент `<svelte:fragment>`.
+
+ ```sv
+ <!-- Widget.svelte -->
+ <div>
+ 	<slot name="header">No header was provided</slot>
+ 	<p>Some content between header and footer</p>
+ 	<slot name="footer"></slot>
+ </div>
+
+ <!-- App.svelte -->
+ <Widget>
+ 	<HeaderComponent slot="header" />
+ 	<svelte:fragment slot="footer">
+ 		<p>All rights reserved.</p>
+ 		<p>Copyright (c) 2019 Svelte Industries</p>
+ 	</svelte:fragment>
+ </Widget>
+ ```
+
 #### [`$$slots`](slots_object)
 
 ---
@@ -1518,6 +1539,28 @@ Note that explicitly passing in an empty named slot will add that slot's name to
 ```sv
 <svelte:options параметр={значение}/>
 ```
+
+### `<svelte:fragment>`
+
+Элемент `<svelte:fragment>` позволяет размещать контент в [именованных слотах](docs#slot_name) не оборачивая его в дополнительный элемент DOM. Это сохраняет структуру макета вашего документа.
+
+ ```sv
+ <!-- Widget.svelte -->
+ <div>
+ 	<slot name="header">No header was provided</slot>
+ 	<p>Some content between header and footer</p>
+ 	<slot name="footer"></slot>
+ </div>
+
+ <!-- App.svelte -->
+ <Widget>
+ 	<h1 slot="header">Hello</h1>
+ 	<svelte:fragment slot="footer">
+ 		<p>All rights reserved.</p>
+ 		<p>Copyright (c) 2019 Svelte Industries</p>
+ 	</svelte:fragment>
+ </Widget>
+ ```
 
 ---
 
