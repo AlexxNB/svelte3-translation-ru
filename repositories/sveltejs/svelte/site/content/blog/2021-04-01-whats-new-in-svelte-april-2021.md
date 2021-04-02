@@ -15,7 +15,7 @@ authorURL: https://desandoval.net
 ## Новое в Svelte & Language Tools
 - Компоненты со слотами, в том числе `<svelte:fragment slot="...">` позволяют потребителям компонентов наполнять указанные слоты содержимым, у котрого нет корневого элемента (**Svelte 3.35.0, Language Tools [104.5.0](https://github.com/sveltejs/language-tools/releases/tag/extensions-104.5.0)**, подробнее в [документации](https://ru.svelte.dev/docs#svelte_fragment) и [учебнике](https://ru.svelte.dev/tutorial/svelte-fragment))
 - Связанное редактирование теперь работает для HTML в Svelte файлах (**Language Tools, [104.6.0](https://github.com/sveltejs/language-tools/releases/tag/extensions-104.6.0)**)
-- Определения типов в файле `svelte.d.ts` теперь разрешены по порядку, что позволяет авторам библиотек отправлять определения типов вместе со своими компактными компонентами (**Language Tools, [104.7.0](https://github.com/sveltejs/language-tools/releases/tag/extensions-104.7.0)**)
+- Типы определенные в `*.svelte.d.ts` файлах теперь учитываются и имеют приоритет перед связанными с ними `*.svelte` файлами, что позволяет авторам библиотек предоставлять определения типов рядом со своими Svelte файлами. (**Language Tools, [104.7.0](https://github.com/sveltejs/language-tools/releases/tag/extensions-104.7.0)**)
 - [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte) доступен для использования Svelte в Vite. `npm init @vitejs/app` включает параметры Svelte, используя этот плагин.
 
 ---
