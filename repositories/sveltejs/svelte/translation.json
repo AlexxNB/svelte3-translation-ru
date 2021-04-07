@@ -206,6 +206,31 @@
             {
                 "o": "Older posts",
                 "t": "Более ранние посты"
+            },
+            {
+                "o": "https://svelte.dev/blog/rss.xml",
+                "t": "https://ru.svelte.dev/blog/rss.xml"
+            }
+        ]
+    },
+    {
+        "file": "src/routes/blog/rss.xml.js",
+        "strings": [
+            {
+                "o": ",Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec",
+                "t": ",января,февраля,марта,апреля,мая,июня,июля,августа,сентября,октября,ноября,декабря"
+            },
+            {
+                "o": "Svelte blog",
+                "t": "Блог Svelte"
+            },
+            {
+                "o": "https://svelte.dev",
+                "t": "https://ru.svelte.dev"
+            },
+            {
+                "o": "News and information about the magical disappearing UI framework",
+                "t": "Новости и информация о кибернетически улучшенных приложениях Svelte"
             }
         ]
     },
