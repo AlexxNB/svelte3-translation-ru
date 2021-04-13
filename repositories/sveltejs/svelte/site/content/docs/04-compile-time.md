@@ -197,11 +197,11 @@ result: {
 			code: string,
 			dependencies?: Array<string>
 		}>,
-		script?: (input: { content: string, attributes: Record<string, string>, filename: string }) => Promise<{
+		script?: (input: { content: string, markup: string, attributes: Record<string, string>, filename: string }) => Promise<{
 			code: string,
 			dependencies?: Array<string>
 		}>,
-		style?: (input: { content: string, attributes: Record<string, string>, filename: string }) => Promise<{
+		style?: (input: { content: string, markup: string, attributes: Record<string, string>, filename: string }) => Promise<{
 			code: string,
 			dependencies?: Array<string>
 		}>
@@ -240,7 +240,7 @@ const { code } = await svelte.preprocess(source, {
 
 ---
 
-Функции `script` и `style` получают содержимое блоков `<script>` и `<style>` соответственно. В дополнение к `filename` они получают объект атрибутов блока.
+Функции `script` и `style` получают содержимое блоков `<script>` и `<style>` соответственно (`content`), а также весь исходный текст компонента (`markup`). В дополнение к `filename` они получают объект атрибутов блока.
 
 Если возвращается массив зависимостей `dependencies`, он будет также включен в результирующий объект. Он используется такими пакетами, как [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) для отслеживания изменений  дополнительных файлов, в случае, если, например в теге `<style>` есть `@import`.
 
