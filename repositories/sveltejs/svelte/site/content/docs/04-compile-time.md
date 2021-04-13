@@ -244,6 +244,7 @@ const { code } = await svelte.preprocess(source, {
 
 Если возвращается массив зависимостей `dependencies`, он будет также включен в результирующий объект. Он используется такими пакетами, как [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) для отслеживания изменений  дополнительных файлов, в случае, если, например в теге `<style>` есть `@import`.
 
+
 ```js
 const svelte = require('svelte/compiler');
 const sass = require('node-sass');
