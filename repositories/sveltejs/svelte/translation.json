@@ -1,5 +1,14 @@
 {"files": [
     {
+        "file": "src/server.js",
+        "strings": [
+            {
+                "o": "if \\(process.env.PGHOST\\) {",
+                "t": "if (!process.env.PGHOST) {console.log('No DB credentials')} else {console.log('Connecting to DB '+process.env.PGHOST);"
+            }
+        ]
+    },
+    {
         "file": "src/routes/index.svelte",
         "strings": [
             {
