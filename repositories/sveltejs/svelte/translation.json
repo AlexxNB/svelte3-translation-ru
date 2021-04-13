@@ -9,6 +9,15 @@
         ]
     },
     {
+        "file": "src/routes/repl/[id]/index.json.js",
+        "strings": [
+            {
+                "o": "https://svelte.dev",
+                "t": "https://ru.svelte.dev"
+            }
+        ]
+    },
+    {
         "file": "src/routes/index.svelte",
         "strings": [
             {
