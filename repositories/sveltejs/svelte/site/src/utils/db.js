@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 
 // Uses `PG*` ENV vars
-export const DB = process.env.PGHOST ? new Pool() : null;
+export const DB = process.env.PGHOST ? new Pool({connectionTimeoutMillis:10000}) : null;
 
 if(DB){
 	DB.on('connect', ()=>console.log('>>>>>>>>> (utils/db.js) DB: ','Connected'));
