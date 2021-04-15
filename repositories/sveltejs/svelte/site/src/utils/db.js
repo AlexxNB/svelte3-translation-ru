@@ -1,10 +1,4 @@
 import { Pool } from 'pg';
-console.log(`
-PGUSER=${process.env.PGUSER}
-PGPASSWORD=${process.env.PGPASSWORD}
-PGHOST=${process.env.PGHOST}
-PGDATABASE=${process.env.PGDATABASE}
-PGPORT=${process.env.PGPORT}`);
 
 // Uses `PG*` ENV vars
 export const DB = process.env.PGHOST ? new Pool({connectionTimeoutMillis:10000}) : null;
