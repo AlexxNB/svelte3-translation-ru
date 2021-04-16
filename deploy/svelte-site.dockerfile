@@ -10,8 +10,8 @@ WORKDIR /src
 
 RUN apk add git \
  && npm install \
- && cd __svelte/site && npm install pg@8.6.0 && cd ../.. \
  && npm run update-svelte \
+ && cd __svelte/site && npm install pg@8.6.0 && cd ../.. \
  && npm run build-svelte \
  && rm -rf repositories
 
