@@ -254,6 +254,10 @@
             {
                 "o": "Loading...",
                 "t": "Загрузка..."
+            },
+            {
+                "o":"const \\{ session \\} = stores\\(\\);",
+                "t":"const { session } = stores(); \n $: console.log('>>>>>>>>> (.../[id]/index.svelte) session: ',$session)"
             }
         ]
     },
