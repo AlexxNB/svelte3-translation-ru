@@ -1,23 +1,5 @@
 {"files": [
     {
-        "file": "src/server.js",
-        "strings": [
-            {
-                "o": "if \\(process.env.PGHOST\\) {",
-                "t": "if (!process.env.PGHOST) {console.log('No DB credentials')} else {console.log('Connecting to DB '+process.env.PGHOST);"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/repl/[id]/index.json.js",
-        "strings": [
-            {
-                "o": "https://svelte.dev",
-                "t": "https://ru.svelte.dev"
-            }
-        ]
-    },
-    {
         "file": "src/routes/index.svelte",
         "strings": [
             {
@@ -254,10 +236,6 @@
             {
                 "o": "Loading...",
                 "t": "Загрузка..."
-            },
-            {
-                "o":"const \\{ session \\} = stores\\(\\);",
-                "t":"const { session } = stores(); \n $: console.log('>>>>>>>>> (.../[id]/index.svelte) session: ',$session)"
             }
         ]
     },
