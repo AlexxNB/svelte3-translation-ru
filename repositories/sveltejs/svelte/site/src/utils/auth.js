@@ -62,7 +62,7 @@ export const authenticate = () => {
     return async (req, res, next) => {
         req.cookies = cookie.parse(req.headers.cookie || '');
         req.user = await get_user(req.cookies.sid);
-
+        console.log('>>>>>>>>> (utils/auth.js) authenticate: ', req.user);
         next();
     };
 };
