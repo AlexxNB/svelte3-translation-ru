@@ -8,7 +8,7 @@ if(DB){
 	DB.on('acquire', ()=>console.log('>>>>>>>>> (utils/db.js) DB: ','Acquired'));
 	DB.on('remove', ()=>console.log('>>>>>>>>> (utils/db.js) DB: ','Removed'));
 	DB.on('error', (err)=>console.log('>>>>>>>>> (utils/db.js) DB Error: ',err));
-}else console.log('>>>>>>>>> (utils/db.js) DB: ','No ENV Vars')
+} else console.log('>>>>>>>>> (utils/db.js) DB: ','No ENV Vars')
 
 export function query(text, values=[]) {
 	return DB.query(text, values).then(r => r.rows).catch(err => console.log('>>>>>>>>> (utils/db.js) query: ',err));
