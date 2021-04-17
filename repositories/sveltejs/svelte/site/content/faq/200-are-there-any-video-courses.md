@@ -9,6 +9,7 @@ question: Есть ли какие-либо видеокурсы?
 Ещё есть несколько сторонних курсов:
 
 - [Курс от Владилена Минина](https://www.youtube.com/playlist?list=PLqKQF2ojwm3mgL-JymBaquJItb0eP0MTR)
+- [Курс от DevMagazine (на русском языке)](https://www.youtube.com/playlist?list=PLmfIBo6rTVR5XNcJxu8TwzEvIDUCAhGc6)
 - [Egghead](https://egghead.io/playlists/getting-started-with-svelte-3-05a8541a)
 - [Udemy](https://www.udemy.com/sveltejs-the-complete-guide/)
 
