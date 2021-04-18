@@ -1,364 +1,375 @@
-{"files": [
-    {
-        "file": "src/routes/index.svelte",
-        "strings": [
-            {
-                "o": "The magical disappearing UI framework",
-                "t": "Магически исчезающий UI-фреймворк"
-            },
-            {
-                "o": "Cybernetically enhanced web apps",
-                "t": "Кибернетически улучшенные Web-приложения"
-            },
-            {
-                "o": "Svelte components are built on top of HTML. Just add data.",
-                "t": "Компоненты Svelte построены поверх языка HTML с возможностью добавлять данные."
-            },
-            {
-                "o": "CSS is component-scoped by default — no more style collisions or specificity wars. Or you can",
-                "t": "CSS изолируется внутри компонентов — больше никаких конфликтов стилей и борьбы спецификаций. Впрочем, вы можете"
-            },
-            {
-                "o": "use your favourite CSS-in-JS library",
-                "t": "использовать свою любимую библиотеку CSS-in-JS"
-            },
-            {
-                "o": "Trigger efficient, granular updates by assigning to local variables. The compiler does the rest.",
-                "t": "Запускайте эффективные точечные обновления, просто присваивая новые значения переменным. Компилятор сделает всю магию."
-            },
-            {
-                "o": "Build beautiful UIs with a powerful, performant transition engine built right into the framework.",
-                "t": "Создавайте красивые интерфейсы с помощью мощного движка переходов, встроенного прямо в фреймворк."
-            },
-            {
-                "o": "Who's using Svelte",
-                "t": "Кто использует Svelte"
-            },
-            {
-                "o": "<h3>Contributors</h3>",
-                "t": "<h3>Контрибуторы</h3>"
-            },
-            {
-                "o": "Svelte is free and open source software, made possible by the work of dozens of volunteers",
-                "t": "Svelte бесплатен, имеет открытый исходный код и живёт благодаря работе десятков волонтёров"
-            },
-            {
-                "o": "Join us",
-                "t": "Присоединяйся к нам"
-            },
-            {
-                "o": "Write less code",
-                "t": "Меньше кода"
-            },
-            {
-                "o": ">learn more<",
-                "t": ">узнать больше<"
-            },
-            {
-                "o": "Build boilerplate-free components using languages you already know — HTML, CSS and JavaScript",
-                "t": "Создавайте компоненты без излишних конструкций на языках, которые вы уже знаете — HTML, CSS и JavaScript"
-            },
-            {
-                "o": "Build boilerplate-free components using languages you already know — HTML, CSS and JavaScript",
-                "t": "Создавайте компоненты без излишних конструкций на языках, которые вы уже знаете — HTML, CSS и JavaScript"
-            },
-            {
-                "o": "No virtual DOM",
-                "t": "Без виртуального DOM"
-            },
-            {
-                "o": "Svelte compiles your code to tiny, framework-less vanilla JS — your app starts fast and stays fast",
-                "t": "Svelte компилирует ваш код в оптимальный ванильный JS — приложения запускаются быстро и остаются быстрыми"
-            },
-            {
-                "o": "Truly reactive",
-                "t": "Честная реактивность"
-            },
-            {
-                "o": "No more complex state management libraries — Svelte brings reactivity to JavaScript itself",
-                "t": "Больше никаких сложных библиотек управления состоянием — Svelte делает реактивным сам JavaScript"
-            },
-            {
-                "o": "Svelte is a radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the <em>browser</em>, Svelte shifts that work into a <em>compile step</em> that happens when you build your app.",
-                "t": "Svelte — это принципиально новый подход к созданию пользовательских интерфейсов. Когда традиционные фреймворки, такие как React и Vue, выполняют основную часть своей работы в <em>браузере</em>, Svelte переносит эту работу на <em>этап компиляции</em>, который происходит при сборке приложения."
-            },
-            {
-                "o": "Instead of using techniques like virtual DOM diffing, Svelte writes code that surgically updates the DOM when the state of your app changes.",
-                "t": "Вместо использования таких тяжелых приёмов, как сравнение состояний виртуального DOM, Svelte пишет код, который точечно обновляет DOM при изменении состояния вашего приложения."
-            },
-            {
-                "o": "Read the introductory blog post",
-                "t": "Прочтите вводную статью в блоге"
-            },
-            {
-                "o": "to learn more.",
-                "t": ", чтобы узнать больше."
-            },
-            {
-                "o": "See the",
-                "t": "Подробности ищите в статье"
-            },
-            {
-                "o": "quickstart guide",
-                "t": "Быстрый Старт "
-            },
-            {
-                "o": "for more information.",
-                "t": "."
-            },
-            {
-                "o": "Learn Svelte",
-                "t": "Изучить Svelte"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/_layout.svelte",
-        "strings": [
-            {
-                "o": "<Nav {segment}",
-                "t": "<Nav home=\"Главная\" home_title=\"Домашняя страница\" {segment}"
-            },
-            {
-                "o": ">Tutorial<",
-                "t": ">Учебник<"
-            },
-            {
-                "o": ">Examples<",
-                "t": ">Примеры<"
-            },
-            {
-                "o": ">Blog<",
-                "t": ">Блог<"
-            },
-            {
-                "o": "Discord Chat",
-                "t": "Чат Discord"
-            },
-            {
-                "o": "https://sapper.svelte.dev",
-                "t": "https://ru.sapper.svelte.dev"
-            },
-            {
-                "o": "external=\"chat\"",
-                "t": "external=\"tg://resolve?domain=sveltejs\""
-            }
-        ]
-    },
-    {
-        "file": "src/routes/tutorial/[slug]/index.svelte",
-        "strings": [
-            {
-                "o": ">Next<",
-                "t": ">Далее<"
-            },
-            {
-                "o": "'Reset' : 'Show me'",
-                "t": "'Сброс' : 'Покажи мне'"
-            },
-            {
-                "o": "Edit this chapter",
-                "t": "Редактировать эту главу"
-            },
-            {
-                "o": "sveltejs/svelte/tree/master/site/content/tutorial",
-                "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/sveltejs/svelte/site/content/tutorial"
-            },
-            {
-                "o": "'tutorial', 'input', 'output'",
-                "t": "'урок', 'исходник', 'результат'"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/docs/index.svelte",
-        "strings": [
-            {
-                "o": "<Docs {sections}/>",
-                "t": "<Docs owner=\"AlexxNB\" project=\"svelte3-translation-ru\" path=\"/repositories/sveltejs/svelte/site/content\" edit_title=\"редактировать эту главу\" {sections}/>"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/examples/index.svelte",
-        "strings": [
-            {
-                "o": ">Examples<",
-                "t": ">Примеры<"
-            },
-            {
-                "o": "'index', 'input', 'output'",
-                "t": "'список', 'исходник', 'результат'"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/blog/index.svelte",
-        "strings": [
-            {
-                "o": "Read the article",
-                "t": "Читать статью"
-            },
-            {
-                "o": "Latest post",
-                "t": "Последний пост"
-            },
-            {
-                "o": "Older posts",
-                "t": "Более ранние посты"
-            },
-            {
-                "o": "https://svelte.dev/blog/rss.xml",
-                "t": "https://ru.svelte.dev/blog/rss.xml"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/blog/rss.xml.js",
-        "strings": [
-            {
-                "o": "Svelte blog",
-                "t": "Блог Svelte"
-            },
-            {
-                "o": "https://svelte.dev",
-                "t": "https://ru.svelte.dev"
-            },
-            {
-                "o": "News and information about the magical disappearing UI framework",
-                "t": "Новости и информация о кибернетически улучшенных приложениях Svelte"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/repl/[id]/index.svelte",
-        "strings": [
-            {
-                "o": "Loading...",
-                "t": "Загрузка..."
-            }
-        ]
-    },
-    {
-        "file": "src/routes/apps/index.svelte",
-        "strings": [
-            {
-                "o": "Your apps",
-                "t": "Мои приложения"
-            },
-            {
-                "o": "<span>updated",
-                "t": "<span>изменено"
-            },
-            {
-                "o": "Next page...",
-                "t": "Следующая страница..."
-            },
-            {
-                "o": "Please <a on:click|preventDefault={login} href=\"auth/login\">log in</a> to see your saved apps.",
-                "t": "<a on:click|preventDefault={login} href=\"auth/login\">Войдите</a>, чтобы увидеть свои приложения."
-            },
-            {
-                "o": "log out",
-                "t": "Выйти"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/repl/[id]/_components/AppControls/index.svelte",
-        "strings": [
-            {
-                "o": "It looks like you're offline! Find the internet and try again",
-                "t": "Похоже у вас нет соединения с интернетом! Покдлючитесь к сети и попробуйте снова."
-            },
-            {
-                "o": "fullscreen editor",
-                "t": "на полный экран"
-            },
-            {
-                "o": "download zip file",
-                "t": "скачать zip-архив"
-            },
-            {
-                "o": "title=\"fork\"",
-                "t": "title=\"сделать форк\""
-            },
-            {
-                "o": "title=\"save\"",
-                "t": "title=\"сохранить\""
-            },
-            {
-                "o": "Log in to save",
-                "t": "Войти и сохранить"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/repl/[id]/_components/AppControls/UserMenu.svelte",
-        "strings": [
-            {
-                "o": "Your saved apps",
-                "t": "Мои приложения"
-            },
-            {
-                "o": "Log out",
-                "t": "Выйти"
-            }
-        ]
-    },
-    {
-        "file": "src/routes/_error.svelte",
-        "strings": [
-            {
-                "o": "Yikes!",
-                "t": "Бдыщь!"
-            },
-            {
-                "o": "Please try reloading the page.",
-                "t": "Попробуйте перезагрузить страницу"
-            },
-            {
-                "o": "It looks like you're offline",
-                "t": "Похоже, что нет соединения с сетью"
-            },
-            {
-                "o": "Reload the page once you've found the internet",
-                "t": "Перезагрузите страницу, когда у вас появится интернет"
-            },
-            {
-                "o": "Encountered a {status} error",
-                "t": "Обнаружена ошибка №{status}"
-            },
-            {
-                "o": "If the error persists, please drop by <a href=\"chat\">Discord chatroom</a> and let us know, or raise an issue on <a href=\"https://github.com/sveltejs/svelte\">GitHub</a>. Thanks!",
-                "t": "Если ошибка не исчезнет, сообщите об этом в <a href=\"https://t.me/sveltejs\">Telegram канал русского сообщества</a>. Спасибо!"
-            }
-        ]
-    },
-    {
-        "file": "src/template.html",
-        "strings": [
-            {
-                "o": "</head>",
-                "t": "\n<!-- Yandex.Metrika counter -->\n<script type=\"text/javascript\" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\"); ym(53400580, \"init\", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src=\"https://mc.yandex.ru/watch/53400580\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div></noscript>\n <!-- /Yandex.Metrika counter -->\n</head>"
-            },
-            {
-                "o": "lang='en'",
-                "t": "lang='ru'"
-            }
-        ]
-    },
-    {
-        "file": "src/components/Repl/InputOutputToggle.svelte",
-        "strings": [
-            {
-                "o": ">input<",
-                "t": ">исходник<"
-            },
-            {
-                "o": ">output<",
-                "t": ">результат<"
-            }
-        ]
-    }
-]}
+{
+    "files": [
+        {
+            "file": "src/routes/index.svelte",
+            "strings": [
+                {
+                    "o": "The magical disappearing UI framework",
+                    "t": "Магически исчезающий UI-фреймворк"
+                },
+                {
+                    "o": "Cybernetically enhanced web apps",
+                    "t": "Кибернетически улучшенные Web-приложения"
+                },
+                {
+                    "o": "Svelte components are built on top of HTML. Just add data.",
+                    "t": "Компоненты Svelte построены поверх языка HTML с возможностью добавлять данные."
+                },
+                {
+                    "o": "CSS is component-scoped by default — no more style collisions or specificity wars. Or you can",
+                    "t": "CSS изолируется внутри компонентов — больше никаких конфликтов стилей и борьбы спецификаций. Впрочем, вы можете"
+                },
+                {
+                    "o": "use your favourite CSS-in-JS library",
+                    "t": "использовать свою любимую библиотеку CSS-in-JS"
+                },
+                {
+                    "o": "Trigger efficient, granular updates by assigning to local variables. The compiler does the rest.",
+                    "t": "Запускайте эффективные точечные обновления, просто присваивая новые значения переменным. Компилятор сделает всю магию."
+                },
+                {
+                    "o": "Build beautiful UIs with a powerful, performant transition engine built right into the framework.",
+                    "t": "Создавайте красивые интерфейсы с помощью мощного движка переходов, встроенного прямо в фреймворк."
+                },
+                {
+                    "o": "Who's using Svelte",
+                    "t": "Кто использует Svelte"
+                },
+                {
+                    "o": "<h3>Contributors</h3>",
+                    "t": "<h3>Контрибуторы</h3>"
+                },
+                {
+                    "o": "Svelte is free and open source software, made possible by the work of dozens of volunteers",
+                    "t": "Svelte бесплатен, имеет открытый исходный код и живёт благодаря работе десятков волонтёров"
+                },
+                {
+                    "o": "Join us",
+                    "t": "Присоединяйся к нам"
+                },
+                {
+                    "o": "Write less code",
+                    "t": "Меньше кода"
+                },
+                {
+                    "o": ">learn more<",
+                    "t": ">узнать больше<"
+                },
+                {
+                    "o": "Build boilerplate-free components using languages you already know — HTML, CSS and JavaScript",
+                    "t": "Создавайте компоненты без излишних конструкций на языках, которые вы уже знаете — HTML, CSS и JavaScript"
+                },
+                {
+                    "o": "Build boilerplate-free components using languages you already know — HTML, CSS and JavaScript",
+                    "t": "Создавайте компоненты без излишних конструкций на языках, которые вы уже знаете — HTML, CSS и JavaScript"
+                },
+                {
+                    "o": "No virtual DOM",
+                    "t": "Без виртуального DOM"
+                },
+                {
+                    "o": "Svelte compiles your code to tiny, framework-less vanilla JS — your app starts fast and stays fast",
+                    "t": "Svelte компилирует ваш код в оптимальный ванильный JS — приложения запускаются быстро и остаются быстрыми"
+                },
+                {
+                    "o": "Truly reactive",
+                    "t": "Честная реактивность"
+                },
+                {
+                    "o": "No more complex state management libraries — Svelte brings reactivity to JavaScript itself",
+                    "t": "Больше никаких сложных библиотек управления состоянием — Svelte делает реактивным сам JavaScript"
+                },
+                {
+                    "o": "Svelte is a radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the <em>browser</em>, Svelte shifts that work into a <em>compile step</em> that happens when you build your app.",
+                    "t": "Svelte — это принципиально новый подход к созданию пользовательских интерфейсов. Когда традиционные фреймворки, такие как React и Vue, выполняют основную часть своей работы в <em>браузере</em>, Svelte переносит эту работу на <em>этап компиляции</em>, который происходит при сборке приложения."
+                },
+                {
+                    "o": "Instead of using techniques like virtual DOM diffing, Svelte writes code that surgically updates the DOM when the state of your app changes.",
+                    "t": "Вместо использования таких тяжелых приёмов, как сравнение состояний виртуального DOM, Svelte пишет код, который точечно обновляет DOM при изменении состояния вашего приложения."
+                },
+                {
+                    "o": "Read the introductory blog post",
+                    "t": "Прочтите вводную статью в блоге"
+                },
+                {
+                    "o": "to learn more.",
+                    "t": ", чтобы узнать больше."
+                },
+                {
+                    "o": "See the",
+                    "t": "Подробности ищите в статье"
+                },
+                {
+                    "o": "quickstart guide",
+                    "t": "Быстрый Старт "
+                },
+                {
+                    "o": "for more information.",
+                    "t": "."
+                },
+                {
+                    "o": "Learn Svelte",
+                    "t": "Изучить Svelte"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/_layout.svelte",
+            "strings": [
+                {
+                    "o": "<Nav {segment}",
+                    "t": "<Nav home=\"Главная\" home_title=\"Домашняя страница\" {segment}"
+                },
+                {
+                    "o": ">Tutorial<",
+                    "t": ">Учебник<"
+                },
+                {
+                    "o": ">Examples<",
+                    "t": ">Примеры<"
+                },
+                {
+                    "o": ">Blog<",
+                    "t": ">Блог<"
+                },
+                {
+                    "o": "Discord Chat",
+                    "t": "Чат Discord"
+                },
+                {
+                    "o": "https://sapper.svelte.dev",
+                    "t": "https://ru.sapper.svelte.dev"
+                },
+                {
+                    "o": "external=\"chat\"",
+                    "t": "external=\"tg://resolve?domain=sveltejs\""
+                }
+            ]
+        },
+        {
+            "file": "src/routes/tutorial/[slug]/index.svelte",
+            "strings": [
+                {
+                    "o": ">Next<",
+                    "t": ">Далее<"
+                },
+                {
+                    "o": "'Reset' : 'Show me'",
+                    "t": "'Сброс' : 'Покажи мне'"
+                },
+                {
+                    "o": "Edit this chapter",
+                    "t": "Редактировать эту главу"
+                },
+                {
+                    "o": "sveltejs/svelte/tree/master/site/content/tutorial",
+                    "t": "AlexxNB/svelte3-translation-ru/tree/master/repositories/sveltejs/svelte/site/content/tutorial"
+                },
+                {
+                    "o": "'tutorial', 'input', 'output'",
+                    "t": "'урок', 'исходник', 'результат'"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/docs/index.svelte",
+            "strings": [
+                {
+                    "o": "<Docs {sections}/>",
+                    "t": "<Docs owner=\"AlexxNB\" project=\"svelte3-translation-ru\" path=\"/repositories/sveltejs/svelte/site/content\" edit_title=\"редактировать эту главу\" {sections}/>"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/examples/index.svelte",
+            "strings": [
+                {
+                    "o": ">Examples<",
+                    "t": ">Примеры<"
+                },
+                {
+                    "o": "'index', 'input', 'output'",
+                    "t": "'список', 'исходник', 'результат'"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/blog/index.svelte",
+            "strings": [
+                {
+                    "o": "Read the article",
+                    "t": "Читать статью"
+                },
+                {
+                    "o": "Latest post",
+                    "t": "Последний пост"
+                },
+                {
+                    "o": "Older posts",
+                    "t": "Более ранние посты"
+                },
+                {
+                    "o": "https://svelte.dev/blog/rss.xml",
+                    "t": "https://ru.svelte.dev/blog/rss.xml"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/blog/rss.xml.js",
+            "strings": [
+                {
+                    "o": "Svelte blog",
+                    "t": "Блог Svelte"
+                },
+                {
+                    "o": "https://svelte.dev",
+                    "t": "https://ru.svelte.dev"
+                },
+                {
+                    "o": "News and information about the magical disappearing UI framework",
+                    "t": "Новости и информация о кибернетически улучшенных приложениях Svelte"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/faq/index.svelte",
+            "strings": [
+                {
+                    "o": "Frequently Asked Questions",
+                    "t": "Часто задаваемые вопросы"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/repl/[id]/index.svelte",
+            "strings": [
+                {
+                    "o": "Loading...",
+                    "t": "Загрузка..."
+                }
+            ]
+        },
+        {
+            "file": "src/routes/apps/index.svelte",
+            "strings": [
+                {
+                    "o": "Your apps",
+                    "t": "Мои приложения"
+                },
+                {
+                    "o": "<span>updated",
+                    "t": "<span>изменено"
+                },
+                {
+                    "o": "Next page...",
+                    "t": "Следующая страница..."
+                },
+                {
+                    "o": "Please <a on:click|preventDefault={login} href=\"auth/login\">log in</a> to see your saved apps.",
+                    "t": "<a on:click|preventDefault={login} href=\"auth/login\">Войдите</a>, чтобы увидеть свои приложения."
+                },
+                {
+                    "o": "log out",
+                    "t": "Выйти"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/repl/[id]/_components/AppControls/index.svelte",
+            "strings": [
+                {
+                    "o": "It looks like you're offline! Find the internet and try again",
+                    "t": "Похоже у вас нет соединения с интернетом! Покдлючитесь к сети и попробуйте снова."
+                },
+                {
+                    "o": "fullscreen editor",
+                    "t": "на полный экран"
+                },
+                {
+                    "o": "download zip file",
+                    "t": "скачать zip-архив"
+                },
+                {
+                    "o": "title=\"fork\"",
+                    "t": "title=\"сделать форк\""
+                },
+                {
+                    "o": "title=\"save\"",
+                    "t": "title=\"сохранить\""
+                },
+                {
+                    "o": "Log in to save",
+                    "t": "Войти и сохранить"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/repl/[id]/_components/AppControls/UserMenu.svelte",
+            "strings": [
+                {
+                    "o": "Your saved apps",
+                    "t": "Мои приложения"
+                },
+                {
+                    "o": "Log out",
+                    "t": "Выйти"
+                }
+            ]
+        },
+        {
+            "file": "src/routes/_error.svelte",
+            "strings": [
+                {
+                    "o": "Yikes!",
+                    "t": "Бдыщь!"
+                },
+                {
+                    "o": "Please try reloading the page.",
+                    "t": "Попробуйте перезагрузить страницу"
+                },
+                {
+                    "o": "It looks like you're offline",
+                    "t": "Похоже, что нет соединения с сетью"
+                },
+                {
+                    "o": "Reload the page once you've found the internet",
+                    "t": "Перезагрузите страницу, когда у вас появится интернет"
+                },
+                {
+                    "o": "Encountered a {status} error",
+                    "t": "Обнаружена ошибка №{status}"
+                },
+                {
+                    "o": "If the error persists, please drop by <a href=\"chat\">Discord chatroom</a> and let us know, or raise an issue on <a href=\"https://github.com/sveltejs/svelte\">GitHub</a>. Thanks!",
+                    "t": "Если ошибка не исчезнет, сообщите об этом в <a href=\"https://t.me/sveltejs\">Telegram канал русского сообщества</a>. Спасибо!"
+                }
+            ]
+        },
+        {
+            "file": "src/template.html",
+            "strings": [
+                {
+                    "o": "</head>",
+                    "t": "\n<!-- Yandex.Metrika counter -->\n<script type=\"text/javascript\" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\"); ym(53400580, \"init\", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src=\"https://mc.yandex.ru/watch/53400580\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div></noscript>\n <!-- /Yandex.Metrika counter -->\n</head>"
+                },
+                {
+                    "o": "lang='en'",
+                    "t": "lang='ru'"
+                }
+            ]
+        },
+        {
+            "file": "src/components/Repl/InputOutputToggle.svelte",
+            "strings": [
+                {
+                    "o": ">input<",
+                    "t": ">исходник<"
+                },
+                {
+                    "o": ">output<",
+                    "t": ">результат<"
+                }
+            ]
+        }
+    ]
+}
