@@ -6,13 +6,6 @@
 	let items = ['первый', 'второй', 'третий', 'четвертый', 'пятый', 'шестой', 'седьмой', 'восьмой', 'девятый', 'десятый'];
 </script>
 
-<style>
-	div {
-		padding: 0.5em 0;
-		border-top: 1px solid #eee;
-	}
-</style>
-
 <label>
 	<input type="checkbox" bind:checked={showItems}>
 	показать список
@@ -30,3 +23,10 @@
 		</div>
 	{/each}
 {/if}
+
+<style>
+	div {
+		padding: 0.5em 0;
+		border-top: 1px solid #eee;
+	}
+</style>

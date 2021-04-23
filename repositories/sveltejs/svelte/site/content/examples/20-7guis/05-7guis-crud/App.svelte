@@ -50,6 +50,23 @@
 	}
 </script>
 
+<input placeholder="найти" bind:value={prefix}>
+
+<select bind:value={i} size={5}>
+	{#each filteredPeople as person, i}
+		<option value={i}>{person.last}, {person.first}</option>
+	{/each}
+</select>
+
+<label><input bind:value={first} placeholder="имя"></label>
+<label><input bind:value={last} placeholder="фамилия"></label>
+
+<div class='buttons'>
+	<button on:click={create} disabled="{!first || !last}">новый</button>
+	<button on:click={update} disabled="{!first || !last || !selected}">обновить</button>
+	<button on:click={remove} disabled="{!selected}">удалить</button>
+</div>
+
 <style>
 	* {
 		font-family: inherit;
@@ -71,20 +88,3 @@
 		clear: both;
 	}
 </style>
-
-<input placeholder="найти" bind:value={prefix}>
-
-<select bind:value={i} size={5}>
-	{#each filteredPeople as person, i}
-		<option value={i}>{person.last}, {person.first}</option>
-	{/each}
-</select>
-
-<label><input bind:value={first} placeholder="имя"></label>
-<label><input bind:value={last} placeholder="фамилия"></label>
-
-<div class='buttons'>
-	<button on:click={create} disabled="{!first || !last}">новый</button>
-	<button on:click={update} disabled="{!first || !last || !selected}">обновить</button>
-	<button on:click={remove} disabled="{!selected}">удалить</button>
-</div>

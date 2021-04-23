@@ -14,10 +14,6 @@
 	}
 </script>
 
-<style>
-	input { display: block; width: 500px; max-width: 100%; }
-</style>
-
 <h2>Секретные вопросы</h2>
 
 <form on:submit|preventDefault={handleSubmit}>
@@ -37,3 +33,7 @@
 </form>
 
 <p>выбранный вопрос {selected ? selected.id : '[ждём...]'}</p>
+
+<style>
+	input { display: block; width: 500px; max-width: 100%; }
+</style>

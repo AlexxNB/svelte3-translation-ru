@@ -22,6 +22,17 @@
 	}
 </script>
 
+<label>
+	<input type="checkbox" bind:checked={visible}>
+	показать
+</label>
+
+{#if visible}
+	<div class="centered" in:spin="{{duration: 8000}}" out:fade>
+		<span>переходы!</span>
+	</div>
+{/if}
+
 <style>
 	.centered {
 		position: absolute;
@@ -36,14 +47,3 @@
 		font-size: 4em;
 	}
 </style>
-
-<label>
-	<input type="checkbox" bind:checked={visible}>
-	показать
-</label>
-
-{#if visible}
-	<div class="centered" in:spin="{{duration: 8000}}" out:fade>
-		<span>переходы!</span>
-	</div>
-{/if}

@@ -1,3 +1,5 @@
+<button on:click>Нажми на меня</button>
+
 <style>
   button {
     height: 4rem;
@@ -16,5 +18,3 @@
     color: #aaa;
   }
 </style>
-
-<button on:click>Нажми на меня</button>

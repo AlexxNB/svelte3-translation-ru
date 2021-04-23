@@ -1,5 +1,5 @@
+<strong>зелёная штука</strong>
+
 <style>
 	strong { color: green; }
 </style>
-
-<strong>зелёная штука</strong>

@@ -2,6 +2,16 @@
 	import Hoverable from './Hoverable.svelte';
 </script>
 
+<Hoverable>
+	<div class:active={hovering}>
+		{#if hovering}
+			<p>На меня навели.</p>
+		{:else}
+			<p>Наведи на меня!</p>
+		{/if}
+	</div>
+</Hoverable>
+
 <style>
 	div {
 		padding: 1em;
@@ -14,13 +24,3 @@
 		color: white;
 	}
 </style>
-
-<Hoverable>
-	<div class:active={hovering}>
-		{#if hovering}
-			<p>На меня навели.</p>
-		{:else}
-			<p>Наведи на меня!</p>
-		{/if}
-	</div>
-</Hoverable>

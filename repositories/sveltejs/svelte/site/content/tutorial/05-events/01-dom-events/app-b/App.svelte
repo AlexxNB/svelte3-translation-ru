@@ -7,10 +7,10 @@
 	}
 </script>
 
-<style>
-	div { width: 100%; height: 100%; }
-</style>
-
 <div on:mousemove={handleMousemove}>
 	Позиция курсора мыши {m.x} x {m.y}
 </div>
+
+<style>
+	div { width: 100%; height: 100%; }
+</style>

@@ -3,10 +3,10 @@
 	let text = `Что-то написано *курсивом*, а что-то **жирным** шрифтом`;
 </script>
 
-<style>
-	textarea { width: 100%; height: 200px; }
-</style>
-
 <textarea bind:value={text}></textarea>
 
 {@html marked(text)}
+
+<style>
+	textarea { width: 100%; height: 200px; }
+</style>

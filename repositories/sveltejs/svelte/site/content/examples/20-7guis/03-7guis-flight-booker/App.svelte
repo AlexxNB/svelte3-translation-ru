@@ -37,14 +37,6 @@
 	}
 </script>
 
-<style>
-	select, input, button {
-		display: block;
-		margin: 0.5em 0;
-		font-size: inherit;
-	}
-</style>
-
 <!-- https://github.com/eugenkiss/7guis/wiki#flight-booker -->
 <select bind:value={isReturn}>
 	<option value={false}>в один конец</option>
@@ -58,3 +50,11 @@
 	on:click={bookFlight}
 	disabled="{isReturn && (startDate >= endDate)}"
 >заказать</button>
+
+<style>
+	select, input, button {
+		display: block;
+		margin: 0.5em 0;
+		font-size: inherit;
+	}
+</style>

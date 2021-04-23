@@ -8,6 +8,12 @@ title: <svelte:fragment>
 
 ```sv
 <!-- Box.svelte -->
+<div class="box">
+    <slot name="header">Заголовок не задан</slot>
+        <p>Любое содержимое между заголовком и футером</p>
+    <slot name="footer"></slot>
+</div>
+
 <style>
     .box {		
         display: flex;
@@ -15,12 +21,6 @@ title: <svelte:fragment>
         gap: 1em;
     }
 </style>
-
-<div class="box">
-    <slot name="header">Заголовок не задан</slot>
-        <p>Любое содержимое между заголовком и футером</p>
-    <slot name="footer"></slot>
-</div>
 ```
 
 Однако содержимое нижнего колонтитула не разнесено в соответствии с этим правилом, потому что при его переносе в div создается новый поток макета.

@@ -52,6 +52,32 @@
 	}
 </script>
 
+<h1>Caminandes: Llamigos</h1>
+<p>Из <a href="https://cloud.blender.org/open-projects">Blender Open Projects</a>. CC-BY</p>
+
+<div>
+	<video
+		poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
+		src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
+		on:mousemove={handleMousemove}
+		on:mousedown={handleMousedown}
+		bind:currentTime={time}
+		bind:duration
+		bind:paused>
+		<track kind="captions">
+	</video>
+
+	<div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
+		<progress value="{(time / duration) || 0}"/>
+
+		<div class="info">
+			<span class="time">{format(time)}</span>
+			<span>кликните чтобы {paused ? 'запустить' : 'остановить'} / перетащите для перемотки</span>
+			<span class="time">{format(duration)}</span>
+		</div>
+	</div>
+</div>
+
 <style>
 	div {
 		position: relative;
@@ -104,29 +130,3 @@
 		width: 100%;
 	}
 </style>
-
-<h1>Caminandes: Llamigos</h1>
-<p>Из <a href="https://cloud.blender.org/open-projects">Blender Open Projects</a>. CC-BY</p>
-
-<div>
-	<video
-		poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
-		src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
-		on:mousemove={handleMousemove}
-		on:mousedown={handleMousedown}
-		bind:currentTime={time}
-		bind:duration
-		bind:paused>
-		<track kind="captions">
-	</video>
-
-	<div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
-		<progress value="{(time / duration) || 0}"/>
-
-		<div class="info">
-			<span class="time">{format(time)}</span>
-			<span>кликните чтобы {paused ? 'запустить' : 'остановить'} / перетащите для перемотки</span>
-			<span class="time">{format(duration)}</span>
-		</div>
-	</div>
-</div>

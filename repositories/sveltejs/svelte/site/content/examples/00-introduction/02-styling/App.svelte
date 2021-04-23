@@ -1,3 +1,5 @@
+<p>Стилизовано!</p>
+
 <style>
 	p {
 		color: purple;
@@ -5,5 +7,3 @@
 		font-size: 2em;
 	}
 </style>
-
-<p>Стилизовано!</p>

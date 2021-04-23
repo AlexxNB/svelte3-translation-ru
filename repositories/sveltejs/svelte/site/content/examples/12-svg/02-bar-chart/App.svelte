@@ -33,6 +33,42 @@
 	$: barWidth = innerWidth / xTicks.length;
 </script>
 
+<h2>Рождаемость в США по годам</h2>
+
+<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
+	<svg>
+		<!-- ось y -->
+		<g class="axis y-axis" transform="translate(0,{padding.top})">
+			{#each yTicks as tick}
+				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick) - padding.bottom})">
+					<line x2="100%"></line>
+					<text y="-4">{tick} {tick === 20 ? ' на 1,000 населения' : ''}</text>
+				</g>
+			{/each}
+		</g>
+
+		<!-- ось x -->
+		<g class="axis x-axis">
+			{#each points as point, i}
+				<g class="tick" transform="translate({xScale(i)},{height})">
+					<text x="{barWidth/2}" y="-4">{width > 380 ? point.year : formatMobile(point.year)}</text>
+				</g>
+			{/each}
+		</g>
+
+		<g class='bars'>
+			{#each points as point, i}
+				<rect
+					x="{xScale(i) + 2}"
+					y="{yScale(point.birthrate)}"
+					width="{barWidth - 4}"
+					height="{height - padding.bottom - yScale(point.birthrate)}"
+				></rect>
+			{/each}
+		</g>
+	</svg>
+</div>
+
 <style>
 	h2 {
 		text-align: center;
@@ -80,39 +116,3 @@
 		opacity: 0.65;
 	}
 </style>
-
-<h2>Рождаемость в США по годам</h2>
-
-<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
-	<svg>
-		<!-- ось y -->
-		<g class="axis y-axis" transform="translate(0,{padding.top})">
-			{#each yTicks as tick}
-				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick) - padding.bottom})">
-					<line x2="100%"></line>
-					<text y="-4">{tick} {tick === 20 ? ' на 1,000 населения' : ''}</text>
-				</g>
-			{/each}
-		</g>
-
-		<!-- ось x -->
-		<g class="axis x-axis">
-			{#each points as point, i}
-				<g class="tick" transform="translate({xScale(i)},{height})">
-					<text x="{barWidth/2}" y="-4">{width > 380 ? point.year : formatMobile(point.year)}</text>
-				</g>
-			{/each}
-		</g>
-
-		<g class='bars'>
-			{#each points as point, i}
-				<rect
-					x="{xScale(i) + 2}"
-					y="{yScale(point.birthrate)}"
-					width="{barWidth - 4}"
-					height="{height - padding.bottom - yScale(point.birthrate)}"
-				></rect>
-			{/each}
-		</g>
-	</svg>
-</div>

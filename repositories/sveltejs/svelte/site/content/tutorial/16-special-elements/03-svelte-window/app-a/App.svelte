@@ -8,6 +8,17 @@
 	}
 </script>
 
+<svelte:window/>
+
+<div style="text-align: center">
+	{#if key}
+		<kbd>{key === ' ' ? 'Пробел' : key}</kbd>
+		<p>{keyCode}</p>
+	{:else}
+		<p>Кликните сюда и нажмите любую клавишу</p>
+	{/if}
+</div>
+
 <style>
 	div {
 		display: flex;
@@ -29,14 +40,3 @@
 		color: #555;
 	}
 </style>
-
-<svelte:window/>
-
-<div style="text-align: center">
-	{#if key}
-		<kbd>{key === ' ' ? 'Пробел' : key}</kbd>
-		<p>{keyCode}</p>
-	{:else}
-		<p>Кликните сюда и нажмите любую клавишу</p>
-	{/if}
-</div>

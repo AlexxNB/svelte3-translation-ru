@@ -1,3 +1,23 @@
+<article class="contact-card">
+	<h2>
+		<slot name="name">
+			<span class="missing">Имя не указано</span>
+		</slot>
+	</h2>
+
+	<div class="address">
+		<slot name="address">
+			<span class="missing">Адрес не указан</span>
+		</slot>
+	</div>
+
+	<div class="email">
+		<slot name="email">
+			<span class="missing">E-Mail не указан</span>
+		</slot>
+	</div>
+</article>
+
 <style>
 	.contact-card {
 		width: 300px;
@@ -25,23 +45,3 @@
 	.email   { background-image: url(tutorial/icons/email.svg) }
 	.missing { color: #999 }
 </style>
-
-<article class="contact-card">
-	<h2>
-		<slot name="name">
-			<span class="missing">Имя не указано</span>
-		</slot>
-	</h2>
-
-	<div class="address">
-		<slot name="address">
-			<span class="missing">Адрес не указан</span>
-		</slot>
-	</div>
-
-	<div class="email">
-		<slot name="email">
-			<span class="missing">E-Mail не указан</span>
-		</slot>
-	</div>
-</article>
