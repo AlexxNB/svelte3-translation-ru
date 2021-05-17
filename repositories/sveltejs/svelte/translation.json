@@ -137,8 +137,8 @@
                     "t": "Чат Discord"
                 },
                 {
-                    "o": "https://sapper.svelte.dev",
-                    "t": "https://ru.sapper.svelte.dev"
+                    "o": "https://kit.svelte.dev",
+                    "t": "https://ru.kit.svelte.dev"
                 },
                 {
                     "o": "external=\"chat\"",
