@@ -2,7 +2,7 @@
 	import { count } from './stores.js';
 
 	function increment() {
-		// реализация увеличения counnt
+		// реализация увеличения count
 	}
 </script>
 
