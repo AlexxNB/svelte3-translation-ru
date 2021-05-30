@@ -1,24 +1,31 @@
 <script>
 	// `current` обновляется при изменении значения свойства...
-	export let current;
+	const emojis = {
+		apple: '🍎',
+		banana: '🍌',
+		carrot: '🥕',
+		doughnut: '🍩',
+		egg: '🥚',
+	};
 
-	// ...а `initial` фиксируется при инициализации
-	const initial = current;
+	// `name` обновляется при изменении значения свойства...
+	export let name;
+
+	// ...а переменная `emoji` фиксируется при инициализации компонента
+	const emoji = emojis[name];
 </script>
 
 <p>
-	<span style="background-color: {initial}">начальный</span>
-	<span style="background-color: {current}">текущий</span>
+	<span>Смайлик для {name}: {emoji}</span>
 </p>
 
 <style>
+	p {
+		margin: 0.8em 0;
+	}
 	span {
 		display: inline-block;
-		padding: 0.2em 0.5em;
-		margin: 0 0.2em 0.2em 0;
-		width: 4em;
-		text-align: center;
-		border-radius: 0.2em;
-		color: white;
+		padding: 0.2em 1em 0.3em;
+		background-color: #ffdfd3;
 	}
 </style>
