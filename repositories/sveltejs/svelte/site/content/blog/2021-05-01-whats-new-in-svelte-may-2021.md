@@ -5,28 +5,16 @@ author: Daniel Sandoval
 authorURL: https://desandoval.net
 ---
 
-<!-- Last week, Svelte Summit blew us away with a mountain of content! [Check out the full recording](https://www.youtube.com/watch?v=fnr9XWvjJHw) or an audio-only (p)review [on Svelte Radio](https://www.svelteradio.com/episodes/svelte-summit-party-episode). Now let's get into this month's news... -->
-
 На прошлой неделе Svelte Summit поразил нас горой контента! [Просмотрите полную запись](https://www.youtube.com/watch?v=fnr9XWvjJHw) или аудиообзор [на Svelte Radio](https://www.svelteradio.com/episodes/svelte-summit-party-episode). А теперь перейдем к новостям этого месяца...
 
 
 ## Новые возможности компилятора Svelte
-
-<!-- - `:global()` is now supported as part of compound CSS selectors (**3.38.0**, [Example](https://svelte.dev/repl/54148fd2af484f2c84977c94e523c7c5?version=3.38.0))
-- CSS custom properties can now be passed to components for use cases such as theming (**3.38.0**, [Docs coming soon](https://github.com/sveltejs/svelte/issues/6268)) -->
 
 - `:global()` теперь поддерживается как часть составных селекторов CSS (**3.38.0**, [Пример](https://ru.svelte.dev/repl/54148fd2af484f2c84977c94e523c7c5?version=3.38.0))
 - Пользовательские свойства CSS теперь можно передавать компонентам для таких случаев использования, как темизация (**3.38.0**, [Документы скоро появятся](https://github.com/sveltejs/svelte/issues/6268))
 
 
 ## Новое в SvelteKit
-
-<!-- - [kit.svelte.dev](https://kit.svelte.dev/) has a fresh new look and the [SvelteKit Demo Site](https://netlify.demo.svelte.dev/) got a fresh set of paint. Check it out by running `npm init svelte@next`
-- You can now use `@sveltejs/adapter-static` to create a single-page app or SPA by specifying a fallback page ([PR](https://github.com/sveltejs/kit/pull/1181), [Docs](https://github.com/sveltejs/kit/tree/master/packages/adapter-static))
-- Disable Server-side Rendering (SSR) app-wide or on a page-by-page basis ([PR](https://github.com/sveltejs/kit/pull/713), [Docs](https://kit.svelte.dev/docs#ssr-and-javascript-ssr))
-- Error messages thrown during pre-rendering are now much more informative and readable ([PR](https://github.com/sveltejs/kit/pull/1062), [Docs](https://kit.svelte.dev/docs#layouts-error-pages))
-- Layouts can now be reset to prevent pages from inheriting the root layout. This is useful if you have a specific layout for a page or i18n variation ([PR](https://github.com/sveltejs/kit/pull/1061), [Docs](https://kit.svelte.dev/docs#layouts-resets))
-- `fetch` in SvelteKit code will now use the environment-provided implementation, whenever possible. If `fetch` is unavailable, it will be polyfilled by adapters ([PR](https://github.com/sveltejs/kit/pull/1066), [Docs](https://kit.svelte.dev/docs#loading-input-fetch)) -->
 
 - [kit.svelte.dev](https://ru.kit.svelte.dev/) выглядит по-новому, а [Демо-сайт SvelteKit](https://netlify.demo.svelte.dev/) получил свежий набор иллюстраций и красок. Проверьте это, запустив `npm init svelte@next`
 - Теперь вы можете использовать `@sveltejs/adapter-static` для создания одностраничного приложения или SPA, указав резервную страницу ([PR](https://github.com/sveltejs/kit/pull/1181), [Документы](https://github.com/sveltejs/kit/tree/master/packages/adapter-static))
@@ -37,10 +25,6 @@ authorURL: https://desandoval.net
 
 
 ## Новое в Svelte & Language Tools
-
-<!-- - `svelte-preprocess` now supports the "extends" field of the tsconfig.json (4.7.2)
-- HTML `style` attributes now have hover & auto-complete. Foreign namespaces and ESM configs are now supported in the Svelte language server & extensions
-- The Svelte language tools can now infer slot/event types from their props if a generic relationship between them was defined -->
 
 - `svelte-preprocess` теперь поддерживает поле "extends" файла tsconfig.json (4.7.2)
 - Атрибуты HTML `style` теперь имеют ховер и автозаполнение. Внешние пространства имен и конфигурации ESM теперь поддерживаются в языковом сервере и расширениях Svelte.
