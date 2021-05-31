@@ -1,6 +1,6 @@
 ---
 title: Что нового в Svelte: Июнь 2021
-description: Прогресс в направлении SvelteKit 1.0 и более тесной интеграции TypeScript / Svelte в языковые инструменты
+description: Прогресс в направлении SvelteKit 1.0 и более тесной интеграции TypeScript/Svelte в языковые инструменты
 author: Daniel Sandoval
 authorURL: https://desandoval.net
 ---
