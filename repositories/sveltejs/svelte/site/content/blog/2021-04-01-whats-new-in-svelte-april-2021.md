@@ -1,5 +1,5 @@
 ---
-title: Что нового в Svelte: Апрель 2021
+title: "Что нового в Svelte: Апрель 2021"
 description: SvelteKit beta и новый путь использовать слоты
 author: Daniel Sandoval
 authorURL: https://desandoval.net

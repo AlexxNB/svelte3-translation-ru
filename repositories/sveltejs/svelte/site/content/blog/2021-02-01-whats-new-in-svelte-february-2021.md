@@ -1,5 +1,5 @@
 ---
-title: Что нового в Svelte: Февраль 2021
+title: "Что нового в Svelte: Февраль 2021"
 description: Молниеносные интеграции и улучшения ...
 author: Daniel Sandoval
 authorURL: https://desandoval.net

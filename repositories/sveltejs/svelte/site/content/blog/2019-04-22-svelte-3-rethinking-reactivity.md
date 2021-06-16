@@ -1,5 +1,5 @@
 ---
-title: Svelte 3: Переосмысление реактивности
+title: "Svelte 3: Переосмысление реактивности"
 description: Наконец-то он здесь
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris

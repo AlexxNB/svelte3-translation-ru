@@ -1,5 +1,5 @@
 ---
-title: Sapper: На пути к идеальному фреймворку Web-приложений
+title: "Sapper: На пути к идеальному фреймворку Web-приложений"
 description: Делаем шаг в будущее, а затем еще один
 author: Rich Harris
 authorURL: https://twitter.com/Rich_Harris

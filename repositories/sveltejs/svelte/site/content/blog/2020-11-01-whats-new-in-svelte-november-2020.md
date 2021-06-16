@@ -1,5 +1,5 @@
 ---
-title: Что нового в Svelte: Ноябрь 2020
+title: "Что нового в Svelte: Ноябрь 2020"
 description: Исправления переадресации слотов, SvelteKit для более быстрой локальной разработки и многое другое со Svelte Summit France
 author: Daniel Sandoval
 authorURL: https://desandoval.net

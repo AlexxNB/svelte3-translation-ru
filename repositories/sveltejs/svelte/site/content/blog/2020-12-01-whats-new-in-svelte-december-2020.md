@@ -1,5 +1,5 @@
 ---
-title: Что нового в Svelte: Декабрь 2020
+title: "Что нового в Svelte: Декабрь 2020"
 description: Улучшенный инструментарий, экспорт карт и улучшения слотов и контекста
 author: Daniel Sandoval
 authorURL: https://desandoval.net

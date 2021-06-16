@@ -1,5 +1,5 @@
 ---
-title: Что нового в Svelte: Март 2021
+title: "Что нового в Svelte: Март 2021"
 description: Приглашаем спикеров Svelte Summit! Улучшенный SSR, цели компиляции, отличные от HTML5, и поддержка ESLint TypeScript.
 author: Daniel Sandoval
 authorURL: https://desandoval.net

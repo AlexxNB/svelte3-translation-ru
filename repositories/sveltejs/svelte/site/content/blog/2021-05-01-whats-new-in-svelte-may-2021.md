@@ -1,5 +1,5 @@
 ---
-title: Что нового в Svelte: Май 2021
+title: "Что нового в Svelte: Май 2021"
 description: Работаем над SvelteKit 1.0 и клёвыми примерами сайтов на нём!
 author: Daniel Sandoval
 authorURL: https://desandoval.net

@@ -1,5 +1,5 @@
 ---
-title: Что нового в Svelte: Октябрь 2020
+title: "Что нового в Svelte: Октябрь 2020"
 description: Новые методы объектов, ресурсы для углубленного изучения и множество примеров интеграции!
 author: Daniel Sandoval
 authorURL: https://desandoval.net
