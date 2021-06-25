@@ -222,15 +222,23 @@ result: {
 
 Функция `markup` получает весь исходный текст компонента вместе с именем файла (`filename`) компонента, если он был указан в третьем аргументе.
 
-> Функции препроцессоров также могут дополнительно возвращать объект `map` вместе с `code` и `dependencies`, где` map` — это карта исходников для отладки преобразованного кода. В текущих версиях Svelte этот объект игнорируется, но в будущих версиях Svelte сможет обрабатывать карты исходников от препроцессоров.
+> Функции препроцессора должны дополнительно возвращать объект `map` вместе с `code` и `dependencies`, где `map` - это карта исходников для отладки преобразованного кода.
 
 ```js
 const svelte = require('svelte/compiler');
+const MagicString = require('magic-string');
 
 const { code } = await svelte.preprocess(source, {
 	markup: ({ content, filename }) => {
+		const pos = content.indexOf('foo');
+ 		if(pos < 0) {
+ 			return { code: content }
+ 		}
+ 		const s = new MagicString(content, { filename })
+ 		s.overwrite(pos, pos + 3, 'bar', { storeName: true })
 		return {
-			code: content.replace(/foo/g, 'bar')
+			code: s.toString(),
+ 			map: s.generateMap()
 		};
 	}
 }, {
