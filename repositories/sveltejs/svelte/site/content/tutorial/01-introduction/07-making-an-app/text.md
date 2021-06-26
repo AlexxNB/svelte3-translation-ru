@@ -4,8 +4,9 @@ title: Создание приложения
 
 Этот учебник разработан, чтобы познакомить вас с процессом написания компонентов. Но в какой-то момент вы захотите начать писать компоненты уже в своём любимом редакторе кода.
 
-Во-первых, понадобится интегрировать Svelte в инструменты сборки. Официально поддерживаются плагины для [Rollup](https://rollupjs.org) и [webpack](https://webpack.js.org/)...
+Во-первых, понадобится интегрировать Svelte в инструменты сборки. Официально поддерживаются плагины для [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org) и [webpack](https://webpack.js.org/)...
 
+* [vite-plugin-svelte](https://github.com/sveltejs/vite-plugin-svelte)
 * [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte)
 * [svelte-loader](https://github.com/sveltejs/svelte-loader)
 
