@@ -11,34 +11,34 @@
 <h2>Размер</h2>
 
 <label>
-	<input type=radio group={scoops} value={1}>
+	<input type="radio" group={scoops} name="scoops" value={1} />
 	Один шарик
 </label>
 
 <label>
-	<input type=radio group={scoops} value={2}>
+	<input type="radio" group={scoops} name="scoops" value={2} />
 	Два шарика
 </label>
 
 <label>
-	<input type=radio group={scoops} value={3}>
+	<input type="radio" group={scoops} name="scoops" value={3} />
 	Три шарика
 </label>
 
 <h2>Вкусы</h2>
 
 <label>
-	<input type=checkbox group={flavours} value="Печенье со сливками">
+	<input type="checkbox" group={flavours} name="flavours" value="Печенье со сливками" />
 	Печенье со сливками
 </label>
 
 <label>
-	<input type=checkbox group={flavours} value="Шоколадная крошка с мятой">
+	<input type="checkbox" group={flavours} name="flavours" value="Шоколадная крошка с мятой" />
 	Шоколадная крошка с мятой
 </label>
 
 <label>
-	<input type=checkbox group={flavours} value="Малиновый джем">
+	<input type="checkbox" group={flavours} name="flavours" value="Малиновый джем" />
 	Малиновый джем
 </label>
 
@@ -48,7 +48,8 @@
 	<p>Нельзя выбрать вкусов больше, чем шариков!</p>
 {:else}
 	<p>
-		Вы заказали {scoops} {scoops === 1 ? 'шарик' : 'шарика'}:
+		Вы заказали {scoops}
+		{scoops === 1 ? 'шарик' : 'шарика'}:
 		{join(flavours)}
 	</p>
 {/if}

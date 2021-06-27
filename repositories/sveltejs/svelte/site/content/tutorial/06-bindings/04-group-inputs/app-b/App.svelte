@@ -2,11 +2,7 @@
 	let scoops = 1;
 	let flavours = ['Шоколадная крошка с мятой'];
 
-	let menu = [
-		'Печенье со сливками',
-		'Шоколадная крошка с мятой',
-		'Малиновый джем'
-	];
+	let menu = ['Печенье со сливками', 'Шоколадная крошка с мятой', 'Малиновый джем'];
 
 	function join(flavours) {
 		if (flavours.length === 1) return flavours[0];
@@ -17,17 +13,17 @@
 <h2>Размер</h2>
 
 <label>
-	<input type=radio bind:group={scoops} value={1}>
+	<input type="radio" bind:group={scoops} name="scoops" value={1} />
 	Один шарик
 </label>
 
 <label>
-	<input type=radio bind:group={scoops} value={2}>
+	<input type="radio" bind:group={scoops} name="scoops" value={2} />
 	Два шарика
 </label>
 
 <label>
-	<input type=radio bind:group={scoops} value={3}>
+	<input type="radio" bind:group={scoops} name="scoops" value={3} />
 	Три шарика
 </label>
 
@@ -35,7 +31,7 @@
 
 {#each menu as flavour}
 	<label>
-		<input type=checkbox bind:group={flavours} value={flavour}>
+		<input type="checkbox" bind:group={flavours} name="flavours" value={flavour} />
 		{flavour}
 	</label>
 {/each}
@@ -46,7 +42,8 @@
 	<p>Нельзя выбрать вкусов больше, чем шариков!</p>
 {:else}
 	<p>
-		Вы заказали {scoops} {scoops === 1 ? 'шарик' : 'шарика'}:
+		Вы заказали {scoops}
+		{scoops === 1 ? 'шарик' : 'шарика'}:
 		{join(flavours)}
 	</p>
 {/if}

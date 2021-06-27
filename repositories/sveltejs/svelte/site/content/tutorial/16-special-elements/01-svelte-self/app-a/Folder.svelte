@@ -16,10 +16,10 @@
 	<ul>
 		{#each files as file}
 			<li>
-				{#if file.type === 'folder'}
+				{#if file.files}
 					<!-- показать папку -->
 				{:else}
-					<File {...file}/>
+					<File {...file} />
 				{/if}
 			</li>
 		{/each}

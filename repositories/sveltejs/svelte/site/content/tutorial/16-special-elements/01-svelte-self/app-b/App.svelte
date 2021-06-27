@@ -5,9 +5,7 @@
 		{
 			type: 'folder',
 			name: 'Важные документы по работе',
-			files: [
-				{ type: 'file', name: 'quarterly-results.xlsx' }
-			]
+			files: [{ name: 'quarterly-results.xlsx' }],
 		},
 		{
 			type: 'folder',
@@ -16,26 +14,20 @@
 				{
 					type: 'folder',
 					name: 'Собаки',
-					files: [
-						{ type: 'file', name: 'treadmill.gif' },
-						{ type: 'file', name: 'rope-jumping.gif' }
-					]
+					files: [{ name: 'treadmill.gif' }, { name: 'rope-jumping.gif' }],
 				},
 				{
 					type: 'folder',
 					name: 'Козлики',
-					files: [
-						{ type: 'file', name: 'parkour.gif' },
-						{ type: 'file', name: 'rampage.gif' }
-					]
+					files: [{ name: 'parkour.gif' }, { name: 'rampage.gif' }],
 				},
-				{ type: 'file', name: 'cat-roomba.gif' },
-				{ type: 'file', name: 'duck-shuffle.gif' },
-				{ type: 'file', name: 'monkey-on-a-pig.gif' }
-			]
+				{ name: 'cat-roomba.gif' },
+				{ name: 'duck-shuffle.gif' },
+				{ name: 'monkey-on-a-pig.gif' },
+			],
 		},
-		{ type: 'file', name: 'TODO.md' }
+		{ name: 'TODO.md' },
 	];
 </script>
 
-<Folder name="Домашняя папка" files={root} expanded/>
+<Folder name="Домашняя папка" files={root} expanded />
