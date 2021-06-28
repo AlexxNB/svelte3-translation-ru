@@ -1,9 +1,18 @@
 <script>
-	import { onDestroy } from 'svelte';
+    import Timer from './Timer.svelte';
 
-	let seconds = 0;
+    let open = false;
+    let seconds = 0;
 </script>
 
-<p>
-	Страница открылась {seconds} сек. назад
-</p>
+<div>
+    <button on:click={toggle}>{open ? 'Close' : 'Open'} Timer</button>
+    <p>
+        The Timer component has been open for
+        {seconds}
+        {seconds === 1 ? 'second' : 'seconds'}
+    </p>
+    {#if open}
+        <Timer callback={handleTick} />
+    {/if}
+</div>

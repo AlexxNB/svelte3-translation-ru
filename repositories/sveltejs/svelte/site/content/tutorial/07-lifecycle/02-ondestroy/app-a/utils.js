@@ -1,5 +1,9 @@
 import { onDestroy } from 'svelte';
 
 export function onInterval(callback, milliseconds) {
-	// опишите здесь логику таймера 
+    const interval = setInterval(callback, milliseconds);
+
+    onDestroy(() => {
+        // Исправьте утечку памяти здесь
+    });
 }
