@@ -38,27 +38,6 @@ const result = svelte.compile(source, {
 
 Компилятору можно передать следующие параметры. Все они являются необязательными:
 
-<!-- | option | type | default
-| --- | --- | --- |
-| `filename` | string | `null`
-| `name` | string | `"Component"`
-| `format` | `"esm"` or `"cjs"` | `"esm"`
-| `generate` | `"dom"` or `"ssr"` | `"dom"`
-| `dev` | boolean | `false`
-| `immutable` | boolean | `false`
-| `hydratable` | boolean | `false`
-| `legacy` | boolean | `false`
-| `customElement` | boolean | `false`
-| `tag` | string | null
-| `accessors` | boolean | `false`
-| `css` | boolean | `true`
-| `loopGuardTimeout` | number | 0
-| `preserveComments` | boolean | `false`
-| `preserveWhitespace` | boolean | `false`
-| `outputFilename` | string | `null`
-| `cssOutputFilename` | string | `null`
-| `sveltePath` | string | `"svelte"` -->
-
 | параметр | по умолчанию | описание |
 | --- | --- | --- |
 | `filename` | `null` | `string` имя файла для подсказок при отладке и карт исходников. Плагин назначит имя автоматически.
@@ -118,44 +97,6 @@ const {
 	* `referenced_from_script` равно `true` если значение используется в `<script>` вне контекста объявления
 	* `writable` — равно `true`, если значение объявлено с помощью `let` или `var` (но не `const`, `class` или `function`)
 * `stats` — объект, используемый командой разработчиков Svelte для диагностики компилятора. Не полагайтесь на него в своём коде!
-
-
-<!--
-
-```js
-compiled: {
-	// `map` is a v3 sourcemap with toString()/toUrl() methods
-	js: { code: string, map: {...} },
-	css: { code: string, map: {...} },
-	ast: {...}, // ESTree-like syntax tree for the component, including HTML, CSS and JS
-	warnings: Array<{
-		code: string,
-		message: string,
-		filename: string,
-		pos: number,
-		start: { line: number, column: number },
-		end: { line: number, column: number },
-		frame: string,
-		toString: () => string
-	}>,
-	vars: Array<{
-		name: string,
-		export_name: string,
-		injected: boolean,
-		module: boolean,
-		mutated: boolean,
-		reassigned: boolean,
-		referenced: boolean,
-		writable: boolean
-	}>,
-	stats: {
-		timings: { [label]: number }
-	}
-} = svelte.compile(source: string, options?: {...})
-```
-
--->
-
 
 ### `svelte.parse`
 
