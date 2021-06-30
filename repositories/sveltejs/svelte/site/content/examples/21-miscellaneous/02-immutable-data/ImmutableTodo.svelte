@@ -1,11 +1,10 @@
-<svelte:options immutable/>
+<svelte:options immutable />
 
 <script>
 	import { afterUpdate } from 'svelte';
 	import flash from './flash.js';
 
 	export let todo;
-	export let toggle;
 
 	let div;
 
@@ -17,7 +16,8 @@
 <!-- текст будет мигать красным, когда
 	 изменится объект `todo` -->
 <div bind:this={div} on:click>
-	{todo.done ? '👍': ''} {todo.text}
+	{todo.done ? '👍' : ''}
+	{todo.text}
 </div>
 
 <style>
