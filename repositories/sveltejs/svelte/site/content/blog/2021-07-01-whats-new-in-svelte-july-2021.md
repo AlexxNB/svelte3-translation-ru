@@ -1,6 +1,6 @@
 ---
 title: Что нового в Svelte: Июль 2021
-description: Сохраняя прохлажу с исправлениями, инструментами TypeScript и тоннами новых функций
+description: Сохраняя прохладу с исправлениями, инструментами TypeScript и тоннами новых функций
 author: Daniel Sandoval
 authorURL: https://desandoval.net
 ---
