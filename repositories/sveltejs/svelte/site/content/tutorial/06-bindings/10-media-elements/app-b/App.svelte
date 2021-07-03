@@ -7,38 +7,36 @@
 	let showControls = true;
 	let showControlsTimeout;
 
-	function handleMousemove(e) {
+	// Используется для отслеживания времени последнего события mouse down
+	let lastMouseDown;
+
+	function handleMove(e) {
 		// Делает интерфейс видимым, и скрывает его
 		// через 2.5 секунды бездействия
 		clearTimeout(showControlsTimeout);
-		showControlsTimeout = setTimeout(() => showControls = false, 2500);
+		showControlsTimeout = setTimeout(() => (showControls = false), 2500);
 		showControls = true;
 
-		if (!(e.buttons & 1)) return; // кнопка мыши не нажата
 		if (!duration) return; // видео еще не загрузилось
+		if (e.type !== 'touchmove' && !(e.buttons & 1)) return; // кнопка мыши не нажата
 
+		const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
 		const { left, right } = this.getBoundingClientRect();
-		time = duration * (e.clientX - left) / (right - left);
+		time = (duration * (clientX - left)) / (right - left);
 	}
 
+	// мы не можем полагаться на встроенное событие click,
+	// потому что оно срабатывает уже после перетаскивания;
+	// придется самостоятельно отслеживать клики
 	function handleMousedown(e) {
-		// мы не можем полагаться на встроенное событие click, 
-		// потому что оно срабатывает уже после перетаскивания;
-		// придется самостоятельно отслеживать клики
+		lastMouseDown = new Date();
+	}
 
-		function handleMouseup() {
+	function handleMouseup(e) {
+		if (new Date() - lastMouseDown < 300) {
 			if (paused) e.target.play();
 			else e.target.pause();
-			cancel();
 		}
-
-		function cancel() {
-			e.target.removeEventListener('mouseup', handleMouseup);
-		}
-
-		e.target.addEventListener('mouseup', handleMouseup);
-
-		setTimeout(cancel, 200);
 	}
 
 	function format(seconds) {
@@ -59,16 +57,19 @@
 	<video
 		poster="https://sveltejs.github.io/assets/caminandes-llamigos.jpg"
 		src="https://sveltejs.github.io/assets/caminandes-llamigos.mp4"
-		on:mousemove={handleMousemove}
+		on:mousemove={handleMove}
+		on:touchmove|preventDefault={handleMove}
 		on:mousedown={handleMousedown}
+		on:mouseup={handleMouseup}
 		bind:currentTime={time}
 		bind:duration
-		bind:paused>
-		<track kind="captions">
+		bind:paused
+	>
+		<track kind="captions" />
 	</video>
 
 	<div class="controls" style="opacity: {duration && showControls ? 1 : 0}">
-		<progress value="{(time / duration) || 0}"/>
+		<progress value={time / duration || 0} />
 
 		<div class="info">
 			<span class="time">{format(time)}</span>
@@ -108,7 +109,9 @@
 		width: 3em;
 	}
 
-	.time:last-child { text-align: right }
+	.time:last-child {
+		text-align: right;
+	}
 
 	progress {
 		display: block;
@@ -119,11 +122,11 @@
 	}
 
 	progress::-webkit-progress-bar {
-		background-color: rgba(0,0,0,0.2);
+		background-color: rgba(0, 0, 0, 0.2);
 	}
 
 	progress::-webkit-progress-value {
-		background-color: rgba(255,255,255,0.6);
+		background-color: rgba(255, 255, 255, 0.6);
 	}
 
 	video {

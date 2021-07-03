@@ -12,6 +12,8 @@ const unsubscribe = count.subscribe((value) => {
 });
 ```
 
+> Вызов метода `subscribe` возвращает функцию `unsubscribe`.
+
 Теперь вы объявили `unsubscribe`, но его все еще нужно вызвать, например, через [функцию жизненного цикла](tutorial/ondestroy) `onDestroy`:
 
 ```html
