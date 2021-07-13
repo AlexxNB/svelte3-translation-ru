@@ -38,9 +38,9 @@
 <div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
 	<svg>
 		<!-- ось y -->
-		<g class="axis y-axis" transform="translate(0,{padding.top})">
+		<g class="axis y-axis">
 			{#each yTicks as tick}
-				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick) - padding.bottom})">
+				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick)})">
 					<line x2="100%"></line>
 					<text y="-4">{tick} {tick === 20 ? ' на 1,000 населения' : ''}</text>
 				</g>
@@ -62,7 +62,7 @@
 					x="{xScale(i) + 2}"
 					y="{yScale(point.birthrate)}"
 					width="{barWidth - 4}"
-					height="{height - padding.bottom - yScale(point.birthrate)}"
+					height="{yScale(0) - yScale(point.birthrate)}"
 				></rect>
 			{/each}
 		</g>
