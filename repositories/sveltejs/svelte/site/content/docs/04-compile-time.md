@@ -38,12 +38,36 @@ const result = svelte.compile(source, {
 
 Компилятору можно передать следующие параметры. Все они являются необязательными:
 
+<!-- | option | type | default
+| --- | --- | --- |
+| `filename` | string | `null`
+| `name` | string | `"Component"`
+| `format` | `"esm"` or `"cjs"` | `"esm"`
+| `generate` | `"dom"` or `"ssr"` or `false` | `"dom"`
+| `errorMode` | `"throw"` or `"warn"` | `"throw"`
+| `varsReport` | `"strict"` or `"full"` or `false` | `"strict"`
+| `dev` | boolean | `false`
+| `immutable` | boolean | `false`
+| `hydratable` | boolean | `false`
+| `legacy` | boolean | `false`
+| `customElement` | boolean | `false`
+| `tag` | string | null
+| `accessors` | boolean | `false`
+| `css` | boolean | `true`
+| `loopGuardTimeout` | number | 0
+| `preserveComments` | boolean | `false`
+| `preserveWhitespace` | boolean | `false`
+| `outputFilename` | string | `null`
+| `cssOutputFilename` | string | `null`
+| `sveltePath` | string | `"svelte"` -->
+
 | параметр | по умолчанию | описание |
 | --- | --- | --- |
 | `filename` | `null` | `string` имя файла для подсказок при отладке и карт исходников. Плагин назначит имя автоматически.
 | `name` | `"Component"` | `string`  имя JavaScript класса на выходе (если в области видимости будет конфликт имён, компилятор переименует класс). Обычно имя берётся из параметра `filename`.
 | `format` | `"esm"` | Значение `"esm"`, создаёт JavaScript модуль  (с `import` и `export`). Значение `"cjs "`, создаёт CommonJS модуль (с `require` и `module.exports`), который обычно полезен при рендеринге на стороне сервера или тестировании.
 | `generate` | `"dom"` | При значении `"dom"`, Svelte создаёт JavaScript класс для встраивания в DOM. При значении `"ssr"`, Svelte создаёт объект с методом `render`, подходящим для рендеринга на стороне сервера. Если указать `false`, JavaScript или CSS возвращаться не будут, только метаданные.
+| `errorMode` | `"throw"` | При значении `"throw"`, Svelte сбросит, когда произошла ошибка компиляции. Если `"warn"`, Svelte будет рассматривать ошибки как предупреждения и добавлять их в предупреждающий отчет.
 | `varsReport` | `"strict"` | Если `"strict"` Svelte возвращает отчет о переменных, которые не являются глобальными и внутренними. Если `"full"` Svelte возвращает отчет обо всех обнаруженных переменных. Если `false`, отчет о переменных не возвращается.
 | `dev` | `false` | При значении `true`, в компоненты будет встраиваться дополнительный код, который будет выполнять различные проверки и предоставлять отладочную информацию во время разработки.
 | `immutable` | `false` | Значение `true`, говорит компилятору, что вы обязуетесь не изменять структуру каких-либо объектов. Это позволяет отслеживать изменения значений более оптимальным путём.
