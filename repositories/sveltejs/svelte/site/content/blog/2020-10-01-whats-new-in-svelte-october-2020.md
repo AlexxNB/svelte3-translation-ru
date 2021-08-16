@@ -57,18 +57,18 @@ authorURL: https://desandoval.net
 - [Who are my representatives?](https://whoaremyrepresentatives.us/) веб-сайт, созданный с помощью Svelte, чтобы помочь жителям США получить больше информации о своих представителях в Конгрессе
 - [Pick Palette](https://github.com/bluwy/pick-palette) крутой менеджер цветовой палитры, созданный с помощью Svelte!
 
-#### Обучение:
+### Обучение:
 - [Svelte 3 Up and Running](https://www.amazon.com/dp/B08D6T6BKS/ref=cm_sw_r_tw_dp_x_OQMtFb3GPQCB2) новая книга о создании готовых к работе статических веб-приложений с помощью Svelte 3
 - [Sapper Tutorial (Crash Course)](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gdr4Qhx83gBBcID-KMe-PQ) подробно рассказывает о Sapper, фреймворке для приложений на базе Svelte.
 - [Svelte Society Day France](https://france.sveltesociety.dev/) 27 сентября мы обсудили самые разные темы на французском языке! Вы можете найти полную запись [здесь](https://www.youtube.com/watch?v=aS1TQ155JK4).
 
-#### Переиспользуемые компоненты:
+### Переиспользуемые компоненты:
 - [svelte-zoom](https://github.com/vaheqelyan/svelte-zoom) обеспечивает "почти родное" панорамирование и масштабирование изображений на компьютерах и мобильных устройствах.
 - [svelte-materialify](https://github.com/TheComputerM/svelte-materialify) библиотека Material компонентов для Svelte с более чем 50 компонентами
 - [svelte-undoable](https://github.com/macfja/svelte-undoable) упрощает операции отмены и повтора с помощью `bind:`
 - [This Tilt component](https://svelte.dev/repl/7b23ad9d2693424482cd411b0378b55b?version=3.24.1) при наведлении мыши элемент наклоняется в перспективе следуя за мышью
 
-#### В этом месяце появилось множество примеров использования технологии JS:
+### В этом месяце появилось множество примеров использования технологии JS:
   - [Sapper with PostCSS and Tailwind](https://codechips.me/sapper-with-postcss-and-tailwind/)
   - [PrismJS (Code block syntax highlighting)](https://github.com/phptuts/Svelte-PrismJS)
   - [Filepond (Drag-and-drop file upload)](https://github.com/pqina/svelte-filepond)
