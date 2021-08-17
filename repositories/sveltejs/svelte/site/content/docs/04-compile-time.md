@@ -6,7 +6,7 @@ title: Компиляция
 
 * [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte) для пользователей [Rollup](https://rollupjs.org)
 * [svelte-loader](https://github.com/sveltejs/svelte-loader) для пользователей [webpack](https://webpack.js.org)
-* или из [поддерживаемых сообществом](https://github.com/sveltejs/integrations#bundler-plugins)
+* или из [поддерживаемых сообществом](https://sveltesociety.dev/tooling)
 
 Тем не менее, полезно знать, как пользоваться компилятором, так как эти плагины обычно предоставляют возможность настройки его параметров.
 

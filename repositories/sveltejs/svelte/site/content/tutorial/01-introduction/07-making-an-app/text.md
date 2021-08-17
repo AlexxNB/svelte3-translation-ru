@@ -10,7 +10,7 @@ title: Создание приложения
 * [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte)
 * [svelte-loader](https://github.com/sveltejs/svelte-loader)
 
-...а также есть несколько плагинов, [разрабатываемых сообществом](https://github.com/sveltejs/integrations#bundler-plugins).
+...а также есть несколько плагинов, [разрабатываемых сообществом](https://sveltesociety.dev/tooling).
 
 Не беспокойтесь, если вы  новичок в веб-разработке и ранее не пользовались подобными инструментами. Мы подготовили простое пошаговое руководство [Svelte для зелёных разработчиков](blog/svelte-for-new-developers), которое проведёт вас через этот процесс.
 

@@ -64,7 +64,7 @@ authorURL: https://desandoval.net
 - [Adds Supabase to Svelte](https://github.com/joshnuss/svelte-supabase) — экспериментальная команда для добавления Supabase в ваш проект SvelteKit
 - [svelte-babylon](https://github.com/SectorXUSA/svelte-babylon) — позволяет использовать BabylonJS как A-Frame через реактивные компоненты Svelte
 
-**Ищете конкретный стартер?** Посмотрите [svelte-adders](https://github.com/svelte-add/svelte-adders) и ряд других примеров интеграции на [sveltejs/integrations](https://github.com/sveltejs/integrations)
+**Ищете конкретный стартер?** Посмотрите [svelte-adders](https://github.com/svelte-add/svelte-adders) и ряд других примеров шаблонов на сайте сообщества [sveltesociety.dev](https://sveltesociety.dev/templates/)
 
 
 **Learning Resources**

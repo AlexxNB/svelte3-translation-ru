@@ -70,7 +70,7 @@ authorURL: https://desandoval.net
 - [Kahi UI](https://github.com/novacbn/kahi-ui) UIkit SVELTE-First со встроенным темным режимом.
 - [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n) самоуверенная, полностью безопасная, легкая библиотека локализации для проектов Typescript и JavaScript без внешних зависимостей.
 
-Проверьте [sveltejs/integrations](https://github.com/sveltejs/integrations) для получения дополнительных шаблонов, дополнений и адаптеров со всей экосистемы Svelte.
+Проверьте сайт сообщества [sveltesociety.dev](https://sveltesociety.dev/templates/) для получения дополнительных шаблонов, дополнений и адаптеров со всей экосистемы Svelte.
 
 
 ## Увидимся в следующем месяце!
