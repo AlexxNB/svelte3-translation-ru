@@ -1,7 +1,7 @@
 <script>
 	let visible = false;
 
-	function typewriter(node, { speed = 50 }) {
+	function typewriter(node, { speed = 1 }) {
 		const valid = (
 			node.childNodes.length === 1 &&
 			node.childNodes[0].nodeType === Node.TEXT_NODE
@@ -13,7 +13,7 @@
 		}
 
 		const text = node.textContent;
-		const duration = text.length * speed;
+		const duration = text.length / (speed * 0.01);
 
 		return {
 			duration,
@@ -31,7 +31,7 @@
 </label>
 
 {#if visible}
-	<p in:typewriter>
+	<p in:typewriter out:typewriter>
 		Съешь же ещё этих мягких французских булок, да выпей чаю
 	</p>
 {/if}
