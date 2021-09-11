@@ -648,6 +648,19 @@ bind:свойство={переменная}
 ```sv
 <div contenteditable="true" bind:innerHTML={html}></div>
 ```
+---
+
+Элемент `<details>` поддерживает биндинг к атрибуту `open`.
+
+```sv
+<details bind:open={isOpen}>
+	<summary>Details</summary>
+	<p>
+		Что-то достаточно маленькое, чтобы избежать случайного уведомления.
+	</p>
+</details>
+```
+
 
 ##### Привязка к медиа-элементам
 
