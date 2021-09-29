@@ -81,6 +81,8 @@ const build = (target) => {
     
     sh.cd(dir);
     sh.exec(target.build);
+    if(!target.static) sh.exec(`sed -i "s/require/import/" __sapper__/build/index.js`);
+
 }
 
 const start = (target) => {
