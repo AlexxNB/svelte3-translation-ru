@@ -29,16 +29,6 @@ authorURL: https://desandoval.net
 
 Заметные улучшения SvelteKit в этом месяце включают...
 
-- Service workers are now allowed to access files using the `$lib` alias ([#2326](https://github.com/sveltejs/kit/pull/2326))
-- Svelte libraries should now work out-of-the-box without any Vite configuration ([#2343](https://github.com/sveltejs/kit/pull/2343))
-- Improvements to package exports field ([#2345](https://github.com/sveltejs/kit/pull/2345) and [#2327](https://github.com/sveltejs/kit/pull/2327))
-- [breaking] The `prerender.pages` config option has been renamed to `prerender.entries` ([#2380](https://github.com/sveltejs/kit/pull/2380))
-- A new generic argument has beend added to allow typing Body from hooks ([#2413](https://github.com/sveltejs/kit/pull/2413))
-- The `svelte` field will be added to package.json when running the package command ([#2431](https://github.com/sveltejs/kit/pull/2431))
-- [breaking] The `context` parameter of the load function was renamed to `stuff` ([#2439](https://github.com/sveltejs/kit/pull/2439))
-- Added an `entryPoint` option for building a custom server with `adapter-node` ([#2414](https://github.com/sveltejs/kit/pull/2414))
-- `vite-plugin-svelte` improved support for [useVitePreprocess](https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/config.md#usevitepreprocess), which uses Vite to automatically preprocess TypeScript, PostCSS, Scss, etc in Svelte components ([#173](https://github.com/sveltejs/vite-plugin-svelte/pull/173))
-
 - Сервис воркерам теперь разрешен доступ к файлам с псевдонимом `$lib` ([#2326](https://github.com/sveltejs/kit/pull/2326))
 - Библиотеки Svelte теперь должны работать «из коробки» без какой-либо конфигурации Vite ([#2343](https://github.com/sveltejs/kit/pull/2343))
 - Улучшения поля экспорта пакетов ([#2345](https://github.com/sveltejs/kit/pull/2345) и [#2327](https://github.com/sveltejs/kit/pull/2327))
