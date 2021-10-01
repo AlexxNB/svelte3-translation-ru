@@ -73,18 +73,6 @@ authorURL: https://desandoval.net
 - [Ранний взгляд на SvelteKit](https://www.infoworld.com/article/3630395/an-early-look-at-sveltekit.html) - пост от Infoworld, просматривающий функции и адаптацию SvelteKit
 
 **Libraries, Tools & Components**
-- [sveltekit-netlify-cms](https://github.com/buhrmi/sveltekit-netlify-cms) is a SvelteKit skeleton app configured for use with Netlify CMS
-- [SvelteFireTS](https://github.com/jacobbowdoin/sveltefirets) is a SvelteKit + Typescript + Firebase library inspired by Fireship.io 
-- [stores-x](https://github.com/Anyass3/stores-x) lets you use Svelte stores just like vueX
-- [sveltekit-snippets](https://github.com/stordahl/sveltekit-snippets) is a VSCode extension that provides snippets for common patterns in SvelteKit & Vanilla Svelte
-- [svelte-xactor](https://github.com/wobsoriano/svelte-xactor) is a middleware that allows you to easily convert your xactor machines into a global store that implements the store contract
-- [vite-plugin-pages-svelte](https://github.com/aldy505/vite-plugin-pages-svelte) is a vite plugin for automatic filesystem-based routing
-- [sveltio](https://www.npmjs.com/package/sveltio) is a Svelte wrapper for valtio - a proxy-state library
-- [svelte-transition-classes](https://github.com/rmarscher/svelte-transition-classes) is a custom Svelte transition for adding and swapping CSS classes
-- [Svelte-Boring-Avatars](https://github.com/paolotiu/svelte-boring-avatars) is Svelte port of the popular [Boring Avatars](https://github.com/boringdesigners/boring-avatars) React project
-- [Svelte DataTables](https://github.com/homescriptone/svelte-datatables) brings DataTable, a popular JavaScript library allowing you to easily display your data in a user-friendly table, into your Svelte project.
-- [focus-svelte](https://github.com/chanced/focus-svelte) is a focus trap for Svelte with zero dependencies
-- [filedrop-svelte](https://github.com/chanced/filedrop-svelte) is a file dropzone action & component for Svelte
 - [sveltekit-netlify-cms](https://github.com/buhrmi/sveltekit-netlify-cms) - скелетное приложение SvelteKit, настроенное для использования с Netlify CMS
 - [SvelteFireTS](https://github.com/jacobbowdoin/sveltefirets) - библиотека SvelteKit + Typescript + Firebase, вдохновленная Fireship.io
 - [stores-x](https://github.com/Anyass3/stores-x) - позволяет использовать сторы Svelte так же, как vueX
