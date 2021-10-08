@@ -16,7 +16,7 @@
 </label>
 
 {#if visible}
-	<p in:typewriter>
+	<p transition:typewriter>
 		Съешь же ещё этих мягких французских булок, да выпей чаю
 	</p>
 {/if}
