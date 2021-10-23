@@ -114,7 +114,7 @@
             ]
         },
         {
-            "file": "src/routes/_layout.svelte",
+            "file": "src/routes/__layout.svelte",
             "strings": [
                 {
                     "o": "<Nav {segment}",
@@ -317,7 +317,7 @@
             ]
         },
         {
-            "file": "src/routes/_error.svelte",
+            "file": "src/routes/__error.svelte",
             "strings": [
                 {
                     "o": "Yikes!",
@@ -342,19 +342,6 @@
                 {
                     "o": "If the error persists, please drop by <a href=\"chat\">Discord chatroom</a> and let us know, or raise an issue on <a href=\"https://github.com/sveltejs/svelte\">GitHub</a>. Thanks!",
                     "t": "Если ошибка не исчезнет, сообщите об этом в <a href=\"https://t.me/sveltejs\">Telegram канал русского сообщества</a>. Спасибо!"
-                }
-            ]
-        },
-        {
-            "file": "src/template.html",
-            "strings": [
-                {
-                    "o": "</head>",
-                    "t": "\n<!-- Yandex.Metrika counter -->\n<script type=\"text/javascript\" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, \"script\", \"https://mc.yandex.ru/metrika/tag.js\", \"ym\"); ym(53400580, \"init\", { clickmap:true, trackLinks:true, accurateTrackBounce:true }); </script> <noscript><div><img src=\"https://mc.yandex.ru/watch/53400580\" style=\"position:absolute; left:-9999px;\" alt=\"\" /></div></noscript>\n <!-- /Yandex.Metrika counter -->\n</head>"
-                },
-                {
-                    "o": "lang='en'",
-                    "t": "lang='ru'"
                 }
             ]
         },

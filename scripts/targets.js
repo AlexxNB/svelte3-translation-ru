@@ -5,7 +5,8 @@ module.exports = [
         path: "/site",
         install: 'npm install && npm run update',
         build: 'npm run build',
-        static: false
+        static: false,
+        kit: true
     },
     {
         name: "svelte-native",

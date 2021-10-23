@@ -81,7 +81,7 @@ const build = (target) => {
     
     sh.cd(dir);
     sh.exec(target.build);
-    if(!target.static) sh.exec(`sed -i "s/require/import/" __sapper__/build/index.js`);
+    if(!target.kit && !target.static) sh.exec(`sed -i "s/require/import/" __sapper__/build/index.js`);
 
 }
 
@@ -92,7 +92,10 @@ const start = (target) => {
     if(target.static){
         sh.exec('npx serve -l 3000 __sapper__/export');
     }else{
-        sh.exec('node __sapper__/build');
+        if(target.kit)
+            sh.exec('node build');
+        else
+            sh.exec('node __sapper__/build');
     }
     
 }
