@@ -1,5 +1,5 @@
 <script>
-	import marked from 'marked';
+	import {marked} from 'marked';
 	let value = `Что-то написано *курсивом*, а что-то **жирным** шрифтом`;
 </script>
 
