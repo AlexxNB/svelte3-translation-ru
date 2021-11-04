@@ -150,7 +150,7 @@ const ast = svelte.parse(source, { filename: 'App.svelte' });
 
 ### `svelte.preprocess`
 
-Сообществом поддерживается [несколько препроцессоров](https://github.com/sveltejs/integrations#preprocessors), которые позволяют использовать Svelte с такими инструментами, как TypeScript, PostCSS, SCSS и Less.
+Сообществом поддерживается [несколько препроцессоров](https://sveltesociety.dev/tools#preprocessors), которые позволяют использовать Svelte с такими инструментами, как TypeScript, PostCSS, SCSS и Less.
 
 Вы можете написать свой собственный препроцессор, используя API `svelte.preprocess`.
 
