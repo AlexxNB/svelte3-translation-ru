@@ -600,6 +600,21 @@ bind:свойство={переменная}
 	type="file"
 />
 ```
+---
+
+`bind:` может быть использован вместе с директивой `on:`. Их порядок определяет значение связанной переменной при вызове обработчика событий.
+
+```sv
+<script>
+	let value = 'Hello World';
+</script>
+
+<input
+	on:input="{() => console.log('Old value:', value)}"
+	bind:value
+	on:input="{() => console.log('New value:', value)}"
+/>
+```
 
 ##### Привязка к значению `<select>`
 
