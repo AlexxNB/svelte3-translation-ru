@@ -1,4 +1,4 @@
-export function pannable(node) {
+export function clickOutside(node) {
 	// логика идет тут...
 
 	return {

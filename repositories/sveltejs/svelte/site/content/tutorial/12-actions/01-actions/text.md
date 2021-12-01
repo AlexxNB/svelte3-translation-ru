@@ -4,86 +4,45 @@ title: Директива use
 
 Действия по сути являются функциями жизненного цикла на уровне элементов. Они полезны для таких вещей, как:
 
-* взаимодействие со сторонними библиотеками
-* 'ленивая' загрузка изображений
-* всплывающие подсказки
-* добавление пользовательских обработчиков событий
+- взаимодействие со сторонними библиотеками
+- 'ленивая' загрузка изображений
+- всплывающие подсказки
+- добавление пользовательских обработчиков событий
 
-В этом приложении мы хотим сделать, чтобы оранжевый блок был закреплен на месте, но его можно было 'подёргать' мышкой. У него есть обработчики событий для событий `panstart`,`panmove` и `panend`, но это не события DOM. Мы должны отправить их сами. Для начала, импортируйте функцию `pannable`...
+В этом приложении мы хотим закрыть оранжевый модал, когда пользователь нажимает за его пределами. У него есть обработчик событий для события `outclick`, но это не собственное событие DOM. Мы должны отправить это сами. Сначала импортируйте функцию `clickOutside`...
 
 ```js
-import { pannable } from './pannable.js';
+import { clickOutside } from "./click_outside.js";
 ```
 
 ...и добавьте её к элементу в директиве `use`:
 
 ```html
-<div class="box"
-	use:pannable
-	on:panstart={handlePanStart}
-	on:panmove={handlePanMove}
-	on:panend={handlePanEnd}
-	style="transform:
-		translate({$coords.x}px,{$coords.y}px)
-		rotate({$coords.x * 0.2}deg)"
-></div>
+<div class="box" use:clickOutside on:outclick="{() => (showModal = false)}">
+ 	Click outside me!
+ </div>
 ```
 
-Откройте файл `pannable.js`. Как и функции перехода, функция действия получает элемент `node` и некоторые необязательные параметры и возвращает объект. Этот объект может иметь метод `destroy`, который вызывается, когда элемент убирается из DOM.
+Откройте файл `click_outside.js`. Как и функции перехода, функция действия получает `node` (который является элементом, к которому применяется действие) и некоторые необязательные параметры и возвращает объект действия. Этот объект может иметь функцию `destroy`, которая вызывается, когда элемент размонтирован.
 
-Мы хотим запустить событие `panstart`, когда пользователь зажимает кнопку мыши на блоке, события `panmove` (со свойствами `dx` и `dy`, показывающими изменение положения), и событие `panend`, когда кнопка мыши будет отпущена. Одна из возможных реализаций выглядит так:
+Мы хотим запустить событие «outclick», когда пользователь щелкает за пределами оранжевого поля. Одна из возможных реализаций выглядит следующим образом:
 
 ```js
-export function pannable(node) {
-	let x;
-	let y;
+export function clickOutside(node) {
+	const handleClick = (event) => {
+		if (!node.contains(event.target)) {
+			node.dispatchEvent(new CustomEvent("outclick"));
+		}
+	};
 
-	function handleMousedown(event) {
-		x = event.clientX;
-		y = event.clientY;
-
-		node.dispatchEvent(new CustomEvent('panstart', {
-			detail: { x, y }
-		}));
-
-		window.addEventListener('mousemove', handleMousemove);
-		window.addEventListener('mouseup', handleMouseup);
-	}
-
-	function handleMousemove(event) {
-		const dx = event.clientX - x;
-		const dy = event.clientY - y;
-		x = event.clientX;
-		y = event.clientY;
-
-		node.dispatchEvent(new CustomEvent('panmove', {
-			detail: { x, y, dx, dy }
-		}));
-	}
-
-	function handleMouseup(event) {
-		x = event.clientX;
-		y = event.clientY;
-
-		node.dispatchEvent(new CustomEvent('panend', {
-			detail: { x, y }
-		}));
-
-		window.removeEventListener('mousemove', handleMousemove);
-		window.removeEventListener('mouseup', handleMouseup);
-	}
-
-	node.addEventListener('mousedown', handleMousedown);
+	document.addEventListener("click", handleClick, true);
 
 	return {
 		destroy() {
-			node.removeEventListener('mousedown', handleMousedown);
+			document.removeEventListener("click", handleClick, true);
 		}
 	};
 }
 ```
 
-Допишите функцию `pannable` и попробуйте переместить блок мышью.
-
-> Эта реализация просто для демонстрации — правильное приложение также обрабатывало бы тач-события.
-
+Обновите функцию `clickOutside`, нажмите кнопку, чтобы показать модал, а затем щелкните за его пределами, чтобы закрыть его.
