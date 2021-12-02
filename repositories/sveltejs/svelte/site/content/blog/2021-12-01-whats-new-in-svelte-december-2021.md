@@ -54,7 +54,7 @@ authorURL: https://desandoval.net
 - [Svelte Crush](https://svelte-crush.netlify.app/) - это игра в стиле Candy Crush match-3
 - [100 000 смертей от короны в Германии](https://twitter.com/h_i_g_s_c_h/status/1463767113563353089?S=20) - это визуализация, сделанная для Spiegel Gesundheit
 
-**Ищите проект Svelte для работы? Хотите помочь сделать Svelte в Интернете лучше?** Ознакомьтесь с [списком открытых задач](https://github.com/svelte-society/sveltesociety-2021/issues), если вы хотите внести свой вклад в переписывание Svelte Society в SvelteKit.
+**Ищите проект Svelte для работы? Хотите помочь сделать Svelte в Интернете лучше?** Ознакомьтесь со [списком открытых задач](https://github.com/svelte-society/sveltesociety-2021/issues), если вы хотите внести свой вклад в переписывание Svelte Society на SvelteKit.
 
 
 **Videos, Blogs and Podcasts**
