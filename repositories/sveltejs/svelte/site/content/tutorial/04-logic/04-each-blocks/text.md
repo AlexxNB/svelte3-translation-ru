@@ -27,3 +27,11 @@ title: Блок each
 ```
 
 По желанию, можно применить *деструктуризацию* — `each cats as { id, name }` — и заменить `cat.id` и `cat.name` просто на `id` и `name`.
+
+```html
+{#each cats as { id, name }, i}
+	<li><a target="_blank" href="https://www.youtube.com/watch?v={id}">
+		{i + 1}: {name}
+	</a></li>
+{/each}
+```
