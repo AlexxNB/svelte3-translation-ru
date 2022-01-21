@@ -21,7 +21,7 @@ API контекста состоит из двух методов - `setContext
 `svelte` и `key` из `mapbox.js`, затем вызовите `setContext`:
 
 ```js
-import { onMount, setContext } from "svelte";
+import { onDestroy, setContext } from "svelte";
 import { key, mapbox } from "./mapbox.js";
 
 setContext(key, {
