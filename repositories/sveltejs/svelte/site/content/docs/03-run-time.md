@@ -4,7 +4,7 @@ title: Рантайм
 
 ### `svelte`
 
-Пакет `svelte` предоставляет [функции жизненного цикла](tutorial/onmount) и [API контекста](tutorial/context-api).
+Пакет `svelte` предоставляет [функции жизненного цикла](/tutorial/onmount) и [API контекста](/tutorial/context-api).
 
 #### `onMount`
 
@@ -21,7 +21,7 @@ onMount(callback: () => () => void)
 Функция `onMount` запланирует запуск своей callback-функции, как только компонент будет смонтирован в DOM. Эта функция должна быть вызвана только во время инициализации компонента (но она не обязана находится _внутри_ компонента; её можно вызывать и из внешнего модуля).
 
 `onMount` не запускается для
-[компонентов на стороне сервера](docs#run-time-server-side-component-api).
+[компонентов на стороне сервера](/docs#run-time-server-side-component-api).
 
 ```sv
 <script>
@@ -229,7 +229,7 @@ dispatch:
 
 ---
 
-Создает диспетчер событий, который можно использовать для отправки [событий компонента](docs#template-syntax-component-directives-on-component-event). Диспетчер событий — это функция, которая может принимать два аргумента: `name` и`detail`.
+Создает диспетчер событий, который можно использовать для отправки [событий компонента](/docs#template-syntax-component-directives-on-component-event). Диспетчер событий — это функция, которая может принимать два аргумента: `name` и`detail`.
 
 События компонента созданные при помощи метода `createEventDispatcher` создают пользовательские события [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent). Эти события не [всплывают](https://developer.mozilla.org/ru/docs/Learn/JavaScript/Building_blocks/%D0%A1%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F#%D0%92%D1%81%D0%BF%D0%BB%D1%8B%D1%82%D0%B8%D0%B5_%D0%B8_%D0%BF%D0%B5%D1%80%D0%B5%D1%85%D0%B2%D0%B0%D1%82_%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9) и не могут быть отменены методом `event preventDefault()`. Аргумент `detail` соответствует свойству [CustomEvent.detail](https://developer.mozilla.org/ru/docs/Web/API/CustomEvent/detail) и может содержать данные любого типа.
 
@@ -259,11 +259,11 @@ dispatch:
 
 ### `svelte/store`
 
-Модуль `svelte/store` предоставляет функции [readable](docs#run-time-svelte-store-readable), [writable](docs#run-time-svelte-store-writable) и [derived](docs#run-time-svelte-store-derived) для создания соответствующих хранилищ.
+Модуль `svelte/store` предоставляет функции [readable](/docs#run-time-svelte-store-readable), [writable](/docs#run-time-svelte-store-writable) и [derived](/docs#run-time-svelte-store-derived) для создания соответствующих хранилищ.
 
-Вы _не обязаны_ использовать только эти функции для того, чтобы иметь возможность работать с [префиксом $ для хранилищ](docs#component-format-script-4-prefix-stores-with-$-to-access-their-values) в компонентах. Любой объект, в котором есть методы `.subscribe`, `.unsubscribe` и `.set`(опционально), является валидным хранилищем и будет работать как с соответствующим синтаксисом в компонентах, так и с [`производными` хранилищами](docs#run-time-svelte-store-derived).
+Вы _не обязаны_ использовать только эти функции для того, чтобы иметь возможность работать с [префиксом $ для хранилищ](/docs#component-format-script-4-prefix-stores-with-$-to-access-their-values) в компонентах. Любой объект, в котором есть методы `.subscribe`, `.unsubscribe` и `.set`(опционально), является валидным хранилищем и будет работать как с соответствующим синтаксисом в компонентах, так и с [`производными` хранилищами](/docs#run-time-svelte-store-derived).
 
-Таким образом можно легко создать обертку практически для любой библиотеки управления состоянием для использования её в Svelte. Прочитайте про [контракт хранилища](docs#component-format-script-4-prefix-stores-with-$-to-access-their-values-store-contract) для правильной реализации подобной обертки.
+Таким образом можно легко создать обертку практически для любой библиотеки управления состоянием для использования её в Svelte. Прочитайте про [контракт хранилища](/docs#component-format-script-4-prefix-stores-with-$-to-access-their-values-store-contract) для правильной реализации подобной обертки.
 
 #### `writable`
 
@@ -452,7 +452,7 @@ store = tweened(value: any, options)
 
 - `delay` (`number`, по умолчанию 0) — миллисекунды до начала изменения
 - `duration` (`number`, по умолчанию 400) — длительность изменения в миллисекундах
-- `easing` (`function`, по умолчанию `t => t`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `t => t`) — [функция плавности](/docs#run-time-svelte-easing)
 - `interpolate` (`function`) — смотри ниже
 
 Методы `store.set` и `store.update` могут принимать второй аргумент `options`, который может перезаписать параметры, установленные при инициализации хранилища.
@@ -544,11 +544,11 @@ store = spring(value: any, options)
 
 ---
 
-Как и в случае с [`tweened`](docs#run-time-svelte-motion-tweened) хранилищами, `set` и `update` возвращают промис, который выполняется, когда колебания прекратятся. Свойства `store.stiffness` и`store.damping` могут быть изменены, даже во время колебаний и применяются немедленно.
+Как и в случае с [`tweened`](/docs#run-time-svelte-motion-tweened) хранилищами, `set` и `update` возвращают промис, который выполняется, когда колебания прекратятся. Свойства `store.stiffness` и`store.damping` могут быть изменены, даже во время колебаний и применяются немедленно.
 
 Оба метода `set` и `update` могут принимать второй аргумент — объект со свойствами `hard` или `soft`. `{ hard: true }` устанавливает новое значение немедленно; `{ soft: n }` сохраняет существующий импульс в течение `n` секунд перед установкой значения. `{ soft: true }` эквивалентно `{ soft: 0.5 }`.
 
-[Посмотрите полноценный пример.](tutorial/spring)
+[Посмотрите полноценный пример.](/tutorial/spring)
 
 ```sv
 <script>
@@ -573,7 +573,7 @@ $size = big ? 100 : 10;
 
 ### `svelte/transition`
 
-Модуль `svelte / transition` экспортирует семь функций:`fade`, `blur`, `fly`,`slide`, `scale`,`draw` и `crossfade`. Они предназначены для использования в [`переходах`](docs#template-syntax-element-directives-transition-fn).
+Модуль `svelte / transition` экспортирует семь функций:`fade`, `blur`, `fly`,`slide`, `scale`,`draw` и `crossfade`. Они предназначены для использования в [`переходах`](/docs#template-syntax-element-directives-transition-fn).
 
 #### `fade`
 
@@ -597,9 +597,9 @@ out:fade={параметры}
 
 - `delay` (`number`, по умолчанию 0) — задержка до начала перехода в миллисекундах
 - `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
-- `easing` (`function`, по умолчанию `linear`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `linear`) — [функция плавности](/docs#run-time-svelte-easing)
 
-Вы можете посмотреть переход `fade` в действии в соответствующем [разделе учебника](tutorial/transition).
+Вы можете посмотреть переход `fade` в действии в соответствующем [разделе учебника](/tutorial/transition).
 
 ```sv
 <script>
@@ -635,7 +635,7 @@ out:blur={параметры}
 
 - `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
 - `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
-- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](/docs#run-time-svelte-easing)
 - `opacity` (`number`, по умолчанию 0) — значение прозрачности, конечное для `out` и начальное для `in`
 - `amount` (`number`, по умолчанию 5) - величина размытия в пикселях
 
@@ -673,12 +673,12 @@ out:fly={параметры}
 
 - `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
 - `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
-- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](/docs#run-time-svelte-easing)
 - `x` (`number`, по умолчанию 0) — сдвиг по оси x, конечная позиция для `out` и начальная для `in`
 - `y` (`number`, по умолчанию 0) — сдвиг по оси y, конечная позиция для `out` и начальная для `in`
 - `opacity` (`number`, по умолчанию 0) — значение прозрачности, конечное для `out` и начальное для `in`
 
-Вы можете посмотреть переход `fadflye` в действии в соответствующем [разделе учебника](tutorial/adding-parameters-to-transitions).
+Вы можете посмотреть переход `fadflye` в действии в соответствующем [разделе учебника](/tutorial/adding-parameters-to-transitions).
 
 ```sv
 <script>
@@ -715,7 +715,7 @@ out:slide={параметры}
 
 - `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
 - `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
-- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](/docs#run-time-svelte-easing)
 
 ```sv
 <script>
@@ -752,7 +752,7 @@ out:scale={параметры}
 
 - `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
 - `duration` (`number`, по умолчанию 400) — длительность перехода в миллисекундах
-- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](/docs#run-time-svelte-easing)
 - `start` (`number`, по умолчанию 0) — размер, конечный для `out` и начальный для `in`
 - `opacity` (`number`, по умолчанию 0) — значение прозрачности, конечное для `out` и начальное для `in`
 
@@ -792,7 +792,7 @@ out:draw={параметры}
 - `delay` (`number`, по умолчанию 0) — задержка начала перехода в миллисекундах
 - `speed` (`number`, по умолчанию undefined) - скорость анимации, см. ниже
 - `duration` (`number` | `function`, по умолчанию 800) — длительность перехода в миллисекундах
-- `easing` (`function`, по умолчанию `cubicInOut`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `cubicInOut`) — [функция плавности](/docs#run-time-svelte-easing)
 
 Параметр `speed` задаёт длительность перехода в зависимости от длины элемента path. Это модификатор, который применяется к длине пути: `длительность = длина/скорость`. Отрисовка линии в 1000 пикселей со скоростью 1
 будет иметь длительность 1000мс, при `speed` равном `0.5` длительность увеличится вдвое, а при `2` — уменьшится в два раза.
@@ -818,7 +818,7 @@ out:draw={параметры}
 
 #### `crossfade`
 
-Функция `crossfade` создает пару [transitions](docs#template-syntax-element-directives-transition-fn) под названием `send` и `receive`. Когда элемент 'отправлен', он ищет соответствующий элемент, который 'получен', и генерирует переход, который преобразует элемент в положение его аналога и исчезает. Когда элемент 'получен', происходит обратное. Если нет аналога, используется переход `fallback`.
+Функция `crossfade` создает пару [transitions](/docs#template-syntax-element-directives-transition-fn) под названием `send` и `receive`. Когда элемент 'отправлен', он ищет соответствующий элемент, который 'получен', и генерирует переход, который преобразует элемент в положение его аналога и исчезает. Когда элемент 'получен', происходит обратное. Если нет аналога, используется переход `fallback`.
 
 ---
 
@@ -826,8 +826,8 @@ out:draw={параметры}
 
 - `delay` (`number`, default 0) — задержка начала перехода в миллисекундах
 - `duration` (`number` | `function`, default 800) — длительность перехода в миллисекундах
-- `easing` (`function`, default `cubicOut`) — [функция плавности](docs#run-time-svelte-easing)
-- `fallback` (`function`) — Откат [transition](docs#template-syntax-element-directives-transition-fn), используемый для отправки, когда не получен соответствующий элемент, и для получения, когда нет отправляемого элемента.
+- `easing` (`function`, default `cubicOut`) — [функция плавности](/docs#run-time-svelte-easing)
+- `fallback` (`function`) — Откат [transition](/docs#template-syntax-element-directives-transition-fn), используемый для отправки, когда не получен соответствующий элемент, и для получения, когда нет отправляемого элемента.
 
 ```sv
 <script>
@@ -849,7 +849,7 @@ out:draw={параметры}
 
 ### `svelte/animate`
 
-Модуль `svelte/animate` экспортирует единственную функцию, которая используется для отображения [анимации](docs#template-syntax-element-directives-animate-fn).
+Модуль `svelte/animate` экспортирует единственную функцию, которая используется для отображения [анимации](/docs#template-syntax-element-directives-animate-fn).
 
 #### `flip`
 
@@ -863,7 +863,7 @@ animate:flip={параметры}
 
 - `delay` (`number`, по умолчанию 0) — миллисекунды до начала анимации
 - `duration` (`number` | `function`, по умолчанию `d => Math.sqrt(d) * 120`) — длительность анимации, см.ниже
-- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](docs#run-time-svelte-easing)
+- `easing` (`function`, по умолчанию `cubicOut`) — [функция плавности](/docs#run-time-svelte-easing)
 
 `duration` может быть передана двумя способами:
 
@@ -872,7 +872,7 @@ animate:flip={параметры}
 
 ---
 
-Вы можете познакомиться с полноценным примером в [разделе учебника](tutorial/animate).
+Вы можете познакомиться с полноценным примером в [разделе учебника](/tutorial/animate).
 
 ```sv
 <script>
@@ -892,7 +892,7 @@ animate:flip={параметры}
 
 Функции плавности определяют скорость изменения параметра с течением времени и полезны при работе со встроенными в Svelte переходами, анимациями и функциями `tweened` или `spring`. Модуль `svelte/easing` содержит 31 наименования — функцию линейной плавности `linear` и 10 различных функций плавности в 3 вариантах: `in`, `out` и `inOut`.
 
-Вы можете посмотреть как работают все эти функции в [визуализаторе функций плавности](examples#easing) в [разделе примеров](examples).
+Вы можете посмотреть как работают все эти функции в [визуализаторе функций плавности](/examples#easing) в [разделе примеров](/examples).
 
 | ease        | in          | out          | inOut          |
 | ----------- | ----------- | ------------ | -------------- |
@@ -967,7 +967,7 @@ const app = new App({
 
 ---
 
-Параметр `hydrate` инструктирует Svelte обновить существующий DOM (обычно полученный в ходе рендеринга на стороне сервера), а не создавать новые элементы. Это будет работать только в том случае, если компонент был скомпилирован с параметром [`hydratable: true`](docs#compile-time-svelte-compile). Гидратация элемента `<head>` работает корректно лишь в случае, когда код на стороне сервера также был скомпилирован с параметром `hydratable: true`, который добавляет маркер каждому элементу внутри `<head>`, благодаря которому которому компонент знает какие их элементов может удалить в процессе гидратации.
+Параметр `hydrate` инструктирует Svelte обновить существующий DOM (обычно полученный в ходе рендеринга на стороне сервера), а не создавать новые элементы. Это будет работать только в том случае, если компонент был скомпилирован с параметром [`hydratable: true`](/docs#compile-time-svelte-compile). Гидратация элемента `<head>` работает корректно лишь в случае, когда код на стороне сервера также был скомпилирован с параметром `hydratable: true`, который добавляет маркер каждому элементу внутри `<head>`, благодаря которому которому компонент знает какие их элементов может удалить в процессе гидратации.
 
 Обычно при отрисовке компонента дочерние элементы в `target` остаются на месте, но когда указан параметр `hydrate: true`, они будут удалены. По этой причине параметр `anchor` не может использоваться одновременно с `hydrate: true`.
 
@@ -1052,7 +1052,7 @@ app.count += 1;
 
 ---
 
-Компоненты Svelte также могут быть скомпилированы в пользовательские элементы (или web-компоненты) с помощью параметра компилятора `customElement: true`. Вы должны указать имя тега для компонента, используя [элемент](docs#template-syntax-svelte-options) `<svelte:options>`.
+Компоненты Svelte также могут быть скомпилированы в пользовательские элементы (или web-компоненты) с помощью параметра компилятора `customElement: true`. Вы должны указать имя тега для компонента, используя [элемент](/docs#template-syntax-svelte-options) `<svelte:options>`.
 
 ```sv
 <svelte:options tag="my-element" />
@@ -1089,7 +1089,7 @@ document.body.innerHTML = `
 
 ---
 
-По умолчанию пользовательские элементы компилируются с параметром `accessors: true`, то есть любые [свойства](docs#template-syntax-attributes-and-props) будут представлены как свойства DOM-элемента (а также, при возможности, будут доступны для чтения и записи как атрибуты).
+По умолчанию пользовательские элементы компилируются с параметром `accessors: true`, то есть любые [свойства](/docs#template-syntax-attributes-and-props) будут представлены как свойства DOM-элемента (а также, при возможности, будут доступны для чтения и записи как атрибуты).
 
 Если это нежелательно, добавьте параметр `accessors={false}` в `<svelte:options>`.
 
@@ -1125,7 +1125,7 @@ const result = Component.render(...)
 
 Компонент на стороне сервера предоставляет метод `render`, который можно вызывать, передав при необходимости нужные свойства. Он возвращает объект со свойствами `head`, `html` и `css`. При этом в `head` будет помещено содержимое всех имеющихся элементов `<svelte:head>`.
 
-Вы можете импортировать компонент Svelte непосредственно в Node с помощью [`svelte/register`](docs#run-time-svelte-register).
+Вы можете импортировать компонент Svelte непосредственно в Node с помощью [`svelte/register`](/docs#run-time-svelte-register).
 
 ```js
 const App = require("./App.svelte");
