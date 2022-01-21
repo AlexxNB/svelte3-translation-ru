@@ -48,7 +48,7 @@ function HelloMessage(props) {
 > Он (виртуальный DOM) на самом деле очень быстрый, в первую очередь потому, что большинство операций c DOM медленные. Была проделана большая работа по повышению производительности DOM, но большинство операций с ним всё ещё имеют тенденцию к пропуску кадров.
 
 <figure>
-	<img alt="Pete Hunt at JSConfEU 2013" src="media/rethinking-best-practices.jpg">
+	<img alt="Pete Hunt at JSConfEU 2013" src="/media/rethinking-best-practices.jpg">
 	<figcaption>Скриншот с видео <a href="https://www.youtube.com/watch?v=x7cQ3mrcKaY">Rethinking Best Practices</a> на JSConfEU 2013</figcaption>
 </figure>
 

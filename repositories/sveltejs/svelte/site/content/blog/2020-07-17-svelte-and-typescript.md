@@ -10,7 +10,7 @@ authorURL: https://twitter.com/orta
 Мы полагаем, что это даст вам гораздо более приятный опыт разработки. Который прекрасно масштабируется на больших приложениях, независимо от того, используете ли вы TypeScript или JavaScript.
 
 <figure>
-	<img alt="Screenshot of TypeScript in Svelte" src="media/svelte-ts.png">
+	<img alt="Screenshot of TypeScript in Svelte" src="/media/svelte-ts.png">
 	<figcaption>TypeScript + Svelte в VS Code (тема <a href="https://marketplace.visualstudio.com/items?itemName=karyfoundation.theme-karyfoundation-themes">Kary Pro</a>.)</figcaption>
 </figure>
 
