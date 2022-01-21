@@ -816,6 +816,46 @@ class:имя
 <div class:active class:inactive={!active} class:isAdmin>...</div>
 ```
 
+#### style:*property*
+
+```sv
+style:property={value}
+```
+```sv
+style:property="value"
+```
+```sv
+style:property
+```
+
+---
+
+Директива `style:` предоставляет сокращение для установки нескольких стилей на элементе.
+
+```sv
+<!--Это эквивалентно -->
+<div style:color="red">...</div>
+<div style="color: red;">...</div>
+
+<!-- Переменные могут быть использованы -->
+<div style:color={myColor}>...</div>
+
+<!-- Сокращение для при имении свойства и переменной имени -->
+<div style:color>...</div>
+
+<!-- Многократные стили могут быть включены -->
+<div style:color style:width="12rem" style:background-color={darkMode ? "black" : "white"}>...</div>
+```
+
+---
+
+Когда директивы `style:` объединяются с атрибутами `style`, директивы будут иметь приоритет:
+
+```sv
+<div style="color: blue;" style:color="red">This will be red</div>
+```
+
+
 #### use:_действие_
 
 ```sv
