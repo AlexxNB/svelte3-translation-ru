@@ -8,7 +8,7 @@ title: Автоподписки
 
 ```js
 const unsubscribe = count.subscribe((value) => {
-  count_value = value;
+  countValue = value;
 });
 ```
 
@@ -24,16 +24,16 @@ const unsubscribe = count.subscribe((value) => {
 	import Decrementer from './Decrementer.svelte';
 	import Resetter from './Resetter.svelte';
 
-	let count_value;
+	let countValue;
 
 	const unsubscribe = count.subscribe(value => {
-		count_value = value;
+		countValue = value;
 	});
 
 	onDestroy(unsubscribe);
 </script>
 
-<h1>Счётчик равен {count_value}</h1>
+<h1>Счётчик равен {countValue}</h1>
 ```
 
 Выглядит слегка перегружено, особенно если в компоненте есть подписки сразу на несколько хранилищ. К счастью, у Svelte есть хитрость — можно сразу получить значение из хранилища, используя префикс `$` перед именем этого хранилища:
